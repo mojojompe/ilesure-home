@@ -32,7 +32,7 @@ export function FinalCTA() {
                   Your safe home is waiting.
                 </h2>
                 <p className="text-mustard-50 text-lg leading-relaxed">
-                  Join thousands of students who are done with the stress of off-campus housing. Be first in line when IleSure goes live.
+                  Join thousands of students who are done with the stress of off-campus housing. Be first in line when iléSure goes live.
                 </p>
               </div>
 

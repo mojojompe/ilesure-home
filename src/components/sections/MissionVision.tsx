@@ -19,7 +19,7 @@ const cards = [
     icon: Eye,
     eyebrow: 'Our Vision',
     title: 'The most trusted student housing platform in Africa',
-    body: "We envision a future where any Nigerian university student, whether in Ibadan, Lagos, Abuja, or Port Harcourt, can find a verified, compatible, affordable home with one search. IleSure will be the home discovery layer for every student's university journey.",
+    body: "We envision a future where any Nigerian university student, whether in Ibadan, Lagos, Abuja, or Port Harcourt, can find a verified, compatible, affordable home with one search. iléSure will be the home discovery layer for every student's university journey.",
     accent: '#5C3317',
     bgGrad: 'from-brown-50 to-cream',
   },
@@ -32,7 +32,7 @@ export function MissionVision() {
         <ScrollReveal>
           <SectionHeading
             eyebrow="Purpose"
-            title="Why we built IleSure"
+            title="Why we built iléSure"
             align="center"
           />
         </ScrollReveal>

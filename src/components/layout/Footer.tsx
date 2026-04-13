@@ -8,7 +8,7 @@ const footerLinks = {
     { label: 'How It Works', href: '#how-it-works' },
   ],
   Company: [
-    { label: 'About IleSure', href: '#about' },
+    { label: 'About iléSure', href: '#about' },
     { label: 'Our Mission', href: '#mission' },
     { label: 'List Your Property', href: '#download' },
     { label: 'FAQ', href: '#faq' },
@@ -41,7 +41,7 @@ export function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-2 flex flex-col gap-5">
             <div className="flex items-center gap-3">
-              <img src="/logos/logo-nobg.png" alt="IleSure" className="w-10 h-10 object-contain " />
+              <img src="/logos/logo-nobg.png" alt="iléSure" className="w-10 h-10 object-contain " />
               <span className="text-xl font-extrabold text-white">
                 Ile<span className="text-mustard">Sure</span>
               </span>
@@ -56,7 +56,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <Mail size={14} className="text-mustard flex-shrink-0" />
-                <span>ilesure@gmail.com</span>
+                <span>iléSure@gmail.com</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone size={14} className="text-mustard flex-shrink-0" />
@@ -100,7 +100,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-8 text-xs text-cream-300">
-          <p>© {new Date().getFullYear()} IleSure. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} iléSure. All rights reserved.</p>
           <p className="flex items-center gap-1">
             A Team Nova Initiative
           </p>

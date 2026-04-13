@@ -7,12 +7,12 @@ export interface FAQ {
 export const faqs: FAQ[] = [
   {
     id: 'faq1',
-    question: 'What is IleSure?',
-    answer: "IleSure (Yoruba for \"Safe Home\") is a student-focused housing discovery and roommate matching platform built for the off-campus accommodation ecosystem around Lead City University and other Nigerian universities in Ibadan. We connect students with verified landlords, agents, and potential roommates.",
+    question: 'What is iléSure?',
+    answer: "iléSure (Yoruba for \"Safe Home\") is a student-focused housing discovery and roommate matching platform built for the off-campus accommodation ecosystem around Lead City University and other Nigerian universities in Ibadan. We connect students with verified landlords, agents, and potential roommates.",
   },
   {
     id: 'faq2',
-    question: 'Who can list apartments on IleSure?',
+    question: 'Who can list apartments on iléSure?',
     answer: 'Only verified agents, landlords, and registered property companies can create listings. Each lister goes through a thorough verification process including NIN, BVN, and property document checks before any listing goes live. This ensures every apartment you see is legitimate.',
   },
   {
@@ -22,13 +22,13 @@ export const faqs: FAQ[] = [
   },
   {
     id: 'faq4',
-    question: 'Is IleSure free for students?',
+    question: 'Is iléSure free for students?',
     answer: 'Browsing listings, joining the waitlist, and filling your roommate profile are completely free. A small 3% platform fee (applied to the total move-in cost) is charged only when you complete a booking. For shared apartments, an additional 1% roommate matching fee applies.',
   },
   {
     id: 'faq5',
-    question: 'Which areas and universities does IleSure cover?',
-    answer: 'We currently focus on the Lead City University corridor, Toll Gate, Soka, Felele, New Garage and Akala Express, and surrounding areas in Ibadan. We are actively expanding to cover UI, Polytechnic areas, and beyond in 2025.',
+    question: 'Which areas and universities does iléSure cover?',
+    answer: 'We currently focus on the Lead City University corridor, Toll Gate, Soka, Felele, New Garage and Akala Express, and surrounding areas in Ibadan. We are actively expanding to cover UI, Polytechnic areas, and beyond in 2026.',
   },
   {
     id: 'faq6',
@@ -42,7 +42,7 @@ export const faqs: FAQ[] = [
   },
   {
     id: 'faq8',
-    question: 'When does the IleSure app launch?',
-    answer: 'The IleSure mobile app is currently in final development. You can join our early access waitlist to be among the first students and agents to get access when we go live. We will notify you by email and WhatsApp as soon as the app is available.',
+    question: 'When does the iléSure app launch?',
+    answer: 'The iléSure mobile app is currently in final development. You can join our early access waitlist to be among the first students and agents to get access when we go live. We will notify you by email and WhatsApp as soon as the app is available.',
   },
 ];

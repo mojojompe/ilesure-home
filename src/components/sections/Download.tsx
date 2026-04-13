@@ -27,10 +27,10 @@ export function Download() {
                       Coming Soon
                     </span>
                     <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight">
-                      Take IleSure wherever you go
+                      Take iléSure wherever you go
                     </h2>
                     <p className="text-cream-300 text-base leading-relaxed">
-                      The IleSure mobile app is coming to iOS and Android. Browse listings, chat with agents, and manage your roommate matching, all from your phone.
+                      The iléSure mobile app is coming to iOS and Android. Browse listings, chat with agents, and manage your roommate matching, all from your phone.
                     </p>
                   </div>
                 </ScrollReveal>
@@ -68,7 +68,7 @@ export function Download() {
                 <ScrollReveal direction="left" delay={0.25}>
                   <div className="flex items-center gap-3">
                     <div className="flex -space-x-2">
-                      {['AO','TF','NE'].map((init, i) => (
+                      {['AO', 'TF', 'NE'].map((init, i) => (
                         <div
                           key={i}
                           className="w-8 h-8 rounded-full border-2 border-brown flex items-center justify-center text-[10px] font-bold text-white"
@@ -94,7 +94,7 @@ export function Download() {
                 >
                   <img
                     src="/illustrations/phone.png"
-                    alt="IleSure mobile app mockup"
+                    alt="iléSure mobile app mockup"
                     className="w-full max-w-xs drop-shadow-2xl"
                   />
                 </motion.div>

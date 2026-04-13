@@ -35,7 +35,7 @@ export function HowItWorks() {
           <SectionHeading
             eyebrow="How It Works"
             title="From search to move-in, in 3 steps"
-            subtitle="IleSure simplifies your entire off-campus housing journey. No more chasing agents, no more WhatsApp groups."
+            subtitle="iléSure simplifies your entire off-campus housing journey. No more chasing agents, no more WhatsApp groups."
             align="center"
           />
         </ScrollReveal>

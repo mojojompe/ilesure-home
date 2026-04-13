@@ -89,7 +89,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                 <div>
                   <h2 className="text-xl font-extrabold text-brown">Join the Waitlist</h2>
                   <p className="text-sm text-brown-light mt-1">
-                    Be first to know when IleSure goes live.
+                    Be first to know when iléSure goes live.
                   </p>
                 </div>
                 <button
@@ -118,7 +118,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                       <div>
                         <h3 className="text-lg font-bold text-brown">You're on the list!</h3>
                         <p className="text-brown-light text-sm mt-2 max-w-xs">
-                          We'll notify you at <span className="font-semibold text-mustard">{form.email}</span> when IleSure launches. Spread the word!
+                          We'll notify you at <span className="font-semibold text-mustard">{form.email}</span> when iléSure launches. Spread the word!
                         </p>
                       </div>
                       <PillButton variant="mustard" size="sm" onClick={handleClose} className="mt-2">

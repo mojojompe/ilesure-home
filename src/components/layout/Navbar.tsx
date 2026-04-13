@@ -32,11 +32,10 @@ export function Navbar() {
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className={`w-full max-w-5xl rounded-pill transition-all duration-350 ${
-            scrolled
+          className={`w-full max-w-5xl rounded-pill transition-all duration-350 ${scrolled
               ? 'navbar-glass py-2.5 px-4'
               : 'bg-white/60 backdrop-blur-sm border border-white/40 py-3 px-5 shadow-clay-sm'
-          }`}
+            }`}
         >
           <div className="flex items-center justify-between gap-4">
             {/* Logo */}
@@ -47,11 +46,11 @@ export function Navbar() {
             >
               <img
                 src="/logos/logo-nobg.png"
-                alt="IleSure Logo"
+                alt="iléSure Logo"
                 className="w-9 h-9 object-contain"
               />
               <span className="text-lg font-extrabold text-brown tracking-tight">
-                Ile<span className="text-mustard">Sure</span>
+                Ilé<span className="text-mustard">Sure</span>
               </span>
             </a>
 

@@ -7,7 +7,7 @@ const testimonials = [
     name: 'Ayomip Odu',
     role: 'Year 2 Student',
     avatar: 'AO',
-    content: "I was skeptical about finding a safe place near campus, but IleSure made it so easy. Found a 2-bedroom just 5 minutes from LCU!",
+    content: "I was skeptical about finding a safe place near campus, but iléSure made it so easy. Found a 2-bedroom just 5 minutes from LCU!",
     rating: 5,
     location: 'Bodija',
   },
@@ -23,7 +23,7 @@ const testimonials = [
     name: 'Emmanuel Adeyemi',
     role: 'Year 1 Student',
     avatar: 'EA',
-    content: "As a fresher, I was worried about accommodation. IleSure's verified agents gave me peace of mind. Highly recommended!",
+    content: "As a fresher, I was worried about accommodation. iléSure's verified agents gave me peace of mind. Highly recommended!",
     rating: 5,
     location: 'Agbowo',
   },
@@ -120,9 +120,8 @@ export function DraggableTestimonialCarousel() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <div className={`relative h-full bg-white rounded-clay shadow-clay p-6 transition-all duration-300 ${
-                    index === currentIndex ? 'ring-2 ring-mustard/30' : ''
-                  }`}>
+                  <div className={`relative h-full bg-white rounded-clay shadow-clay p-6 transition-all duration-300 ${index === currentIndex ? 'ring-2 ring-mustard/30' : ''
+                    }`}>
                     {/* Quote icon */}
                     <div className="absolute -top-3 -left-2 w-10 h-10 rounded-clay-sm bg-mustard flex items-center justify-center">
                       <Quote size={18} className="text-white" />
@@ -172,11 +171,10 @@ export function DraggableTestimonialCarousel() {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  index === currentIndex 
-                    ? 'w-8 bg-mustard' 
+                className={`h-2 rounded-full transition-all duration-300 ${index === currentIndex
+                    ? 'w-8 bg-mustard'
                     : 'w-2 bg-brown/20 hover:bg-brown/40'
-                }`}
+                  }`}
               />
             ))}
           </div>

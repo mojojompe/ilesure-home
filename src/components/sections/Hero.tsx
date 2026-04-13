@@ -140,7 +140,7 @@ export function Hero() {
                       {init}
                     </div>
                   ))}
-                  <span className="ml-3 text-sm text-brown-light">500+ students</span>
+                  <span className="ml-3 text-sm text-brown-light px-3">50+ students</span>
                 </div>
               </motion.div>
             </div>

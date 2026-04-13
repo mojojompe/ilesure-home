@@ -17,7 +17,7 @@ export function FAQ() {
           <SectionHeading
             eyebrow="FAQ"
             title="Questions? We've got answers."
-            subtitle="Everything you need to know about IleSure, from how it works to when it launches."
+            subtitle="Everything you need to know about iléSure."
             align="center"
           />
         </ScrollReveal>
@@ -28,11 +28,10 @@ export function FAQ() {
             return (
               <ScrollReveal key={faq.id} delay={i * 0.05}>
                 <div
-                  className={`bg-white rounded-clay border transition-all duration-200 overflow-hidden ${
-                    isOpen
+                  className={`bg-white rounded-clay border transition-all duration-200 overflow-hidden ${isOpen
                       ? 'border-mustard-200 shadow-clay-mustard'
                       : 'border-cream-200 shadow-clay-sm'
-                  }`}
+                    }`}
                 >
                   {/* Question row */}
                   <button

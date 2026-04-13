@@ -20,9 +20,9 @@ export function About() {
           <div className="flex flex-col gap-8">
             <ScrollReveal direction="left">
               <SectionHeading
-                eyebrow="About IleSure"
+                eyebrow="About iléSure"
                 title={'More than a listing board, a trusted ecosystem'}
-                subtitle="IleSure means 'Safe Home' in Yoruba. We built it because finding off-campus housing in Ibadan still relies on WhatsApp forwards, printed notices, and hearsay. Students deserved better."
+                subtitle="iléSure means 'Safe Home' in Yoruba. We built it because finding off-campus housing in Ibadan still relies on WhatsApp forwards, printed notices, and hearsay. Students deserved better."
                 align="left"
               />
             </ScrollReveal>
