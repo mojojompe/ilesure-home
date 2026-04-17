@@ -35,8 +35,15 @@ const stats = [
 
 export function Trust() {
   return (
-    <section id="trust" className="py-16 bg-white">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="trust" className="py-16 bg-white relative overflow-hidden">
+      {/* Floating Trust Illustration */}
+      <img
+        src="/illustrations/trust_v2.png"
+        alt="Trust Handshake"
+        className="absolute top-auto max-w-[25vw] md:max-w-[40vw] lg:max-w-none opacity-15 md:opacity-30 lg:opacity-100 -top-12 -right-4 w-52 h-auto anim-float pointer-events-none"
+        style={{ mixBlendMode: 'multiply' }}
+      />
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {stats.map((stat, i) => (
             <ScrollReveal key={stat.id} delay={i * 0.12}>

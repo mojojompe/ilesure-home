@@ -15,6 +15,14 @@ export function FinalCTA() {
         <div className="absolute top-0 left-0 w-96 h-96 rounded-full bg-mustard-light/30 -translate-x-1/3 -translate-y-1/3 blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 right-0 w-72 h-72 rounded-full bg-brown/20 translate-x-1/3 translate-y-1/3 blur-3xl pointer-events-none" />
 
+        {/* Floating CTA Illustration */}
+        <img
+          src="/illustrations/cta.png"
+          alt="CTA Door"
+          className="absolute top-auto max-w-[25vw] md:max-w-[40vw] lg:max-w-none opacity-15 md:opacity-30 lg:opacity-100 bottom-12 right-20 w-56 h-auto anim-float pointer-events-none"
+          style={{ mixBlendMode: 'multiply' }}
+        />
+
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>
             <div className="flex flex-col items-center gap-7">

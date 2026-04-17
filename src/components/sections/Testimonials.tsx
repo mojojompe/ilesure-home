@@ -70,13 +70,20 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="py-24 bg-cream overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-cream relative overflow-hidden">
+      {/* Floating Testimonial Illustration */}
+      <img
+        src="/illustrations/testimonials.png"
+        alt="Testimonial Speech Bubble"
+        className="absolute top-auto max-w-[25vw] md:max-w-[40vw] lg:max-w-none opacity-15 md:opacity-30 lg:opacity-100 top-10 right-20 w-48 h-auto anim-float-delayed pointer-events-none"
+        style={{ mixBlendMode: 'multiply' }}
+      />
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-12 relative z-10"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard/10 text-mustard text-xs font-bold uppercase tracking-widest mb-4">
             <Quote size={12} />

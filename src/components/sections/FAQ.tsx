@@ -11,8 +11,15 @@ export function FAQ() {
   const toggle = (id: string) => setOpenId(prev => (prev === id ? null : id));
 
   return (
-    <section id="faq" className="py-24 bg-cream">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-24 bg-cream relative overflow-hidden">
+      {/* Floating FAQ Illustration */}
+      <img
+        src="/illustrations/faq.png"
+        alt="FAQ Question Mark"
+        className="absolute top-auto max-w-[25vw] md:max-w-[40vw] lg:max-w-none opacity-15 md:opacity-30 lg:opacity-100 top-[20%] -left-12 w-56 h-auto anim-float pointer-events-none"
+        style={{ mixBlendMode: 'multiply' }}
+      />
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal>
           <SectionHeading
             eyebrow="FAQ"

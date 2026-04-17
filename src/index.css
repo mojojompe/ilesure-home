@@ -136,4 +136,25 @@
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* Illustration floating animations */
+  @keyframes hover-float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+  }
+
+  @keyframes hover-float-reverse {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(15px) rotate(-2deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+  }
+
+  .anim-float {
+    animation: hover-float 6s ease-in-out infinite;
+  }
+
+  .anim-float-delayed {
+    animation: hover-float-reverse 7s ease-in-out infinite;
+  }
 }

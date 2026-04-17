@@ -67,8 +67,15 @@ export function RoommateMatchingQuiz() {
   const progress = ((currentQuestion + 1) / questions.length) * 100;
 
   return (
-    <section className="py-24 bg-gradient-to-b from-cream to-white overflow-hidden">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-gradient-to-b from-cream to-white relative overflow-hidden">
+      {/* Floating Quiz Illustration */}
+      <img
+        src="/illustrations/quiz.png"
+        alt="Matching Quiz Pieces"
+        className="absolute top-auto max-w-[25vw] md:max-w-[40vw] lg:max-w-none opacity-15 md:opacity-30 lg:opacity-100 bottom-16 -left-10 w-64 h-auto anim-float pointer-events-none"
+        style={{ mixBlendMode: 'multiply' }}
+      />
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -27,8 +27,15 @@ const cards = [
 
 export function MissionVision() {
   return (
-    <section id="mission" className="py-24 bg-white">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="mission" className="py-24 bg-white relative overflow-hidden">
+      {/* Floating Mission Illustration */}
+      <img
+        src="/illustrations/mission.png"
+        alt="Mission Binoculars"
+        className="absolute top-auto max-w-[25vw] md:max-w-[40vw] lg:max-w-none opacity-15 md:opacity-30 lg:opacity-100 top-24 -left-16 w-56 h-auto anim-float pointer-events-none"
+        style={{ mixBlendMode: 'multiply' }}
+      />
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal>
           <SectionHeading
             eyebrow="Purpose"

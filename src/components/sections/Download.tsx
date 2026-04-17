@@ -10,8 +10,15 @@ export function Download() {
 
   return (
     <>
-      <section id="download" className="py-24 bg-white overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="download" className="py-24 bg-white relative">
+        {/* Floating Download Illustration placed above the z-10 container */}
+        <img
+          src="/illustrations/download.png"
+          alt="Download App 3D Mockup"
+          className="absolute top-auto max-w-[25vw] md:max-w-[40vw] lg:max-w-none opacity-15 md:opacity-30 lg:opacity-100 -top-16 left-16 w-52 h-auto anim-float pointer-events-none z-20"
+          style={{ mixBlendMode: 'multiply' }}
+        />
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="bg-brown rounded-clay-lg overflow-hidden relative">
             {/* Decorative blobs */}
             <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-mustard/10 translate-x-1/2 -translate-y-1/3 blur-3xl" />

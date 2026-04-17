@@ -29,8 +29,15 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 bg-cream">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="how-it-works" className="py-24 bg-cream relative overflow-hidden">
+      {/* Floating How It Works Illustration */}
+      <img
+        src="/illustrations/how_it_works.png"
+        alt="How It Works Gears"
+        className="absolute top-auto max-w-[25vw] md:max-w-[40vw] lg:max-w-none opacity-15 md:opacity-30 lg:opacity-100 bottom-40 -right-8 w-60 h-auto anim-float-delayed pointer-events-none"
+        style={{ mixBlendMode: 'multiply' }}
+      />
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal>
           <SectionHeading
             eyebrow="How It Works"
