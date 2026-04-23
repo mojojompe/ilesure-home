@@ -43,11 +43,11 @@ export function Footer() {
             <div className="flex items-center gap-3">
               <img src="/logos/logo-nobg.png" alt="iléSure" className="w-10 h-10 object-contain " />
               <span className="text-xl font-extrabold text-white">
-                Ile<span className="text-mustard">Sure</span>
+                Ilé<span className="text-mustard">Sure</span>
               </span>
             </div>
             <p className="text-cream-300 text-sm leading-relaxed max-w-xs">
-              Your safe home near campus. Verified student housing and roommate discovery for Nigerian university students.
+              Your sure home near campus. Verified student housing and roommate discovery for Nigerian university students.
             </p>
             <div className="flex flex-col gap-2 text-sm text-cream-300">
               <div className="flex items-center gap-2">
@@ -102,7 +102,7 @@ export function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-8 text-xs text-cream-300">
           <p>© {new Date().getFullYear()} iléSure. All rights reserved.</p>
           <p className="flex items-center gap-1">
-            A Team Nova Initiative
+            Sponsored by Waltik Labs
           </p>
         </div>
       </div>

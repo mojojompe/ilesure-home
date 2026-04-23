@@ -66,6 +66,11 @@ export default {
         'clay-mustard': '0 8px 24px rgba(201, 150, 42, 0.30)',
         'clay-inset': 'inset 0 2px 6px rgba(92, 51, 23, 0.08)',
         'navbar': '0 4px 30px rgba(92, 51, 23, 0.12)',
+        /* 3D depth shadow tokens */
+        '3d': '0 2px 4px rgba(92,51,23,0.06), 0 8px 24px rgba(92,51,23,0.10), 0 20px 48px rgba(92,51,23,0.08)',
+        '3d-hover': '0 4px 8px rgba(92,51,23,0.08), 0 16px 40px rgba(92,51,23,0.16), 0 32px 64px rgba(92,51,23,0.12)',
+        'float': '0 8px 24px rgba(201,150,42,0.25), 0 20px 60px rgba(201,150,42,0.12)',
+        'glass': '0 8px 32px rgba(92,51,23,0.08), inset 0 1px 0 rgba(255,255,255,0.7)',
       },
       keyframes: {
         float: {
@@ -88,18 +93,40 @@ export default {
           '0%':   { transform: 'scale(1)', opacity: '1' },
           '100%': { transform: 'scale(1.4)', opacity: '0' },
         },
+        'spin-y': {
+          '0%':   { transform: 'rotateY(0deg)' },
+          '100%': { transform: 'rotateY(360deg)' },
+        },
+        'glow-ring': {
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(201,150,42,0.4)' },
+          '50%':       { boxShadow: '0 0 0 12px rgba(201,150,42,0)' },
+        },
       },
       animation: {
         'float':      'float 5s ease-in-out infinite',
         'float-slow': 'float-slow 7s ease-in-out infinite',
         'fade-up':    'fade-up 0.5s ease-out forwards',
         'pulse-ring': 'pulse_ring 1.5s ease-out infinite',
+        'spin-y':     'spin-y 3s linear infinite',
+        'glow-ring':  'glow-ring 2s ease-in-out infinite',
       },
       backgroundImage: {
         'mustard-grad': 'linear-gradient(135deg, #F5C842 0%, #C9962A 100%)',
         'brown-grad':   'linear-gradient(135deg, #A0714F 0%, #5C3317 100%)',
         'cream-grad':   'linear-gradient(135deg, #FFFDF7 0%, #FDF6E3 100%)',
         'hero-grad':    'radial-gradient(ellipse at 60% 40%, #FAF1CC 0%, #FDF6E3 60%, #F5EDD0 100%)',
+        'dark-grad':    'radial-gradient(ellipse at 30% 50%, #1f0d04 0%, #120A03 100%)',
+        'cta-grad':     'linear-gradient(135deg, #C9962A 0%, #A67C1A 40%, #5C3317 100%)',
+      },
+      perspective: {
+        '500': '500px',
+        '800': '800px',
+        '1000': '1000px',
+        '1200': '1200px',
+        '2000': '2000px',
+      },
+      transformStyle: {
+        '3d': 'preserve-3d',
       },
     },
   },

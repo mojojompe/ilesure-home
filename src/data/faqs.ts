@@ -8,7 +8,7 @@ export const faqs: FAQ[] = [
   {
     id: 'faq1',
     question: 'What is iléSure?',
-    answer: "iléSure (Yoruba for \"Safe Home\") is a student-focused housing discovery and roommate matching platform built for the off-campus accommodation ecosystem around Lead City University and other Nigerian universities in Ibadan. We connect students with verified landlords, agents, and potential roommates.",
+    answer: "iléSure (Yoruba for \"Sure Home\") is a student-focused housing discovery and roommate matching platform built for the off-campus accommodation ecosystem around Lead City University and other universities in Ibadan. We connect students with verified landlords, agents, and potential roommates.",
   },
   {
     id: 'faq2',

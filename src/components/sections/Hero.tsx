@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight, MapPin, Shield, Star, Sparkles } from 'lucide-react';
+import { ChevronRight, MapPin, Shield } from 'lucide-react';
 import { PillButton } from '../ui/PillButton';
 import { WaitlistModal } from '../ui/WaitlistModal';
 import { TypewriterText } from '../effects/TypewriterText';
@@ -57,7 +57,7 @@ export function Hero() {
                 />
                 <span className="block text-gradient-mustard">
                   <TypewriterText 
-                    text="Safe Home" 
+                    text="Sure Home" 
                     delay={0.6}
                   />
                 </span>
@@ -75,7 +75,7 @@ export function Hero() {
                 transition={{ delay: 1.8, duration: 0.6 }}
                 className="text-brown-light text-lg leading-relaxed max-w-lg"
               >
-                Verified apartments near Lead City University. Find your perfect space or your perfect roommate — with transparency, trust, and zero stress.
+                Find verified apartments, your perfect space or your perfect roommate, near you. With transparency, trust, and zero stress.
               </motion.p>
 
               {/* CTA Buttons */}
@@ -124,14 +124,12 @@ export function Hero() {
                   <Shield size={15} className="text-mustard" strokeWidth={2} />
                   <span>All agents verified</span>
                 </div>
-                <div className="w-1 h-1 rounded-full bg-brown-light/40" />
                 <div className="flex items-center gap-2 text-sm text-brown-light">
                   <MapPin size={15} className="text-mustard" strokeWidth={2} />
-                  <span>Toll Gate · Oba Otudeko · Bodija</span>
+                  <span>Soka · Toll Gate · New Garage · Akala-Express · Bodija</span>
                 </div>
-                <div className="w-1 h-1 rounded-full bg-brown-light/40" />
                 <div className="flex -space-x-2 items-center">
-                  {['AO','TF','NE','EC'].map((init, i) => (
+                  {['JE','RK','AA','OB'].map((init, i) => (
                     <div
                       key={i}
                       className="w-7 h-7 rounded-full border-2 border-white flex items-center justify-center text-[10px] font-bold text-white"

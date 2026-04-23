@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
+import { motion, useMotionValue, animate } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 const testimonials = [
@@ -47,7 +47,7 @@ const testimonials = [
 
 export function DraggableTestimonialCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [dragStart, setDragStart] = useState(0);
+
   const containerRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
 
@@ -108,7 +108,7 @@ export function DraggableTestimonialCarousel() {
               drag="x"
               dragConstraints={containerRef}
               dragElastic={0.1}
-              onDragStart={(_, info) => setDragStart(info.offset.x)}
+
               onDragEnd={handleDragEnd}
             >
               {testimonials.map((testimonial, index) => (
