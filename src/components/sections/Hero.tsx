@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight, MapPin, Shield, Star, Sparkles } from 'lucide-react';
+import { ChevronRight, MapPin, Shield } from 'lucide-react';
 import { PillButton } from '../ui/PillButton';
 import { WaitlistModal } from '../ui/WaitlistModal';
 import { TypewriterText } from '../effects/TypewriterText';

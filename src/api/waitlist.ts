@@ -1,0 +1,38 @@
+import { API_ENDPOINTS } from '../lib/config';
+
+export interface WaitlistFormData {
+  name: string;
+  email: string;
+  phone?: string;
+  university: string;
+}
+
+export interface WaitlistResponse {
+  success: boolean;
+  data?: {
+    id: string;
+    position: number;
+  };
+  message?: string;
+  error?: {
+    code: string;
+    message: string;
+  };
+}
+
+export async function submitToWaitlist(data: WaitlistFormData): Promise<WaitlistResponse> {
+  const response = await fetch(API_ENDPOINTS.waitlist.join, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+
+  return response.json();
+}
+
+export async function getWaitlistCount(): Promise<{ success: boolean; count: number }> {
+  const response = await fetch(API_ENDPOINTS.waitlist.count);
+  return response.json();
+}

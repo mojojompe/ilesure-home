@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, CheckCircle, User, Mail, Phone, GraduationCap, Loader2 } from 'lucide-react';
+import { X, CheckCircle, User, Mail, Phone, GraduationCap, Loader2, AlertCircle } from 'lucide-react';
 import { PillButton } from './PillButton';
+import type { WaitlistFormData } from '../../api/waitlist';
+import { submitToWaitlist } from '../../api/waitlist';
 
 interface WaitlistModalProps {
   isOpen: boolean;
   onClose: () => void;
-
 }
 
 interface FormData {
@@ -23,6 +24,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [errors, setErrors] = useState<Partial<FormData>>({});
+  const [apiError, setApiError] = useState('');
 
   const validate = (): boolean => {
     const e: Partial<FormData> = {};
@@ -42,10 +44,28 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
     e.preventDefault();
     if (!validate()) return;
     setSubmitting(true);
-    // Simulate API call
-    await new Promise(r => setTimeout(r, 1600));
-    setSubmitting(false);
-    setSuccess(true);
+    setApiError('');
+
+    try {
+      const data: WaitlistFormData = {
+        name: form.name.trim(),
+        email: form.email.trim(),
+        phone: form.phone.trim() || undefined,
+        university: form.university.trim(),
+      };
+
+      const response = await submitToWaitlist(data);
+
+      if (response.success) {
+        setSuccess(true);
+      } else {
+        setApiError(response.error?.message || 'Something went wrong. Please try again.');
+      }
+    } catch {
+      setApiError('Unable to connect. Please check your internet connection.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleClose = () => {
@@ -195,6 +215,13 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                         </div>
                         {errors.university && <span className="text-xs text-red-500">{errors.university}</span>}
                       </div>
+
+                      {apiError && (
+                        <div className="flex items-center gap-2 p-3 bg-red-50 text-red-600 text-xs font-medium rounded-clay-sm">
+                          <AlertCircle size={14} />
+                          <span>{apiError}</span>
+                        </div>
+                      )}
 
                       <PillButton
                         type="submit"

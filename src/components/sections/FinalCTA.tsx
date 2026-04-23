@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight, Sparkles } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { PillButton } from '../ui/PillButton';
 import { WaitlistModal } from '../ui/WaitlistModal';
