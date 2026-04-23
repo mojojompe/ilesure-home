@@ -47,6 +47,7 @@ const testimonials = [
 
 export function DraggableTestimonialCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+
   const containerRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
 
@@ -107,6 +108,7 @@ export function DraggableTestimonialCarousel() {
               drag="x"
               dragConstraints={containerRef}
               dragElastic={0.1}
+
               onDragEnd={handleDragEnd}
             >
               {testimonials.map((testimonial, index) => (
