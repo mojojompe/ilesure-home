@@ -1,5 +1,5 @@
 import { useRef, useState, type ElementType } from 'react';
-import { motion, useInView, useMotionValue, useScroll, useTransform } from 'framer-motion';
+import { motion, useInView, useMotionValue } from 'framer-motion';
 import {
   Search, Users, ShieldCheck, MapPin, ClipboardList, Lock,
 } from 'lucide-react';
