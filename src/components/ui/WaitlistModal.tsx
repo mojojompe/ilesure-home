@@ -187,12 +187,13 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
 
                       {/* Phone (optional) */}
                       <div className="flex flex-col gap-1.5">
-                        <label className="text-xs font-semibold text-brown uppercase tracking-wide">Phone Number <span className="text-brown-light font-normal normal-case">(optional)</span></label>
+                        <label className="text-xs font-semibold text-brown uppercase tracking-wide">Phone Number</label>
                         <div className="relative">
                           <Phone size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-brown-light" strokeWidth={2} />
                           <input
                             type="tel"
                             value={form.phone}
+                            required
                             onChange={e => handleChange('phone', e.target.value)}
                             placeholder="+234 800 000 0000"
                             className="w-full pl-10 pr-4 py-3 rounded-clay-sm bg-cream border border-cream-200 text-sm text-brown placeholder-brown-light/60 outline-none transition-all focus:border-mustard focus:ring-2 focus:ring-mustard/20"
