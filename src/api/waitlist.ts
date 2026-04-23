@@ -1,7 +1,7 @@
 import { API_ENDPOINTS } from '../lib/config';
 
 export interface WaitlistFormData {
-  name: string;
+  fullName: string;
   email: string;
   phone?: string;
   university: string;

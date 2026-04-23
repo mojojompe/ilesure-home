@@ -11,13 +11,13 @@ interface WaitlistModalProps {
 }
 
 interface FormData {
-  name: string;
+  fullName: string;
   email: string;
   phone: string;
   university: string;
 }
 
-const initialForm: FormData = { name: '', email: '', phone: '', university: '' };
+const initialForm: FormData = { fullName: '', email: '', phone: '', university: '' };
 
 export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
   const [form, setForm] = useState<FormData>(initialForm);
@@ -28,7 +28,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
 
   const validate = (): boolean => {
     const e: Partial<FormData> = {};
-    if (!form.name.trim()) e.name = 'Your name is required';
+    if (!form.fullName.trim()) e.fullName = 'Your name is required';
     if (!form.email.trim() || !/\S+@\S+\.\S+/.test(form.email)) e.email = 'Enter a valid email';
     if (!form.university.trim()) e.university = 'Please enter your university';
     setErrors(e);
@@ -48,11 +48,11 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
 
     try {
       const data: WaitlistFormData = {
-        name: form.name.trim(),
+        fullName: form.fullName.trim(),
         email: form.email.trim(),
         phone: form.phone.trim() || undefined,
         university: form.university.trim(),
-      };
+      } as WaitlistFormData;
 
       const response = await submitToWaitlist(data);
 
@@ -160,13 +160,13 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                           <User size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-brown-light" strokeWidth={2} />
                           <input
                             type="text"
-                            value={form.name}
-                            onChange={e => handleChange('name', e.target.value)}
+                            value={form.fullName}
+                            onChange={e => handleChange('fullName', e.target.value)}
                             placeholder="e.g. Adaeze Okonkwo"
-                            className={`w-full pl-10 pr-4 py-3 rounded-clay-sm bg-cream text-sm text-brown placeholder-brown-light/60 outline-none border transition-all focus:border-mustard focus:ring-2 focus:ring-mustard/20 ${errors.name ? 'border-red-400' : 'border-cream-200'}`}
+                            className={`w-full pl-10 pr-4 py-3 rounded-clay-sm bg-cream text-sm text-brown placeholder-brown-light/60 outline-none border transition-all focus:border-mustard focus:ring-2 focus:ring-mustard/20 ${errors.fullName ? 'border-red-400' : 'border-cream-200'}`}
                           />
                         </div>
-                        {errors.name && <span className="text-xs text-red-500">{errors.name}</span>}
+                        {errors.fullName && <span className="text-xs text-red-500">{errors.fullName}</span>}
                       </div>
 
                       {/* Email */}
