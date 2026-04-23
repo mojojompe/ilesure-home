@@ -171,7 +171,7 @@ export function Download() {
                     transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                   >
                     <img
-                      src="/illustrations/phone.png"
+                      src="/illustrations/phone_full.png"
                       alt="iléSure mobile app mockup"
                       className="w-full max-w-[220px] relative z-10"
                       style={{ filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.5))' }}

@@ -16,7 +16,7 @@ const steps = [
     title: 'Create Your Profile',
     description:
       'Sign up as a student in minutes. Tell us your university, budget, preferred area, and lifestyle, so we can match you with the right space and the right people.',
-    person: '/illustrations/person_female_key.png',
+    person: '/illustrations/person_create_profile.png',
   },
   {
     id: 'step2',

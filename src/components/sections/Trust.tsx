@@ -149,9 +149,9 @@ export function Trust() {
       />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <ScrollReveal className="text-center mb-10">
+        <ScrollReveal className="text-left mb-10 w-full">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard-50 border border-mustard-200 text-mustard text-xs font-bold uppercase tracking-widest">
-            ✦ Trusted by Students
+             Trusted by Students
           </span>
         </ScrollReveal>
 

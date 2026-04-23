@@ -1,5 +1,5 @@
 import { useRef, useState, type ElementType } from 'react';
-import { motion, useInView, useMotionValue } from 'framer-motion';
+import { motion, useInView, useMotionValue, useScroll, useTransform } from 'framer-motion';
 import {
   Search, Users, ShieldCheck, MapPin, ClipboardList, Lock,
 } from 'lucide-react';
@@ -117,9 +117,7 @@ export function Features() {
               <SpotlightCard
                 key={feature.id}
                 delay={i * 0.07}
-                className={`flex flex-col gap-5 p-7 h-full ${
-                  pattern.span === 2 ? 'sm:col-span-2 lg:col-span-2' : ''
-                }`}
+                className={`flex flex-col gap-5 p-7 h-full ${pattern.span === 2 ? 'sm:col-span-2 lg:col-span-2' : ''}`}
               >
                 <motion.div
                   className="icon-blob w-14 h-14 flex-shrink-0"
@@ -139,20 +137,20 @@ export function Features() {
         </div>
 
         {/* ── Mobile: Vertical Sticky Overlap Stack ── */}
-        <div className="sm:hidden mt-8 flex flex-col relative pb-20">
+        <div className="sm:hidden mt-10 flex flex-col relative pb-20">
           {features.map((feature, i) => {
             const Icon = iconMap[feature.icon] ?? Search;
-            // Calculate a descending z-index so the first card is below the second, etc.
-            // Wait - for overlapping cards scrolling UP, the lower card comes from below and overlaps the higher card.
+            
             return (
               <div
                 key={feature.id}
-                className="sticky bg-white rounded-clay border border-cream-200 shadow-clay p-6 flex flex-col gap-4 w-full"
+                className="sticky w-full bg-white rounded-clay border border-cream-200 p-6 flex flex-col gap-4"
                 style={{
-                  top: `calc(8rem + ${i * 14}px)`,
-                  marginTop: i === 0 ? '0' : '1.5rem',
+                  top: `calc(7rem + ${i * 14}px)`,
+                  marginTop: i === 0 ? '0' : '2.5rem',
                   zIndex: i + 10,
-                  transition: 'transform 0.1s ease-out',
+                  boxShadow: '0 -10px 40px -10px rgba(0,0,0,0.08), 0 10px 20px -5px rgba(0,0,0,0.05)',
+                  transformOrigin: 'top center',
                 }}
               >
                 {/* Number Eyebrow */}
@@ -161,25 +159,24 @@ export function Features() {
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <div
-                    className="w-10 h-10 rounded-clay-sm flex items-center justify-center flex-shrink-0"
+                    className="w-12 h-12 rounded-clay-sm flex items-center justify-center flex-shrink-0"
                     style={{ background: 'linear-gradient(135deg, #F5C842 0%, #C9962A 100%)', boxShadow: '0 4px 10px rgba(201,150,42,0.2)' }}
                   >
-                    <Icon size={18} className="text-white" strokeWidth={2} />
+                    <Icon size={20} className="text-white" strokeWidth={2} />
                   </div>
                 </div>
                 
                 <div className="flex flex-col gap-2 relative z-20">
-                  <h3 className="text-lg font-bold text-brown leading-tight">{feature.title}</h3>
-                  <p className="text-sm text-brown-light leading-relaxed">{feature.description}</p>
+                  <h3 className="text-xl font-bold text-brown leading-tight">{feature.title}</h3>
+                  <p className="text-[15px] text-brown-light leading-relaxed">{feature.description}</p>
                 </div>
-                
-                {/* Small inner gradient shading at top to create depth when stacked */}
-                <div className="absolute inset-x-0 top-0 h-4 bg-gradient-to-b from-black/5 to-transparent pointer-events-none rounded-t-clay opacity-30" />
+
+                {/* Subtle top shading gradient to separate overlapped cards */}
+                <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-black/5 to-transparent pointer-events-none rounded-t-clay opacity-40" />
               </div>
             );
           })}
         </div>
-
       </div>
     </section>
   );

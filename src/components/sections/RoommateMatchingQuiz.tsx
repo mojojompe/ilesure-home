@@ -80,7 +80,7 @@ export function RoommateMatchingQuiz() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-left mb-12 w-full"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard/10 text-mustard text-xs font-bold uppercase tracking-widest mb-4">
             <Users size={12} />
@@ -90,7 +90,7 @@ export function RoommateMatchingQuiz() {
             Find Your{' '}
             <span className="text-mustard">Perfect Match</span>
           </h2>
-          <p className="text-brown-light max-w-lg mx-auto">
+          <p className="text-brown-light max-w-lg">
             Answer a few questions and we'll find compatible roommates based on lifestyle, budget, and preferences.
           </p>
         </motion.div>
