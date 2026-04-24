@@ -48,7 +48,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
 
     try {
       const data: WaitlistFormData = {
-        name: form.name.trim(),
+        fullName: form.name.trim(),
         email: form.email.trim(),
         phone: form.phone.trim() || undefined,
         university: form.university.trim(),
