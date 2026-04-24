@@ -78,7 +78,7 @@ export function FeatureShowcase() {
 
           {/* ═══ LEFT PANEL: Text Content ═══ */}
           <div className="flex flex-col gap-6 lg:gap-10 order-last lg:order-first">
-            <SectionHeading eyebrow="The App" title="Everything built into one seamless experience" align="left" />
+            <SectionHeading eyebrow="Experience" title="Everything built into one seamless experience" subtitle="Keep Scrolling..." align="left" />
 
             <div className="relative flex gap-8 pl-0 lg:pl-4">
               {/* Connector line */}

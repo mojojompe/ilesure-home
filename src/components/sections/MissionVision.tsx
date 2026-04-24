@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react';
-import { motion, useMotionValue } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Target, Eye } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { SectionHeading } from '../ui/SectionHeading';
@@ -12,7 +12,7 @@ const cards = [
     title: 'Eliminate housing insecurity for Nigerian students',
     body: 'We exist to replace the informal, chaotic off-campus housing market with a transparent, trustworthy, and data-rich platform, starting with Ibadan and scaling across Nigeria. Every student deserves to find a safe, verified home without risking their money or their peace of mind.',
     accent: '#C9962A',
-    intensity: 6,
+    illustration: '/illustrations/trust.png',
   },
   {
     id: 'vision',
@@ -21,114 +21,156 @@ const cards = [
     title: 'The most trusted student housing platform in Africa',
     body: "We envision a future where any Nigerian university student, whether in Ibadan, Lagos, Abuja, or Port Harcourt, can find a verified, compatible, affordable home with one search. iléSure will be the home discovery layer for every student's university journey.",
     accent: '#5C3317',
-    intensity: 8,
+    illustration: '/illustrations/mission.png',
   },
 ];
 
-function GlassTiltCard({ card, delay = 0 }: { card: typeof cards[0]; delay?: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [hovered, setHovered] = useState(false);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
+function MissionVisionContent() {
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * card.intensity;
-    const y = ((e.clientY - rect.top) / rect.height - 0.5) * -card.intensity; // Invert Y
-    mouseX.set(x);
-    mouseY.set(y);
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev === 0 ? 1 : 0));
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const card = cards[activeIndex];
 
   return (
-    <ScrollReveal delay={delay}>
-      <motion.div
-        ref={ref}
-        onMouseMove={handleMouseMove}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => { setHovered(false); mouseX.set(0); mouseY.set(0); }}
-        animate={{
-          rotateY: hovered ? mouseX.get() : 0,
-          rotateX: hovered ? mouseY.get() : 0,
-          scale: hovered ? 1.02 : 1,
-        }}
-        transition={{ type: 'spring', stiffness: 150, damping: 20 }}
-        style={{ perspective: '1000px', transformStyle: 'preserve-3d' }}
-        className="h-full cursor-default"
-      >
-        <div className="relative glass-card rounded-clay p-8 h-full overflow-hidden flex flex-col gap-6 shadow-3d border-gradient-animate transition-all duration-300">
-          {/* Shimmer on hover */}
-          <div className={`absolute inset-0 anim-shimmer pointer-events-none transition-opacity duration-300 ${hovered ? 'opacity-100' : 'opacity-0'}`} />
-
-          {/* Large background 3D icon */}
-          <motion.div
-            className="absolute -right-6 -top-6 pointer-events-none opacity-[0.05]"
-            style={{ translateZ: -20 }}
-          >
-            <card.icon size={180} strokeWidth={1} style={{ color: card.accent }} />
-          </motion.div>
-
-          {/* Top icon blob container */}
-          <motion.div
-            className="w-16 h-16 rounded-clay-sm flex items-center justify-center relative z-10"
-            style={{
-              background: `linear-gradient(135deg, ${card.accent}20 0%, ${card.accent}35 100%)`,
-              boxShadow: `0 8px 20px ${card.accent}25, inset 0 1px 0 rgba(255,255,255,0.7)`,
-            }}
-            animate={hovered ? { translateZ: 20, rotate: [0, 5, -5, 0] } : { translateZ: 0, rotate: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <card.icon size={28} strokeWidth={1.8} style={{ color: 'white' }} />
-          </motion.div>
-
-          <motion.div
-            className="flex flex-col gap-3 relative z-10"
-            animate={hovered ? { translateZ: 10 } : { translateZ: 0 }}
-          >
-            <span
-              className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: card.accent }}
-            >
-               {card.eyebrow}
-            </span>
-            <h3 className="text-xl font-extrabold text-white leading-snug">{card.title}</h3>
-            <p className="text-sm text-[#fdf6e3] leading-relaxed">{card.body}</p>
-          </motion.div>
+    <div className="relative w-full max-w-4xl mx-auto">
+      <div className="relative bg-white rounded-clay-lg p-10 lg:p-14 shadow-clay border border-mustard-100/50 flex flex-col gap-8 min-h-[420px] lg:min-h-[480px]">
+        <div className="absolute inset-0 rounded-clay-lg overflow-hidden pointer-events-none">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-mustard-50/30 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-brown-100/20 rounded-full blur-3xl -translate-x-1/3 translate-y-1/3" />
         </div>
-      </motion.div>
+
+        <div className="relative z-10 flex items-start justify-between gap-6">
+          <motion.div
+            key={`icon-${activeIndex}`}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4 }}
+            className="w-18 h-18 lg:w-20 lg:h-20 rounded-clay flex items-center justify-center"
+            style={{
+              background: `linear-gradient(135deg, ${card.accent}15 0%, ${card.accent}30 100%)`,
+              boxShadow: `0 10px 30px ${card.accent}30`,
+            }}
+          >
+            <card.icon size={36} strokeWidth={1.8} style={{ color: card.accent }} />
+          </motion.div>
+
+          <div className="flex gap-2">
+            {cards.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveIndex(i)}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  i === activeIndex ? 'w-8 bg-mustard' : 'bg-brown-200'
+                }`}
+                aria-label={`View ${cards[i].eyebrow}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="relative z-10 flex flex-col gap-5 max-w-xl">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeIndex}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-col gap-4"
+            >
+              <span
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: card.accent }}
+              >
+                {card.eyebrow}
+              </span>
+              <h3 className="text-2xl lg:text-3xl font-extrabold text-brown leading-tight">{card.title}</h3>
+              <p className="text-base text-brown-light leading-relaxed">{card.body}</p>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        <div className="absolute bottom-6 right-6 lg:bottom-10 lg:right-10 pointer-events-none">
+          <img
+            src={card.illustration}
+            alt=""
+            className="w-24 h-24 lg:w-32 lg:h-32 object-contain opacity-60"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function GlassTiltCard({ card }: { card: typeof cards[0] }) {
+  const accent = card.accent;
+  return (
+    <ScrollReveal delay={card.id === 'mission' ? 0 : 0.15}>
+      <div className="relative bg-white rounded-clay p-8 h-full shadow-clay border border-mustard-100/50 flex flex-col gap-6">
+        <div className="absolute inset-0 rounded-clay overflow-hidden pointer-events-none">
+          <div
+            className="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl"
+            style={{ background: `${accent}15`, translate: '50% -50%' }}
+          />
+        </div>
+
+        <div className="relative z-10 flex flex-col gap-3">
+          <div
+            className="w-12 h-12 rounded-clay-sm flex items-center justify-center"
+            style={{
+              background: `linear-gradient(135deg, ${accent}15 0%, ${accent}30 100%)`,
+            }}
+          >
+            <card.icon size={24} strokeWidth={1.8} style={{ color: accent }} />
+          </div>
+
+          <span className="text-xs font-bold uppercase tracking-widest" style={{ color: accent }}>
+            {card.eyebrow}
+          </span>
+          <h3 className="text-lg font-extrabold text-brown leading-snug">{card.title}</h3>
+          <p className="text-sm text-brown-light leading-relaxed">{card.body}</p>
+        </div>
+      </div>
     </ScrollReveal>
   );
 }
 
 export function MissionVision() {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const checkDesktop = () => setIsDesktop(window.innerWidth >= 1024);
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop);
+    return () => window.removeEventListener('resize', checkDesktop);
+  }, []);
+
   return (
     <section id="mission" className="py-24 bg-cream-50 relative overflow-hidden">
-      {/* Background blobs for glassmorphism to show against */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-mustard-100/50 blur-[80px] pointer-events-none anim-parallax-drift" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-brown-200/30 blur-[80px] pointer-events-none anim-parallax-drift" style={{ animationDelay: '-5s' }} />
-
-      {/* Floating Mission Illustration */}
-      <img
-        src="/illustrations/mission.png"
-        alt=""
-        aria-hidden
-        className="absolute top-24 -left-16 w-56 h-auto anim-float pointer-events-none opacity-40 hidden lg:block"
-        style={{ mixBlendMode: 'multiply' }}
-      />
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-mustard-100/50 blur-[80px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-brown-200/30 blur-[80px] pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal>
-          <SectionHeading
-            eyebrow="Purpose"
-            title="Why we built iléSure"
-            align="center"
-          />
+          <SectionHeading eyebrow="Purpose" title="Why we built iléSure" align="center" />
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-14">
-          {cards.map((card, i) => (
-            <GlassTiltCard key={card.id} card={card} delay={i * 0.15} />
-          ))}
+        <div className="mt-14">
+          {isDesktop ? (
+            <MissionVisionContent />
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {cards.map((card) => (
+                <GlassTiltCard key={card.id} card={card} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>
