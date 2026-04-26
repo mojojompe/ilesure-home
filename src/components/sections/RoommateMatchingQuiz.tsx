@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Users, ArrowRight, Wallet, PiggyBank, Coins, PartyPopper, BookOpen, Scale, Moon, Sparkles, Sunrise, RefreshCw, Minus, Loader2 } from 'lucide-react';
 import { API_ENDPOINTS } from '../../lib/config';
+import { WaitlistModal } from '../ui/WaitlistModal';
 
 const questions = [
   {
@@ -49,6 +50,7 @@ export function RoommateMatchingQuiz() {
   const [showResults, setShowResults] = useState(false);
   const [matches, setMatches] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
 
   useEffect(() => {
     if (showResults && answers.budget) {
@@ -205,6 +207,7 @@ export function RoommateMatchingQuiz() {
                 className="mt-8 px-8 py-3 rounded-pill bg-mustard text-white font-bold inline-flex items-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => setWaitlistOpen(true)}
               >
                 Connect with Matches <ArrowRight size={18} />
               </motion.button>
@@ -212,16 +215,7 @@ export function RoommateMatchingQuiz() {
           )}
         </AnimatePresence>
 
-        {!showResults && currentQuestion === 0 && (
-          <motion.p
-            className="text-center text-sm text-brown-light mt-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
-            Takes only 30 seconds
-          </motion.p>
-        )}
+        <WaitlistModal isOpen={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
       </motion.div>
     </section>
   );
