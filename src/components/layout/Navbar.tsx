@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, Monitor } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Menu11Icon, PanelLeftCloseIcon } from '@hugeicons/core-free-icons';
 import { PillButton } from '../ui/PillButton';

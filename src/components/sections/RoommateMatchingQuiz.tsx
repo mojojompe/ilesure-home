@@ -50,7 +50,6 @@ export function RoommateMatchingQuiz() {
   const [showResults, setShowResults] = useState(false);
   const [matches, setMatches] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
-  const [waitlistOpen, setWaitlistOpen] = useState(false);
   const [appDownloadOpen, setAppDownloadOpen] = useState(false);
 
   useEffect(() => {

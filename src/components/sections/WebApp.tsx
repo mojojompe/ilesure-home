@@ -139,7 +139,7 @@ export function WebApp() {
                     ref={carouselRef}
                     className="flex overflow-x-hidden snap-x snap-mandatory no-scrollbar"
                   >
-                    {capabilities.map(({ icon: Icon, title, description }, i) => (
+                    {capabilities.map(({ icon: Icon, title, description }) => (
                       <div
                         key={title}
                         className="flex-shrink-0 w-full snap-center flex flex-col gap-3 p-4 rounded-clay-sm"
