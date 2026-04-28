@@ -9,6 +9,7 @@ import { SocialProofWall } from '../components/sections/SocialProofWall';
 import { About } from '../components/sections/About';
 import { MissionVision } from '../components/sections/MissionVision';
 import { HowItWorks } from '../components/sections/HowItWorks';
+import { WebApp } from '../components/sections/WebApp';
 import { Download } from '../components/sections/Download';
 import { FAQ } from '../components/sections/FAQ';
 import { FinalCTA } from '../components/sections/FinalCTA';
@@ -22,6 +23,7 @@ export function HomePage() {
         <Trust />
         <Features />
         <FeatureShowcase />
+        <WebApp />
         <RoommateMatchingQuiz />
         <SocialProofWall />
         <About />

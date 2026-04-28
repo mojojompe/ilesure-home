@@ -40,7 +40,7 @@ export function Download() {
                   <div className="flex flex-col gap-4">
                     <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard/15 border border-mustard/25 text-mustard text-xs font-bold uppercase tracking-widest w-fit">
                       <Bell size={12} strokeWidth={2.5} />
-                      Coming Soon
+                      Coming Soon - For Students & Individuals
                     </span>
                     <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight">
                       Take iléSure wherever you go

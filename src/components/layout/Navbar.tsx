@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Monitor } from 'lucide-react';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Menu11Icon, PanelLeftCloseIcon } from '@hugeicons/core-free-icons';
 import { PillButton } from '../ui/PillButton';
@@ -9,6 +9,7 @@ import { WaitlistModal } from '../ui/WaitlistModal';
 const navLinks = [
   { label: 'Discover', href: '#features' },
   { label: 'How It Works', href: '#how-it-works' },
+  { label: 'For Agents', href: '#web-app' },
   { label: 'About', href: '#about' },
   { label: 'FAQ', href: '#faq' },
 ];
@@ -42,7 +43,7 @@ export function Navbar() {
           className="transition-all duration-500"
           style={{
             width: scrolled ? 'auto' : '100%',
-            maxWidth: scrolled ? '730px' : '1024px',
+            maxWidth: scrolled ? '870px' : '1024px',
           }}
         >
           <motion.div
@@ -77,7 +78,7 @@ export function Navbar() {
               </a>
 
               {/* Desktop Nav Links — inner pill cluster */}
-              <div className={`hidden md:flex items-center rounded-pill px-2 py-1 gap-1 transition-all duration-400 ${
+              <div className={`hidden md:flex items-center rounded-pill px-2 py-1 gap-1 transition-all duration-700 ${
                 scrolled
                   ? 'bg-cream border border-cream-200'
                   : 'bg-white/20 border border-white/30'
@@ -96,7 +97,7 @@ export function Navbar() {
               </div>
 
               {/* Desktop CTA */}
-              <div className="hidden md:flex items-center">
+              <div className="hidden md:flex items-center gap-2">
                 <PillButton
                   variant="mustard"
                   size="sm"

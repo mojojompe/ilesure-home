@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Users, ArrowRight, Wallet, PiggyBank, Coins, PartyPopper, BookOpen, Scale, Moon, Sparkles, Sunrise, RefreshCw, Minus, Loader2 } from 'lucide-react';
 import { API_ENDPOINTS } from '../../lib/config';
-import { WaitlistModal } from '../ui/WaitlistModal';
+import { AppDownloadModal } from '../ui/AppDownloadModal';
 
 const questions = [
   {
@@ -51,6 +51,7 @@ export function RoommateMatchingQuiz() {
   const [matches, setMatches] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [waitlistOpen, setWaitlistOpen] = useState(false);
+  const [appDownloadOpen, setAppDownloadOpen] = useState(false);
 
   useEffect(() => {
     if (showResults && answers.budget) {
@@ -168,7 +169,7 @@ export function RoommateMatchingQuiz() {
                 <p className="text-sm text-brown-light">Based on your preferences</p>
               </div>
 
-              <div className="space-y-4">
+              <div className="flex flex-col gap-3 max-h-[340px] overflow-y-auto no-scrollbar pr-1">
                 {loading ? (
                   <div className="flex items-center justify-center py-8">
                     <Loader2 className="w-6 h-6 animate-spin text-mustard" />
@@ -177,25 +178,25 @@ export function RoommateMatchingQuiz() {
                   getMatchProfiles().map((profile: any) => (
                     <motion.div
                       key={profile.id}
-                      className="flex items-center gap-4 p-4 rounded-clay-sm bg-cream/50"
+                      className="flex items-center gap-3 p-4 rounded-clay-sm bg-cream/50 min-w-0"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                     >
-                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-mustard to-brown flex items-center justify-center text-white font-bold text-lg">
+                      <div className="w-12 h-12 flex-shrink-0 rounded-full bg-gradient-to-br from-mustard to-brown flex items-center justify-center text-white font-bold text-base">
                         {profile.avatar}
                       </div>
-                      <div className="flex-1 text-left">
-                        <p className="font-bold text-brown">{profile.name}</p>
-                        <div className="flex gap-2 mt-1">
+                      <div className="flex-1 min-w-0 text-left">
+                        <p className="font-bold text-brown truncate">{profile.name}</p>
+                        <div className="flex flex-wrap gap-1 mt-1">
                           {profile.traits.map((trait: string, i: number) => (
-                            <span key={i} className="text-xs px-2 py-0.5 rounded-full bg-mustard/10 text-mustard">
+                            <span key={i} className="text-xs px-2 py-0.5 rounded-full bg-mustard/10 text-mustard whitespace-nowrap">
                               {trait}
                             </span>
                           ))}
                         </div>
                       </div>
-                      <div className="text-right">
-                        <span className="text-2xl font-extrabold text-mustard">{profile.match}%</span>
+                      <div className="text-right flex-shrink-0">
+                        <span className="text-xl font-extrabold text-mustard">{profile.match}%</span>
                         <p className="text-xs text-brown-light">match</p>
                       </div>
                     </motion.div>
@@ -207,7 +208,7 @@ export function RoommateMatchingQuiz() {
                 className="mt-8 px-8 py-3 rounded-pill bg-mustard text-white font-bold inline-flex items-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => setWaitlistOpen(true)}
+                onClick={() => setAppDownloadOpen(true)}
               >
                 Connect with Matches <ArrowRight size={18} />
               </motion.button>
@@ -215,7 +216,7 @@ export function RoommateMatchingQuiz() {
           )}
         </AnimatePresence>
 
-        <WaitlistModal isOpen={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
+        <AppDownloadModal isOpen={appDownloadOpen} onClose={() => setAppDownloadOpen(false)} />
       </motion.div>
     </section>
   );
