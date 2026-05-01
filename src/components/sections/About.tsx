@@ -29,7 +29,7 @@ export function About() {
   const backImgY = useTransform(scrollYProgress, [0, 1], [0, 20]);
 
   return (
-    <section id="about" ref={containerRef} className="py-24 bg-cream relative overflow-hidden">
+    <section id="about-story" ref={containerRef} className="py-24 bg-cream relative overflow-hidden">
       {/* Decorative blob */}
       <div className="absolute top-0 right-0 w-[40vw] h-[40vw] bg-white rounded-full blur-[100px] opacity-60 translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 

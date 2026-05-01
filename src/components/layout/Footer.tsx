@@ -1,17 +1,16 @@
 import { Instagram, Twitter, Linkedin, Facebook, Mail, MapPin, Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const footerLinks = {
-  Product: [
-    { label: 'Browse Listings', href: '#features' },
-    { label: 'Roommate Matching', href: '#features' },
-    { label: 'Waitlist', href: '#download' },
-    { label: 'How It Works', href: '#how-it-works' },
+  Explore: [
+    { label: 'Home', href: '/' },
+    { label: 'Discover', href: '/discover' },
+    { label: 'Reviews', href: '/reviews' },
   ],
   Company: [
-    { label: 'About iléSure', href: '#about' },
-    { label: 'Our Mission', href: '#mission' },
-    { label: 'List Your Property', href: '#download' },
-    { label: 'FAQ', href: '#faq' },
+    { label: 'About iléSure', href: '/about' },
+    { label: 'For Agents', href: '/agents' },
+    { label: 'FAQ & Support', href: '/faq' },
   ],
   Legal: [
     { label: 'Privacy Policy', href: '#' },
@@ -28,12 +27,6 @@ const socials = [
 ];
 
 export function Footer() {
-  const scrollTo = (href: string) => {
-    if (href === '#') return;
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <footer className="bg-brown text-cream pt-16 pb-8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,7 +34,7 @@ export function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-2 flex flex-col gap-5">
             <div className="flex items-center gap-3">
-              <img src="/logos/logo-nobg.png" alt="iléSure" className="w-10 h-10 object-contain " />
+              <img src="/logos/logo-nobg.png" alt="iléSure" className="w-10 h-10 object-contain" />
               <span className="text-xl font-extrabold text-white">
                 Ilé<span className="text-mustard">Sure</span>
               </span>
@@ -85,12 +78,21 @@ export function Footer() {
               <ul className="flex flex-col gap-2.5">
                 {links.map(link => (
                   <li key={link.label}>
-                    <button
-                      onClick={() => scrollTo(link.href)}
-                      className="text-cream-300 text-sm hover:text-mustard transition-colors duration-200 text-left"
-                    >
-                      {link.label}
-                    </button>
+                    {link.href.startsWith('/') && link.href !== '#' ? (
+                      <Link
+                        to={link.href}
+                        className="text-cream-300 text-sm hover:text-mustard transition-colors duration-200"
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        className="text-cream-300 text-sm hover:text-mustard transition-colors duration-200"
+                      >
+                        {link.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>

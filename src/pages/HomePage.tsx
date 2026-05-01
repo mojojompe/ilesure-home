@@ -1,39 +1,35 @@
+import { motion } from 'framer-motion';
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
 import { Hero } from '../components/sections/Hero';
 import { Trust } from '../components/sections/Trust';
 import { Features } from '../components/sections/Features';
-import { FeatureShowcase } from '../components/sections/FeatureShowcase';
-import { RoommateMatchingQuiz } from '../components/sections/RoommateMatchingQuiz';
-import { SocialProofWall } from '../components/sections/SocialProofWall';
-import { About } from '../components/sections/About';
-import { MissionVision } from '../components/sections/MissionVision';
 import { HowItWorks } from '../components/sections/HowItWorks';
-import { WebApp } from '../components/sections/WebApp';
 import { Download } from '../components/sections/Download';
-import { FAQ } from '../components/sections/FAQ';
 import { FinalCTA } from '../components/sections/FinalCTA';
+import { NeighborhoodStrip } from '../components/sections/NeighborhoodStrip';
+
+const pageTransition = {
+  initial: { opacity: 0, y: 12 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -8 },
+  transition: { duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] as any },
+};
 
 export function HomePage() {
   return (
-    <>
+    <motion.div {...pageTransition}>
       <Navbar />
       <main>
         <Hero />
         <Trust />
+        <NeighborhoodStrip />
         <Features />
-        <FeatureShowcase />
-        <WebApp />
-        <RoommateMatchingQuiz />
-        <SocialProofWall />
-        <About />
-        <MissionVision />
         <HowItWorks />
         <Download />
-        <FAQ />
         <FinalCTA />
       </main>
       <Footer />
-    </>
+    </motion.div>
   );
 }

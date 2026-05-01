@@ -56,9 +56,9 @@ export function FeatureShowcase() {
   const lineFillHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   return (
-    <section ref={containerRef} className="relative bg-cream-50 h-[400vh] py-32">
+    <section ref={containerRef} className="relative bg-cream-50 h-[400vh]">
       {/* ── STICKY VIEWPORT ── */}
-      <div className="sticky top-0 h-screen w-full flex items-center overflow-hidden">
+      <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden py-24 lg:py-32">
 
         {/* Global animated background blobs for the sticky view */}
         <div className="absolute inset-0 pointer-events-none">
@@ -77,7 +77,7 @@ export function FeatureShowcase() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-24 items-center">
 
           {/* ═══ LEFT PANEL: Text Content ═══ */}
-          <div className="flex flex-col gap-6 lg:gap-10 order-last lg:order-first">
+          <div className="flex flex-col gap-8 lg:gap-10 w-full z-10 relative pt-[120px] lg:pt-20">
             <SectionHeading eyebrow="Experience" title="Everything built into one seamless experience" subtitle="Keep Scrolling..." align="left" />
 
             <div className="relative flex gap-8 pl-0 lg:pl-4">
@@ -119,12 +119,14 @@ export function FeatureShowcase() {
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: 'auto', opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            className="text-brown-light leading-relaxed pl-14 hidden md:block" // Hidden on mobile to save space
+                            className="text-brown-light leading-relaxed pl-14"
                           >
                             {step.desc}
                           </motion.p>
                         )}
                       </AnimatePresence>
+                      {/* Space after last step */}
+                      {index === steps.length - 1 && <div className="h-24"></div>}
                     </div>
                   );
                 })}
@@ -133,7 +135,7 @@ export function FeatureShowcase() {
           </div>
 
           {/* ═══ RIGHT PANEL: 3D Image Display ═══ */}
-          <div className="relative h-[250px] md:h-[350px] lg:h-[500px] w-full flex items-center justify-center perspective-1000 order-first lg:order-last">
+          <div className="absolute inset-0 z-0 lg:relative lg:h-[500px] lg:w-full flex items-center justify-center perspective-1000 opacity-40 blur-[2px] lg:opacity-100 lg:blur-none pointer-events-none lg:pointer-events-auto overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
@@ -141,13 +143,13 @@ export function FeatureShowcase() {
                 animate={{ opacity: 1, x: 0, rotateY: 0, scale: 1 }}
                 exit={{ opacity: 0, x: -100, rotateY: -30, scale: 0.8 }}
                 transition={{ duration: 0.6, type: 'spring', stiffness: 120, damping: 20 }}
-                className="absolute inset-0 flex items-center justify-center transform-style-3d"
+                className="absolute lg:inset-0 top-[20%] w-full flex flex-col items-center justify-center transform-style-3d"
               >
                 {/* Float animation applied to the active image */}
                 <motion.img
                   src={steps[activeIndex].image}
                   alt={steps[activeIndex].title}
-                  className="w-full max-w-[200px] sm:max-w-[250px] lg:max-w-md h-auto drop-shadow-2xl"
+                  className="w-[80vw] max-w-sm lg:max-w-md h-auto drop-shadow-2xl"
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
                   style={{ mixBlendMode: 'multiply' }}

@@ -1,22 +1,38 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import { HomePage } from './pages/HomePage';
 import { ChatbotPage } from './pages/ChatbotPage';
+import { DiscoverPage } from './pages/DiscoverPage';
+import { AboutPage } from './pages/AboutPage';
+import { AgentsPage } from './pages/AgentsPage';
+import { ReviewsPage } from './pages/ReviewsPage';
+import { FaqPage } from './pages/FaqPage';
 import { MouseGlow } from './components/effects/MouseGlow';
-import { ScrollProgress } from './components/effects/ScrollProgress';
+
 import { NoiseTextureOverlay } from './components/effects/NoiseTextureOverlay';
+import { ScrollToTop } from './components/effects/ScrollToTop';
 
 function App() {
+  const location = useLocation();
+
   return (
     <div className="min-h-screen font-sans">
+      <ScrollToTop />
       {/* Global Effects */}
       <MouseGlow />
-      <ScrollProgress />
       <NoiseTextureOverlay />
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/chat" element={<ChatbotPage />} />
-      </Routes>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/discover" element={<DiscoverPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/agents" element={<AgentsPage />} />
+          <Route path="/reviews" element={<ReviewsPage />} />
+          <Route path="/faq" element={<FaqPage />} />
+          <Route path="/chat" element={<ChatbotPage />} />
+        </Routes>
+      </AnimatePresence>
     </div>
   );
 }
