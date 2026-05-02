@@ -7,7 +7,11 @@ import { AboutPage } from './pages/AboutPage';
 import { AgentsPage } from './pages/AgentsPage';
 import { ReviewsPage } from './pages/ReviewsPage';
 import { FaqPage } from './pages/FaqPage';
+import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
+import { TermsOfServicePage } from './pages/TermsOfServicePage';
+import { CookiePolicyPage } from './pages/CookiePolicyPage';
 import { MouseGlow } from './components/effects/MouseGlow';
+import { CookieConsentModal } from './components/layout/CookieConsentModal';
 
 import { NoiseTextureOverlay } from './components/effects/NoiseTextureOverlay';
 import { ScrollToTop } from './components/effects/ScrollToTop';
@@ -21,6 +25,7 @@ function App() {
       {/* Global Effects */}
       <MouseGlow />
       <NoiseTextureOverlay />
+      <CookieConsentModal />
 
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
@@ -31,6 +36,9 @@ function App() {
           <Route path="/reviews" element={<ReviewsPage />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/chat" element={<ChatbotPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+          <Route path="/cookie-policy" element={<CookiePolicyPage />} />
         </Routes>
       </AnimatePresence>
     </div>
