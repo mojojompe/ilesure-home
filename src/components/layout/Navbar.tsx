@@ -143,8 +143,10 @@ export function Navbar() {
                 className="flex items-center gap-2.5 flex-shrink-0"
               >
                 <img
-                  src="/logos/logo-nobg.png"
-                  alt="iléSure Logo"
+                  src="/logos/logo.svg"
+                  alt="iléSure"
+                  width="36"
+                  height="36"
                   className="w-9 h-9 object-contain"
                 />
                 <span className="text-lg font-extrabold tracking-tight text-brown">

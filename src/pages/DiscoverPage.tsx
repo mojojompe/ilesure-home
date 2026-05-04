@@ -5,6 +5,7 @@ import { PageHero } from '../components/sections/PageHero';
 import { FeatureShowcase } from '../components/sections/FeatureShowcase';
 import { RoommateMatchingQuiz } from '../components/sections/RoommateMatchingQuiz';
 import { InteractiveMapPreview } from '../components/sections/InteractiveMapPreview';
+import { useSEO } from '../hooks/useSEO';
 
 const pageTransition = {
   initial: { opacity: 0, y: 12 },
@@ -14,6 +15,12 @@ const pageTransition = {
 };
 
 export function DiscoverPage() {
+  useSEO({
+    title: 'Discover Housing Features',
+    description: 'Browse verified listings, filter by price and distance, take the roommate quiz, and explore interactive maps near your campus.',
+    canonical: '/discover',
+  });
+
   return (
     <motion.div {...pageTransition}>
       <Navbar />

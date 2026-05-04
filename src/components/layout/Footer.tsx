@@ -34,7 +34,7 @@ export function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-2 flex flex-col gap-5">
             <div className="flex items-center gap-3">
-              <img src="/logos/logo-nobg.png" alt="iléSure" className="w-10 h-10 object-contain" />
+              <img src="/logos/logo.svg" alt="iléSure" width="40" height="40" className="w-10 h-10 object-contain" />
               <span className="text-xl font-extrabold text-white">
                 Ilé<span className="text-mustard">Sure</span>
               </span>

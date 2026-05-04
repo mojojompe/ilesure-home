@@ -117,6 +117,34 @@ function StatCard({ stat }: { stat: typeof stats[0] }) {
   );
 }
 
+function MobileStatCard({ stat }: { stat: typeof stats[0] }) {
+  return (
+    <motion.div
+      key={stat.id}
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -12 }}
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
+      className="flex flex-col items-center gap-4"
+    >
+      <div
+        className="w-16 h-16 rounded-clay-sm flex items-center justify-center flex-shrink-0"
+        style={{ background: stat.bg, boxShadow: `0 8px 20px ${stat.color}30, inset 0 1px 0 rgba(255,255,255,0.6)` }}
+      >
+        <stat.icon size={28} strokeWidth={1.8} style={{ color: stat.color }} />
+      </div>
+
+      <div>
+        <p className="text-4xl font-extrabold leading-none anim-glow-pulse" style={{ color: stat.color }}>
+          {stat.value}{stat.suffix}
+        </p>
+        <p className="text-base font-bold text-brown mt-1">{stat.label}</p>
+        <p className="text-xs text-brown-light mt-1">{stat.sub}</p>
+      </div>
+    </motion.div>
+  );
+}
+
 export function Trust() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -165,21 +193,19 @@ export function Trust() {
           ))}
         </div>
 
-        {/* ── Mobile: auto-advancing slideshow ── */}
-        <div className="sm:hidden relative overflow-hidden" style={{ perspective: '800px' }}>
-          <div className="relative min-h-[260px]">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentIndex}
-                initial={{ opacity: 0, x: 80, rotateY: 30, scale: 0.92 }}
-                animate={{ opacity: 1, x: 0, rotateY: 0, scale: 1 }}
-                exit={{ opacity: 0, x: -80, rotateY: -30, scale: 0.92 }}
-                transition={{ duration: 0.5, type: 'spring', stiffness: 200, damping: 24 }}
-                className="absolute inset-0"
-              >
-                <StatCard stat={stats[currentIndex]} />
-              </motion.div>
-            </AnimatePresence>
+        {/* ── Mobile: content-switching card ── */}
+        <div className="sm:hidden max-w-sm mx-auto">
+          <div className="cursor-default w-full">
+            <div className="flex flex-col items-center text-center p-8 gap-4 rounded-clay border border-cream-200 relative overflow-hidden spotlight-card bg-white transition-all duration-300 shadow-3d">
+              <AnimatePresence mode="wait">
+                <MobileStatCard stat={stats[currentIndex]} />
+              </AnimatePresence>
+
+              <div
+                className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-3/4 h-4 rounded-full blur-lg pointer-events-none transition-all duration-300"
+                style={{ background: `${stats[currentIndex].color}20` }}
+              />
+            </div>
           </div>
 
           {/* Clay pill pagination dots */}

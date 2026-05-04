@@ -5,12 +5,12 @@ import { ScrollReveal } from '../ui/ScrollReveal';
 const neighborhoods = [
   { name: 'Toll Gate', distance: '1 min from LCU', color: '#C9962A', count: '12+' },
   { name: 'Bodija', distance: '10 mins from UI', color: '#5C3317', count: '8+' },
-  { name: 'Agbowo', distance: '2 mins from UI', color: '#C9962A', count: '15+' },
+  { name: 'Agbowo', distance: '5 mins from UI', color: '#C9962A', count: '15+' },
   { name: 'New Garage', distance: '10 mins from LCU', color: '#5C3317', count: '6+' },
-  { name: 'Soka', distance: '5 mins from LCU', color: '#C9962A', count: '9+' },
-  { name: 'Ring Road', distance: '20 mins from Poly', color: '#5C3317', count: '11+' },
+  { name: 'Soka', distance: '15 mins from LCU', color: '#C9962A', count: '9+' },
+  { name: 'Ring Road', distance: '20 mins from LCU', color: '#5C3317', count: '11+' },
   { name: 'Akala-Express', distance: '15 mins from LCU', color: '#C9962A', count: '7+' },
-  { name: 'Dugbe', distance: '15 mins from UI', color: '#5C3317', count: '4+' },
+  { name: 'Dugbe', distance: '20 mins from UI', color: '#5C3317', count: '4+' },
 ];
 
 export function NeighborhoodStrip() {
@@ -35,7 +35,7 @@ export function NeighborhoodStrip() {
               Near Every Campus <span className="text-gradient-mustard">in Ibadan</span>
             </h2>
             <p className="mt-2 text-brown-light max-w-xl mx-auto">
-              From Toll Gate to Bodija — we've got verified listings in every student corridor.
+              From Toll Gate to Bodija, we've got verified listings in every student corridor.
             </p>
           </div>
         </ScrollReveal>

@@ -5,6 +5,7 @@ import { PageHero } from '../components/sections/PageHero';
 import { FAQ } from '../components/sections/FAQ';
 import { SupportChannels } from '../components/sections/SupportChannels';
 import { LiveSocialProofTicker } from '../components/sections/LiveSocialProofTicker';
+import { useSEO } from '../hooks/useSEO';
 
 const pageTransition = {
   initial: { opacity: 0, y: 12 },
@@ -14,6 +15,12 @@ const pageTransition = {
 };
 
 export function FaqPage() {
+  useSEO({
+    title: 'FAQ & Support',
+    description: 'Find answers to common questions about iléSure, or chat with our AI-powered support team for instant help.',
+    canonical: '/faq',
+  });
+
   return (
     <motion.div {...pageTransition}>
       <Navbar />

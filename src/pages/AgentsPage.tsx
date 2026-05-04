@@ -5,6 +5,7 @@ import { PageHero } from '../components/sections/PageHero';
 import { WebApp } from '../components/sections/WebApp';
 import { PricingTiers } from '../components/sections/PricingTiers';
 import { AgentTestimonials } from '../components/sections/AgentTestimonials';
+import { useSEO } from '../hooks/useSEO';
 
 const pageTransition = {
   initial: { opacity: 0, y: 12 },
@@ -14,6 +15,12 @@ const pageTransition = {
 };
 
 export function AgentsPage() {
+  useSEO({
+    title: 'For Agents & Landlords',
+    description: 'List properties, manage inquiries, and reach thousands of verified student tenants on iléSure. Start growing your property business.',
+    canonical: '/agents',
+  });
+
   return (
     <motion.div {...pageTransition}>
       <Navbar />

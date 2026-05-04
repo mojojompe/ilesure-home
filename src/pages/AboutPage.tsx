@@ -6,6 +6,7 @@ import { About } from '../components/sections/About';
 import { MissionVision } from '../components/sections/MissionVision';
 import { ImpactMetrics } from '../components/sections/ImpactMetrics';
 import { WaltikBuilt } from '../components/sections/WaltikBuilt';
+import { useSEO } from '../hooks/useSEO';
 
 const pageTransition = {
   initial: { opacity: 0, y: 12 },
@@ -15,6 +16,12 @@ const pageTransition = {
 };
 
 export function AboutPage() {
+  useSEO({
+    title: 'About iléSure',
+    description: 'Learn about our mission to transform student housing in Nigeria, our story, and the impact we are making in Ibadan.',
+    canonical: '/about',
+  });
+
   return (
     <motion.div {...pageTransition}>
       <Navbar />

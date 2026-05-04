@@ -1,15 +1,18 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Cookie, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export function CookieConsentModal() {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if the user has already made a choice
+    if (window.location.search.includes('reset-consent')) {
+      localStorage.removeItem('cookie-consent');
+    }
     const consent = localStorage.getItem('cookie-consent');
     if (!consent) {
-      // Small delay so it doesn't pop up instantly on page load
       const timer = setTimeout(() => setIsVisible(true), 1500);
       return () => clearTimeout(timer);
     }
@@ -68,9 +71,9 @@ export function CookieConsentModal() {
             </div>
             
             <div className="mt-4 text-center">
-              <a href="/cookie-policy" className="text-xs text-mustard hover:text-brown transition-colors font-medium underline-offset-2 hover:underline">
+              <button onClick={() => navigate('/cookie-policy')} className="text-xs text-mustard hover:text-brown transition-colors font-medium underline-offset-2 hover:underline">
                 Read our Cookie Policy
-              </a>
+              </button>
             </div>
           </div>
         </motion.div>

@@ -6,6 +6,7 @@ import { Trust } from '../components/sections/Trust';
 import { SocialProofWall } from '../components/sections/SocialProofWall';
 import { VideoTestimonials } from '../components/sections/VideoTestimonials';
 import { SubmitReviewCTA } from '../components/sections/SubmitReviewCTA';
+import { useSEO } from '../hooks/useSEO';
 
 const pageTransition = {
   initial: { opacity: 0, y: 12 },
@@ -15,6 +16,12 @@ const pageTransition = {
 };
 
 export function ReviewsPage() {
+  useSEO({
+    title: 'Student Reviews & Stories',
+    description: 'Read honest experiences from students across Ibadan who found their sure home through iléSure.',
+    canonical: '/reviews',
+  });
+
   return (
     <motion.div {...pageTransition}>
       <Navbar />

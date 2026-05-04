@@ -8,6 +8,7 @@ import { HowItWorks } from '../components/sections/HowItWorks';
 import { Download } from '../components/sections/Download';
 import { FinalCTA } from '../components/sections/FinalCTA';
 import { NeighborhoodStrip } from '../components/sections/NeighborhoodStrip';
+import { useSEO } from '../hooks/useSEO';
 
 const pageTransition = {
   initial: { opacity: 0, y: 12 },
@@ -17,6 +18,12 @@ const pageTransition = {
 };
 
 export function HomePage() {
+  useSEO({
+    title: 'Your Sure Home Near Campus',
+    description: 'Find verified student housing, match with roommates, and discover trusted listings around Lead City University, Ibadan.',
+    canonical: '/',
+  });
+
   return (
     <motion.div {...pageTransition}>
       <Navbar />

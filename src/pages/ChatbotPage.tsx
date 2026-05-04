@@ -2,9 +2,16 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, MessageSquare, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useSEO } from '../hooks/useSEO';
 
 export function ChatbotPage() {
   const navigate = useNavigate();
+
+  useSEO({
+    title: 'Chat with Support',
+    description: 'Get instant help from our AI-powered support assistant. Ask questions about housing, roommates, and iléSure.',
+    canonical: '/chat',
+  });
 
   useEffect(() => {
     // Scroll to top when opening chat
