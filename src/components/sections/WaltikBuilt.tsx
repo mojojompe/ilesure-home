@@ -37,7 +37,7 @@ export function WaltikBuilt() {
             linear-gradient(rgba(245,200,66,0.05) 1px, transparent 1px),
             linear-gradient(90deg, rgba(245,200,66,0.05) 1px, transparent 1px)
           `,
-          backgroundSize: '44px 44px',
+          backgroundSize: '40px 40px',
         }}
       />
       {/* Glow blobs */}

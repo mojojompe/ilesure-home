@@ -42,7 +42,7 @@ export function Hero() {
           className="absolute inset-0 pointer-events-none z-0 opacity-80"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='44' height='44' viewBox='0 0 24 24' fill='none' stroke='rgba(201,150,42,0.1)' stroke-width='1' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3Cpolyline points='9 22 9 12 15 12 15 22'/%3E%3C/svg%3E")`,
-            backgroundSize: '88px 88px',
+            backgroundSize: '40px 40px',
             backgroundPosition: 'center',
           }}
         />
