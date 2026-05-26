@@ -150,7 +150,7 @@ export function Navbar() {
                   className="w-9 h-9 object-contain"
                 />
                 <span className="text-lg font-extrabold tracking-tight text-brown">
-                  Ilé<span className="text-mustard">Sure</span>
+                  ilé<span className="text-mustard">Sure</span>
                 </span>
               </Link>
 
