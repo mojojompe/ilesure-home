@@ -1,5 +1,5 @@
 import { TiktokIcon, WhatsappBusinessIcon, YoutubeIcon } from 'hugeicons-react';
-import { Instagram, Twitter, Linkedin, Facebook, Mail, MapPin, Phone } from 'lucide-react';
+import { Instagram, Twitter, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const footerLinks = {
