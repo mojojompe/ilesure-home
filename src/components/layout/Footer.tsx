@@ -1,3 +1,4 @@
+import { TiktokIcon, WhatsappBusinessIcon, YoutubeIcon } from 'hugeicons-react';
 import { Instagram, Twitter, Linkedin, Facebook, Mail, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -20,10 +21,12 @@ const footerLinks = {
 };
 
 const socials = [
+  { icon: WhatsappBusinessIcon, href: '#', label: 'WhatsApp' },
   { icon: Instagram, href: '#', label: 'Instagram' },
   { icon: Twitter, href: '#', label: 'Twitter / X' },
   { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Facebook, href: '#', label: 'Facebook' },
+  { icon: TiktokIcon, href: '#', label: 'Tiktok' },
+  { icon: YoutubeIcon, href: '#', label: 'Youtube' },
 ];
 
 export function Footer() {
@@ -102,7 +105,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-8 text-xs text-cream-300">
-          <p>© {new Date().getFullYear()} iléSure. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} iléSure Technologies. All rights reserved.</p>
           <p className="flex items-center gap-1">
             Sponsored by Waltik Labs
           </p>
