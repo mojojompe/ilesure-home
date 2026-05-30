@@ -33,6 +33,12 @@ export async function submitToWaitlist(data: WaitlistFormData): Promise<Waitlist
 }
 
 export async function getWaitlistCount(): Promise<{ success: boolean; count: number }> {
-  const response = await fetch(API_ENDPOINTS.waitlist.count);
-  return response.json();
+  try {
+    const response = await fetch(API_ENDPOINTS.waitlist.count);
+    const res = await response.json();
+    const count = res.data?.totalCount ?? res.count ?? 0;
+    return { success: !!res.success, count };
+  } catch {
+    return { success: false, count: 0 };
+  }
 }
