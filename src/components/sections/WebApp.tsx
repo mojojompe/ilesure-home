@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+
 import { motion } from 'framer-motion';
 import {
   Monitor, BarChart3, Users, Building2, ChevronRight,
