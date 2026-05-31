@@ -103,7 +103,7 @@ export function Features() {
           <SectionHeading
             eyebrow="Features"
             title="Everything you need to find your perfect space"
-            subtitle="iléSure goes beyond a listing board, it's a full ecosystem built around the real problems students face finding off-campus housing in Ibadan."
+            subtitle="iléSure goes beyond a listing board, it's a full ecosystem built around the real problems Users face finding off-destination housing in Nigeria."
             align="center"
           />
         </ScrollReveal>

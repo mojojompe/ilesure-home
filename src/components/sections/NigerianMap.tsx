@@ -12,11 +12,11 @@ interface MapProps {
 
 export default function NigerianMap({
     dots = [
-        { start: { lat: 7.3775, lng: 3.9470 }, end: { lat: 6.5244, lng: 3.3792 } }, // Ibadan to Lagos
-        { start: { lat: 7.3775, lng: 3.9470 }, end: { lat: 9.0579, lng: 7.4951 } }, // Ibadan to Abuja
+        { start: { lat: 7.3775, lng: 3.9470 }, end: { lat: 6.5244, lng: 3.3792 } }, // Nigeria to Lagos
+        { start: { lat: 7.3775, lng: 3.9470 }, end: { lat: 9.0579, lng: 7.4951 } }, // Nigeria to Abuja
         { start: { lat: 6.5244, lng: 3.3792 }, end: { lat: 4.8156, lng: 7.0498 } }, // Lagos to Port Harcourt
         { start: { lat: 9.0579, lng: 7.4951 }, end: { lat: 12.0022, lng: 8.5920 } }, // Abuja to Kano
-        { start: { lat: 7.3775, lng: 3.9470 }, end: { lat: 6.3350, lng: 5.6275 } }, // Ibadan to Benin
+        { start: { lat: 7.3775, lng: 3.9470 }, end: { lat: 6.3350, lng: 5.6275 } }, // Nigeria to Benin
     ],
     lineColor = "#9ca3af", // Neutral gray default instead of green
 }: MapProps) {

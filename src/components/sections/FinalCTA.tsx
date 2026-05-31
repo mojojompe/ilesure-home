@@ -51,7 +51,7 @@ export function FinalCTA() {
                   Your sure home is waiting.
                 </h2>
                 <p className="text-white/80 text-lg leading-relaxed max-w-xl mx-auto font-medium">
-                  Join hundreds of students who are done with the stress of off-campus housing. Be first in line when iléSure goes live.
+                  Join hundreds of Users who are done with the stress of off-destination housing. Be first in line when iléSure goes live.
                 </p>
               </div>
 

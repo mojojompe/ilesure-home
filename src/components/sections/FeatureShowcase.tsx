@@ -8,14 +8,14 @@ const steps = [
     id: 'discover',
     icon: Search,
     title: 'Discover your perfect space',
-    desc: 'Browse hundreds of verified off-campus apartments, self-cons, and hostels near your university, updated daily.',
+    desc: 'Browse hundreds of verified off-destination apartments, self-cons, and hostels near your university, updated daily.',
     image: '/illustrations/person_search.png',
   },
   {
     id: 'map',
     icon: Map,
     title: 'Explore the neighborhood map',
-    desc: 'View properties interactively. Filter by distance to your campus gate, security setup, and proximity to major roads.',
+    desc: 'View properties interactively. Filter by distance to your destination gate, security setup, and proximity to major roads.',
     image: '/illustrations/map_preview.png',
   },
   {

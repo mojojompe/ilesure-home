@@ -6,6 +6,7 @@ import { Trust } from '../components/sections/Trust';
 import { Features } from '../components/sections/Features';
 import { HowItWorks } from '../components/sections/HowItWorks';
 import { Download } from '../components/sections/Download';
+import { NewsStories } from '../components/sections/NewsStories';
 import { FinalCTA } from '../components/sections/FinalCTA';
 import { NeighborhoodStrip } from '../components/sections/NeighborhoodStrip';
 import { useSEO } from '../hooks/useSEO';
@@ -19,8 +20,8 @@ const pageTransition = {
 
 export function HomePage() {
   useSEO({
-    title: 'Your Sure Home Near Campus',
-    description: 'Find verified student housing, match with roommates, and discover trusted listings around Lead City University, Ibadan.',
+    title: 'Your Sure Home Anywhere',
+    description: 'Find verified premium housing, match with roommates, and discover trusted listings around key locations, Nigeria.',
     canonical: '/',
   });
 
@@ -34,6 +35,7 @@ export function HomePage() {
         <Features />
         <HowItWorks />
         <Download />
+        <NewsStories />
         <FinalCTA />
       </main>
       <Footer />

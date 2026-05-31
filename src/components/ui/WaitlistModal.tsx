@@ -210,7 +210,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                             type="text"
                             value={form.university}
                             onChange={e => handleChange('university', e.target.value)}
-                            placeholder="e.g. Lead City University"
+                            placeholder="e.g. key locations"
                             className={`w-full pl-10 pr-4 py-3 rounded-clay-sm bg-cream text-sm text-brown placeholder-brown-light/60 outline-none border transition-all focus:border-mustard focus:ring-2 focus:ring-mustard/20 ${errors.university ? 'border-red-400' : 'border-cream-200'}`}
                           />
                         </div>

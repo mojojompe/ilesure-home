@@ -8,7 +8,7 @@ export const faqs: FAQ[] = [
   {
     id: 'faq1',
     question: 'What is iléSure?',
-    answer: "iléSure (Yoruba for \"Sure Home\") is a student-focused housing discovery and roommate matching platform built for the off-campus accommodation ecosystem around Lead City University and other universities in Ibadan. We connect students with verified landlords, agents, and potential roommates.",
+    answer: "iléSure (Yoruba for \"Sure Home\") is a User-focused housing discovery and roommate matching platform built for the off-destination accommodation ecosystem around key locations and other universities in Nigeria. We connect Users with verified landlords, agents, and potential roommates.",
   },
   {
     id: 'faq2',
@@ -22,13 +22,13 @@ export const faqs: FAQ[] = [
   },
   {
     id: 'faq4',
-    question: 'Is iléSure free for students?',
+    question: 'Is iléSure free for Users?',
     answer: 'Browsing listings, joining the waitlist, and filling your roommate profile are completely free. A small 3% platform fee (applied to the total move-in cost) is charged only when you complete a booking. For shared apartments, an additional 1% roommate matching fee applies.',
   },
   {
     id: 'faq5',
     question: 'Which areas and universities does iléSure cover?',
-    answer: 'We currently focus on the Lead City University corridor, Toll Gate, Soka, Felele, New Garage and Akala Express, and surrounding areas in Ibadan. We are actively expanding to cover UI, Polytechnic areas, and beyond in 2026.',
+    answer: 'We currently focus on the key locations corridor, Toll Gate, Soka, Felele, New Garage and Akala Express, and surrounding areas in Nigeria. We are actively expanding to cover UI, Polytechnic areas, and beyond in 2026.',
   },
   {
     id: 'faq6',
@@ -43,6 +43,6 @@ export const faqs: FAQ[] = [
   {
     id: 'faq8',
     question: 'When does the iléSure app launch?',
-    answer: 'The iléSure mobile app is currently in final development. You can join our early access waitlist to be among the first students and agents to get access when we go live. We will notify you by email and WhatsApp as soon as the app is available.',
+    answer: 'The iléSure mobile app is currently in final development. You can join our early access waitlist to be among the first Users and agents to get access when we go live. We will notify you by email and WhatsApp as soon as the app is available.',
   },
 ];

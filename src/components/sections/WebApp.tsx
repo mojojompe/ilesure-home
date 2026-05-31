@@ -6,12 +6,7 @@ import {
 } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 
-/* ── Feature pills orbiting the dashboard visual ── */
-const orbitChips = [
-  { label: 'Live Analytics', icon: BarChart3, color: '#C9962A', angle: -40,  radius: 150 },
-  { label: 'Multi-listing',  icon: Building2, color: '#c9962a', angle:  55,  radius: 165 },
-  { label: 'Team Access',    icon: Users,     color: '#C9962A', angle: 155,  radius: 140 },
-];
+
 
 /* ── Capability cards ── */
 const capabilities = [
@@ -23,7 +18,7 @@ const capabilities = [
   {
     icon: Users,
     title: 'Agent & Company Profiles',
-    description: 'Build a verified professional profile that students trust and landlords rely on.',
+    description: 'Build a verified professional profile that Users trust and landlords rely on.',
   },
   {
     icon: BarChart3,
@@ -93,12 +88,12 @@ export function WebApp() {
             }}
           />
 
-          <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 items-center p-10 md:p-16">
+          <div className="relative p-10 md:p-16 max-w-3xl mx-auto text-center">
 
             {/* ════════════════════════════════════
-                LEFT — Text + CTA
+                Center — Text + CTA
             ════════════════════════════════════ */}
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col items-center gap-8">
               <ScrollReveal direction="left">
                 <div className="flex flex-col gap-4">
                   {/* Badge */}
@@ -301,106 +296,7 @@ export function WebApp() {
               </ScrollReveal>
             </div>
 
-            {/* ════════════════════════════════════
-                RIGHT — Floating Dashboard Scene
-            ════════════════════════════════════ */}
-            <ScrollReveal direction="right">
-              <div
-                className="flex items-center justify-center relative"
-                style={{ perspective: '1000px', minHeight: '380px' }}
-              >
-                {/* Golden bloom glow */}
-                <div
-                  className="absolute inset-0 flex items-center justify-center pointer-events-none"
-                  style={{ filter: 'blur(70px)' }}
-                >
-                  <div
-                    className="w-56 h-56 rounded-full"
-                    style={{
-                      background:
-                        'radial-gradient(circle, rgba(201,150,42,0.55), transparent 70%)',
-                    }}
-                  />
-                </div>
-
-                {/* Orbiting chips */}
-                {orbitChips.map((chip, i) => {
-                  const rad = (chip.angle * Math.PI) / 180;
-                  return (
-                    <motion.div
-                      key={chip.label}
-                      className="absolute flex items-center gap-1.5 rounded-pill px-3 py-1.5 text-xs font-bold pointer-events-none"
-                      style={{
-                        background: 'rgba(255,255,255,0.12)',
-                        border: '1px solid rgba(255,255,255,0.2)',
-                        color: 'white',
-                        backdropFilter: 'blur(8px)',
-                        left: `calc(50% + ${Math.cos(rad) * chip.radius}px)`,
-                        top:  `calc(50% + ${Math.sin(rad) * chip.radius}px)`,
-                        transform: 'translate(-50%, -50%)',
-                      }}
-                      animate={{ y: [0, -9, 0], rotate: [0, 2, 0, -2, 0] }}
-                      transition={{
-                        duration: 4 + i,
-                        repeat: Infinity,
-                        ease: 'easeInOut',
-                        delay: i * 0.8,
-                      }}
-                    >
-                      <chip.icon size={10} style={{ color: chip.color }} />
-                      {chip.label}
-                    </motion.div>
-                  );
-                })}
-
-                {/* Floating dashboard illustration */}
-                <motion.div
-                  style={{
-                    rotateY: 18,
-                    rotateX: -6,
-                    transformStyle: 'preserve-3d',
-                  }}
-                  animate={{ y: [0, -14, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-                >
-                  <img
-                    src="/illustrations/webapp_dashboard.png"
-                    alt="iléSure web app dashboard for agents and landlords"
-                    className="w-full max-w-[280px] relative z-10 rounded-clay"
-                    style={{
-                      filter:
-                        'drop-shadow(0 30px 60px rgba(0,0,0,0.6)) drop-shadow(0 0 40px rgba(201,150,42,0.25))',
-                    }}
-                  />
-                </motion.div>
-
-                {/* Corner accent sparkles */}
-                {[
-                  { top: '12%', right: '10%', size: 5, delay: '0s' },
-                  { top: '70%', right: '5%',  size: 4, delay: '0.8s' },
-                  { top: '25%', left: '8%',   size: 3, delay: '1.4s' },
-                ].map((s, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute rounded-full bg-mustard pointer-events-none"
-                    style={{
-                      width: s.size,
-                      height: s.size,
-                      top: s.top,
-                      ...(s.right ? { right: s.right } : { left: s.left }),
-                    }}
-                    animate={{ opacity: [0.4, 1, 0.4], scale: [1, 1.5, 1] }}
-                    transition={{
-                      duration: 2.5,
-                      repeat: Infinity,
-                      ease: 'easeInOut',
-                      delay: parseFloat(s.delay),
-                    }}
-                  />
-                ))}
-              </div>
-            </ScrollReveal>
-          </div>
+            </div>
         </div>
       </div>
     </section>

@@ -15,7 +15,7 @@ const steps = [
     icon: UserPlus,
     title: 'Create Your Profile',
     description:
-      'Sign up as a student in minutes. Tell us your university, budget, preferred area, and lifestyle, so we can match you with the right space and the right people.',
+      'Sign up as a User in minutes. Tell us your university, budget, preferred area, and lifestyle, so we can match you with the right space and the right people.',
     person: '/illustrations/person_create_profile.png',
   },
   {
@@ -24,7 +24,7 @@ const steps = [
     icon: SlidersHorizontal,
     title: 'Browse & Filter',
     description:
-      'Explore verified listings with full infrastructure details; power hours, water source, security setup, road condition, and distance from your campus. No surprises.',
+      'Explore verified listings with full infrastructure details; power hours, water source, security setup, road condition, and distance from your destination. No surprises.',
     person: '/illustrations/person_search.png',
   },
   {
@@ -146,7 +146,7 @@ export function HowItWorks() {
           <SectionHeading
             eyebrow="How It Works"
             title="From search to move-in, in 3 steps"
-            subtitle="iléSure simplifies your entire off-campus housing journey. No more chasing agents, no more WhatsApp groups."
+            subtitle="iléSure simplifies your entire off-destination housing journey. No more chasing agents, no more WhatsApp groups."
             align="center"
           />
         </ScrollReveal>

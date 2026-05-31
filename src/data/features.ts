@@ -10,7 +10,7 @@ export const features: Feature[] = [
     id: 'discovery',
     icon: 'Search',
     title: 'Smart Discovery',
-    description: 'Filter by distance to campus, power stability, water availability, security, and more. Find the exact student home you need.',
+    description: 'Filter by distance to destination, power stability, water availability, security, and more. Find the exact User home you need.',
   },
   {
     id: 'roommate',
@@ -27,8 +27,8 @@ export const features: Feature[] = [
   {
     id: 'proximity',
     icon: 'MapPin',
-    title: 'Campus Proximity',
-    description: 'Every listing shows exact distance to Lead City University, UI, and nearby landmarks, by walk, bike, and car.',
+    title: 'destination Proximity',
+    description: 'Every listing shows exact distance to key locations, UI, and nearby landmarks, by walk, bike, and car.',
   },
   {
     id: 'waitlist',

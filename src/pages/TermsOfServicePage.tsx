@@ -23,7 +23,7 @@ const lastUpdated = 'May 4, 2026';
 export function TermsOfServicePage() {
   useSEO({
     title: 'Terms of Service',
-    description: 'iléSure terms of service — understand your rights, responsibilities, and obligations when using our student housing platform.',
+    description: 'iléSure terms of service — understand your rights, responsibilities, and obligations when using our premium housing platform.',
     canonical: '/terms-of-service',
   });
 
@@ -40,17 +40,17 @@ export function TermsOfServicePage() {
         <section id="service-description" className="mb-10">
           <h2 className="text-2xl font-bold text-brown mb-4">1. Description of Service</h2>
           <p className="text-gray-700 leading-relaxed mb-4">
-            iléSure is a student housing and roommate discovery platform designed to help university students find verified accommodation near their campus. Our services include:
+            iléSure is a premium housing and roommate discovery platform designed to help university Users find verified accommodation near their destination. Our services include:
           </p>
           <ul className="list-disc list-inside text-gray-700 space-y-2">
             <li>Browsing and searching for housing listings</li>
             <li>Roommate matching based on compatibility preferences</li>
             <li>Verified agent profiles and property listings</li>
             <li>Messaging and communication tools</li>
-            <li>Reviews and ratings from fellow students</li>
+            <li>Reviews and ratings from fellow Users</li>
           </ul>
           <p className="text-gray-700 leading-relaxed mt-4">
-            iléServe operates as a marketplace connecting students with housing agents and potential roommates. We do not own, manage, or lease any properties listed on the Platform.
+            iléServe operates as a marketplace connecting Users with housing agents and potential roommates. We do not own, manage, or lease any properties listed on the Platform.
           </p>
         </section>
 
@@ -61,7 +61,7 @@ export function TermsOfServicePage() {
           </p>
           <ul className="list-disc list-inside text-gray-700 space-y-2 mb-4">
             <li>Be at least 16 years of age</li>
-            <li>Be a current or prospective university student, or a verified housing agent</li>
+            <li>Be a current or prospective university User, or a verified housing agent</li>
             <li>Provide accurate, complete, and up-to-date registration information</li>
             <li>Maintain the security of your account credentials</li>
           </ul>
@@ -71,7 +71,7 @@ export function TermsOfServicePage() {
           <div className="bg-cream-50 rounded-clay-sm p-6 border border-cream-200">
             <h3 className="font-bold text-brown text-lg mb-2">Account Types</h3>
             <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
-              <li><strong>Student accounts</strong> — For searching listings, finding roommates, and leaving reviews.</li>
+              <li><strong>User accounts</strong> — For searching listings, finding roommates, and leaving reviews.</li>
               <li><strong>Agent accounts</strong> — For posting property listings, managing inquiries, and subscribing to premium features.</li>
             </ul>
           </div>
@@ -108,13 +108,13 @@ export function TermsOfServicePage() {
           </p>
           <ul className="list-disc list-inside text-gray-700 space-y-2">
             <li>Provide accurate, truthful, and up-to-date property descriptions, pricing, and photos</li>
-            <li>Respond to student inquiries in a timely and professional manner</li>
+            <li>Respond to User inquiries in a timely and professional manner</li>
             <li>Comply with all applicable local housing laws and regulations</li>
             <li>Not post listings for properties they do not have the legal right to advertise</li>
             <li>Maintain valid contact information and availability details</li>
           </ul>
           <p className="text-gray-700 leading-relaxed mt-4">
-            iléSure may verify agent credentials and property listings, but verification does not constitute a guarantee or endorsement. Students are encouraged to conduct their own due diligence before entering into any rental agreement.
+            iléSure may verify agent credentials and property listings, but verification does not constitute a guarantee or endorsement. Users are encouraged to conduct their own due diligence before entering into any rental agreement.
           </p>
         </section>
 
@@ -143,7 +143,7 @@ export function TermsOfServicePage() {
           </p>
           <ul className="list-disc list-inside text-gray-700 space-y-2">
             <li>The actual condition, safety, or quality of listed properties</li>
-            <li>Transactions, agreements, or disputes between students and agents</li>
+            <li>Transactions, agreements, or disputes between Users and agents</li>
             <li>The accuracy of user-generated content (listings, reviews, profiles)</li>
             <li>Actions, conduct, or statements of other users</li>
             <li>Service interruptions, data loss, or unauthorized access beyond our reasonable control</li>
@@ -187,7 +187,7 @@ export function TermsOfServicePage() {
             These Terms are governed by the laws of the Federal Republic of Nigeria, without regard to conflict of law principles.
           </p>
           <p className="text-gray-700 leading-relaxed mb-4">
-            Any disputes arising from or related to these Terms or the Platform shall first be attempted to be resolved through good-faith negotiation. If unresolved, disputes shall be submitted to mediation in Ibadan, Nigeria. If mediation fails, disputes shall be resolved through the courts of competent jurisdiction in Oyo State, Nigeria.
+            Any disputes arising from or related to these Terms or the Platform shall first be attempted to be resolved through good-faith negotiation. If unresolved, disputes shall be submitted to mediation in Nigeria, Nigeria. If mediation fails, disputes shall be resolved through the courts of competent jurisdiction in Oyo State, Nigeria.
           </p>
         </section>
 
@@ -206,7 +206,7 @@ export function TermsOfServicePage() {
           <div className="bg-cream-50 rounded-clay-sm p-6 border border-cream-200">
             <p className="text-gray-700"><strong>Email:</strong> ilesuresupport@gmail.com</p>
             <p className="text-gray-700"><strong>Phone:</strong> +234 807 145 5374</p>
-            <p className="text-gray-700"><strong>Location:</strong> Ibadan, Nigeria</p>
+            <p className="text-gray-700"><strong>Location:</strong> Nigeria, Nigeria</p>
           </div>
         </section>
       </PolicyLayout>

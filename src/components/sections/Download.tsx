@@ -4,11 +4,7 @@ import { Bell, ChevronRight, Shield, MapPin, Star } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { WaitlistModal } from '../ui/WaitlistModal';
 
-const orbitChips = [
-  { label: 'Verified', icon: Shield, color: '#C9962A', angle: -30, radius: 140 },
-  { label: '5 Star Rating', icon: Star, color: '#c9962a', angle: 60, radius: 155 },
-  { label: 'Ibadan', icon: MapPin, color: '#C9962A', angle: 150, radius: 135 },
-];
+
 
 export function Download() {
   const [waitlistOpen, setWaitlistOpen] = useState(false);
@@ -33,14 +29,14 @@ export function Download() {
               }}
             />
 
-            <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 items-center p-10 md:p-16">
-              {/* Left — Text + Buttons */}
-              <div className="flex flex-col gap-8">
+            <div className="relative p-10 md:p-16 max-w-3xl mx-auto text-center">
+              {/* Center — Text + Buttons */}
+              <div className="flex flex-col items-center gap-8">
                 <ScrollReveal direction="left">
                   <div className="flex flex-col gap-4">
                     <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard/15 border border-mustard/25 text-mustard text-xs font-bold uppercase tracking-widest w-fit">
                       <Bell size={12} strokeWidth={2.5} />
-                      Coming Soon - For Students & Individuals
+                      Coming Soon - For Renters & Individuals
                     </span>
                     <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight">
                       Take iléSure wherever you go
@@ -105,81 +101,13 @@ export function Download() {
                       ))}
                     </div>
                     <p className="text-sm" style={{ color: 'rgba(253,246,227,0.7)' }}>
-                      <span className="text-mustard font-semibold">50+ students</span> already on the waitlist
+                      <span className="text-mustard font-semibold">50+ Users</span> already on the waitlist
                     </p>
                   </div>
                 </ScrollReveal>
               </div>
 
-              {/* Right — 3D Phone Scene */}
-              <ScrollReveal direction="right">
-                <div
-                  className="flex items-center justify-center relative"
-                  style={{ perspective: '1000px', minHeight: '360px' }}
-                >
-                  {/* Glow bloom behind phone */}
-                  <div
-                    className="absolute inset-0 flex items-center justify-center pointer-events-none"
-                    style={{ filter: 'blur(60px)' }}
-                  >
-                    <div
-                      className="w-48 h-48 rounded-full"
-                      style={{ background: 'radial-gradient(circle, rgba(201,150,42,0.5), transparent 70%)' }}
-                    />
-                  </div>
-
-                  {/* Orbiting chips */}
-                  {orbitChips.map((chip, i) => {
-                    const rad = (chip.angle * Math.PI) / 180;
-                    return (
-                      <motion.div
-                        key={chip.label}
-                        className="absolute flex items-center gap-1.5 rounded-pill px-3 py-1.5 text-xs font-bold pointer-events-none"
-                        style={{
-                          background: 'rgba(255,255,255,0.12)',
-                          border: '1px solid rgba(255,255,255,0.2)',
-                          color: 'white',
-                          left: `calc(50% + ${Math.cos(rad) * chip.radius}px)`,
-                          top: `calc(50% + ${Math.sin(rad) * chip.radius}px)`,
-                          transform: 'translate(-50%, -50%)',
-                        }}
-                        animate={{
-                          y: [0, -8, 0],
-                          rotate: [0, 2, 0, -2, 0],
-                        }}
-                        transition={{
-                          duration: 4 + i,
-                          repeat: Infinity,
-                          ease: 'easeInOut',
-                          delay: i * 0.7,
-                        }}
-                      >
-                        <chip.icon size={10} style={{ color: chip.color }} />
-                        {chip.label}
-                      </motion.div>
-                    );
-                  })}
-
-                  {/* Phone in 3D perspective frame */}
-                  <motion.div
-                    style={{
-                      rotateY: -20,
-                      rotateX: 8,
-                      transformStyle: 'preserve-3d',
-                    }}
-                    animate={{ y: [0, -14, 0] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                  >
-                    <img
-                      src="/illustrations/phone_full.png"
-                      alt="iléSure mobile app mockup"
-                      className="w-full max-w-[220px] relative z-10"
-                      style={{ filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.5))' }}
-                    />
-                  </motion.div>
-                </div>
-              </ScrollReveal>
-            </div>
+              </div>
           </div>
         </div>
       </section>

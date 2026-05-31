@@ -49,7 +49,7 @@ export function useSEO(config: SEOConfig) {
     setMeta('twitter:image', config.ogImage || DEFAULT_OG_IMAGE);
 
     return () => {
-      document.title = 'iléSure: Your Sure Home Near Campus';
+      document.title = 'iléSure: Your Sure Home Anywhere';
     };
   }, [config.title, config.description, config.keywords, config.ogImage, config.canonical]);
 }

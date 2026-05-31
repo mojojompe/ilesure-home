@@ -32,10 +32,10 @@ export function NeighborhoodStrip() {
               Neighborhoods We Cover
             </span>
             <h2 className="mt-4 text-3xl font-extrabold text-brown">
-              Near Every Campus <span className="text-gradient-mustard">in Ibadan</span>
+              Near Every destination <span className="text-gradient-mustard">in Nigeria</span>
             </h2>
             <p className="mt-2 text-brown-light max-w-xl mx-auto">
-              From Toll Gate to Bodija, we've got verified listings in every student corridor.
+              From Toll Gate to Bodija, we've got verified listings in every User corridor.
             </p>
           </div>
         </ScrollReveal>

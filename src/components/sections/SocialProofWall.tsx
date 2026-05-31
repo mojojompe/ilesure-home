@@ -4,15 +4,15 @@ import { Quote, Star } from 'lucide-react';
 import { SectionHeading } from '../ui/SectionHeading';
 
 const testimonials = [
-  { name: 'Ayomip Odu', role: 'Year 2 Student', avatar: 'AO', content: "I was skeptical about finding a safe place near campus, but iléSure made it so easy. Found a 2-bedroom just 5 minutes from LCU!", rating: 5, location: 'Bodija' },
-  { name: 'Chidinma Eze', role: 'Year 3 Student', avatar: 'CE', content: "The roommate matching feature connected me with my best friend! We now share a spacious apartment near Oba Otudeko.", rating: 5, location: 'Toll Gate' },
-  { name: 'Emmanuel Adeyemi', role: 'Year 1 Student', avatar: 'EA', content: "As a fresher, I was worried about accommodation. iléSure's verified agents gave me peace of mind. Highly recommended!", rating: 5, location: 'Agbowo' },
-  { name: 'Funke Bakare', role: 'Year 4 Student', avatar: 'FB', content: "The transparency in pricing and location details is unmatched. No hidden fees, no surprises. Just real listings.", rating: 5, location: 'Dugbe' },
-  { name: 'Segun Olatunji', role: 'Year 2 Student', avatar: 'SO', content: "Found my dream apartment within a week! The filters helped me narrow down exactly what I needed - budget, distance, amenities.", rating: 5, location: 'Ring Road' },
-  { name: 'Nadia Ibrahim', role: 'Year 3 Student', avatar: 'NI', content: "The verification process gave me confidence. I knew every agent was legitimate before I even contacted them.", rating: 5, location: 'Iyaganku' },
-  { name: 'Kunle Adebayo', role: 'Year 1 Student', avatar: 'KA', content: "Finally, a platform that understands student needs! The proximity filters saved me so much time.", rating: 5, location: 'Sabo' },
-  { name: 'Amina Bello', role: 'Year 2 Student', avatar: 'AB', content: "The virtual tours helped me decide without visiting. Saved me time and transport costs!", rating: 5, location: 'Molete' },
-  { name: 'Tunde Afolabi', role: 'Graduating Student', avatar: 'TA', content: "Finding a calm place for my final year was crucial. The serene environment filter worked like a charm.", rating: 4, location: 'Akala Express' },
+  { name: 'Ayomip Odu', role: 'Year 2 User', avatar: 'AO', content: "I was skeptical about finding a safe place Anywhere, but iléSure made it so easy. Found a 2-bedroom just 5 minutes from LCU!", rating: 5, location: 'Bodija' },
+  { name: 'Chidinma Eze', role: 'Year 3 User', avatar: 'CE', content: "The roommate matching feature connected me with my best friend! We now share a spacious apartment near Oba Otudeko.", rating: 5, location: 'Toll Gate' },
+  { name: 'Emmanuel Adeyemi', role: 'Year 1 User', avatar: 'EA', content: "As a fresher, I was worried about accommodation. iléSure's verified agents gave me peace of mind. Highly recommended!", rating: 5, location: 'Agbowo' },
+  { name: 'Funke Bakare', role: 'Year 4 User', avatar: 'FB', content: "The transparency in pricing and location details is unmatched. No hidden fees, no surprises. Just real listings.", rating: 5, location: 'Dugbe' },
+  { name: 'Segun Olatunji', role: 'Year 2 User', avatar: 'SO', content: "Found my dream apartment within a week! The filters helped me narrow down exactly what I needed - budget, distance, amenities.", rating: 5, location: 'Ring Road' },
+  { name: 'Nadia Ibrahim', role: 'Year 3 User', avatar: 'NI', content: "The verification process gave me confidence. I knew every agent was legitimate before I even contacted them.", rating: 5, location: 'Iyaganku' },
+  { name: 'Kunle Adebayo', role: 'Year 1 User', avatar: 'KA', content: "Finally, a platform that understands User needs! The proximity filters saved me so much time.", rating: 5, location: 'Sabo' },
+  { name: 'Amina Bello', role: 'Year 2 User', avatar: 'AB', content: "The virtual tours helped me decide without visiting. Saved me time and transport costs!", rating: 5, location: 'Molete' },
+  { name: 'Tunde Afolabi', role: 'Graduating User', avatar: 'TA', content: "Finding a calm place for my final year was crucial. The serene environment filter worked like a charm.", rating: 4, location: 'Akala Express' },
 ];
 
 function MasonryCard({ t }: { t: typeof testimonials[0] }) {
@@ -95,7 +95,7 @@ export function SocialProofWall() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-30 mb-8 pointer-events-auto flex flex-col md:flex-row items-center justify-between">
         <SectionHeading
-          eyebrow="Loved by students"
+          eyebrow="Loved by Users"
           title="Don't just take our word for it"
           align="left"
         />

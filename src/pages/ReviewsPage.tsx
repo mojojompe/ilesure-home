@@ -17,8 +17,8 @@ const pageTransition = {
 
 export function ReviewsPage() {
   useSEO({
-    title: 'Student Reviews & Stories',
-    description: 'Read honest experiences from students across Ibadan who found their sure home through iléSure.',
+    title: 'User Reviews & Stories',
+    description: 'Read honest experiences from Users across Nigeria who found their sure home through iléSure.',
     canonical: '/reviews',
   });
 
@@ -27,12 +27,12 @@ export function ReviewsPage() {
       <Navbar />
       <main>
         <PageHero
-          eyebrow="Student Reviews"
-          headline="Students Across Ibadan Trust iléSure"
+          eyebrow="User Reviews"
+          headline="Users Across Nigeria Trust iléSure"
           highlightWords={["Trust", "iléSure"]}
-          subtext="Real stories from real students who found their sure home. No filters, no scripts — just honest experiences."
+          subtext="Real stories from real Users who found their sure home. No filters, no scripts — just honest experiences."
           illustration="/illustrations/testimonials.png"
-          illustrationAlt="Students sharing their iléSure experiences"
+          illustrationAlt="Users sharing their iléSure experiences"
           primaryCta={{ label: 'Read Stories', anchor: '#social-proof' }}
           secondaryCta={{ label: 'Share Yours', anchor: '#submit-review' }}
           illustrationBlend

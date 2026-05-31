@@ -18,7 +18,7 @@ const pageTransition = {
 export function AboutPage() {
   useSEO({
     title: 'About iléSure',
-    description: 'Learn about our mission to transform student housing in Nigeria, our story, and the impact we are making in Ibadan.',
+    description: 'Learn about our mission to transform premium housing in Nigeria, our story, and the impact we are making in Nigeria.',
     canonical: '/about',
   });
 
@@ -28,11 +28,11 @@ export function AboutPage() {
       <main>
         <PageHero
           eyebrow="About iléSure"
-          headline="Building the Future of Student Housing in Nigeria"
-          highlightWords={["Student", "Housing"]}
-          subtext="Born in Ibadan. Built for every student. iléSure means 'Sure Home' in Yoruba — and that's exactly what we're committed to delivering."
+          headline="Building the Future of premium housing in Nigeria"
+          highlightWords={["User", "Housing"]}
+          subtext="Born in Nigeria. Built for every User. iléSure means 'Sure Home' in Yoruba — and that's exactly what we're committed to delivering."
           illustration="/illustrations/about_hero.png"
-          illustrationAlt="iléSure team building a trusted student housing platform"
+          illustrationAlt="iléSure team building a trusted premium housing platform"
           primaryCta={{ label: 'Our Story', anchor: '#about-story' }}
           secondaryCta={{ label: 'Our Mission', anchor: '#mission' }}
           illustrationBlend

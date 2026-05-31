@@ -17,6 +17,7 @@ const footerLinks = {
     { label: 'Privacy Policy', href: '/privacy-policy' },
     { label: 'Terms of Service', href: '/terms-of-service' },
     { label: 'Cookie Policy', href: '/cookie-policy' },
+    { label: 'Platform Disclaimer', href: '#disclaimer' },
   ],
 };
 
@@ -43,12 +44,12 @@ export function Footer() {
               </span>
             </div>
             <p className="text-cream-300 text-sm leading-relaxed max-w-xs">
-              Your sure home near campus. Verified student housing and roommate discovery for Nigerian university students.
+              Your sure home Anywhere. Verified premium housing and roommate discovery for Nigerian university Users.
             </p>
             <div className="flex flex-col gap-2 text-sm text-cream-300">
               <div className="flex items-center gap-2">
                 <MapPin size={14} className="text-mustard flex-shrink-0" />
-                <span>Ibadan, Nigeria</span>
+                <span>Nigeria, Nigeria</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail size={14} className="text-mustard flex-shrink-0" />
@@ -81,7 +82,14 @@ export function Footer() {
               <ul className="flex flex-col gap-2.5">
                 {links.map(link => (
                   <li key={link.label}>
-                    {link.href.startsWith('/') && link.href !== '#' ? (
+                    {link.href === '#disclaimer' ? (
+                      <button
+                        onClick={() => window.dispatchEvent(new Event('open-disclaimer'))}
+                        className="text-cream-300 text-sm hover:text-mustard transition-colors duration-200"
+                      >
+                        {link.label}
+                      </button>
+                    ) : link.href.startsWith('/') && link.href !== '#' ? (
                       <Link
                         to={link.href}
                         className="text-cream-300 text-sm hover:text-mustard transition-colors duration-200"

@@ -23,7 +23,7 @@ const videoTestimonials = [
   },
   {
     name: 'Ahmed Sule',
-    role: 'Year 4, Poly Ibadan',
+    role: 'Year 4, Poly Nigeria',
     avatar: 'AS',
     teaser: 'My roommate became my best friend — thanks to iléSure matching.',
     duration: '3:02',
@@ -46,10 +46,10 @@ export function VideoTestimonials() {
               Watch Their Stories
             </span>
             <h2 className="mt-4 text-4xl font-extrabold text-brown">
-              Real Students, <span className="text-gradient-mustard">Real Homes</span>
+              Real Users, <span className="text-gradient-mustard">Real Homes</span>
             </h2>
             <p className="mt-3 text-brown-light max-w-lg mx-auto">
-              Hear directly from students who found their sure home through iléSure.
+              Hear directly from Users who found their sure home through iléSure.
             </p>
           </div>
         </ScrollReveal>

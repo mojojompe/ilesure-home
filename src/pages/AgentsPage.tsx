@@ -17,7 +17,7 @@ const pageTransition = {
 export function AgentsPage() {
   useSEO({
     title: 'For Agents & Landlords',
-    description: 'List properties, manage inquiries, and reach thousands of verified student tenants on iléSure. Start growing your property business.',
+    description: 'List properties, manage inquiries, and reach thousands of verified verified tenants on iléSure. Start growing your property business.',
     canonical: '/agents',
   });
 
@@ -29,7 +29,7 @@ export function AgentsPage() {
           eyebrow="For Agents & Landlords"
           headline="Grow Your Property Business with iléSure"
           highlightWords={["with", "iléSure"]}
-          subtext="List properties, manage inquiries, and reach thousands of verified student tenants — all from one powerful platform."
+          subtext="List properties, manage inquiries, and reach thousands of verified verified tenants — all from one powerful platform."
           illustration="/illustrations/agents_hero.png"
           illustrationAlt="Real estate professional managing properties"
           primaryCta={{ label: 'Launch Web App', href: 'https://app.ilesure.com' }}

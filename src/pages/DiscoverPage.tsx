@@ -17,7 +17,7 @@ const pageTransition = {
 export function DiscoverPage() {
   useSEO({
     title: 'Discover Housing Features',
-    description: 'Browse verified listings, filter by price and distance, take the roommate quiz, and explore interactive maps near your campus.',
+    description: 'Browse verified listings, filter by price and distance, take the roommate quiz, and explore interactive maps near your destination.',
     canonical: '/discover',
   });
 
@@ -29,9 +29,9 @@ export function DiscoverPage() {
           eyebrow="Discover iléSure"
           headline="Your Next Home is Right Here"
           highlightWords={["is", "Right", "Here"]}
-          subtext="Filter by distance, price, and amenities. Every listing is verified. No scams, no surprises — just your perfect space near campus."
+          subtext="Filter by distance, price, and amenities. Every listing is verified. No scams, no surprises — just your perfect space Anywhere."
           illustration="/illustrations/discover_hero.png"
-          illustrationAlt="Student discovering housing with map and pin"
+          illustrationAlt="User discovering housing with map and pin"
           primaryCta={{ label: 'Browse Features', anchor: '#features' }}
           secondaryCta={{ label: 'How It Works', anchor: '#how-it-works' }}
           illustrationBlend

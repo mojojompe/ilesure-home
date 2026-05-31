@@ -20,7 +20,7 @@ export function InteractiveMapPreview() {
             <span className="text-mustard">Community</span>
           </h2>
           <p className="text-brown-light max-w-lg mx-auto">
-            Experience the best of off-campus living with properties nestled in vibrant, student-friendly neighborhoods.
+            Experience the best of off-destination living with properties nestled in vibrant, User-friendly neighborhoods.
           </p>
         </motion.div>
 
@@ -34,7 +34,7 @@ export function InteractiveMapPreview() {
           <div className="absolute inset-0 bg-[#FDF8F0]">
             <img 
               src="/illustrations/isometric_map.png" 
-              alt="3D Student Neighborhood Community" 
+              alt="3D User Neighborhood Community" 
               className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-90 transition-transform duration-700 hover:scale-105" 
             />
           </div>

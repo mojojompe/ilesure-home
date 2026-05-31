@@ -5,16 +5,16 @@ import { ScrollReveal } from '../ui/ScrollReveal';
 import { SectionHeading } from '../ui/SectionHeading';
 
 const highlights = [
-  'Built for the Lead City University corridor, from Toll Gate to Akala Express',
+  'Built for the key locations corridor, from Toll Gate to Akala Express',
   'Combating housing scams through rigorous agent verification',
   'Reducing roommate conflict with data-driven compatibility matching',
-  'Bringing demand intelligence to landlords and agents in Ibadan',
+  'Bringing demand intelligence to landlords and agents in Nigeria',
 ];
 
 const stats = [
   { value: '2026', label: 'Platform Launch', color: '#C9962A' },
-  { value: 'LCU', label: 'Primary Campus', color: '#5C3317' },
-  { value: 'Ibadan', label: 'Starting City', color: '#C9962A' },
+  { value: 'LCU', label: 'Primary destination', color: '#5C3317' },
+  { value: 'Nigeria', label: 'Starting City', color: '#C9962A' },
 ];
 
 export function About() {
@@ -41,7 +41,7 @@ export function About() {
               <SectionHeading
                 eyebrow="About iléSure"
                 title="More than a listing board, a trusted ecosystem"
-                subtitle="iléSure means 'Sure Home' in Yoruba. We built it because finding off-campus housing in Ibadan still relies on WhatsApp forwards, printed notices, and hearsay. Students deserved better."
+                subtitle="iléSure means 'Sure Home' in Yoruba. We built it because finding off-destination housing in Nigeria still relies on WhatsApp forwards, printed notices, and hearsay. Users deserved better."
                 align="left"
               />
             </ScrollReveal>
@@ -110,7 +110,7 @@ export function About() {
               >
                 <img
                   src="/illustrations/about.png"
-                  alt="3D illustration of a student discovering a house"
+                  alt="3D illustration of a User discovering a house"
                   className="w-full h-auto drop-shadow-2xl rounded-clay-lg border-2 border-white/50"
                 />
 

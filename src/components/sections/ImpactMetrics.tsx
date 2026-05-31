@@ -36,7 +36,7 @@ const metrics = [
     id: 'launch',
     value: '2026',
     label: 'Year of Launch',
-    sublabel: 'Ibadan → Nigeria → Africa',
+    sublabel: 'Nigeria → Nigeria → Africa',
     icon: Globe,
     color: '#5C3317',
     bg: 'linear-gradient(135deg, #F2E8DF, #DEBEBF)',
@@ -129,7 +129,7 @@ export function ImpactMetrics() {
               Building Trust, <span className="text-gradient-mustard">One Listing at a Time</span>
             </h2>
             <p className="mt-3 text-brown-light max-w-xl mx-auto">
-              iléSure is more than an app — it's a commitment to every Nigerian student who deserves a safe, honest home-finding experience.
+              iléSure is more than an app — it's a commitment to every Nigerian User who deserves a safe, honest home-finding experience.
             </p>
           </div>
         </ScrollReveal>

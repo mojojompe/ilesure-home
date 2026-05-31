@@ -22,7 +22,7 @@ const lastUpdated = 'May 4, 2026';
 export function PrivacyPolicyPage() {
   useSEO({
     title: 'Privacy Policy',
-    description: 'iléSure privacy policy — how we collect, use, protect, and share your personal data as a student housing platform.',
+    description: 'iléSure privacy policy — how we collect, use, protect, and share your personal data as a premium housing platform.',
     canonical: '/privacy-policy',
   });
 
@@ -47,7 +47,7 @@ export function PrivacyPolicyPage() {
               <h3 className="font-bold text-brown text-lg mb-2">Information You Provide</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                 <li>Name, email address, phone number</li>
-                <li>University affiliation and student status</li>
+                <li>University affiliation and User status</li>
                 <li>Housing preferences and roommate criteria</li>
                 <li>Profile photos and biographical information</li>
                 <li>Messages and communications through our platform</li>
@@ -70,7 +70,7 @@ export function PrivacyPolicyPage() {
               <h3 className="font-bold text-brown text-lg mb-2">Information From Third Parties</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
                 <li>Social media profile data (when you connect or share via social platforms)</li>
-                <li>Verification services (for student or agent identity confirmation)</li>
+                <li>Verification services (for User or agent identity confirmation)</li>
                 <li>Analytics providers (aggregated usage insights)</li>
               </ul>
             </div>
@@ -84,8 +84,8 @@ export function PrivacyPolicyPage() {
             <li>Create and manage your account</li>
             <li>Match you with compatible roommates based on your preferences</li>
             <li>Display relevant housing listings and agent profiles</li>
-            <li>Facilitate communication between students, roommates, and agents</li>
-            <li>Verify student status and agent credentials</li>
+            <li>Facilitate communication between Users, roommates, and agents</li>
+            <li>Verify User status and agent credentials</li>
             <li>Process payments and manage subscriptions</li>
             <li>Send important service updates, security alerts, and support messages</li>
             <li>Improve our platform through analytics and user feedback</li>
@@ -200,7 +200,7 @@ export function PrivacyPolicyPage() {
           <div className="bg-cream-50 rounded-clay-sm p-6 border border-cream-200">
             <p className="text-gray-700"><strong>Email:</strong> ilesuresupport@gmail.com</p>
             <p className="text-gray-700"><strong>Phone:</strong> +234 807 145 5374</p>
-            <p className="text-gray-700"><strong>Location:</strong> Ibadan, Nigeria</p>
+            <p className="text-gray-700"><strong>Location:</strong> Nigeria, Nigeria</p>
           </div>
         </section>
       </PolicyLayout>

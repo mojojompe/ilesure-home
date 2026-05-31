@@ -6,10 +6,10 @@ const agentTestimonials = [
   {
     name: 'Kunle Adeyemi',
     role: 'Property Agent',
-    company: 'KA Realty, Ibadan',
+    company: 'KA Realty, Nigeria',
     avatar: 'KA',
     content:
-      "Since listing on iléSure, my inquiry volume tripled. Students find me, they're already verified, and the whole process is so much smoother. No more chasing unserious clients.",
+      "Since listing on iléSure, my inquiry volume tripled. Users find me, they're already verified, and the whole process is so much smoother. No more chasing unserious clients.",
     rating: 5,
     stat: '3x more inquiries',
     color: '#C9962A',
@@ -54,7 +54,7 @@ export function AgentTestimonials() {
               Agents <span className="text-gradient-mustard">Love iléSure</span>
             </h2>
             <p className="mt-3 text-brown-light max-w-lg mx-auto">
-              Real results from real property professionals across Ibadan.
+              Real results from real property professionals across Nigeria.
             </p>
           </div>
         </ScrollReveal>

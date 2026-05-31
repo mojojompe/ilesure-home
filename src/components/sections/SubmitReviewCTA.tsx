@@ -31,7 +31,7 @@ export function SubmitReviewCTA() {
               Had a Great Experience? <span className="text-gradient-mustard">Tell Us.</span>
             </h2>
             <p className="mt-3 text-brown-light max-w-md mx-auto">
-              Your story helps other students find their sure home. Take 60 seconds to share.
+              Your story helps other Users find their sure home. Take 60 seconds to share.
             </p>
           </div>
         </ScrollReveal>
@@ -100,7 +100,7 @@ export function SubmitReviewCTA() {
                     required
                     value={form.university}
                     onChange={e => setForm(f => ({ ...f, university: e.target.value }))}
-                    placeholder="e.g. Lead City University"
+                    placeholder="e.g. key locations"
                     className="w-full rounded-clay-sm border border-cream-200 px-4 py-3 text-sm text-brown bg-cream focus:outline-none focus:border-mustard transition-colors"
                   />
                 </div>

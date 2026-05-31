@@ -48,7 +48,7 @@ const navLinks: NavLink[] = [
     label: 'Reviews',
     href: '/reviews',
     sections: [
-      { label: 'Student Stories', anchor: '#social-proof' },
+      { label: 'User Stories', anchor: '#social-proof' },
       { label: 'Share Your Story', anchor: '#submit-review' },
     ],
   },
