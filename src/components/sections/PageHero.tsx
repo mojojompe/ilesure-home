@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { WaitlistModal } from '../ui/WaitlistModal';
@@ -67,7 +67,7 @@ export function PageHero({
         <div
           className="absolute inset-0 pointer-events-none z-0 opacity-80"
           style={{
-            backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='44' height='44' viewBox='0 0 24 24' fill='none' stroke='' stroke-width='1' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3Cpolyline points='9 22 9 12 15 12 15 22'/%3E%3C/svg%3E\")",
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='44' height='44' viewBox='0 0 24 24' fill='none' stroke='${isDark ? 'rgba(245,200,66,0.06)' : 'rgba(201,150,42,0.08)'}' stroke-width='1' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3Cpolyline points='9 22 9 12 15 12 15 22'/%3E%3C/svg%3E")`,
             backgroundSize: '45px 45px',
           }}
         />
@@ -83,7 +83,11 @@ export function PageHero({
               transition={{ duration: 0.5 }}
             >
               <span
-                className={"inline-flex items-center gap-2 px-4 py-2 text-[11px] font-bold tracking-[0.2em] uppercase border-l-4 \`}
+                className={`inline-flex items-center gap-2 px-4 py-2 text-[11px] font-bold tracking-[0.2em] uppercase border-l-4 ${
+                  isDark
+                    ? 'border-mustard text-mustard bg-mustard/10'
+                    : 'border-brown text-brown bg-brown/5'
+                }`}
               >
                 {eyebrow}
               </span>
@@ -91,7 +95,9 @@ export function PageHero({
 
             {/* Headline */}
             <h1
-              className={"mt-6 text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight \`}
+              className={`mt-6 text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight ${
+                isDark ? 'text-white' : 'text-brown'
+              }`}
               style={{ fontFamily: 'Georgia, serif' }}
             >
               <BlurText
@@ -109,7 +115,9 @@ export function PageHero({
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className={"mt-6 text-lg leading-relaxed max-w-md border-l border-opacity-30 pl-4 italic \`}
+              className={`mt-6 text-lg leading-relaxed max-w-md border-l border-opacity-30 pl-4 italic ${
+                isDark ? 'text-cream/70 border-cream' : 'text-brown-light border-brown-light'
+              }`}
               style={{ fontFamily: 'Georgia, serif' }}
             >
               {subtext}
@@ -124,8 +132,11 @@ export function PageHero({
             >
               <motion.button
                 onClick={() => handleCta(primaryCta)}
-                className={"group px-8 py-4 font-bold text-sm uppercase tracking-widest flex items-center gap-2 transition-all duration-300 \`}
-                style={{ borderRadius: '0px' }}
+                className={`group px-8 py-4 font-bold text-sm uppercase tracking-widest flex items-center gap-2 transition-all duration-300 rounded-sm ${
+                  isDark
+                    ? 'bg-mustard text-brown shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] hover:shadow-[2px_2px_0px_0px_rgba(255,255,255,0.2)] hover:translate-x-[2px] hover:translate-y-[2px]'
+                    : 'bg-brown text-white shadow-[4px_4px_0px_0px_rgba(201,150,42,1)] hover:shadow-[2px_2px_0px_0px_rgba(201,150,42,1)] hover:translate-x-[2px] hover:translate-y-[2px]'
+                }`}
               >
                 {primaryCta.label}
                 <ChevronRight size={16} strokeWidth={2.5} className="group-hover:translate-x-1 transition-transform" />
@@ -134,8 +145,11 @@ export function PageHero({
               {secondaryCta && (
                 <motion.button
                   onClick={() => handleCta(secondaryCta)}
-                  className={"px-8 py-4 font-bold text-sm uppercase tracking-widest border-2 transition-all duration-300 \`}
-                  style={{ borderRadius: '0px' }}
+                  className={`px-8 py-4 font-bold text-sm uppercase tracking-widest border-2 transition-all duration-300 rounded-sm ${
+                    isDark
+                      ? 'border-white/30 text-white hover:bg-white hover:text-brown'
+                      : 'border-brown text-brown hover:bg-brown hover:text-white'
+                  }`}
                 >
                   {secondaryCta.label}
                 </motion.button>
@@ -158,11 +172,17 @@ export function PageHero({
               className="relative w-full max-w-md group"
             >
               {/* Offset Frames for Magazine Depth */}
-              <div className={"absolute inset-0 border-4 translate-x-6 translate-y-6 -z-10 transition-transform duration-500 group-hover:translate-x-8 group-hover:translate-y-8 \`} />
+              <div className={`absolute inset-0 border-4 translate-x-6 translate-y-6 -z-10 transition-transform duration-500 group-hover:translate-x-8 group-hover:translate-y-8 ${
+                isDark ? 'border-mustard/30' : 'border-brown/20'
+              }`} />
               
-              <div className={"absolute inset-0 translate-x-3 translate-y-3 -z-5 transition-transform duration-500 group-hover:translate-x-4 group-hover:translate-y-4 \`} />
+              <div className={`absolute inset-0 translate-x-3 translate-y-3 -z-5 transition-transform duration-500 group-hover:translate-x-4 group-hover:translate-y-4 ${
+                isDark ? 'bg-mustard/10' : 'bg-brown/5'
+              }`} />
 
-              <div className={"relative p-4 backdrop-blur-sm border shadow-2xl overflow-visible \`}>
+              <div className={`relative p-4 backdrop-blur-sm border shadow-2xl overflow-visible ${
+                isDark ? 'bg-black/20 border-white/10' : 'bg-white/40 border-white/60'
+              }`}>
                 <img
                   src={illustration}
                   alt={illustrationAlt}

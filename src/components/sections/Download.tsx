@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Bell, ChevronRight, Shield, MapPin, Star } from 'lucide-react';
+import { Bell, ChevronRight } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { WaitlistModal } from '../ui/WaitlistModal';
 
