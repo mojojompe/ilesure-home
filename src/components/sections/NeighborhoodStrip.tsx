@@ -2,20 +2,22 @@ import { motion } from 'framer-motion';
 import { MapPin } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 
+// National neighborhoods — no university/distance references
 const neighborhoods = [
-  { name: 'Toll Gate', distance: '1 min from LCU', color: '#C9962A', count: '12+' },
-  { name: 'Bodija', distance: '10 mins from UI', color: '#5C3317', count: '8+' },
-  { name: 'Agbowo', distance: '5 mins from UI', color: '#C9962A', count: '15+' },
-  { name: 'New Garage', distance: '10 mins from LCU', color: '#5C3317', count: '6+' },
-  { name: 'Soka', distance: '15 mins from LCU', color: '#C9962A', count: '9+' },
-  { name: 'Ring Road', distance: '20 mins from LCU', color: '#5C3317', count: '11+' },
-  { name: 'Akala-Express', distance: '15 mins from LCU', color: '#C9962A', count: '7+' },
-  { name: 'Dugbe', distance: '20 mins from UI', color: '#5C3317', count: '4+' },
+  { name: 'Victoria Island', state: 'Lagos', color: '#C9962A', count: '24+' },
+  { name: 'Lekki Phase 1', state: 'Lagos', color: '#5C3317', count: '31+' },
+  { name: 'Wuse 2', state: 'Abuja', color: '#C9962A', count: '18+' },
+  { name: 'Maitama', state: 'Abuja', color: '#5C3317', count: '14+' },
+  { name: 'Bodija', state: 'Ibadan', color: '#C9962A', count: '8+' },
+  { name: 'GRA', state: 'Port Harcourt', color: '#5C3317', count: '11+' },
+  { name: 'Adaeze', state: 'Enugu', color: '#C9962A', count: '6+' },
+  { name: 'Ikeja GRA', state: 'Lagos', color: '#5C3317', count: '9+' },
 ];
 
 export function NeighborhoodStrip() {
   return (
     <section className="py-16 bg-white relative overflow-hidden">
+      {/* Subtle home-icon watermark */}
       <div className="absolute inset-0 pointer-events-none opacity-80"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='44' height='44' viewBox='0 0 24 24' fill='none' stroke='rgba(201,150,42,0.05)' stroke-width='1' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3Cpolyline points='9 22 9 12 15 12 15 22'/%3E%3C/svg%3E")`,
@@ -32,10 +34,10 @@ export function NeighborhoodStrip() {
               Neighborhoods We Cover
             </span>
             <h2 className="mt-4 text-3xl font-extrabold text-brown">
-              Near Every destination <span className="text-gradient-mustard">in Nigeria</span>
+              Premium Areas Across <span className="text-gradient-mustard">Nigeria</span>
             </h2>
             <p className="mt-2 text-brown-light max-w-xl mx-auto">
-              From Toll Gate to Bodija, we've got verified listings in every User corridor.
+              From Lagos to Abuja, Port Harcourt to Ibadan — verified listings in the neighbourhoods that matter most.
             </p>
           </div>
         </ScrollReveal>
@@ -54,7 +56,8 @@ export function NeighborhoodStrip() {
                   <MapPin size={18} style={{ color: hood.color }} strokeWidth={2} />
                 </div>
                 <p className="font-bold text-brown text-sm">{hood.name}</p>
-                <p className="text-xs text-brown-light mt-0.5">{hood.distance}</p>
+                {/* State label instead of proximity distance */}
+                <p className="text-xs text-brown-light mt-0.5">{hood.state}</p>
                 <p className="mt-2 text-xs font-bold" style={{ color: hood.color }}>
                   {hood.count} listings
                 </p>

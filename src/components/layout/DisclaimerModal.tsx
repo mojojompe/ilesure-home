@@ -45,58 +45,85 @@ export function DisclaimerModal() {
   const [isVisible, setIsVisible] = useState(false);
   const [showLong, setShowLong] = useState(false);
   const [hasScrolledToBottom, setHasScrolledToBottom] = useState(false);
-  
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    // Custom event listener so Footer can trigger it manually
-    const handleOpen = () => {
-      setIsVisible(true);
-      setShowLong(true); // Open directly to long form if triggered manually
-    };
-    window.addEventListener('open-disclaimer', handleOpen);
+  // ── Open helper ──────────────────────────────────────────
+  const openDisclaimer = (long = false) => {
+    if (localStorage.getItem('disclaimer-accepted')) return;
+    setShowLong(long);
+    setIsVisible(true);
+  };
 
-    const consent = localStorage.getItem('disclaimer-accepted');
-    if (!consent) {
-      const timer = setTimeout(() => setIsVisible(true), 500);
+  useEffect(() => {
+    // Allow Footer / other components to manually open the full disclaimer
+    const handleManualOpen = () => {
+      setShowLong(true);
+      setIsVisible(true);
+    };
+    window.addEventListener('open-disclaimer', handleManualOpen);
+
+    const disclaimerAccepted = localStorage.getItem('disclaimer-accepted');
+    if (disclaimerAccepted) {
+      // Already accepted — nothing to do
+      return () => window.removeEventListener('open-disclaimer', handleManualOpen);
+    }
+
+    const cookieConsent = localStorage.getItem('cookie-consent');
+    if (cookieConsent) {
+      // Cookie already decided in a previous session — show disclaimer after short delay
+      const timer = setTimeout(() => openDisclaimer(), 500);
       return () => {
         clearTimeout(timer);
-        window.removeEventListener('open-disclaimer', handleOpen);
+        window.removeEventListener('open-disclaimer', handleManualOpen);
       };
     }
-    
-    return () => window.removeEventListener('open-disclaimer', handleOpen);
+
+    // Cookie NOT yet decided — wait for it first
+    const handleCookieDone = () => {
+      const timer = setTimeout(() => openDisclaimer(), 600);
+      window.removeEventListener('cookie-consent-done', handleCookieDone);
+      return () => clearTimeout(timer);
+    };
+    window.addEventListener('cookie-consent-done', handleCookieDone);
+
+    return () => {
+      window.removeEventListener('open-disclaimer', handleManualOpen);
+      window.removeEventListener('cookie-consent-done', handleCookieDone);
+    };
   }, []);
 
+  // ── Scroll detection ─────────────────────────────────────
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
     const { scrollTop, scrollHeight, clientHeight } = e.currentTarget;
-    if (scrollTop + clientHeight >= scrollHeight - 30) {
-      if (!hasScrolledToBottom) {
-        setHasScrolledToBottom(true);
-      }
+    if (!hasScrolledToBottom && scrollTop + clientHeight >= scrollHeight - 30) {
+      setHasScrolledToBottom(true);
     }
   };
 
+  // ── Accept ───────────────────────────────────────────────
   const handleAccept = () => {
-    if (hasScrolledToBottom) {
-      localStorage.setItem('disclaimer-accepted', 'true');
-      setIsVisible(false);
-    }
+    if (!hasScrolledToBottom) return;
+    localStorage.setItem('disclaimer-accepted', 'true');
+    setIsVisible(false);
   };
 
   return (
     <AnimatePresence>
       {isVisible && (
+        /* Full-screen backdrop */
         <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-brown/40 backdrop-blur-md">
           <motion.div
             initial={{ opacity: 0, y: 50, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="relative w-full max-w-lg bg-[#FAFAF9] rounded-[24px] shadow-2xl border border-white/80 overflow-hidden flex flex-col max-h-[85vh]"
+            /* ⚠️  NO overflow-hidden here — it clips the inner scroll container.
+               Rounded corners + clip are handled per-section below. */
+            className="relative w-full max-w-lg bg-[#FAFAF9] rounded-[24px] shadow-2xl border border-white/80 flex flex-col"
+            style={{ maxHeight: '88vh' }}
           >
-            {/* Header */}
-            <div className="p-6 pb-4 bg-white border-b border-gray-100 flex flex-col items-center flex-shrink-0">
+            {/* ── Sticky Header ── */}
+            <div className="p-6 pb-4 bg-white border-b border-gray-100 flex flex-col items-center flex-shrink-0 rounded-t-[24px]">
               <div className="flex items-center justify-center w-14 h-14 rounded-full bg-mustard/15 text-mustard mb-3 shadow-sm">
                 <ShieldCheck size={28} strokeWidth={2} />
               </div>
@@ -104,9 +131,10 @@ export function DisclaimerModal() {
               <p className="text-sm text-gray-500 font-medium mt-1">Please review our terms to continue</p>
             </div>
 
-            {/* Content Body */}
+            {/* ── Content ── */}
             {!showLong ? (
-              <div className="p-8 flex flex-col items-center">
+              /* Short summary view */
+              <div className="p-8 flex flex-col items-center overflow-y-auto">
                 <p className="text-gray-600 text-[15px] leading-relaxed text-center mb-8 whitespace-pre-line">
                   {SHORT_TEXT}
                 </p>
@@ -120,18 +148,18 @@ export function DisclaimerModal() {
                 <p className="mt-4 text-xs text-gray-400 italic">You must read the full disclaimer to accept.</p>
               </div>
             ) : (
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="flex flex-col overflow-hidden min-h-0 relative flex-1"
-              >
-                <div 
+              /* Long legal view — scrollable body */
+              <div className="relative flex flex-col min-h-0 flex-1">
+                {/* Scrollable text area */}
+                <div
                   ref={scrollRef}
-                  className="flex-1 overflow-y-auto p-6 pb-12 custom-scrollbar"
                   onScroll={handleScroll}
+                  className="flex-1 overflow-y-auto p-6"
+                  style={{ WebkitOverflowScrolling: 'touch' }}
                 >
-                  <div className="prose prose-sm prose-brown max-w-none">
+                  <div className="prose prose-sm prose-brown max-w-none pb-8">
                     {LONG_TEXT.split('\n\n').map((paragraph, idx) => {
+                      // Bullet list block
                       if (paragraph.startsWith('•')) {
                         const items = paragraph.split('\n');
                         return (
@@ -142,8 +170,7 @@ export function DisclaimerModal() {
                           </ul>
                         );
                       }
-                      
-                      // Check if it's a section header (starts with number)
+                      // Section header (starts with digit)
                       if (/^\d\./.test(paragraph)) {
                         const [header, ...body] = paragraph.split('\n');
                         return (
@@ -153,7 +180,6 @@ export function DisclaimerModal() {
                           </div>
                         );
                       }
-
                       return (
                         <p key={idx} className="text-gray-600 leading-relaxed mb-4 whitespace-pre-line">
                           {paragraph}
@@ -162,30 +188,36 @@ export function DisclaimerModal() {
                     })}
                   </div>
                 </div>
-                
-                {/* Scroll Prompt Overlay */}
-                {!hasScrolledToBottom && (
-                  <div className="absolute bottom-20 left-0 right-0 h-24 bg-gradient-to-t from-[#FAFAF9] via-[#FAFAF9]/90 to-transparent flex flex-col items-center justify-end pb-2 pointer-events-none">
-                    <ChevronDown size={20} className="text-mustard animate-bounce mb-1" />
-                    <span className="text-xs font-semibold text-mustard">Scroll to bottom to accept</span>
-                  </div>
-                )}
 
-                {/* Footer Action */}
-                <div className="p-5 bg-white border-t border-gray-100 flex-shrink-0">
+                {/* Scroll-to-bottom prompt — fades away once user reaches bottom */}
+                <AnimatePresence>
+                  {!hasScrolledToBottom && (
+                    <motion.div
+                      initial={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className="absolute bottom-[72px] left-0 right-0 h-20 bg-gradient-to-t from-[#FAFAF9] via-[#FAFAF9]/80 to-transparent flex flex-col items-center justify-end pb-2 pointer-events-none"
+                    >
+                      <ChevronDown size={20} className="text-mustard animate-bounce mb-1" />
+                      <span className="text-xs font-semibold text-mustard">Scroll to bottom to accept</span>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                {/* Sticky Accept footer */}
+                <div className="p-5 bg-white border-t border-gray-100 flex-shrink-0 rounded-b-[24px]">
                   <button
                     onClick={handleAccept}
                     disabled={!hasScrolledToBottom}
                     className={`w-full py-4 text-white text-base font-bold rounded-xl transition-all ${
-                      hasScrolledToBottom 
-                        ? 'bg-green-600 hover:bg-green-700 shadow-lg shadow-green-600/25 active:scale-[0.98]' 
+                      hasScrolledToBottom
+                        ? 'bg-[#C9962A] hover:bg-[#5C3317] shadow-lg shadow-[#C9962A]/25 active:scale-[0.98]'
                         : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                     }`}
                   >
                     I Accept
                   </button>
                 </div>
-              </motion.div>
+              </div>
             )}
           </motion.div>
         </div>

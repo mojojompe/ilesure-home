@@ -2291,7 +2291,7 @@ Get app information (for landing page).
   "success": true,
   "data": {
     "name": "iléSure",
-    "tagline": "Your sure home near campus",
+    "tagline": "Your sure home anywhere",
     "version": "1.0.0",
     "launchDate": "2025-03-01",
     "socials": {

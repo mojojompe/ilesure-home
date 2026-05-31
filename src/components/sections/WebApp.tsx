@@ -33,24 +33,7 @@ const capabilities = [
 ];
 
 export function WebApp() {
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const totalCards = capabilities.length;
-
-  /* Auto-advance every 1.5 s */
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex(prev => {
-        const next = (prev + 1) % totalCards;
-        const el = carouselRef.current;
-        if (el) {
-          el.scrollTo({ left: next * el.offsetWidth, behavior: 'smooth' });
-        }
-        return next;
-      });
-    }, 1500);
-    return () => clearInterval(interval);
-  }, [totalCards]);
+  // Carousel state removed in favor of responsive grid
   return (
     <section id="web-app" className="py-24 bg-white relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -126,63 +109,9 @@ export function WebApp() {
                 </div>
               </ScrollReveal>
 
-              {/* ── Capability cards — carousel on mobile, grid on sm+ ── */}
+              {/* ── Capability cards — responsive grid ── */}
               <ScrollReveal direction="left" delay={0.12}>
-                {/* Mobile carousel */}
-                <div className="block sm:hidden">
-                  <div
-                    ref={carouselRef}
-                    className="flex overflow-x-hidden snap-x snap-mandatory no-scrollbar"
-                  >
-                    {capabilities.map(({ icon: Icon, title, description }) => (
-                      <div
-                        key={title}
-                        className="flex-shrink-0 w-full snap-center flex flex-col gap-3 p-4 rounded-clay-sm"
-                        style={{
-                          background: 'rgba(255,255,255,0.05)',
-                          border: '1px solid rgba(255,255,255,0.10)',
-                        }}
-                      >
-                        <div
-                          className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                          style={{
-                            background: 'linear-gradient(135deg, rgba(245,200,66,0.25) 0%, rgba(201,150,42,0.15) 100%)',
-                            border: '1px solid rgba(201,150,42,0.3)',
-                          }}
-                        >
-                          <Icon size={16} color="#F5C842" strokeWidth={2} />
-                        </div>
-                        <p className="text-sm font-bold text-white leading-snug">{title}</p>
-                        <p className="text-xs leading-relaxed" style={{ color: 'rgba(253,246,227,0.55)' }}>
-                          {description}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                  {/* Dot indicators */}
-                  <div className="flex justify-center gap-1.5 mt-3">
-                    {capabilities.map((_, i) => (
-                      <button
-                        key={i}
-                        onClick={() => {
-                          const el = carouselRef.current;
-                          if (el) el.scrollTo({ left: i * el.offsetWidth, behavior: 'smooth' });
-                          setActiveIndex(i);
-                        }}
-                        className="rounded-full transition-all duration-500"
-                        style={{
-                          width: activeIndex === i ? 20 : 6,
-                          height: 6,
-                          background: activeIndex === i ? '#C9962A' : 'rgba(255,255,255,0.25)',
-                        }}
-                        aria-label={`Go to card ${i + 1}`}
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                {/* Desktop 2-col grid */}
-                <div className="hidden sm:grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {capabilities.map(({ icon: Icon, title, description }, i) => (
                     <motion.div
                       key={title}
@@ -190,23 +119,23 @@ export function WebApp() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.08 * i, duration: 0.45 }}
-                      className="flex flex-col gap-2 p-4 rounded-clay-sm"
+                      className="flex flex-col gap-3 p-5 rounded-clay-sm text-left"
                       style={{
                         background: 'rgba(255,255,255,0.05)',
                         border: '1px solid rgba(255,255,255,0.10)',
                       }}
                     >
                       <div
-                        className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                        className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mb-1"
                         style={{
                           background: 'linear-gradient(135deg, rgba(245,200,66,0.25) 0%, rgba(201,150,42,0.15) 100%)',
                           border: '1px solid rgba(201,150,42,0.3)',
                         }}
                       >
-                        <Icon size={15} color="#F5C842" strokeWidth={2} />
+                        <Icon size={18} color="#F5C842" strokeWidth={2} />
                       </div>
-                      <p className="text-sm font-bold text-white leading-snug">{title}</p>
-                      <p className="text-xs leading-relaxed" style={{ color: 'rgba(253,246,227,0.55)' }}>
+                      <p className="text-base font-bold text-white leading-snug">{title}</p>
+                      <p className="text-sm leading-relaxed" style={{ color: 'rgba(253,246,227,0.65)' }}>
                         {description}
                       </p>
                     </motion.div>

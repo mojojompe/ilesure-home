@@ -21,6 +21,8 @@ export function CookieConsentModal() {
   const handleConsent = (choice: 'accepted' | 'rejected') => {
     localStorage.setItem('cookie-consent', choice);
     setIsVisible(false);
+    // Signal to any listeners (e.g. DisclaimerModal) that cookie consent is now satisfied
+    window.dispatchEvent(new CustomEvent('cookie-consent-done', { detail: choice }));
   };
 
   return (

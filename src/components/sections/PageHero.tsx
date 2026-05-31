@@ -72,10 +72,58 @@ export function PageHero({
           }}
         />
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
-          {/* ── LEFT: MAGAZINE TYPOGRAPHY ── */}
-          <div className="flex flex-col items-start text-left pt-6">
+        {/* ── RIGHT HALF: full-bleed illustration (desktop only) ── */}
+        {/* Image sits directly on the section — no frame, no border */}
+        <motion.div
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.25, duration: 0.9, ease: 'easeOut' }}
+          className="absolute right-0 top-0 bottom-0 hidden lg:flex items-center justify-end z-0 pointer-events-none"
+          style={{ width: '65%' }}
+        >
+          {/* Depth layer — warm colour glow behind image */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: isDark
+                ? 'radial-gradient(ellipse 80% 70% at 70% 50%, rgba(201,150,42,0.10) 0%, transparent 70%)'
+                : 'radial-gradient(ellipse 80% 70% at 70% 50%, rgba(201,150,42,0.12) 0%, transparent 70%)',
+            }}
+          />
+          {/* Ground shadow cast */}
+          <div
+            className="absolute bottom-[10%] right-[8%] w-[70%] h-[35%] rounded-full"
+            style={{
+              background: isDark
+                ? 'radial-gradient(ellipse, rgba(201,150,42,0.15) 0%, transparent 70%)'
+                : 'radial-gradient(ellipse, rgba(92,51,23,0.15) 0%, transparent 70%)',
+              filter: 'blur(40px)',
+              transform: 'scaleX(1.3)',
+            }}
+          />
+          {/* The illustration itself */}
+          <motion.img
+            src={illustration}
+            alt={illustrationAlt}
+            className="relative w-full h-auto object-contain"
+            style={{
+              mixBlendMode: illustrationBlend || !isDark ? 'multiply' : 'normal',
+              opacity: isDark ? 0.9 : 1,
+              filter: isDark
+                ? 'drop-shadow(0px 40px 60px rgba(0,0,0,0.45)) drop-shadow(0px 10px 20px rgba(0,0,0,0.3))'
+                : 'drop-shadow(0px 40px 60px rgba(0,0,0,0.14)) drop-shadow(0px 10px 20px rgba(0,0,0,0.09))',
+              maxHeight: '90vh',
+              paddingRight: '2rem',
+            }}
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+          />
+        </motion.div>
+
+        {/* ── LEFT: copy + CTAs ── */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 xl:px-24">
+          <div className="max-w-lg">
+
             {/* Eyebrow */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -123,7 +171,7 @@ export function PageHero({
               {subtext}
             </motion.p>
 
-            {/* CTAs */}
+            {/* CTAs — all rounded-xl */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -132,11 +180,13 @@ export function PageHero({
             >
               <motion.button
                 onClick={() => handleCta(primaryCta)}
-                className={`group px-8 py-4 font-bold text-sm uppercase tracking-widest flex items-center gap-2 transition-all duration-300 rounded-sm ${
+                className={`group px-8 py-4 font-bold text-sm uppercase tracking-widest flex items-center gap-2 transition-all duration-300 rounded-xl ${
                   isDark
                     ? 'bg-mustard text-brown shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] hover:shadow-[2px_2px_0px_0px_rgba(255,255,255,0.2)] hover:translate-x-[2px] hover:translate-y-[2px]'
                     : 'bg-brown text-white shadow-[4px_4px_0px_0px_rgba(201,150,42,1)] hover:shadow-[2px_2px_0px_0px_rgba(201,150,42,1)] hover:translate-x-[2px] hover:translate-y-[2px]'
                 }`}
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
               >
                 {primaryCta.label}
                 <ChevronRight size={16} strokeWidth={2.5} className="group-hover:translate-x-1 transition-transform" />
@@ -145,59 +195,23 @@ export function PageHero({
               {secondaryCta && (
                 <motion.button
                   onClick={() => handleCta(secondaryCta)}
-                  className={`px-8 py-4 font-bold text-sm uppercase tracking-widest border-2 transition-all duration-300 rounded-sm ${
+                  className={`px-8 py-4 font-bold text-sm uppercase tracking-widest border-2 transition-all duration-300 rounded-xl ${
                     isDark
                       ? 'border-white/30 text-white hover:bg-white hover:text-brown'
                       : 'border-brown text-brown hover:bg-brown hover:text-white'
                   }`}
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   {secondaryCta.label}
                 </motion.button>
               )}
             </motion.div>
           </div>
-
-          {/* ── RIGHT: DEPTH EFFECT ILLUSTRATION ── */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.25, duration: 0.8, ease: 'easeOut' }}
-            className="relative w-full flex justify-center mt-12 lg:mt-0"
-            style={{ perspective: '1200px' }}
-          >
-            <motion.div
-              style={{ transformStyle: 'preserve-3d' }}
-              animate={{ rotateY: [5, -5, 5], rotateX: [-2, 2, -2] }}
-              transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-              className="relative w-full max-w-md group"
-            >
-              {/* Offset Frames for Magazine Depth */}
-              <div className={`absolute inset-0 border-4 translate-x-6 translate-y-6 -z-10 transition-transform duration-500 group-hover:translate-x-8 group-hover:translate-y-8 ${
-                isDark ? 'border-mustard/30' : 'border-brown/20'
-              }`} />
-              
-              <div className={`absolute inset-0 translate-x-3 translate-y-3 -z-5 transition-transform duration-500 group-hover:translate-x-4 group-hover:translate-y-4 ${
-                isDark ? 'bg-mustard/10' : 'bg-brown/5'
-              }`} />
-
-              <div className={`relative p-4 backdrop-blur-sm border shadow-2xl overflow-visible ${
-                isDark ? 'bg-black/20 border-white/10' : 'bg-white/40 border-white/60'
-              }`}>
-                <img
-                  src={illustration}
-                  alt={illustrationAlt}
-                  className="w-full h-auto relative z-20"
-                  style={{ 
-                    mixBlendMode: illustrationBlend ? 'multiply' : 'normal',
-                    transform: 'translateZ(50px)',
-                    filter: isDark ? 'drop-shadow(10px 10px 20px rgba(0,0,0,0.5))' : 'drop-shadow(10px 10px 20px rgba(0,0,0,0.15))'
-                  }}
-                />
-              </div>
-            </motion.div>
-          </motion.div>
-
         </div>
+
+
+
       </section>
 
       <WaitlistModal isOpen={waitlistOpen} onClose={() => setWaitlistOpen(false)} />

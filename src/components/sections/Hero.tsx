@@ -33,6 +33,7 @@ export function Hero() {
           background: 'radial-gradient(ellipse at 50% -10%, #FEF9EE 0%, #FDFAF3 35%, #FAFAF8 70%, #F7F6F2 100%)',
         }}
       >
+        {/* Subtle home-icon grid watermark */}
         <div
           className="absolute inset-0 pointer-events-none z-0 opacity-80"
           style={{
@@ -42,8 +43,60 @@ export function Hero() {
           }}
         />
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="flex flex-col items-start text-left pt-10">
+        {/* ── RIGHT HALF: full-bleed illustration (desktop only) ── */}
+        {/* Sits directly on the section background — no box, no border */}
+        <motion.div
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3, duration: 0.9, ease: 'easeOut' }}
+          className="absolute right-0 top-0 bottom-0 hidden lg:flex items-center justify-end z-0"
+          style={{ width: '50%' }}
+        >
+          {/* Depth layer 3 — deepest shadow blob */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: 'radial-gradient(ellipse 80% 70% at 70% 50%, rgba(201,150,42,0.12) 0%, transparent 70%)',
+            }}
+          />
+          {/* Depth layer 2 — mid shadow cast beneath image */}
+          <div
+            className="absolute bottom-[10%] right-[8%] w-[70%] h-[40%] rounded-full"
+            style={{
+              background: 'radial-gradient(ellipse, rgba(92,51,23,0.15) 0%, transparent 70%)',
+              filter: 'blur(40px)',
+              transform: 'scaleX(1.3)',
+            }}
+          />
+          {/* Illustration — no wrapper box */}
+          <motion.img
+            src="/illustrations/hero.png"
+            alt="iléSure — verified premium housing platform"
+            className="relative w-full h-auto object-contain"
+            style={{
+              filter: 'drop-shadow(0px 40px 60px rgba(0,0,0,0.18)) drop-shadow(0px 10px 20px rgba(0,0,0,0.12))',
+              maxHeight: '88vh',
+              paddingRight: '2rem',
+            }}
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          {/* Verified badge — floats over the image */}
+          <motion.div
+            initial={{ opacity: 0, x: -16 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 1.4, duration: 0.45 }}
+            className="absolute left-[8%] top-[28%] bg-brown text-white px-4 py-3 z-30 shadow-2xl rounded-xl"
+          >
+            <p className="text-[10px] uppercase tracking-widest text-mustard mb-1">iléSure</p>
+            <p className="text-sm font-bold font-serif">Verified Listing</p>
+          </motion.div>
+        </motion.div>
+
+        {/* ── LEFT: copy + CTAs ── */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 xl:px-24">
+          <div className="max-w-lg">
+            {/* Rotating eyebrow */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -82,7 +135,8 @@ export function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.0, duration: 0.5 }}
-              className="mt-6 text-brown-light text-lg leading-relaxed max-w-md border-l border-brown-light/30 pl-4 italic" style={{ fontFamily: 'Georgia, serif' }}
+              className="mt-6 text-brown-light text-lg leading-relaxed max-w-md border-l border-brown-light/30 pl-4 italic"
+              style={{ fontFamily: 'Georgia, serif' }}
             >
               Discover verified apartments and spaces tailored to your lifestyle.
               Transparent, trusted, and strictly premium.
@@ -96,7 +150,7 @@ export function Hero() {
             >
               <motion.button
                 onClick={() => setWaitlistOpen(true)}
-                className="group relative px-8 py-4 bg-mustard text-white font-bold shadow-float-mustard text-sm uppercase tracking-wider rounded-sm"
+                className="group relative px-8 py-4 bg-mustard text-white font-bold shadow-float-mustard text-sm uppercase tracking-wider rounded-xl"
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -107,55 +161,16 @@ export function Hero() {
               </motion.button>
               <button
                 onClick={() => navigate('/discover')}
-                className="px-8 py-4 border-2 border-brown text-brown font-bold text-sm uppercase tracking-wider hover:bg-brown hover:text-white transition-colors duration-300 rounded-sm"
+                className="px-8 py-4 border-2 border-brown text-brown font-bold text-sm uppercase tracking-wider hover:bg-brown hover:text-white transition-colors duration-300 rounded-xl"
               >
                 Learn More
               </button>
             </motion.div>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
-            className="relative w-full flex justify-center items-center mt-10 lg:mt-0"
-            style={{ perspective: '1200px' }}
-          >
-            <motion.div
-              style={{ transformStyle: 'preserve-3d' }}
-              animate={{ rotateY: [-5, 5, -5], rotateX: [2, -2, 2] }}
-              transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-              className="relative w-full max-w-md group"
-            >
-              <div className="absolute inset-0 border-4 border-mustard/40 translate-x-6 translate-y-6 -z-10 group-hover:translate-x-8 group-hover:translate-y-8 transition-transform duration-500" />
-              <div className="absolute inset-0 bg-brown/5 translate-x-3 translate-y-3 -z-5 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform duration-500" />
-
-              <div className="relative bg-white/40 p-4 backdrop-blur-sm border border-white/60 shadow-2xl overflow-visible">
-                <img
-                  src="/illustrations/hero.png"
-                  alt="iléSure — verified premium housing platform"
-                  className="w-full h-auto relative z-20"
-                  style={{ 
-                    mixBlendMode: 'multiply',
-                    transform: 'translateZ(60px)',
-                    filter: 'drop-shadow(15px 15px 25px rgba(0,0,0,0.2))'
-                  }}
-                />
-
-                <motion.div
-                  initial={{ opacity: 0, x: -16 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1.5, duration: 0.45 }}
-                  className="absolute -left-8 top-12 bg-brown text-white px-4 py-3 z-30 shadow-2xl rounded-sm"
-                  style={{ transform: 'translateZ(80px)' }}
-                >
-                  <p className="text-[10px] uppercase tracking-widest text-mustard mb-1">Verified</p>
-                  <p className="text-sm font-bold font-serif">Agent Approved</p>
-                </motion.div>
-              </div>
-            </motion.div>
-          </motion.div>
         </div>
+
+
+
       </section>
 
       <WaitlistModal isOpen={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
