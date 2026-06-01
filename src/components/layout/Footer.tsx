@@ -1,4 +1,4 @@
-import { TiktokIcon, WhatsappBusinessIcon, YoutubeIcon } from 'hugeicons-react';
+import { TiktokIcon, WhatsappBusinessIcon} from 'hugeicons-react';
 import { Instagram, Twitter, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -27,7 +27,6 @@ const socials = [
   { icon: Twitter, href: '#', label: 'Twitter / X' },
   { icon: Linkedin, href: '#', label: 'LinkedIn' },
   { icon: TiktokIcon, href: '#', label: 'Tiktok' },
-  { icon: YoutubeIcon, href: '#', label: 'Youtube' },
 ];
 
 export function Footer() {
@@ -44,12 +43,12 @@ export function Footer() {
               </span>
             </div>
             <p className="text-cream-300 text-sm leading-relaxed max-w-xs">
-              Your sure home Anywhere. Verified premium housing and roommate discovery for Nigerian university Users.
+              Your sure home Anywhere. Verified premium housing and roommate discovery for Nigerians.
             </p>
             <div className="flex flex-col gap-2 text-sm text-cream-300">
               <div className="flex items-center gap-2">
                 <MapPin size={14} className="text-mustard flex-shrink-0" />
-                <span>Nigeria, Nigeria</span>
+                <span>Nigeria</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail size={14} className="text-mustard flex-shrink-0" />
