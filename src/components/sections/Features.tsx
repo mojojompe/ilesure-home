@@ -1,15 +1,8 @@
-import { useRef, useState, type ElementType } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useInView, useMotionValue } from 'framer-motion';
-import {
-  Search, Users, ShieldCheck, MapPin, ClipboardList, Lock,
-} from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { SectionHeading } from '../ui/SectionHeading';
 import { features } from '../../data/features';
-
-const iconMap: Record<string, ElementType> = {
-  Search, Users, ShieldCheck, MapPin, ClipboardList, Lock,
-};
 
 // Bento grid layout pattern
 const bentoPattern = [
@@ -111,7 +104,6 @@ export function Features() {
         {/* ── Desktop: Bento Grid ── */}
         <div className="hidden sm:grid grid-cols-2 lg:grid-cols-3 gap-5 mt-14">
           {features.map((feature, i) => {
-            const Icon = iconMap[feature.icon] ?? Search;
             const pattern = bentoPattern[i % bentoPattern.length];
             return (
               <SpotlightCard
@@ -120,12 +112,11 @@ export function Features() {
                 className={`flex flex-col gap-5 p-7 h-full ${pattern.span === 2 ? 'sm:col-span-2 lg:col-span-2' : ''}`}
               >
                 <motion.div
-                  className="icon-blob w-14 h-14 flex-shrink-0"
-                  style={{ background: 'linear-gradient(135deg, #F5C842 0%, #C9962A 100%)', boxShadow: '0 8px 20px rgba(201,150,42,0.3)', transformStyle: 'preserve-3d' }}
-                  whileHover={{ rotateY: 180, scale: 1.1 }}
-                  transition={{ duration: 0.5, type: 'spring' }}
+                  className="w-16 h-16 flex-shrink-0"
+                  whileHover={{ scale: 1.1, y: -4 }}
+                  transition={{ duration: 0.4, type: 'spring' }}
                 >
-                  <Icon size={24} className="text-white" strokeWidth={2} />
+                  <img src={feature.image} alt={feature.title} className="w-full h-full object-contain drop-shadow-sm" />
                 </motion.div>
                 <div className="flex flex-col gap-2 relative z-10">
                   <h3 className="text-base font-bold text-brown">{feature.title}</h3>
@@ -139,8 +130,6 @@ export function Features() {
         {/* ── Mobile: Vertical Sticky Overlap Stack ── */}
         <div className="sm:hidden mt-10 flex flex-col relative pb-20">
           {features.map((feature, i) => {
-            const Icon = iconMap[feature.icon] ?? Search;
-            
             return (
               <div
                 key={feature.id}
@@ -158,11 +147,8 @@ export function Features() {
                   <span className="text-[10px] font-bold text-mustard uppercase tracking-widest bg-mustard-50 px-2 py-1 rounded-sm">
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <div
-                    className="w-12 h-12 rounded-clay-sm flex items-center justify-center flex-shrink-0"
-                    style={{ background: 'linear-gradient(135deg, #F5C842 0%, #C9962A 100%)', boxShadow: '0 4px 10px rgba(201,150,42,0.2)' }}
-                  >
-                    <Icon size={20} className="text-white" strokeWidth={2} />
+                  <div className="w-14 h-14 flex-shrink-0">
+                    <img src={feature.image} alt={feature.title} className="w-full h-full object-contain drop-shadow-sm" />
                   </div>
                 </div>
                 

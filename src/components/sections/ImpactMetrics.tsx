@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Shield, TrendingUp, Globe, Zap } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 
 const metrics = [
@@ -10,7 +9,7 @@ const metrics = [
     value: '0',
     label: 'Scams Reported',
     sublabel: 'Through iléSure',
-    icon: Shield,
+    img: '/illustrations/generated/impact_users.png',
     color: '#C9962A',
     bg: 'linear-gradient(135deg, #FAF1CC, #F5E099)',
   },
@@ -19,25 +18,16 @@ const metrics = [
     value: '100%',
     label: 'Agent KYC Rate',
     sublabel: 'Every agent is verified',
-    icon: Zap,
+    img: '/illustrations/generated/impact_listings.png',
     color: '#5C3317',
     bg: 'linear-gradient(135deg, #F2E8DF, #DEBEBF)',
-  },
-  {
-    id: 'universities',
-    value: '3+',
-    label: 'Universities Served',
-    sublabel: 'LCU · UI · Polytechnic',
-    icon: TrendingUp,
-    color: '#C9962A',
-    bg: 'linear-gradient(135deg, #FAF1CC, #F5E099)',
   },
   {
     id: 'launch',
     value: '2026',
     label: 'Year of Launch',
-    sublabel: 'Nigeria → Nigeria → Africa',
-    icon: Globe,
+    sublabel: 'Nigeria → Africa',
+    img: '/illustrations/generated/impact_launch.png',
     color: '#5C3317',
     bg: 'linear-gradient(135deg, #F2E8DF, #DEBEBF)',
   },
@@ -46,7 +36,6 @@ const metrics = [
 function MetricCard({ metric, index }: { metric: typeof metrics[0]; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-60px' });
-  const Icon = metric.icon;
 
   return (
     <motion.div
@@ -54,29 +43,26 @@ function MetricCard({ metric, index }: { metric: typeof metrics[0]; index: numbe
       initial={{ opacity: 0, y: 40, scale: 0.95 }}
       animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
       transition={{ delay: index * 0.1, duration: 0.6, type: 'spring', stiffness: 80 }}
-      whileHover={{ y: -6, scale: 1.02 }}
-      className="bg-white rounded-clay p-8 shadow-clay border border-cream-200 flex flex-col items-center text-center gap-4 cursor-default"
+      whileHover={{ y: -8, scale: 1.03 }}
+      className="bg-white rounded-clay p-10 shadow-clay border border-cream-200 flex flex-col items-center text-center gap-6 cursor-default"
     >
       <motion.div
-        className="w-14 h-14 rounded-clay-sm flex items-center justify-center"
-        style={{ background: metric.bg, boxShadow: `0 8px 20px ${metric.color}25` }}
-        animate={isInView ? { rotateY: [0, 360] } : {}}
-        transition={{ delay: index * 0.1 + 0.4, duration: 0.8 }}
+        className="w-28 h-28 flex items-center justify-center flex-shrink-0"
+        animate={isInView ? { y: [0, -8, 0] } : {}}
+        transition={{ delay: index * 0.1 + 0.4, duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
       >
-        <Icon size={26} strokeWidth={1.8} style={{ color: metric.color }} />
+        <img src={metric.img} alt={metric.label} className="w-full h-full object-contain drop-shadow-lg" />
       </motion.div>
       <div>
-        <p className="text-4xl font-black" style={{ color: metric.color }}>{metric.value}</p>
-        <p className="text-base font-bold text-brown mt-1">{metric.label}</p>
-        <p className="text-xs text-brown-light mt-0.5">{metric.sublabel}</p>
+        <p className="text-5xl font-black" style={{ color: metric.color }}>{metric.value}</p>
+        <p className="text-lg font-bold text-brown mt-2">{metric.label}</p>
+        <p className="text-sm text-brown-light mt-1">{metric.sublabel}</p>
       </div>
     </motion.div>
   );
 }
 
 function MobileMetricCard({ metric }: { metric: typeof metrics[0] }) {
-  const Icon = metric.icon;
-
   return (
     <motion.div
       key={metric.id}
@@ -84,18 +70,15 @@ function MobileMetricCard({ metric }: { metric: typeof metrics[0] }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -12 }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
-      className="flex flex-col items-center gap-4"
+      className="flex flex-col items-center gap-5"
     >
-      <div
-        className="w-14 h-14 rounded-clay-sm flex items-center justify-center"
-        style={{ background: metric.bg, boxShadow: `0 8px 20px ${metric.color}25` }}
-      >
-        <Icon size={26} strokeWidth={1.8} style={{ color: metric.color }} />
+      <div className="w-24 h-24 flex items-center justify-center">
+        <img src={metric.img} alt={metric.label} className="w-full h-full object-contain drop-shadow-md" />
       </div>
       <div>
-        <p className="text-4xl font-black" style={{ color: metric.color }}>{metric.value}</p>
-        <p className="text-base font-bold text-brown mt-1">{metric.label}</p>
-        <p className="text-xs text-brown-light mt-0.5">{metric.sublabel}</p>
+        <p className="text-5xl font-black" style={{ color: metric.color }}>{metric.value}</p>
+        <p className="text-lg font-bold text-brown mt-2">{metric.label}</p>
+        <p className="text-sm text-brown-light mt-1">{metric.sublabel}</p>
       </div>
     </motion.div>
   );
@@ -134,8 +117,8 @@ export function ImpactMetrics() {
           </div>
         </ScrollReveal>
 
-        {/* ── Desktop: 4-col grid ── */}
-        <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* ── Desktop: 3-col centered grid ── */}
+        <div className="hidden sm:grid sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {metrics.map((metric, i) => (
             <MetricCard key={metric.id} metric={metric} index={i} />
           ))}

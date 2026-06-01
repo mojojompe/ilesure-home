@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Check, Zap, Star, Building2 } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { useState } from 'react';
 
@@ -14,7 +14,7 @@ const tiers = [
     annualNote: 'billed annually',
     color: '#A0714F',
     accent: '#F2E8DF',
-    icon: Building2,
+    image: '/illustrations/generated/pricing_basic.png',
     listingCap: '15 listings',
     features: [
       'Up to 15 active listing slots',
@@ -35,7 +35,7 @@ const tiers = [
     annualNote: 'billed annually',
     color: '#319795',
     accent: '#E6FFFA',
-    icon: Zap,
+    image: '/illustrations/generated/pricing_premium.png',
     listingCap: '30 listings',
     features: [
       'Up to 30 active listing slots',
@@ -56,7 +56,7 @@ const tiers = [
     annualNote: 'billed annually',
     color: '#C6A800',
     accent: '#FFFFF0',
-    icon: Star,
+    image: '/illustrations/generated/pricing_enterprise.png',
     listingCap: '50+ listings',
     features: [
       '50+ active listing slots (unlimited)',
@@ -121,7 +121,6 @@ export function PricingTiers() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start mt-4">
           {tiers.map((tier, i) => {
-            const Icon = tier.icon;
             const isPro = tier.id === 'pro';
             return (
               <ScrollReveal key={tier.id} delay={i * 0.1}>
@@ -141,11 +140,8 @@ export function PricingTiers() {
                   <div className="p-8 flex flex-col gap-6">
                     {/* Header */}
                     <div className="flex items-center justify-between">
-                      <div
-                        className="w-12 h-12 rounded-clay-sm flex items-center justify-center"
-                        style={{ background: tier.accent, boxShadow: `0 6px 16px ${tier.color}20` }}
-                      >
-                        <Icon size={22} strokeWidth={2} style={{ color: tier.color }} />
+                      <div className="w-16 h-16 flex items-center justify-center -ml-2">
+                        <img src={tier.image} alt={tier.name} className="w-full h-full object-contain drop-shadow-sm" />
                       </div>
                       {tier.badge && (
                         <span className="text-[10px] font-bold uppercase tracking-widest text-mustard bg-mustard-50 px-3 py-1.5 rounded-pill border border-mustard-200">

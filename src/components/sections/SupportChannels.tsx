@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
-import { MessageSquare, Mail, Phone } from 'lucide-react';
+
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { useNavigate } from 'react-router-dom';
 
 const channels = [
   {
-    icon: MessageSquare,
+    image: '/illustrations/generated/support_chat.png',
     title: 'Chat with AI Support',
     description: "Get instant answers to any question — 24/7, no wait times. Our AI support agent knows iléSure inside out.",
     cta: 'Start Chat',
@@ -15,7 +15,7 @@ const channels = [
     internal: true,
   },
   {
-    icon: Mail,
+    image: '/illustrations/generated/support_email.png',
     title: 'Email Us',
     description: 'For detailed inquiries, partnership requests, or anything that needs a human touch. We respond within 24 hours.',
     cta: 'Send Email',
@@ -25,7 +25,7 @@ const channels = [
     internal: false,
   },
   {
-    icon: Phone,
+    image: '/illustrations/phone_full.png',
     title: 'Call or WhatsApp',
     description: 'Need to talk? Reach us directly on WhatsApp or phone during business hours (Mon–Fri, 9am–6pm WAT).',
     cta: 'WhatsApp Us',
@@ -64,18 +64,14 @@ export function SupportChannels() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {channels.map((ch, i) => {
-            const Icon = ch.icon;
             return (
               <ScrollReveal key={ch.title} delay={i * 0.1}>
                 <motion.div
                   whileHover={{ y: -6, scale: 1.02 }}
                   className="bg-white rounded-clay p-8 shadow-clay border border-cream-200 flex flex-col gap-5 h-full"
                 >
-                  <div
-                    className="w-14 h-14 rounded-clay-sm flex items-center justify-center"
-                    style={{ background: ch.bg, boxShadow: `0 8px 20px ${ch.color}25` }}
-                  >
-                    <Icon size={26} strokeWidth={1.8} style={{ color: ch.color }} />
+                  <div className="w-16 h-16 flex items-center justify-center -ml-2">
+                    <img src={ch.image} alt={ch.title} className="w-full h-full object-contain drop-shadow-sm" />
                   </div>
 
                   <div className="flex flex-col gap-2 flex-grow">

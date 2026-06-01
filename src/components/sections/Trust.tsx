@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Users, Building2, GraduationCap } from 'lucide-react';
+
 import { useRef } from 'react';
 import { useInView, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ScrollReveal } from '../ui/ScrollReveal';
@@ -8,7 +8,7 @@ import { ScrollReveal } from '../ui/ScrollReveal';
 const stats = [
   {
     id: 'Users',
-    icon: Users,
+    img: '/illustrations/generated/trust_users.png',
     value: 30,
     suffix: '+',
     label: 'Users Helped',
@@ -19,7 +19,7 @@ const stats = [
   },
   {
     id: 'listings',
-    icon: Building2,
+    img: '/illustrations/generated/trust_listings.png',
     value: 10,
     suffix: '+',
     label: 'Active Listings',
@@ -30,7 +30,7 @@ const stats = [
   },
   {
     id: 'universities',
-    icon: GraduationCap,
+    img: '/illustrations/generated/trust_universities.png',
     value: 3,
     suffix: '+',
     label: 'Universities Served',
@@ -92,12 +92,11 @@ function StatCard({ stat }: { stat: typeof stats[0] }) {
         <div className="absolute inset-0 anim-shimmer opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
         <motion.div
-          className="w-16 h-16 rounded-clay-sm flex items-center justify-center flex-shrink-0"
-          style={{ background: stat.bg, boxShadow: `0 8px 20px ${stat.color}30, inset 0 1px 0 rgba(255,255,255,0.6)` }}
-          animate={isInView ? { rotateY: [0, 360] } : {}}
-          transition={{ delay: stat.delay + 0.4, duration: 0.8, type: 'spring' }}
+          className="w-24 h-24 flex items-center justify-center flex-shrink-0 mb-2"
+          animate={isInView ? { y: [0, -6, 0] } : {}}
+          transition={{ delay: stat.delay + 0.4, duration: 2, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <stat.icon size={28} strokeWidth={1.8} style={{ color: stat.color }} />
+          <img src={stat.img} alt={stat.label} className="w-full h-full object-contain drop-shadow-md" />
         </motion.div>
 
         <div>
@@ -128,10 +127,9 @@ function MobileStatCard({ stat }: { stat: typeof stats[0] }) {
       className="flex flex-col items-center gap-4"
     >
       <div
-        className="w-16 h-16 rounded-clay-sm flex items-center justify-center flex-shrink-0"
-        style={{ background: stat.bg, boxShadow: `0 8px 20px ${stat.color}30, inset 0 1px 0 rgba(255,255,255,0.6)` }}
+        className="w-20 h-20 flex items-center justify-center flex-shrink-0 mb-2"
       >
-        <stat.icon size={28} strokeWidth={1.8} style={{ color: stat.color }} />
+        <img src={stat.img} alt={stat.label} className="w-full h-full object-contain drop-shadow-md" />
       </div>
 
       <div>
