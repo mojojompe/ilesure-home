@@ -23,7 +23,7 @@ const footerLinks = {
 
 const socials = [
   { icon: WhatsappBusinessIcon, href: 'https://wa.me/2348169384301', label: 'WhatsApp' },
-  { icon: Instagram, href: 'https://www.instagram.com/ilesure_housing?igsh=N2FjczN1eXZndzJz&utm_source=qr', label: 'Instagram' },
+  { icon: Instagram, href: 'https://www.instagram.com/ilesure_technologies/', label: 'Instagram' },
   { icon: Twitter, href: 'https://x.com/ilesuresupport', label: 'Twitter / X' },
   { icon: Linkedin, href: 'https://www.linkedin.com/company/ilésure-technologies', label: 'LinkedIn' },
   { icon: TiktokIcon, href: 'https://www.tiktok.com/@ilesure.com', label: 'Tiktok' },
