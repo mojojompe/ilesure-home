@@ -29,7 +29,7 @@ const channels = [
     title: 'Call or WhatsApp',
     description: 'Need to talk? Reach us directly on WhatsApp or phone during business hours (Mon–Fri, 9am–6pm WAT).',
     cta: 'WhatsApp Us',
-    href: 'https://wa.me/2348071455374',
+    href: 'https://wa.me/2348169384301',
     color: '#C9962A',
     bg: 'linear-gradient(135deg, #FAF1CC, #F5E099)',
     internal: false,

@@ -22,11 +22,11 @@ const footerLinks = {
 };
 
 const socials = [
-  { icon: WhatsappBusinessIcon, href: '#', label: 'WhatsApp' },
-  { icon: Instagram, href: '#', label: 'Instagram' },
-  { icon: Twitter, href: '#', label: 'Twitter / X' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: TiktokIcon, href: '#', label: 'Tiktok' },
+  { icon: WhatsappBusinessIcon, href: 'https://wa.me/2348169384301', label: 'WhatsApp' },
+  { icon: Instagram, href: 'https://www.instagram.com/ilesure_housing?igsh=N2FjczN1eXZndzJz&utm_source=qr', label: 'Instagram' },
+  { icon: Twitter, href: 'https://x.com/ilesuresupport', label: 'Twitter / X' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/company/ilésure-technologies', label: 'LinkedIn' },
+  { icon: TiktokIcon, href: 'https://www.tiktok.com/@ilesure.com', label: 'Tiktok' },
 ];
 
 export function Footer() {
@@ -56,7 +56,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <Phone size={14} className="text-mustard flex-shrink-0" />
-                <span>+234 807 145 5374</span>
+                <span>+234 816 938 4301</span>
               </div>
             </div>
             {/* Socials */}
