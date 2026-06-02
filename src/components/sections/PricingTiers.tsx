@@ -10,7 +10,7 @@ const tiers = [
     badge: null,
     price: '₦833',
     period: '/month',
-    annualPrice: '₦10,000',
+    annualPrice: '₦15,000',
     annualNote: 'billed annually',
     color: '#A0714F',
     accent: '#F2E8DF',
