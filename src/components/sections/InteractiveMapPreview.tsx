@@ -3,7 +3,7 @@ import { Users } from 'lucide-react';
 
 export function InteractiveMapPreview() {
   return (
-    <section className="py-24 bg-cream text-brown relative">
+    <section id="map" className="py-24 bg-cream text-brown relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

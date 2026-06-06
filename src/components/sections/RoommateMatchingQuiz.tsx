@@ -93,7 +93,7 @@ export function RoommateMatchingQuiz() {
   };
 
   return (
-    <section className="py-16 px-4 bg-cream">
+    <section id="roommate" className="py-16 px-4 bg-cream">
       <motion.div
         className="max-w-xl mx-auto"
         initial={{ opacity: 0, y: 20 }}

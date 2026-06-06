@@ -88,7 +88,7 @@ export function SocialProofWall() {
   const col3 = [testimonials[2], testimonials[5], testimonials[8], testimonials[2]];
 
   return (
-    <section className="py-24 bg-cream relative overflow-hidden h-[800px]">
+    <section id="social-proof" className="py-24 bg-cream relative overflow-hidden h-[800px]">
       {/* Fade masks for top/bottom of the wall */}
       <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-cream to-transparent z-20 pointer-events-none" />
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-cream to-transparent z-20 pointer-events-none" />

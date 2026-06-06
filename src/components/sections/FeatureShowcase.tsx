@@ -56,7 +56,7 @@ export function FeatureShowcase() {
   const lineFillHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   return (
-    <section ref={containerRef} className="relative bg-cream-50 h-[400vh]">
+    <section id="features" ref={containerRef} className="relative bg-cream-50 h-[400vh]">
       {/* ── STICKY VIEWPORT ── */}
       <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden py-24 lg:py-32">
 

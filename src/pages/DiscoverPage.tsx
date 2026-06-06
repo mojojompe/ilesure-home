@@ -33,7 +33,7 @@ export function DiscoverPage() {
           illustration="/illustrations/discover_hero.png"
           illustrationAlt="User discovering housing with map and pin"
           primaryCta={{ label: 'Browse Features', anchor: '#features' }}
-          secondaryCta={{ label: 'How It Works', anchor: '#how-it-works' }}
+          secondaryCta={{ label: 'Interactive Map', anchor: '#map' }}
           illustrationBlend
         />
         <FeatureShowcase />
