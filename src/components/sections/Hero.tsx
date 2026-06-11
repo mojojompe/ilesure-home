@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import BlurText from '../ui/BlurText';
 
 const rotatingTexts = [
-  "Premium Real Estate",
+  "Verified Real Estate",
   "Ilé Rẹ Tó Dájú",
   "Tabbataccen Gidanka",
   "Ezigbo Ụlọ Gị"
@@ -71,7 +71,7 @@ export function Hero() {
           {/* Illustration — no wrapper box */}
           <motion.img
             src="/illustrations/hero.png"
-            alt="iléSure — verified premium housing platform"
+            alt="iléSure — Verified housing platform"
             className="relative w-full h-auto object-contain"
             style={{
               filter: 'drop-shadow(0px 40px 60px rgba(0,0,0,0.18)) drop-shadow(0px 10px 20px rgba(0,0,0,0.12))',
@@ -139,7 +139,7 @@ export function Hero() {
               style={{ fontFamily: 'Georgia, serif' }}
             >
               Discover verified apartments and spaces tailored to your lifestyle.
-              Transparent, trusted, and strictly premium.
+              Transparent, trusted, and strictly verified.
             </motion.p>
 
             <motion.div

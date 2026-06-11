@@ -18,7 +18,7 @@ const cards = [
     id: 'vision',
     icon: Eye,
     eyebrow: 'Our Vision',
-    title: 'The most trusted premium housing platform in Africa',
+    title: 'The most trusted housing platform in Africa',
     body: "We envision a future where anyone, whether in Lagos, Abuja, Port Harcourt, or beyond, can find a verified, compatible, affordable home with one search. iléSure will be the ultimate home discovery layer for your renting journey.",
     accent: '#5C3317',
     illustration: '/illustrations/mission.png',

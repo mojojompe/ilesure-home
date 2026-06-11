@@ -34,7 +34,7 @@ export function NeighborhoodStrip() {
               Neighborhoods We Cover
             </span>
             <h2 className="mt-4 text-3xl font-extrabold text-brown">
-              Premium Areas Across <span className="text-gradient-mustard">Nigeria</span>
+              Verified Areas Across <span className="text-gradient-mustard">Nigeria</span>
             </h2>
             <p className="mt-2 text-brown-light max-w-xl mx-auto">
               From Lagos to Abuja, Port Harcourt to Ibadan — verified listings in the neighbourhoods that matter most.

@@ -23,7 +23,7 @@ const lastUpdated = 'May 4, 2026';
 export function TermsOfServicePage() {
   useSEO({
     title: 'Terms of Service',
-    description: 'iléSure terms of service — understand your rights, responsibilities, and obligations when using our premium housing platform.',
+    description: 'iléSure terms of service — understand your rights, responsibilities, and obligations when using our housing platform.',
     canonical: '/terms-of-service',
   });
 
@@ -40,7 +40,7 @@ export function TermsOfServicePage() {
         <section id="service-description" className="mb-10">
           <h2 className="text-2xl font-bold text-brown mb-4">1. Description of Service</h2>
           <p className="text-gray-700 leading-relaxed mb-4">
-            iléSure is a premium housing and roommate discovery platform designed to help university Users find verified accommodation near their destination. Our services include:
+            iléSure is a verified housing and roommate discovery platform designed to help students and Individuals, find verified accommodation near their destination. Our services include:
           </p>
           <ul className="list-disc list-inside text-gray-700 space-y-2">
             <li>Browsing and searching for housing listings</li>

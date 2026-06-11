@@ -21,7 +21,7 @@ const pageTransition = {
 export function HomePage() {
   useSEO({
     title: 'Your Sure Home Anywhere',
-    description: 'Find verified premium housing, match with roommates, and discover trusted listings around key locations, Nigeria.',
+    description: 'Find safe and verified housing, match with roommates, and discover trusted listings around key locations in Nigeria.',
     canonical: '/',
   });
 

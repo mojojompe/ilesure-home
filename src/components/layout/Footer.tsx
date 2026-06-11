@@ -43,7 +43,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-cream-300 text-sm leading-relaxed max-w-xs">
-              Your sure home Anywhere. Verified premium housing and roommate discovery for Nigerians.
+              Your sure home Anywhere. Verified housing and roommate discovery for Nigerians.
             </p>
             <div className="flex flex-col gap-2 text-sm text-cream-300">
               <div className="flex items-center gap-2">

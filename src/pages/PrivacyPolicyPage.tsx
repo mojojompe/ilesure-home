@@ -22,7 +22,7 @@ const lastUpdated = 'May 4, 2026';
 export function PrivacyPolicyPage() {
   useSEO({
     title: 'Privacy Policy',
-    description: 'iléSure privacy policy — how we collect, use, protect, and share your personal data as a premium housing platform.',
+    description: 'iléSure privacy policy — how we collect, use, protect, and share your personal data as a verified housing platform.',
     canonical: '/privacy-policy',
   });
 

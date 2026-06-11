@@ -13,7 +13,7 @@ const pillars = [
   {
     icon: Rocket,
     title: 'Product',
-    description: 'Every feature of iléSure is designed around one goal: making the premium housing journey simple, safe, and stress-free.',
+    description: 'Every feature of iléSure is designed around one goal: making the housing journey simple, safe, and stress-free.',
     color: '#5C3317',
     bg: 'linear-gradient(135deg, #F2E8DF, #DEBEBF)',
   },

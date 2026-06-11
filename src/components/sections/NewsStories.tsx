@@ -29,7 +29,7 @@ const fallbackStories: Story[] = [
   },
   {
     id: '2',
-    title: 'The Rise of Co-Living Spaces: Why Millennials Prefer Shared Premium Housing',
+    title: 'The Rise of Co-Living Spaces: Why Millennials Prefer Shared Housing',
     category: 'Real Estate',
     categoryIcon: Newspaper,
     imageUrl: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800',
@@ -181,7 +181,7 @@ export function NewsStories() {
                 Latest in Real Estate
               </h2>
               <p className="mt-4 text-white/60 text-lg">
-                Stay updated with the latest trends in premium apartments, land acquisitions, and market shifts.
+                Stay updated with the latest trends in apartments, land acquisitions, and market shifts.
               </p>
             </div>
           </div>
