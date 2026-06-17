@@ -26,7 +26,8 @@
   }
 
   .clay-card:hover {
-    @apply shadow-clay-hover -translate-y-1;
+    @apply shadow-clay-hover;
+    transform: translateY(-2px);
   }
 
   /* 3D Clay card — preserve-3d wrapper */

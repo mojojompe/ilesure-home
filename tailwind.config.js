@@ -59,11 +59,11 @@ export default {
         'pill': '9999px',
       },
       boxShadow: {
-        'clay': '0 8px 24px rgba(92, 51, 23, 0.10), 0 2px 8px rgba(92, 51, 23, 0.06)',
-        'clay-hover': '0 16px 40px rgba(92, 51, 23, 0.18), 0 4px 12px rgba(92, 51, 23, 0.10)',
-        'clay-sm': '0 4px 12px rgba(92, 51, 23, 0.08)',
-        'clay-lg': '0 20px 60px rgba(92, 51, 23, 0.20)',
-        'clay-mustard': '0 8px 24px rgba(201, 150, 42, 0.30)',
+        'clay': '0 4px 16px rgba(92, 51, 23, 0.06), 0 1px 4px rgba(92, 51, 23, 0.02)',
+        'clay-hover': '0 12px 32px rgba(92, 51, 23, 0.12), 0 4px 12px rgba(92, 51, 23, 0.05)',
+        'clay-sm': '0 2px 8px rgba(92, 51, 23, 0.04)',
+        'clay-lg': '0 16px 48px rgba(92, 51, 23, 0.15)',
+        'clay-mustard': '0 8px 20px rgba(201, 150, 42, 0.20)',
         'clay-inset': 'inset 0 2px 6px rgba(92, 51, 23, 0.08)',
         'navbar': '0 4px 30px rgba(92, 51, 23, 0.12)',
         /* 3D depth shadow tokens */

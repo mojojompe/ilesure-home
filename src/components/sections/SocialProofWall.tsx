@@ -104,7 +104,7 @@ export function SocialProofWall() {
         {/* <img
           src="/illustrations/testimonials.png"
           alt="Testimonial Speech Bubble"
-          className="w-48 h-auto anim-float pointer-events-none mt-8 md:mt-0 opacity-80"
+          className="w-48 h-auto  pointer-events-none mt-8 md:mt-0 opacity-80"
           style={{ mixBlendMode: 'multiply' }}
         /> */}
       </div>

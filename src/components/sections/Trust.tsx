@@ -93,8 +93,6 @@ function StatCard({ stat }: { stat: typeof stats[0] }) {
 
         <motion.div
           className="w-24 h-24 flex items-center justify-center flex-shrink-0 mb-2"
-          animate={isInView ? { y: [0, -6, 0] } : {}}
-          transition={{ delay: stat.delay + 0.4, duration: 2, repeat: Infinity, ease: 'easeInOut' }}
         >
           <img src={stat.img} alt={stat.label} className="w-full h-full object-contain drop-shadow-md" />
         </motion.div>
@@ -161,7 +159,7 @@ export function Trust() {
         src="/illustrations/trust_v2.png"
         alt=""
         aria-hidden
-        className="absolute -top-12 -right-4 w-52 h-auto anim-float pointer-events-none opacity-50"
+        className="absolute -top-12 -right-4 w-52 h-auto  pointer-events-none opacity-50"
         style={{ mixBlendMode: 'multiply' }}
       />
 
@@ -170,7 +168,7 @@ export function Trust() {
         src="/illustrations/person_duo_celebrate.png"
         alt=""
         aria-hidden
-        className="absolute bottom-0 left-4 w-40 h-auto anim-float-delayed pointer-events-none opacity-70 hidden lg:block"
+        className="absolute bottom-0 left-4 w-40 h-auto  pointer-events-none opacity-70 hidden lg:block"
         style={{ mixBlendMode: 'multiply' }}
       />
 

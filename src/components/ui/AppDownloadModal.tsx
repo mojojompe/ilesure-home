@@ -118,7 +118,7 @@ export function AppDownloadModal({ isOpen, onClose }: AppDownloadModalProps) {
 
                 {/* Floating phone icon badge */}
                 <motion.div
-                  animate={{ y: [0, -10, 0] }}
+                  
                   transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
                   className="relative"
                 >

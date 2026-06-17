@@ -20,7 +20,7 @@ export function SectionHeading({
   return (
     <div className={`flex flex-col gap-3 ${alignClass} ${className}`}>
       {eyebrow && (
-        <span className="inline-flex items-center px-4 py-1.5 rounded-pill text-xs font-bold uppercase tracking-widest text-mustard-dark bg-mustard-50 border border-mustard-200 self-start">
+        <span className="inline-flex items-center px-4 py-1.5 rounded-pill text-xs font-bold uppercase tracking-widest text-mustard-dark bg-mustard-50 border border-mustard-200 self-center">
           {eyebrow}
         </span>
       )}

@@ -48,8 +48,6 @@ function MetricCard({ metric, index }: { metric: typeof metrics[0]; index: numbe
     >
       <motion.div
         className="w-28 h-28 flex items-center justify-center flex-shrink-0"
-        animate={isInView ? { y: [0, -8, 0] } : {}}
-        transition={{ delay: index * 0.1 + 0.4, duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
       >
         <img src={metric.img} alt={metric.label} className="w-full h-full object-contain drop-shadow-lg" />
       </motion.div>

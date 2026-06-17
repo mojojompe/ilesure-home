@@ -75,7 +75,7 @@ export function Testimonials() {
       <img
         src="/illustrations/testimonials.png"
         alt="Testimonial Speech Bubble"
-        className="absolute top-auto max-w-[25vw] md:max-w-[40vw] lg:max-w-none opacity-15 md:opacity-30 lg:opacity-100 top-10 right-20 w-48 h-auto anim-float-delayed pointer-events-none"
+        className="absolute top-auto max-w-[25vw] md:max-w-[40vw] lg:max-w-none opacity-15 md:opacity-30 lg:opacity-100 top-10 right-20 w-48 h-auto  pointer-events-none"
         style={{ mixBlendMode: 'multiply' }}
       />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

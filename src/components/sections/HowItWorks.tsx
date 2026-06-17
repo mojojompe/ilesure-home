@@ -137,7 +137,7 @@ export function HowItWorks() {
         src="/illustrations/how_it_works.png"
         alt=""
         aria-hidden
-        className="absolute bottom-40 -right-8 w-60 h-auto anim-float-delayed pointer-events-none opacity-40 hidden lg:block"
+        className="absolute bottom-40 -right-8 w-60 h-auto  pointer-events-none opacity-40 hidden lg:block"
         style={{ mixBlendMode: 'multiply' }}
       />
 

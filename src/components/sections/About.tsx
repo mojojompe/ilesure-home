@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { SectionHeading } from '../ui/SectionHeading';
@@ -9,12 +9,6 @@ const highlights = [
   'Combating housing scams through rigorous agent verification',
   'Reducing roommate conflict with data-driven compatibility matching',
   'Bringing demand intelligence to landlords and agents in Nigeria',
-];
-
-const stats = [
-  { value: '2026', label: 'Platform Launch', color: '#C9962A' },
-  { value: 'LCU', label: 'Primary destination', color: '#5C3317' },
-  { value: 'Nigeria', label: 'Starting City', color: '#C9962A' },
 ];
 
 export function About() {
@@ -64,27 +58,6 @@ export function About() {
                 </ScrollReveal>
               ))}
             </ul>
-
-            <div className="flex gap-4">
-              {stats.map((stat, i) => {
-                const statRef = useRef(null);
-                const isInView = useInView(statRef, { once: true, margin: '-40px' });
-                return (
-                  <motion.div
-                    key={stat.label}
-                    ref={statRef}
-                    initial={{ opacity: 0, rotateX: 60, y: 20 }}
-                    animate={isInView ? { opacity: 1, rotateX: 0, y: 0 } : {}}
-                    transition={{ delay: 0.3 + i * 0.1, duration: 0.6, type: 'spring' }}
-                    style={{ perspective: '800px', transformStyle: 'preserve-3d' }}
-                    className="bg-white rounded-clay p-5 shadow-3d flex-1 text-center border border-cream-200"
-                  >
-                    <p className="text-2xl font-extrabold" style={{ color: stat.color }}>{stat.value}</p>
-                    <p className="text-[10px] sm:text-xs font-semibold text-brown-light mt-1 uppercase tracking-wider">{stat.label}</p>
-                  </motion.div>
-                );
-              })}
-            </div>
           </div>
 
           {/* ═══ ILLUSTRATION SIDE (Parallax Depth Stack) ═══ */}
@@ -121,7 +94,7 @@ export function About() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.5, type: 'spring', bounce: 0.5 }}
                   viewport={{ once: true }}
-                  animate={{ y: [0, -8, 0] }}
+                  
                 >
                   <p className="text-xs font-bold text-brown">iléSure</p>
                   <p className="text-[11px] text-mustard font-semibold">Your Sure Home</p>

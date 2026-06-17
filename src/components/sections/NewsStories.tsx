@@ -148,7 +148,7 @@ export function NewsStories() {
   return (
     <section
       className="py-24 relative border-t border-brown/20"
-      style={{ backgroundColor: '#3B1A08' }}
+      style={{ backgroundColor: '#521f04d2' }}
     >
       {/* Brown grid */}
       <div

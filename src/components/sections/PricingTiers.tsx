@@ -76,13 +76,10 @@ export function PricingTiers() {
     <section id="pricing" className="py-24 relative overflow-hidden" style={{
       background: 'radial-gradient(ellipse at 20% 80%, #FFFDF7 0%, #FDF6E3 80%, #FAF1CC 100%)',
     }}>
-      <div className="absolute inset-0 pointer-events-none opacity-80"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='44' height='44' viewBox='0 0 24 24' fill='none' stroke='rgba(201,150,42,0.07)' stroke-width='1' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3Cpolyline points='9 22 9 12 15 12 15 22'/%3E%3C/svg%3E")`,
-          backgroundSize: '45px 45px',
-          backgroundPosition: 'center',
-        }}
-      />
+      <div className="absolute inset-0 pointer-events-none opacity-80" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0z' fill='none'/%3E%3Cpath d='M0 39.5h40M39.5 0v40' stroke='rgba(201,150,42,0.07)' stroke-width='1' fill='none'/%3E%3C/svg%3E")`,
+        backgroundSize: '40px 40px'
+      }} />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal>
           <div className="text-center mb-10">

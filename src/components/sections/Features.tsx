@@ -50,7 +50,7 @@ function SpotlightCard({
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => { setHovered(false); mouseX.set(0); mouseY.set(0); }}
-      className={`relative bg-white rounded-clay border border-cream-200 shadow-clay overflow-hidden cursor-default transition-shadow duration-300 ${hovered ? 'shadow-3d-hover' : ''} ${className}`}
+      className={`relative bg-white rounded-clay border border-black/5 shadow-clay overflow-hidden cursor-default transition-shadow duration-300 ${hovered ? 'shadow-3d-hover' : ''} ${className}`}
     >
       <div
         className="absolute inset-0 pointer-events-none z-0 transition-opacity duration-300 rounded-clay"
@@ -67,26 +67,26 @@ function SpotlightCard({
 
 export function Features() {
   return (
-    <section id="features" className="py-24 relative"
+    <section id="features" className="py-32 relative"
       style={{ background: 'radial-gradient(ellipse at 20% 80%, #FFFDF7 0%, #FDF6E3 80%, #FAF1CC 100%)' }}
     >
       {/* Container specifically to clip background overflow if necessary */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         {/* Floating illustrations — desktop only */}
-        <img src="/illustrations/features.png" alt="" aria-hidden
-          className="absolute bottom-10 -left-12 w-64 h-auto anim-float-delayed opacity-40 hidden lg:block"
+        <img src="/illustrations/features.png" alt="Features Illustration 1" loading="lazy" width={256} height={256}
+          className="absolute bottom-10 -left-12 w-64 h-auto  opacity-40 hidden lg:block"
           style={{ mixBlendMode: 'multiply' }}
         />
-        <img src="/illustrations/features_2.png" alt="" aria-hidden
-          className="absolute top-20 right-4 w-48 h-auto anim-float opacity-50 hidden lg:block"
+        <img src="/illustrations/features_2.png" alt="Features Illustration 2" loading="lazy" width={192} height={192}
+          className="absolute top-20 right-4 w-48 h-auto  opacity-50 hidden lg:block"
           style={{ mixBlendMode: 'multiply' }}
         />
-        <img src="/illustrations/person_search.png" alt="" aria-hidden
-          className="absolute bottom-0 right-8 w-48 h-auto anim-float opacity-80 hidden xl:block"
+        <img src="/illustrations/person_search.png" alt="Person searching for housing" loading="lazy" width={192} height={192}
+          className="absolute bottom-0 right-8 w-48 h-auto  opacity-80 hidden xl:block"
           style={{ mixBlendMode: 'multiply' }}
         />
-        <img src="/illustrations/person_female_key.png" alt="" aria-hidden
-          className="absolute bottom-1/4 left-1/3 w-36 h-auto anim-float opacity-60 hidden xl:block"
+        <img src="/illustrations/person_female_key.png" alt="Female person with house key" loading="lazy" width={144} height={144}
+          className="absolute bottom-1/4 left-1/3 w-36 h-auto  opacity-60 hidden xl:block"
           style={{ mixBlendMode: 'multiply' }}
         />
       </div>
@@ -119,8 +119,8 @@ export function Features() {
                   <img src={feature.image} alt={feature.title} className="w-full h-full object-contain drop-shadow-sm" />
                 </motion.div>
                 <div className="flex flex-col gap-2 relative z-10">
-                  <h3 className="text-base font-bold text-brown">{feature.title}</h3>
-                  <p className="text-sm text-brown-light leading-relaxed">{feature.description}</p>
+                  <h3 className="text-xl font-bold text-brown tracking-tight">{feature.title}</h3>
+                  <p className="text-sm text-brown-light leading-loose">{feature.description}</p>
                 </div>
               </SpotlightCard>
             );
@@ -133,12 +133,12 @@ export function Features() {
             return (
               <div
                 key={feature.id}
-                className="sticky w-full bg-white rounded-clay border border-cream-200 p-6 flex flex-col gap-4"
+                className="sticky w-full bg-white rounded-clay border border-black/5 p-6 flex flex-col gap-4"
                 style={{
                   top: `calc(7rem + ${i * 14}px)`,
                   marginTop: i === 0 ? '0' : '2.5rem',
                   zIndex: i + 10,
-                  boxShadow: '0 -10px 40px -10px rgba(0,0,0,0.08), 0 10px 20px -5px rgba(0,0,0,0.05)',
+                  boxShadow: '0 -10px 40px -10px rgba(0,0,0,0.05), 0 10px 20px -5px rgba(0,0,0,0.03)',
                   transformOrigin: 'top center',
                 }}
               >
@@ -153,8 +153,8 @@ export function Features() {
                 </div>
                 
                 <div className="flex flex-col gap-2 relative z-20">
-                  <h3 className="text-xl font-bold text-brown leading-tight">{feature.title}</h3>
-                  <p className="text-[15px] text-brown-light leading-relaxed">{feature.description}</p>
+                  <h3 className="text-xl font-bold text-brown leading-tight tracking-tight">{feature.title}</h3>
+                  <p className="text-[15px] text-brown-light leading-loose">{feature.description}</p>
                 </div>
 
                 {/* Subtle top shading gradient to separate overlapped cards */}

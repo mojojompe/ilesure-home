@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import {
   Monitor, BarChart3, Users, Building2, ChevronRight,
-  Shield, Zap, Star, Globe,
+  Shield, Globe,
 } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 
@@ -174,53 +174,6 @@ export function WebApp() {
                       className="transition-transform duration-200 group-hover:translate-x-1"
                     />
                   </motion.a>
-
-                  {/* Social proof micro-tag */}
-                  <div className="flex items-center gap-2">
-                    <div className="flex -space-x-1.5">
-                      {[
-                        { init: 'KA', bg: '#C9962A' },
-                        { init: 'PO', bg: '#A0714F' },
-                        { init: 'RE', bg: '#7A5B12' },
-                      ].map(({ init, bg }, i) => (
-                        <div
-                          key={i}
-                          className="w-7 h-7 rounded-full border-2 flex items-center justify-center text-[9px] font-bold text-white"
-                          style={{ background: bg, borderColor: '#1a0d05' }}
-                        >
-                          {init}
-                        </div>
-                      ))}
-                    </div>
-                    <p className="text-xs" style={{ color: 'rgba(253,246,227,0.65)' }}>
-                      <span className="text-mustard font-semibold">200+ agents</span>{' '}
-                      already joined
-                    </p>
-                  </div>
-                </div>
-              </ScrollReveal>
-
-              {/* ── Trust badges row ── */}
-              <ScrollReveal direction="left" delay={0.32}>
-                <div className="flex flex-wrap gap-3">
-                  {[
-                    { icon: Shield, label: 'KYC Verified' },
-                    { icon: Zap,    label: 'Instant Setup' },
-                    { icon: Star,   label: 'Free to Start' },
-                  ].map(({ icon: Icon, label }) => (
-                    <span
-                      key={label}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-pill text-xs font-semibold"
-                      style={{
-                        background: 'rgba(255,255,255,0.08)',
-                        border: '1px solid rgba(255,255,255,0.15)',
-                        color: 'rgba(253,246,227,0.8)',
-                      }}
-                    >
-                      <Icon size={11} color="#C9962A" strokeWidth={2.5} />
-                      {label}
-                    </span>
-                  ))}
                 </div>
               </ScrollReveal>
             </div>

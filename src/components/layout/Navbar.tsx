@@ -113,30 +113,21 @@ export function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-40 flex justify-center pt-4 px-4">
+      <header className="fixed top-0 left-0 right-0 z-40 flex justify-center pt-4 px-4 pointer-events-none">
         <motion.nav
           initial={{ y: -30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="transition-all duration-500"
-          style={{
-            width: scrolled ? 'auto' : '100%',
-            maxWidth: scrolled ? '920px' : '1100px',
-          }}
+          className="w-full flex justify-center pointer-events-auto"
         >
-          <motion.div
-            animate={{
-              paddingTop: scrolled ? '10px' : '14px',
-              paddingBottom: scrolled ? '10px' : '14px',
-              paddingLeft: scrolled ? '16px' : '20px',
-              paddingRight: scrolled ? '16px' : '20px',
-            }}
-            transition={{ duration: 0.4, ease: 'easeInOut' }}
-            className={`rounded-pill transition-all duration-400 ${
-              scrolled ? 'navbar-glass' : 'navbar-transparent'
+          <div
+            className={`w-full rounded-pill transition-all duration-300 ease-out flex items-center justify-between gap-4 ${
+              scrolled 
+                ? 'max-w-[920px] py-2 px-4 navbar-glass' 
+                : 'max-w-[1100px] py-3.5 px-5 navbar-transparent'
             }`}
           >
-            <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center justify-between gap-4 w-full">
               {/* Logo */}
               <Link
                 to="/"
@@ -155,7 +146,7 @@ export function Navbar() {
               </Link>
 
               {/* Desktop Nav Links */}
-              <div className={`hidden md:flex items-center rounded-pill px-2 py-1 gap-0.5 transition-all duration-700 ${
+              <div className={`hidden md:flex items-center rounded-pill px-2 py-1 gap-0.5 transition-colors duration-300 ${
                 scrolled
                   ? 'bg-cream border border-cream-200'
                   : 'bg-white/20 border border-white/30'
@@ -222,7 +213,7 @@ export function Navbar() {
                   onClick={() => setWaitlistOpen(true)}
                   iconRight={<ChevronRight size={15} strokeWidth={2.5} />}
                 >
-                  Get Early Access
+                  Get Started
                 </PillButton>
               </div>
 
@@ -242,7 +233,7 @@ export function Navbar() {
                 />
               </button>
             </div>
-          </motion.div>
+          </div>
         </motion.nav>
       </header>
 

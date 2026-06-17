@@ -94,7 +94,7 @@ export function FAQ() {
                 <img
                   src="/illustrations/faq.png"
                   alt="FAQ Question Mark"
-                  className="w-40 h-auto anim-float pointer-events-none opacity-80"
+                  className="w-40 h-auto  pointer-events-none opacity-80"
                   style={{ mixBlendMode: 'multiply' }}
                 />
               </div>

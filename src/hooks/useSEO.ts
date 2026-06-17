@@ -6,6 +6,7 @@ interface SEOConfig {
   keywords?: string;
   ogImage?: string;
   canonical?: string;
+  structuredData?: Record<string, any>;
 }
 
 const BASE_URL = 'https://ilesure.com';
@@ -47,6 +48,19 @@ export function useSEO(config: SEOConfig) {
     setMeta('twitter:title', fullTitle);
     setMeta('twitter:description', config.description);
     setMeta('twitter:image', config.ogImage || DEFAULT_OG_IMAGE);
+
+    let scriptEl = document.querySelector('script[id="seo-structured-data"]') as HTMLScriptElement;
+    if (config.structuredData) {
+      if (!scriptEl) {
+        scriptEl = document.createElement('script');
+        scriptEl.id = 'seo-structured-data';
+        scriptEl.type = 'application/ld+json';
+        document.head.appendChild(scriptEl);
+      }
+      scriptEl.textContent = JSON.stringify(config.structuredData);
+    } else if (scriptEl) {
+      scriptEl.remove();
+    }
 
     return () => {
       document.title = 'iléSure: Your Sure Home Anywhere';

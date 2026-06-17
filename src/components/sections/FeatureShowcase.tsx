@@ -1,9 +1,10 @@
-import { useRef, useEffect, useState } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import React, { useRef, useState } from 'react';
+import { motion, useInView, useMotionValue } from 'framer-motion';
 import { Search, Map, ShieldCheck, KeyRound } from 'lucide-react';
 import { SectionHeading } from '../ui/SectionHeading';
+import { ScrollReveal } from '../ui/ScrollReveal';
 
-const steps = [
+const features = [
   {
     id: 'discover',
     icon: Search,
@@ -34,131 +35,152 @@ const steps = [
   },
 ];
 
-export function FeatureShowcase() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
+function SpotlightCard({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: '-60px' });
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const [hovered, setHovered] = useState(false);
+  const [spotPos, setSpotPos] = useState({ x: '50%', y: '50%' });
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end end'],
-  });
-
-  // Track active index based on scroll progress (0 to 1) over the 400vh container
-  useEffect(() => {
-    return scrollYProgress.onChange((latest) => {
-      // 4 steps = 0-0.25, 0.25-0.5, 0.5-0.75, 0.75-1
-      const index = Math.min(Math.floor(latest * steps.length), steps.length - 1);
-      setActiveIndex(index);
-    });
-  }, [scrollYProgress]);
-
-  // Connector bar fill progress
-  const lineFillHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setSpotPos({ x: `${x}%`, y: `${y}%` });
+    mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
+    mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
+  };
 
   return (
-    <section id="features" ref={containerRef} className="relative bg-cream-50 h-[400vh]">
-      {/* ── STICKY VIEWPORT ── */}
-      <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden py-24 lg:py-32">
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 40, scale: 0.95 }}
+      animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+      transition={{ delay, duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+      whileHover={{ y: -6, scale: 1.01 }}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => { setHovered(false); mouseX.set(0); mouseY.set(0); }}
+      className={`relative bg-white rounded-[2rem] border border-black/5 shadow-clay overflow-hidden cursor-default transition-shadow duration-300 ${hovered ? 'shadow-3d-hover' : ''} ${className}`}
+    >
+      <div
+        className="absolute inset-0 pointer-events-none z-0 transition-opacity duration-300 rounded-[2rem]"
+        style={{
+          opacity: hovered ? 1 : 0,
+          background: `radial-gradient(400px circle at ${spotPos.x} ${spotPos.y}, rgba(201,150,42,0.10), transparent 60%)`,
+        }}
+      />
+      {hovered && <div className="absolute inset-0 anim-shimmer pointer-events-none z-0 opacity-60" />}
+      <div className="relative z-10 h-full">{children}</div>
+    </motion.div>
+  );
+}
 
-        {/* Global animated background blobs for the sticky view */}
-        <div className="absolute inset-0 pointer-events-none">
-          <motion.div
-            className="absolute right-[-10%] top-[10%] w-[500px] h-[500px] rounded-full bg-mustard-200/40 blur-[100px]"
-            animate={{ scale: [1, 1.2, 1], x: [0, -50, 0] }}
-            transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-          />
-          <motion.div
-            className="absolute left-[-10%] bottom-[10%] w-[600px] h-[600px] rounded-full bg-brown-200/30 blur-[100px]"
-            animate={{ scale: [1, 1.1, 1], y: [0, -80, 0] }}
-            transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
-          />
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-24 items-center">
-
-          {/* ═══ LEFT PANEL: Text Content ═══ */}
-          <div className="flex flex-col gap-8 lg:gap-10 w-full z-10 relative pt-[120px] lg:pt-20">
-            <SectionHeading eyebrow="Experience" title="Everything built into one seamless experience" subtitle="Keep Scrolling..." align="left" />
-
-            <div className="relative flex gap-8 pl-0 lg:pl-4">
-              {/* Connector line */}
-              <div className="absolute left-0 top-2 bottom-6 w-1 bg-cream-200 rounded-full overflow-hidden hidden md:block">
-                <motion.div
-                  className="w-full bg-mustard origin-top"
-                  style={{ height: lineFillHeight }}
-                />
-              </div>
-
-              {/* Steps list */}
-              <div className="flex flex-col gap-10 w-full relative z-10">
-                {steps.map((step, index) => {
-                  const isActive = index === activeIndex;
-                  return (
-                    <div
-                      key={step.id}
-                      className={`transition-all duration-500 relative ${isActive ? 'opacity-100 translate-x-2' : 'opacity-40 translate-x-0'}`}
-                    >
-                      {/* Active indicator dot */}
-                      <motion.div
-                        className="absolute -left-10 top-1.5 w-3 h-3 rounded-full bg-mustard border-2 border-white shadow-sm hidden md:block"
-                        animate={{ scale: isActive ? 1.5 : 0, opacity: isActive ? 1 : 0 }}
-                      />
-
-                      <div className="flex items-center gap-4 mb-3">
-                        <div className={`w-10 h-10 rounded-clay-sm flex items-center justify-center transition-colors duration-500 ${isActive ? 'bg-mustard text-white shadow-3d' : 'bg-white border border-cream-200 text-brown-light'}`}>
-                          <step.icon size={20} strokeWidth={isActive ? 2.5 : 1.5} />
-                        </div>
-                        <h3 className={`text-xl font-bold transition-colors duration-500 ${isActive ? 'text-brown' : 'text-brown-light'}`}>
-                          {step.title}
-                        </h3>
-                      </div>
-                      
-                      <AnimatePresence>
-                        {isActive && (
-                          <motion.p
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            className="text-brown-light leading-relaxed pl-14"
-                          >
-                            {step.desc}
-                          </motion.p>
-                        )}
-                      </AnimatePresence>
-                      {/* Space after last step */}
-                      {index === steps.length - 1 && <div className="h-24"></div>}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+export function FeatureShowcase() {
+  return (
+    <section id="features" className="py-24 lg:py-32 bg-cream-50 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <ScrollReveal>
+          <div className="flex flex-col items-center text-center mb-16">
+            <SectionHeading 
+              eyebrow="Experience" 
+              title="Everything built into one seamless experience" 
+              subtitle="A smarter, safer way to find your next home."
+            />
           </div>
+        </ScrollReveal>
 
-          {/* ═══ RIGHT PANEL: 3D Image Display ═══ */}
-          <div className="absolute inset-0 z-0 lg:relative lg:h-[500px] lg:w-full flex items-center justify-center perspective-1000 opacity-40 blur-[2px] lg:opacity-100 lg:blur-none pointer-events-none lg:pointer-events-auto overflow-hidden">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeIndex}
-                initial={{ opacity: 0, x: 100, rotateY: 30, scale: 0.8 }}
-                animate={{ opacity: 1, x: 0, rotateY: 0, scale: 1 }}
-                exit={{ opacity: 0, x: -100, rotateY: -30, scale: 0.8 }}
-                transition={{ duration: 0.6, type: 'spring', stiffness: 120, damping: 20 }}
-                className="absolute lg:inset-0 top-[20%] w-full flex flex-col items-center justify-center transform-style-3d"
+        {/* ── Desktop: Bento Grid (Long text cards, small image cards) ── */}
+        <div className="hidden sm:grid grid-cols-3 gap-6">
+          {features.map((feature, i) => {
+            // Alternate layout: text left, image right OR image left, text right
+            const isTextLeft = i % 2 === 0;
+
+            const textCard = (
+              <SpotlightCard key={`${feature.id}-text`} delay={i * 0.1} className="col-span-2 flex flex-col justify-center p-10 h-full group">
+                <div className="w-16 h-16 rounded-2xl bg-mustard-50 flex items-center justify-center mb-8 text-mustard group-hover:scale-110 transition-transform duration-300">
+                  <feature.icon size={32} strokeWidth={2} />
+                </div>
+                <h3 className="text-3xl font-bold text-brown mb-4">{feature.title}</h3>
+                <p className="text-lg text-brown-light leading-relaxed max-w-xl">{feature.desc}</p>
+              </SpotlightCard>
+            );
+
+            const imageCard = (
+              <motion.div 
+                key={`${feature.id}-img`}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ delay: i * 0.1 + 0.1, duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className="col-span-1 h-full flex items-center justify-center p-6"
               >
-                {/* Float animation applied to the active image */}
-                <motion.img
-                  src={steps[activeIndex].image}
-                  alt={steps[activeIndex].title}
-                  className="w-[80vw] max-w-sm lg:max-w-md h-auto drop-shadow-2xl"
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+                <img 
+                  src={feature.image} 
+                  alt={feature.title} 
+                  className="w-full h-auto max-h-72 object-contain drop-shadow-2xl hover:-translate-y-4 hover:scale-105 transition-all duration-500"
                   style={{ mixBlendMode: 'multiply' }}
                 />
               </motion.div>
-            </AnimatePresence>
-          </div>
+            );
 
+            return isTextLeft ? (
+              <React.Fragment key={feature.id}>
+                {textCard}
+                {imageCard}
+              </React.Fragment>
+            ) : (
+              <React.Fragment key={feature.id}>
+                {imageCard}
+                {textCard}
+              </React.Fragment>
+            );
+          })}
         </div>
+
+        {/* ── Mobile: Vertical Sticky Overlap Stack ── */}
+        <div className="sm:hidden mt-10 flex flex-col relative pb-20">
+          {features.map((feature, i) => {
+            return (
+              <div
+                key={feature.id}
+                className="sticky w-full bg-white rounded-[2rem] border border-black/5 p-8 flex flex-col gap-6"
+                style={{
+                  top: `calc(7rem + ${i * 14}px)`,
+                  marginTop: i === 0 ? '0' : '2.5rem',
+                  zIndex: i + 10,
+                  boxShadow: '0 -10px 40px -10px rgba(0,0,0,0.05), 0 10px 20px -5px rgba(0,0,0,0.03)',
+                  transformOrigin: 'top center',
+                }}
+              >
+                {/* Number & Icon */}
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-mustard uppercase tracking-widest bg-mustard-50 px-3 py-1.5 rounded-md">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div className="w-12 h-12 rounded-xl bg-mustard-50 flex items-center justify-center text-mustard">
+                    <feature.icon size={24} strokeWidth={2} />
+                  </div>
+                </div>
+                
+                <div className="flex flex-col gap-3 relative z-20">
+                  <h3 className="text-2xl font-bold text-brown leading-tight tracking-tight">{feature.title}</h3>
+                  <p className="text-base text-brown-light leading-relaxed">{feature.desc}</p>
+                </div>
+
+                <div className="mt-4 w-full h-48 flex items-center justify-center">
+                  <img src={feature.image} alt={feature.title} className="h-full w-auto object-contain p-2 drop-shadow-xl" style={{ mixBlendMode: 'multiply' }} />
+                </div>
+
+                {/* Subtle top shading gradient to separate overlapped cards */}
+                <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-black/5 to-transparent pointer-events-none rounded-t-[2rem] opacity-40" />
+              </div>
+            );
+          })}
+        </div>
+
       </div>
     </section>
   );

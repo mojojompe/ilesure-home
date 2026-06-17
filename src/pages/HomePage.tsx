@@ -2,12 +2,11 @@ import { motion } from 'framer-motion';
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
 import { Hero } from '../components/sections/Hero';
-import { Trust } from '../components/sections/Trust';
 import { Features } from '../components/sections/Features';
 import { HowItWorks } from '../components/sections/HowItWorks';
 import { Download } from '../components/sections/Download';
 import { NewsStories } from '../components/sections/NewsStories';
-import { FinalCTA } from '../components/sections/FinalCTA';
+
 import { NeighborhoodStrip } from '../components/sections/NeighborhoodStrip';
 import { useSEO } from '../hooks/useSEO';
 
@@ -23,6 +22,17 @@ export function HomePage() {
     title: 'Your Sure Home Anywhere',
     description: 'Find safe and verified housing, match with roommates, and discover trusted listings around key locations in Nigeria.',
     canonical: '/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "iléSure",
+      "url": "https://ilesure.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://ilesure.com/discover?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
   });
 
   return (
@@ -30,13 +40,11 @@ export function HomePage() {
       <Navbar />
       <main>
         <Hero />
-        <Trust />
-        <NeighborhoodStrip />
         <Features />
         <HowItWorks />
         <Download />
+        <NeighborhoodStrip />
         <NewsStories />
-        <FinalCTA />
       </main>
       <Footer />
     </motion.div>

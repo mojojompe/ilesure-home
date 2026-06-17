@@ -16,9 +16,31 @@ const pageTransition = {
 
 export function FaqPage() {
   useSEO({
-    title: 'FAQ & Support',
-    description: 'Find answers to common questions about iléSure, or chat with our AI-powered support team for instant help.',
+    title: 'Frequently Asked Questions',
+    description: 'Got questions? Find answers about how iléSure works, verification, payments, and our roommate matching system.',
     canonical: '/faq',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does iléSure verify properties?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every property is manually verified by our team. Agents must pass KYC checks (Government ID, Utility Bill) before listing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my payment secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, all payments go through our secure Paystack integration. We hold funds in escrow until you confirm the property is as described."
+          }
+        }
+      ]
+    }
   });
 
   return (

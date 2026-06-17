@@ -64,11 +64,11 @@ export function PageHero({
         }
       >
         {/* Outline texture */}
-        <div
-          className="absolute inset-0 pointer-events-none z-0 opacity-80"
+        <div className="absolute inset-0 pointer-events-none opacity-80"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='44' height='44' viewBox='0 0 24 24' fill='none' stroke='${isDark ? 'rgba(245,200,66,0.06)' : 'rgba(201,150,42,0.08)'}' stroke-width='1' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3Cpolyline points='9 22 9 12 15 12 15 22'/%3E%3C/svg%3E")`,
-            backgroundSize: '45px 45px',
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0z' fill='none'/%3E%3Cpath d='M0 39.5h40M39.5 0v40' stroke='${isDark ? 'rgba(245,200,66,0.06)' : 'rgba(201,150,42,0.06)'}' stroke-width='1' fill='none'/%3E%3C/svg%3E")`,
+            backgroundSize: '40px 40px',
+            backgroundPosition: 'center',
           }}
         />
 
@@ -115,7 +115,7 @@ export function PageHero({
               maxHeight: '90vh',
               paddingRight: '2rem',
             }}
-            animate={{ y: [0, -10, 0] }}
+            
             transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
           />
         </motion.div>

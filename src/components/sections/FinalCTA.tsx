@@ -19,7 +19,6 @@ export function FinalCTA() {
         <div
           className="absolute inset-0 opacity-[0.05] pointer-events-none"
           style={{
-            backgroundImage: 'repeating-linear-gradient(45deg, #000 0px, #000 2px, transparent 2px, transparent 10px)',
             backgroundSize: '14px 14px',
           }}
         />
@@ -29,7 +28,7 @@ export function FinalCTA() {
           src="/illustrations/cta.png"
           alt=""
           aria-hidden
-          className="absolute bottom-12 right-20 w-56 h-auto anim-float pointer-events-none opacity-40 hidden lg:block"
+          className="absolute bottom-12 right-20 w-56 h-auto  pointer-events-none opacity-40 hidden lg:block"
           style={{ mixBlendMode: 'multiply' }}
         />
 
@@ -38,7 +37,7 @@ export function FinalCTA() {
             <div className="flex flex-col items-center gap-7">
               {/* Icon */}
               <motion.div
-                animate={{ y: [0, -8, 0], rotateY: [0, 180, 360] }}
+                
                 transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
                 className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-2xl"
                 style={{ transformStyle: 'preserve-3d' }}

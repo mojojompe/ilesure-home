@@ -36,7 +36,7 @@ export function Download() {
                   <div className="flex flex-col gap-4">
                     <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard/15 border border-mustard/25 text-mustard text-xs font-bold uppercase tracking-widest w-fit">
                       <Bell size={12} strokeWidth={2.5} />
-                      Coming Soon - For Renters & Individuals
+                      Coming Soon - For Students & Individuals
                     </span>
                     <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight">
                       Take iléSure wherever you go
@@ -87,24 +87,6 @@ export function Download() {
                   </div>
                 </ScrollReveal>
 
-                <ScrollReveal direction="left" delay={0.25}>
-                  <div className="flex items-center gap-3">
-                    <div className="flex -space-x-2">
-                      {['AO', 'TF', 'NE'].map((init, i) => (
-                        <div
-                          key={i}
-                          className="w-8 h-8 rounded-full border-2 flex items-center justify-center text-[10px] font-bold text-white"
-                          style={{ background: i % 2 === 0 ? '#C9962A' : '#A0714F', borderColor: '#3D2210' }}
-                        >
-                          {init}
-                        </div>
-                      ))}
-                    </div>
-                    <p className="text-sm" style={{ color: 'rgba(253,246,227,0.7)' }}>
-                      <span className="text-mustard font-semibold">50+ Users</span> already on the waitlist
-                    </p>
-                  </div>
-                </ScrollReveal>
               </div>
 
               </div>
