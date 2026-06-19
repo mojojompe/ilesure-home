@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Users, ArrowRight, Wallet, PiggyBank, Coins, PartyPopper, BookOpen, Scale, Moon, Sparkles, Sunrise, RefreshCw, Minus, Loader2 } from 'lucide-react';
-import { API_ENDPOINTS } from '../../lib/config';
+
 import { AppDownloadModal } from '../ui/AppDownloadModal';
 
 const questions = [
@@ -60,16 +60,15 @@ export function RoommateMatchingQuiz() {
 
   const fetchMatches = async () => {
     setLoading(true);
-    try {
-      const response = await fetch(API_ENDPOINTS.roommate.matches);
-      const data = await response.json();
-      if (data.matches) {
-        setMatches(data.matches);
-      }
-    } catch (error) {
-      console.error('Failed to fetch matches:', error);
-    }
-    setLoading(false);
+    // Simulate a quick load
+    setTimeout(() => {
+      setMatches([
+        { id: '1', name: 'Tunde A.', match: 94, avatar: 'TA', traits: ['Study Focused', 'Night Owl', 'Clean'] },
+        { id: '2', name: 'Ada M.', match: 89, avatar: 'AM', traits: ['Balanced', 'Early Bird', 'Tidy'] },
+        { id: '3', name: 'Segun K.', match: 85, avatar: 'SK', traits: ['Party', 'Flexible', 'Flexible'] },
+      ]);
+      setLoading(false);
+    }, 600);
   };
 
   const handleSelect = (value: string) => {

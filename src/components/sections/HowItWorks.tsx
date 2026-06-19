@@ -1,6 +1,5 @@
 import { useRef, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { UserPlus, SlidersHorizontal, KeyRound } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { SectionHeading } from '../ui/SectionHeading';
 import gsap from 'gsap';
@@ -12,7 +11,6 @@ const steps = [
   {
     id: 'step1',
     step: '01',
-    icon: UserPlus,
     title: 'Create Your Profile',
     description:
       'Sign up as a User in minutes. Tell us your university, budget, preferred area, and lifestyle, so we can match you with the right space and the right people.',
@@ -21,7 +19,6 @@ const steps = [
   {
     id: 'step2',
     step: '02',
-    icon: SlidersHorizontal,
     title: 'Browse & Filter',
     description:
       'Explore verified listings with full infrastructure details; power hours, water source, security setup, road condition, and distance from your destination. No surprises.',
@@ -30,7 +27,6 @@ const steps = [
   {
     id: 'step3',
     step: '03',
-    icon: KeyRound,
     title: 'Book & Move In',
     description:
       'Confirm your booking securely. For shared apartments, get matched with a compatible roommate before you move in. Keys handed over after payment, simple and safe.',
@@ -60,7 +56,7 @@ function StepCard({ step, index }: { step: typeof steps[0]; index: number }) {
       {/* Large ghost step number */}
       <span
         className="absolute -top-4 -left-2 text-[120px] font-black leading-none pointer-events-none select-none hidden md:block"
-        style={{ color: 'rgba(201,150,42,0.06)', lineHeight: 1 }}
+        style={{ color: 'rgba(229, 169, 39, 0.19)', lineHeight: 1 }}
       >
         {step.step}
       </span>
@@ -69,24 +65,14 @@ function StepCard({ step, index }: { step: typeof steps[0]; index: number }) {
       <div className="relative z-10 flex flex-col items-center md:items-start gap-3">
         <motion.span
           className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-mustard text-white text-xs font-extrabold"
-          animate={isInView ? { boxShadow: ['0 0 0 0 rgba(201,150,42,0.4)', '0 0 0 14px rgba(201,150,42,0)', '0 0 0 0 rgba(201,150,42,0)'] } : {}}
+          animate={isInView ? { boxShadow: ['0 0 0 0 rgba(0, 0, 0, 0.4)', '0 0 0 14px rgba(201,150,42,0)', '0 0 0 0 rgba(201,150,42,0)'] } : {}}
           transition={{ delay: index * 0.18 + 0.5, duration: 2, repeat: Infinity }}
         >
           {step.step}
         </motion.span>
 
         {/* 3D icon blob */}
-        <motion.div
-          className="icon-blob w-16 h-16"
-          initial={{ rotateY: -90, scale: 0.6 }}
-          animate={isInView ? { rotateY: 0, scale: 1 } : {}}
-          transition={{ delay: index * 0.18 + 0.25, duration: 0.6, type: 'spring' }}
-          style={{ transformStyle: 'preserve-3d' }}
-          whileHover={{ rotateY: 20, scale: 1.08 }}
-        >
-          <step.icon size={28} className="text-white" strokeWidth={2} />
-        </motion.div>
-      </div>
+        </div>
 
       <div className="flex flex-col gap-2 relative z-10">
         <h3 className="text-base font-bold text-brown">{step.title}</h3>

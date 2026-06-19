@@ -80,7 +80,7 @@ function SpotlightCard({ children, className = '', delay = 0 }: { children: Reac
 
 export function FeatureShowcase() {
   return (
-    <section id="features" className="py-24 lg:py-32 bg-cream-50 relative overflow-hidden">
+    <section id="features" className="py-24 lg:py-32 bg-cream-50 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal>
           <div className="flex flex-col items-center text-center mb-16">

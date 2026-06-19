@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Smartphone, ChevronRight } from 'lucide-react';
+import { X, ChevronRight } from 'lucide-react';
 
 interface AppDownloadModalProps {
   isOpen: boolean;
@@ -23,14 +23,6 @@ const stores = [
   },
 ];
 
-/* Decorative sparkles scattered around the illustration */
-const sparkles = [
-  { top: '8%',  left: '10%', size: 6, delay: 0 },
-  { top: '18%', right: '8%', size: 4, delay: 0.5 },
-  { top: '72%', left: '6%', size: 5, delay: 1.0 },
-  { top: '80%', right: '10%', size: 4, delay: 0.3 },
-  { top: '50%', left: '2%', size: 3, delay: 0.8 },
-];
 
 export function AppDownloadModal({ isOpen, onClose }: AppDownloadModalProps) {
   return (
@@ -68,15 +60,6 @@ export function AppDownloadModal({ isOpen, onClose }: AppDownloadModalProps) {
                 style={{ background: 'linear-gradient(90deg, #F5C842 0%, #C9962A 100%)' }}
               />
 
-              {/* Diagonal texture overlay */}
-              <div
-                className="absolute inset-0 opacity-[0.04] pointer-events-none"
-                style={{
-                  backgroundImage:
-                    'repeating-linear-gradient(45deg, #F5C842 0px, #F5C842 1px, transparent 0px, transparent 50%)',
-                  backgroundSize: '20px 20px',
-                }}
-              />
 
               {/* Corner glow */}
               <div
@@ -87,21 +70,6 @@ export function AppDownloadModal({ isOpen, onClose }: AppDownloadModalProps) {
                 }}
               />
 
-              {/* Sparkles */}
-              {sparkles.map((s, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute rounded-full bg-mustard pointer-events-none"
-                  style={{
-                    width: s.size,
-                    height: s.size,
-                    top: s.top,
-                    ...(s.right ? { right: s.right } : { left: s.left }),
-                  }}
-                  animate={{ opacity: [0.3, 1, 0.3], scale: [1, 1.6, 1] }}
-                  transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut', delay: s.delay }}
-                />
-              ))}
 
               {/* Close button */}
               <button
@@ -116,28 +84,6 @@ export function AppDownloadModal({ isOpen, onClose }: AppDownloadModalProps) {
               {/* Content */}
               <div className="relative z-10 flex flex-col items-center px-7 pt-8 pb-8 gap-6">
 
-                {/* Floating phone icon badge */}
-                <motion.div
-                  
-                  transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
-                  className="relative"
-                >
-                  {/* Glow ring */}
-                  <div
-                    className="absolute inset-0 rounded-full blur-xl opacity-60"
-                    style={{ background: 'radial-gradient(circle, rgba(201,150,42,0.6), transparent 70%)' }}
-                  />
-                  <div
-                    className="relative w-20 h-20 rounded-[28px] flex items-center justify-center"
-                    style={{
-                      background: 'linear-gradient(135deg, rgba(245,200,66,0.20) 0%, rgba(201,150,42,0.10) 100%)',
-                      border: '1.5px solid rgba(201,150,42,0.35)',
-                      boxShadow: '0 12px 40px rgba(201,150,42,0.3), inset 0 1px 0 rgba(255,255,255,0.1)',
-                    }}
-                  >
-                    <Smartphone size={34} color="#F5C842" strokeWidth={1.6} />
-                  </div>
-                </motion.div>
 
                 {/* Copy */}
                 <div className="text-center flex flex-col gap-2">

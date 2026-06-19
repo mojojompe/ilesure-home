@@ -5,7 +5,6 @@ import { Hero } from '../components/sections/Hero';
 import { Features } from '../components/sections/Features';
 import { HowItWorks } from '../components/sections/HowItWorks';
 import { Download } from '../components/sections/Download';
-import { NewsStories } from '../components/sections/NewsStories';
 
 import { NeighborhoodStrip } from '../components/sections/NeighborhoodStrip';
 import { useSEO } from '../hooks/useSEO';
@@ -44,7 +43,6 @@ export function HomePage() {
         <HowItWorks />
         <Download />
         <NeighborhoodStrip />
-        <NewsStories />
       </main>
       <Footer />
     </motion.div>
