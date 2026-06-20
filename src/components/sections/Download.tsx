@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import { Bell, ChevronRight } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { WaitlistModal } from '../ui/WaitlistModal';
-
-
+import { useTranslation } from "react-i18next";
 
 export function Download() {
+    const { t } = useTranslation();
   const [waitlistOpen, setWaitlistOpen] = useState(false);
 
   return (
@@ -29,21 +29,21 @@ export function Download() {
               }}
             />
 
-            <div className="relative p-10 md:p-16 max-w-3xl mx-auto text-center">
-              {/* Center — Text + Buttons */}
-              <div className="flex flex-col items-center gap-8">
+            <div className="relative p-10 md:p-16 max-w-[1200px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
+              {/* Left Column - Text + Buttons */}
+              <div className="flex flex-col items-center lg:items-start gap-8 lg:w-1/2 text-center lg:text-left z-10">
                 <ScrollReveal direction="left">
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-4 items-center lg:items-start">
                     <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard/15 border border-mustard/25 text-mustard text-xs font-bold uppercase tracking-widest w-fit">
                       <Bell size={12} strokeWidth={2.5} />
-                      Coming Soon - For Students & Individuals
-                    </span>
-                    <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight">
-                      Take iléSure wherever you go
-                    </h2>
-                    <p className="text-cream-300 text-base leading-relaxed" style={{ color: 'rgba(253,246,227,0.7)' }}>
-                      The iléSure mobile app is coming to iOS and Android. Browse listings, chat with agents, and manage your roommate matching — all from your phone.
-                    </p>
+                      {t("Coming Soon - For Students & Individuals")}
+                                                              </span>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+                      {t("Take iléSure wherever you go")}
+                                                              </h2>
+                    <p className="text-cream-300 text-base lg:text-lg leading-relaxed max-w-md" style={{ color: 'rgba(253,246,227,0.7)' }}>
+                      {t("The iléSure mobile app is coming to iOS and Android. Browse listings, chat with agents, and manage your roommate matching — all from your phone.")}
+                                                              </p>
                   </div>
                 </ScrollReveal>
 
@@ -66,7 +66,7 @@ export function Download() {
                       <motion.button
                         key={store}
                         onClick={() => setWaitlistOpen(true)}
-                        className="flex items-center gap-3 rounded-clay-sm px-5 py-3.5 group relative mt-1 overflow-hidden"
+                        className="flex items-center gap-3 rounded-clay-sm px-5 py-3.5 group relative mt-1 overflow-hidden w-full sm:w-auto"
                         style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)' }}
                         whileHover={{ y: -4, background: 'rgba(255,255,255,0.15)', boxShadow: '0 12px 32px rgba(0,0,0,0.3)' }}
                         whileTap={{ scale: 0.97 }}
@@ -86,7 +86,26 @@ export function Download() {
                     ))}
                   </div>
                 </ScrollReveal>
+              </div>
 
+              {/* Right Column - Mockup */}
+              <div className="lg:w-1/2 flex justify-center lg:justify-end relative mt-10 lg:mt-0 lg:-mr-8">
+                <ScrollReveal direction="right" delay={0.3}>
+                  <motion.div
+                    className="relative w-[320px] sm:w-[400px] lg:w-[480px] xl:w-[550px]"
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    {/* Glow behind the phone */}
+                    <div className="absolute inset-0 bg-mustard/20 blur-3xl rounded-full scale-90 translate-y-10" />
+                    
+                    <img 
+                      src="/mockups/Home_Download.png" 
+                      alt="iléSure Mobile App View" 
+                      className="relative w-full h-auto object-contain drop-shadow-[0_30px_40px_rgba(0,0,0,0.4)]"
+                    />
+                  </motion.div>
+                </ScrollReveal>
               </div>
 
               </div>

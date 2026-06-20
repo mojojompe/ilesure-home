@@ -25,6 +25,9 @@ interface PageHeroProps {
   secondaryCta?: CtaConfig;
   theme?: 'light' | 'dark';
   illustrationBlend?: boolean;
+  bottomMockup?: string;
+  bottomMockupAlt?: string;
+  bottomMockupMaxWidth?: string;
 }
 
 export function PageHero({
@@ -39,6 +42,9 @@ export function PageHero({
   secondaryCta,
   theme = 'light',
   illustrationBlend = false,
+  bottomMockup,
+  bottomMockupAlt,
+  bottomMockupMaxWidth,
 }: PageHeroProps) {
   const [waitlistOpen, setWaitlistOpen] = useState(false);
   const navigate = useNavigate();
@@ -56,7 +62,7 @@ export function PageHero({
   return (
     <>
       <section
-        className="relative min-h-[85vh] flex items-center pt-28 pb-16 overflow-hidden"
+        className={`relative min-h-[85vh] flex flex-col pt-28 overflow-hidden ${bottomMockup ? 'pb-0' : 'pb-16 justify-center'}`}
         style={
           isDark
             ? { background: 'linear-gradient(160deg, #1a0d05 0%, #3D2210 45%, #0e0603 100%)' }
@@ -72,59 +78,63 @@ export function PageHero({
           }}
         />
 
-        {/* ── RIGHT HALF: full-bleed illustration (desktop only) ── */}
-        {/* Image sits directly on the section — no frame, no border */}
-        <motion.div
-          initial={{ opacity: 0, x: 60 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.25, duration: 0.9, ease: 'easeOut' }}
-          className="absolute right-0 top-0 bottom-0 hidden lg:flex items-center justify-end z-0 pointer-events-none"
-          style={{ width: '65%' }}
-        >
-          {/* Depth layer — warm colour glow behind image */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background: isDark
-                ? 'radial-gradient(ellipse 80% 70% at 70% 50%, rgba(201,150,42,0.10) 0%, transparent 70%)'
-                : 'radial-gradient(ellipse 80% 70% at 70% 50%, rgba(201,150,42,0.12) 0%, transparent 70%)',
-            }}
-          />
-          {/* Ground shadow cast */}
-          <div
-            className="absolute bottom-[10%] right-[8%] w-[70%] h-[35%] rounded-full"
-            style={{
-              background: isDark
-                ? 'radial-gradient(ellipse, rgba(201,150,42,0.15) 0%, transparent 70%)'
-                : 'radial-gradient(ellipse, rgba(92,51,23,0.15) 0%, transparent 70%)',
-              filter: 'blur(40px)',
-              transform: 'scaleX(1.3)',
-            }}
-          />
-          {/* The illustration itself */}
-          <motion.img
-            src={illustration}
-            alt={illustrationAlt}
-            className="relative w-full h-auto object-contain"
-            style={{
-              mixBlendMode: illustrationBlend || !isDark ? 'multiply' : 'normal',
-              opacity: isDark ? 0.9 : 1,
-              filter: isDark
-                ? 'drop-shadow(0px 40px 60px rgba(0,0,0,0.45)) drop-shadow(0px 10px 20px rgba(0,0,0,0.3))'
-                : 'drop-shadow(0px 40px 60px rgba(0,0,0,0.14)) drop-shadow(0px 10px 20px rgba(0,0,0,0.09))',
-              maxHeight: '90vh',
-              paddingRight: '2rem',
-            }}
+        <div className={`relative flex-grow flex items-center w-full ${bottomMockup ? 'mb-8 lg:mb-12' : ''}`}>
+          {/* ── SPLIT LAYOUT RIGHT HALF ── */}
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.25, duration: 0.9, ease: 'easeOut' }}
+            className="absolute right-0 top-0 bottom-0 hidden lg:flex items-center justify-end z-0 pointer-events-none"
+            style={{ width: '65%' }}
+          >
+            {/* Depth layer — warm colour glow behind image */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background: isDark
+                  ? 'radial-gradient(ellipse 80% 70% at 70% 50%, rgba(201,150,42,0.10) 0%, transparent 70%)'
+                  : 'radial-gradient(ellipse 80% 70% at 70% 50%, rgba(201,150,42,0.12) 0%, transparent 70%)',
+              }}
+            />
+            {/* Ground shadow cast */}
+            <div
+              className="absolute bottom-[10%] right-[8%] w-[70%] h-[35%] rounded-full"
+              style={{
+                background: isDark
+                  ? 'radial-gradient(ellipse, rgba(201,150,42,0.15) 0%, transparent 70%)'
+                  : 'radial-gradient(ellipse, rgba(92,51,23,0.15) 0%, transparent 70%)',
+                filter: 'blur(40px)',
+                transform: 'scaleX(1.3)',
+              }}
+            />
+            {/* The illustration itself */}
+            <motion.img
+              src={illustration}
+              alt={illustrationAlt}
+              className="relative w-full h-auto object-contain"
+              style={{
+                mixBlendMode: illustrationBlend || !isDark ? 'multiply' : 'normal',
+                opacity: isDark ? 0.9 : 1,
+                filter: isDark
+                  ? 'drop-shadow(0px 40px 60px rgba(0,0,0,0.45)) drop-shadow(0px 10px 20px rgba(0,0,0,0.3))'
+                  : 'drop-shadow(0px 40px 60px rgba(0,0,0,0.14)) drop-shadow(0px 10px 20px rgba(0,0,0,0.09))',
+                maxHeight: '90vh',
+                maxWidth: '100%',
+                paddingRight: '2rem',
+              }}
+              
+              transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+            />
+          </motion.div>
+
+          {/* ── CONTENT CONTAINER ── */}
+          <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex">
             
-            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-          />
-        </motion.div>
+            {/* TEXT & CTAS */}
+            <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-16 xl:px-24">
+              <div className="max-w-lg">
 
-        {/* ── LEFT: copy + CTAs ── */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 xl:px-24">
-          <div className="max-w-lg">
-
-            {/* Eyebrow */}
+              {/* Eyebrow */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -205,13 +215,40 @@ export function PageHero({
                 >
                   {secondaryCta.label}
                 </motion.button>
-              )}
-            </motion.div>
+                )}
+              </motion.div>
+            </div>
           </div>
         </div>
 
+        </div>
 
-
+        {/* ── BOTTOM MOCKUP ── */}
+        {bottomMockup && (
+          <div className="w-full relative z-10 flex justify-center pb-0 mt-8">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative w-full flex justify-center"
+              style={{ maxWidth: bottomMockupMaxWidth || '1000px' }}
+            >
+              {/* Soft glow behind the mockup */}
+              <div className="absolute inset-0 bg-mustard/10 blur-[100px] rounded-full scale-[0.8] translate-y-10" />
+              
+              <img
+                src={bottomMockup}
+                alt={bottomMockupAlt || 'Dashboard Mockup'}
+                className="relative w-full h-auto object-contain object-bottom"
+                style={{
+                  filter: isDark
+                    ? 'drop-shadow(0px 30px 60px rgba(0,0,0,0.6))'
+                    : 'drop-shadow(0px 30px 60px rgba(0,0,0,0.15))',
+                }}
+              />
+            </motion.div>
+          </div>
+        )}
       </section>
 
       <WaitlistModal isOpen={waitlistOpen} onClose={() => setWaitlistOpen(false)} />

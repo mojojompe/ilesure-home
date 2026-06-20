@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { SectionHeading } from '../ui/SectionHeading';
+import { useTranslation } from "react-i18next";
 
 const highlights = [
   'Built for the key locations corridor, from Toll Gate to Akala Express',
@@ -12,6 +13,7 @@ const highlights = [
 ];
 
 export function About() {
+    const { t } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -33,9 +35,9 @@ export function About() {
           <div className="flex flex-col gap-8">
             <ScrollReveal direction="left">
               <SectionHeading
-                eyebrow="About iléSure"
-                title="More than a listing board, a trusted ecosystem"
-                subtitle="iléSure means 'Sure Home' in Yoruba. We built it because finding off-destination housing in Nigeria still relies on WhatsApp forwards, printed notices, and hearsay. Users deserved better."
+                eyebrow={t("About iléSure")}
+                title={t("More than a listing board, a trusted ecosystem")}
+                subtitle={t("iléSure means 'Sure Home' in Yoruba. We built it because finding off-destination housing in Nigeria still relies on WhatsApp forwards, printed notices, and hearsay. Users deserved better.")}
                 align="left"
               />
             </ScrollReveal>
@@ -96,8 +98,8 @@ export function About() {
                   viewport={{ once: true }}
                   
                 >
-                  <p className="text-xs font-bold text-brown">iléSure</p>
-                  <p className="text-[11px] text-mustard font-semibold">Your Sure Home</p>
+                  <p className="text-xs font-bold text-brown">{t("iléSure")}</p>
+                  <p className="text-[11px] text-mustard font-semibold">{t("Your Sure Home")}</p>
                 </motion.div>
               </motion.div>
             </div>

@@ -26,15 +26,18 @@ export function DiscoverPage() {
       <Navbar />
       <main>
         <PageHero
-          eyebrow="Discover iléSure"
+          eyebrow="Discover"
           headline="Your Next Home is Right Here"
           highlightWords={["is", "Right", "Here"]}
           subtext="Filter by distance, price, and amenities. Every listing is verified. No scams, no surprises — just your perfect space Anywhere."
           illustration="/illustrations/discover_hero.png"
           illustrationAlt="User discovering housing with map and pin"
           primaryCta={{ label: 'Browse Features', anchor: '#features' }}
-          secondaryCta={{ label: 'Get Started', anchor: '#map' }}
+          secondaryCta={{ label: 'How It Works', anchor: '#how-it-works' }}
           illustrationBlend
+          bottomMockup="/mockups/Discover_Hero.png"
+          bottomMockupAlt="iléSure Discover Dashboard Mockup"
+          bottomMockupMaxWidth="800px"
         />
         <FeatureShowcase />
         <RoommateMatchingQuiz />

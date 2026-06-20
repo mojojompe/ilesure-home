@@ -57,7 +57,11 @@ export function FaqPage() {
           primaryCta={{ label: 'Browse FAQ', anchor: '#faq' }}
           secondaryCta={{ label: 'Chat with Support', href: '/chat' }}
           illustrationBlend
+          bottomMockup="/mockups/FAQ_Hero.png"
+          bottomMockupAlt="iléSure FAQ Dashboard Mockup"
+          bottomMockupMaxWidth="800px"
         />
+
         <FAQ />
         <SupportChannels />
         <LiveSocialProofTicker />

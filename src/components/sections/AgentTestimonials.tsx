@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Quote, Star } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
+import { useTranslation } from "react-i18next";
 
 const agentTestimonials = [
   {
@@ -39,6 +40,7 @@ const agentTestimonials = [
 ];
 
 export function AgentTestimonials() {
+    const { t } = useTranslation();
   return (
     <section className="py-24 bg-cream relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-mustard/5 rounded-full blur-[100px] pointer-events-none" />
@@ -48,20 +50,20 @@ export function AgentTestimonials() {
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard-50 border border-mustard-200 text-mustard text-xs font-bold uppercase tracking-widest">
               <Quote size={12} />
-              Agent Stories
-            </span>
+              {t("Agent Stories")}
+                                      </span>
             <h2 className="mt-4 text-4xl font-extrabold text-brown">
-              Agents <span className="text-gradient-mustard">Love iléSure</span>
+              {t("Agents")} <span className="text-gradient-mustard">{t("Love iléSure")}</span>
             </h2>
             <p className="mt-3 text-brown-light max-w-lg mx-auto">
-              Real results from real property professionals across Nigeria.
-            </p>
+              {t("Real results from real property professionals across Nigeria.")}
+                                      </p>
           </div>
         </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {agentTestimonials.map((t, i) => (
-            <ScrollReveal key={t.name} delay={i * 0.12}>
+          {agentTestimonials.map((testimonial, i) => (
+            <ScrollReveal key={testimonial.name} delay={i * 0.12}>
               <motion.div
                 whileHover={{ y: -6, scale: 1.01 }}
                 className="bg-white rounded-clay p-7 shadow-clay border border-cream-200 flex flex-col gap-5 h-full"
@@ -69,45 +71,45 @@ export function AgentTestimonials() {
                 {/* Quote icon */}
                 <div
                   className="w-10 h-10 rounded-clay-sm flex items-center justify-center"
-                  style={{ background: `${t.color}15` }}
+                  style={{ background: `${testimonial.color}15` }}
                 >
-                  <Quote size={18} style={{ color: t.color }} />
+                  <Quote size={18} style={{ color: testimonial.color }} />
                 </div>
 
                 {/* Stars */}
                 <div className="flex gap-0.5">
-                  {[...Array(t.rating)].map((_, si) => (
+                  {[...Array(testimonial.rating)].map((_, si) => (
                     <Star key={si} size={14} className="text-mustard fill-mustard" />
                   ))}
                 </div>
 
                 {/* Content */}
                 <p className="text-brown-light text-sm leading-relaxed flex-grow">
-                  "{t.content}"
+                  "{testimonial.content}"
                 </p>
 
                 {/* Stat highlight */}
                 <div
                   className="px-4 py-2.5 rounded-clay-sm"
-                  style={{ background: `${t.color}10`, border: `1px solid ${t.color}20` }}
+                  style={{ background: `${testimonial.color}10`, border: `1px solid ${testimonial.color}20` }}
                 >
-                  <p className="text-xs font-bold uppercase tracking-widest" style={{ color: t.color }}>
-                    Result
-                  </p>
-                  <p className="font-extrabold text-brown mt-0.5">{t.stat}</p>
+                  <p className="text-xs font-bold uppercase tracking-widest" style={{ color: testimonial.color }}>
+                    {t("Result")}
+                                                </p>
+                  <p className="font-extrabold text-brown mt-0.5">{testimonial.stat}</p>
                 </div>
 
                 {/* Author */}
                 <div className="flex items-center gap-3 pt-3 border-t border-cream-100">
                   <div
                     className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                    style={{ background: `linear-gradient(135deg, ${t.color}, ${t.color}cc)` }}
+                    style={{ background: `linear-gradient(135deg, ${testimonial.color}, ${testimonial.color}cc)` }}
                   >
-                    {t.avatar}
+                    {testimonial.avatar}
                   </div>
                   <div>
-                    <p className="font-bold text-brown text-sm">{t.name}</p>
-                    <p className="text-xs text-brown-light">{t.role} · {t.company}</p>
+                    <p className="font-bold text-brown text-sm">{testimonial.name}</p>
+                    <p className="text-xs text-brown-light">{testimonial.role} · {testimonial.company}</p>
                   </div>
                 </div>
               </motion.div>

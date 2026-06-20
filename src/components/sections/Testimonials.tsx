@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Quote, Star } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 const testimonials = [
   {
@@ -69,6 +70,7 @@ const testimonials = [
 ];
 
 export function Testimonials() {
+    const { t } = useTranslation();
   return (
     <section className="py-24 bg-cream relative overflow-hidden">
       {/* Floating Testimonial Illustration */}
@@ -87,11 +89,11 @@ export function Testimonials() {
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard/10 text-mustard text-xs font-bold uppercase tracking-widest mb-4">
             <Quote size={12} />
-            Testimonials
-          </span>
+            {t("Testimonials")}
+                                </span>
           <h2 className="text-4xl font-extrabold text-brown">
-            Loved by{' '}
-            <span className="text-mustard">Users</span>
+            {t("Loved by")}{' '}
+            <span className="text-mustard">{t("Users")}</span>
           </h2>
         </motion.div>
       </div>

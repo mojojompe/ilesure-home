@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { useState } from 'react';
+import { useTranslation } from "react-i18next";
 
 const tiers = [
   {
@@ -70,6 +71,7 @@ const tiers = [
 ];
 
 export function PricingTiers() {
+    const { t } = useTranslation();
   const [billing, setBilling] = useState<'monthly' | 'annual'>('annual');
 
   return (
@@ -84,14 +86,14 @@ export function PricingTiers() {
         <ScrollReveal>
           <div className="text-center mb-10">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard-50 border border-mustard-200 text-mustard text-xs font-bold uppercase tracking-widest">
-              Pricing
-            </span>
+              {t("Pricing")}
+                                      </span>
             <h2 className="mt-4 text-4xl font-extrabold text-brown">
-              Choose Your <span className="text-gradient-mustard">Growth Plan</span>
+              {t("Choose Your")} <span className="text-gradient-mustard">{t("Growth Plan")}</span>
             </h2>
             <p className="mt-3 text-brown-light max-w-lg mx-auto">
-              Transparent pricing. No hidden fees. Scale as your portfolio grows.
-            </p>
+              {t("Transparent pricing. No hidden fees. Scale as your portfolio grows.")}
+                                      </p>
 
             {/* Billing toggle */}
             <div className="mt-6 inline-flex items-center gap-1 bg-cream rounded-pill p-1 border border-cream-200">
@@ -101,16 +103,16 @@ export function PricingTiers() {
                   billing === 'monthly' ? 'bg-white text-brown shadow-clay-sm' : 'text-brown-light'
                 }`}
               >
-                Monthly
-              </button>
+                {t("Monthly")}
+                                            </button>
               <button
                 onClick={() => setBilling('annual')}
                 className={`px-4 py-2 rounded-pill text-sm font-semibold transition-all duration-200 flex items-center gap-2 ${
                   billing === 'annual' ? 'bg-white text-brown shadow-clay-sm' : 'text-brown-light'
                 }`}
               >
-                Annual
-                <span className="text-[10px] font-bold text-mustard bg-mustard-50 px-2 py-0.5 rounded-pill">Save 20%</span>
+                {t("Annual")}
+                                              <span className="text-[10px] font-bold text-mustard bg-mustard-50 px-2 py-0.5 rounded-pill">{t("Save 20%")}</span>
               </button>
             </div>
           </div>
@@ -207,8 +209,8 @@ export function PricingTiers() {
 
         <ScrollReveal>
           <p className="text-center text-sm text-brown-light mt-8">
-            All plans include access to basic analytics. Start with the <span className="font-semibold text-brown">Free Tier</span> today.
-          </p>
+            {t("All plans include access to basic analytics. Start with the")} <span className="font-semibold text-brown">{t("Free Tier")}</span> {t("today.")}
+                                </p>
         </ScrollReveal>
       </div>
     </section>

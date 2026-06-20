@@ -35,7 +35,11 @@ export function AgentsPage() {
           primaryCta={{ label: 'Launch Web App', href: 'https://app.ilesure.com' }}
           secondaryCta={{ label: 'View Pricing', anchor: '#pricing' }}
           theme="dark"
+          bottomMockup="/mockups/Agents_Hero.png"
+          bottomMockupAlt="iléSure Agents Dashboard Mockup"
+          bottomMockupMaxWidth="800px"
         />
+
         <WebApp />
         <PricingTiers />
         <AgentTestimonials />

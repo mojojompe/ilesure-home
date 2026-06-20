@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Users, ArrowRight, Wallet, PiggyBank, Coins, PartyPopper, BookOpen, Scale, Moon, Sparkles, Sunrise, RefreshCw, Minus, Loader2 } from 'lucide-react';
 
 import { AppDownloadModal } from '../ui/AppDownloadModal';
+import { useTranslation } from "react-i18next";
 
 const questions = [
   {
@@ -45,6 +46,7 @@ const questions = [
 ];
 
 export function RoommateMatchingQuiz() {
+    const { t } = useTranslation();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [showResults, setShowResults] = useState(false);
@@ -92,27 +94,29 @@ export function RoommateMatchingQuiz() {
   };
 
   return (
-    <section id="roommate" className="py-16 px-4 bg-cream">
-      <motion.div
-        className="max-w-xl mx-auto"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-mustard/10 text-mustard text-sm font-medium mb-4">
-            <Users size={16} />
-            <span>Roommate Matching</span>
+    <section id="roommate" className="py-24 px-6 sm:px-8 lg:px-16 xl:px-24 bg-cream">
+      <div className="max-w-[1300px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
+        {/* Left Side: Quiz Container */}
+        <motion.div
+          className="w-full lg:w-1/2 flex flex-col items-center lg:items-start"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="text-center lg:text-left mb-8 w-full">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-mustard/10 text-mustard text-sm font-medium mb-4">
+              <Users size={16} />
+              <span>{t("Roommate Matching")}</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-brown">{t("Find Your Perfect Match")}</h2>
+            <p className="text-brown-light mt-2 max-w-md mx-auto lg:mx-0">{t("Answer a few questions and we'll find compatible roommates")}</p>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-brown">Find Your Perfect Match</h2>
-          <p className="text-brown-light mt-2">Answer a few questions and we'll find compatible roommates</p>
-        </div>
 
         <AnimatePresence mode="wait">
           {!showResults ? (
             <motion.div
               key="questions"
-              className="clay-card p-8"
+              className="clay-card p-8 w-full max-w-xl"
             >
               <div className="flex items-center gap-2 mb-6">
                 {questions.map((_, i) => (
@@ -151,20 +155,20 @@ export function RoommateMatchingQuiz() {
               </motion.div>
 
               <div className="mt-6 text-center text-sm text-brown-light">
-                Question {currentQuestion + 1} of {questions.length}
+                {t("Question")} {currentQuestion + 1} {t("of")} {questions.length}
               </div>
             </motion.div>
           ) : (
             <motion.div
               key="results"
-              className="clay-card p-8"
+              className="clay-card p-8 w-full max-w-xl"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
             >
               <div className="text-center mb-6">
                 <Users className="w-12 h-12 text-mustard mx-auto mb-3" />
-                <h3 className="text-xl font-bold text-brown">Your Matches</h3>
-                <p className="text-sm text-brown-light">Based on your preferences</p>
+                <h3 className="text-xl font-bold text-brown">{t("Your Matches")}</h3>
+                <p className="text-sm text-brown-light">{t("Based on your preferences")}</p>
               </div>
 
               <div className="flex flex-col gap-3 max-h-[340px] overflow-y-auto no-scrollbar pr-1">
@@ -195,7 +199,7 @@ export function RoommateMatchingQuiz() {
                       </div>
                       <div className="text-right flex-shrink-0">
                         <span className="text-xl font-extrabold text-mustard">{profile.match}%</span>
-                        <p className="text-xs text-brown-light">match</p>
+                        <p className="text-xs text-brown-light">{t("match")}</p>
                       </div>
                     </motion.div>
                   ))
@@ -208,14 +212,35 @@ export function RoommateMatchingQuiz() {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setAppDownloadOpen(true)}
               >
-                Connect with Matches <ArrowRight size={18} />
+                {t("Connect with Matches")} <ArrowRight size={18} />
               </motion.button>
             </motion.div>
           )}
         </AnimatePresence>
 
-        <AppDownloadModal isOpen={appDownloadOpen} onClose={() => setAppDownloadOpen(false)} />
-      </motion.div>
+          <AppDownloadModal isOpen={appDownloadOpen} onClose={() => setAppDownloadOpen(false)} />
+        </motion.div>
+
+        {/* Right Side: Mockup */}
+        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end relative mt-10 lg:mt-0">
+          <motion.div
+            className="relative w-[300px] sm:w-[400px] lg:w-[480px] xl:w-[550px]"
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          >
+            {/* Soft Glow */}
+            <div className="absolute inset-0 bg-mustard/20 blur-3xl rounded-full scale-75 transform translate-y-10" />
+            <motion.img
+              src="/mockups/Discover_Roommatematching.png"
+              alt="Roommate Matching UI Mockup"
+              className="relative w-full h-auto object-contain drop-shadow-[0_40px_60px_rgba(92,51,23,0.15)]"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+            />
+          </motion.div>
+        </div>
+      </div>
     </section>
   );
 }

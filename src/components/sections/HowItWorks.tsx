@@ -4,6 +4,7 @@ import { ScrollReveal } from '../ui/ScrollReveal';
 import { SectionHeading } from '../ui/SectionHeading';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useTranslation } from "react-i18next";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -96,6 +97,7 @@ function StepCard({ step, index }: { step: typeof steps[0]; index: number }) {
 }
 
 export function HowItWorks() {
+    const { t } = useTranslation();
   const lineRef = useRef<SVGPathElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -130,9 +132,9 @@ export function HowItWorks() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal>
           <SectionHeading
-            eyebrow="How It Works"
-            title="From search to move-in, in 3 steps"
-            subtitle="iléSure simplifies your entire off-destination housing journey. No more chasing agents, no more WhatsApp groups."
+            eyebrow={t("How It Works")}
+            title={t("From search to move-in, in 3 steps")}
+            subtitle={t("iléSure simplifies your entire off-destination housing journey. No more chasing agents, no more WhatsApp groups.")}
             align="center"
           />
         </ScrollReveal>

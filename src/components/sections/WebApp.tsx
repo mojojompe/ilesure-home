@@ -5,8 +5,7 @@ import {
   Shield, Globe,
 } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
-
-
+import { useTranslation } from "react-i18next";
 
 /* ── Capability cards ── */
 const capabilities = [
@@ -33,6 +32,7 @@ const capabilities = [
 ];
 
 export function WebApp() {
+    const { t } = useTranslation();
   // Carousel state removed in favor of responsive grid
   return (
     <section id="web-app" className="py-24 bg-white relative">
@@ -71,22 +71,22 @@ export function WebApp() {
             }}
           />
 
-          <div className="relative p-10 md:p-16 max-w-3xl mx-auto text-center">
+          <div className="relative p-10 md:p-16 max-w-[1300px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
 
             {/* ════════════════════════════════════
-                Center — Text + CTA
+                Left Column — Text + CTA
             ════════════════════════════════════ */}
-            <div className="flex flex-col items-center gap-8">
+            <div className="flex flex-col items-center lg:items-start gap-8 lg:w-1/2 text-center lg:text-left z-10">
               <ScrollReveal direction="left">
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4 items-center lg:items-start">
                   {/* Badge */}
                   <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard/15 border border-mustard/30 text-mustard text-xs font-bold uppercase tracking-widest w-fit">
                     <Globe size={12} strokeWidth={2.5} />
-                    For Agents/Landlords & Companies
-                  </span>
+                    {t("For Agents/Landlords & Companies")}
+                                                        </span>
 
                   <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight">
-                    A powerful platform{' '}
+                    {t("A powerful platform")}{' '}
                     <span
                       className="text-transparent bg-clip-text"
                       style={{
@@ -94,18 +94,16 @@ export function WebApp() {
                           'linear-gradient(135deg, #F5C842 0%, #C9962A 100%)',
                       }}
                     >
-                      built for pros
-                    </span>
+                      {t("built for pros")}
+                                                              </span>
                   </h2>
 
                   <p
                     className="text-base leading-relaxed"
                     style={{ color: 'rgba(253,246,227,0.70)' }}
                   >
-                    Agents, landlords, and real-estate companies now have a
-                    dedicated web dashboard to list properties, manage inquiries,
-                    and grow their portfolio — all from one place.
-                  </p>
+                    {t("Agents, landlords, and real-estate companies now have a                     dedicated web dashboard to list properties, manage inquiries,                     and grow their portfolio — all from one place.")}
+                                                        </p>
                 </div>
               </ScrollReveal>
 
@@ -167,7 +165,7 @@ export function WebApp() {
                     transition={{ duration: 0.2 }}
                   >
                     <Monitor size={17} strokeWidth={2.2} />
-                    <span>Launch Web App</span>
+                    <span>{t("Launch Web App")}</span>
                     <ChevronRight
                       size={15}
                       strokeWidth={2.5}
@@ -177,8 +175,30 @@ export function WebApp() {
                 </div>
               </ScrollReveal>
             </div>
-
+            
+            {/* ════════════════════════════════════
+                Right Column — Mockup
+            ════════════════════════════════════ */}
+            <div className="lg:w-1/2 flex justify-center lg:justify-end relative mt-10 lg:mt-0 w-full">
+              <ScrollReveal direction="right" delay={0.3}>
+                <motion.div
+                  className="relative w-[320px] sm:w-[450px] lg:w-[550px] xl:w-[650px]"
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  {/* Glow behind the mockup */}
+                  <div className="absolute inset-0 bg-mustard/15 blur-3xl rounded-full scale-90 translate-y-10" />
+                  
+                  <img 
+                    src="/mockups/Agents_Launch.png" 
+                    alt="iléSure Web App Dashboard View" 
+                    className="relative w-full h-auto object-contain drop-shadow-[0_40px_60px_rgba(0,0,0,0.5)]"
+                  />
+                </motion.div>
+              </ScrollReveal>
             </div>
+
+          </div>
         </div>
       </div>
     </section>

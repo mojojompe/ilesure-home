@@ -1,15 +1,18 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronDown } from 'lucide-react';
+import { ChevronRight, ChevronDown, Sparkles, HelpCircle, Users, BookOpen, Target, Activity, MonitorSmartphone, CreditCard, MessageSquareHeart, PenTool, MessageCircleQuestion, MessagesSquare, Languages, Lock, Instagram, Twitter, Linkedin } from 'lucide-react';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Menu11Icon, PanelLeftCloseIcon } from '@hugeicons/core-free-icons';
+import { TiktokIcon, WhatsappBusinessIcon } from 'hugeicons-react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { PillButton } from '../ui/PillButton';
 import { WaitlistModal } from '../ui/WaitlistModal';
+import { useTranslation } from 'react-i18next';
 
 interface NavSection {
   label: string;
   anchor: string;
+  icon: React.FC<any>;
 }
 interface NavLink {
   label: string;
@@ -22,45 +25,69 @@ const navLinks: NavLink[] = [
     label: 'Discover',
     href: '/discover',
     sections: [
-      { label: 'Features', anchor: '#features' },
-      { label: 'How It Works', anchor: '#how-it-works' },
-      { label: 'Roommate Quiz', anchor: '#roommate-quiz' },
+      { label: 'Features', anchor: '#features', icon: Sparkles },
+      { label: 'How It Works', anchor: '#how-it-works', icon: HelpCircle },
+      { label: 'Roommate Quiz', anchor: '#roommate-quiz', icon: Users },
     ],
   },
   {
     label: 'About Us',
     href: '/about',
     sections: [
-      { label: 'Our Story', anchor: '#about-story' },
-      { label: 'Mission & Vision', anchor: '#mission' },
-      { label: 'Impact', anchor: '#impact' },
+      { label: 'Our Story', anchor: '#about-story', icon: BookOpen },
+      { label: 'Mission & Vision', anchor: '#mission', icon: Target },
+      { label: 'Impact', anchor: '#impact', icon: Activity },
     ],
   },
   {
     label: 'For Agents',
     href: '/agents',
     sections: [
-      { label: 'Platform Features', anchor: '#web-app' },
-      { label: 'Pricing', anchor: '#pricing' },
+      { label: 'Platform Features', anchor: '#web-app', icon: MonitorSmartphone },
+      { label: 'Pricing', anchor: '#pricing', icon: CreditCard },
     ],
   },
   {
     label: 'Reviews',
     href: '/reviews',
     sections: [
-      { label: 'User Stories', anchor: '#social-proof' },
-      { label: 'Share Your Story', anchor: '#submit-review' },
+      { label: 'User Stories', anchor: '#social-proof', icon: MessageSquareHeart },
+      { label: 'Share Your Story', anchor: '#submit-review', icon: PenTool },
     ],
   },
   {
     label: 'FAQ',
     href: '/faq',
     sections: [
-      { label: 'Common Questions', anchor: '#faq' },
-      { label: 'Chat with Support', anchor: '#support' },
+      { label: 'Common Questions', anchor: '#faq', icon: MessageCircleQuestion },
+      { label: 'Chat with Support', anchor: '#support', icon: MessagesSquare },
     ],
   },
 ];
+
+const countries = [
+  { code: 'NG', name: 'Nigeria', flag: <img src="https://flagcdn.com/w40/ng.png" alt="Nigeria" className="w-5 h-5 rounded-full object-cover shadow-sm" />, locked: false },
+  { code: 'GH', name: 'Ghana', flag: <img src="https://flagcdn.com/w40/gh.png" alt="Ghana" className="w-5 h-5 rounded-full object-cover grayscale opacity-50 shadow-sm" />, locked: true },
+  { code: 'ZA', name: 'South Africa', flag: <img src="https://flagcdn.com/w40/za.png" alt="South Africa" className="w-5 h-5 rounded-full object-cover grayscale opacity-50 shadow-sm" />, locked: true }
+];
+
+const socials = [
+  { icon: WhatsappBusinessIcon, href: 'https://wa.me/2348169384301', label: 'WhatsApp' },
+  { icon: Instagram, href: 'https://www.instagram.com/ilesure_technologies/', label: 'Instagram' },
+  { icon: Twitter, href: 'https://x.com/ilesuresupport', label: 'Twitter / X' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/company/ilésure-technologies', label: 'LinkedIn' },
+  { icon: TiktokIcon, href: 'https://www.tiktok.com/@ilesure.com', label: 'Tiktok' },
+];
+
+const languages = [
+  { code: 'en', name: 'English', locked: false },
+  { code: 'yo', name: 'Yoruba', locked: false },
+  { code: 'ig', name: 'Igbo', locked: false },
+  { code: 'ha', name: 'Hausa', locked: false },
+  { code: 'pcm', name: 'Pidgin', locked: false },
+  { code: 'fr', name: 'French', locked: true }
+];
+
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -69,6 +96,7 @@ export function Navbar() {
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(null);
   const [waitlistOpen, setWaitlistOpen] = useState(false);
   const dropdownTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -123,7 +151,7 @@ export function Navbar() {
           <div
             className={`w-full rounded-pill transition-all duration-300 ease-out flex items-center justify-between gap-4 ${
               scrolled 
-                ? 'max-w-[920px] py-2 px-4 navbar-glass' 
+                ? 'max-w-[1020px] py-2 px-4 navbar-glass' 
                 : 'max-w-[1100px] py-3.5 px-5 navbar-transparent'
             }`}
           >
@@ -166,7 +194,7 @@ export function Navbar() {
                           : 'text-brown hover:bg-mustard hover:text-white'
                       }`}
                     >
-                      {link.label}
+                      {t(link.label)}
                       {link.sections && (
                         <ChevronDown
                           size={13}
@@ -192,9 +220,10 @@ export function Navbar() {
                             <div key={section.anchor} className="px-2 pb-1 last:pb-0">
                               <button
                                 onClick={() => handleSectionClick(link.href, section.anchor)}
-                                className="w-full text-left px-4 py-2 text-sm text-brown hover:bg-mustard-50 hover:text-mustard font-medium transition-colors duration-150 rounded-pill"
+                                className="w-full flex items-center gap-3 px-4 py-2 text-sm text-brown hover:bg-mustard-50 hover:text-mustard font-medium transition-colors duration-150 rounded-pill"
                               >
-                                {section.label}
+                                {section.icon && <section.icon size={16} strokeWidth={2} className="opacity-70" />}
+                                {t(section.label)}
                               </button>
                             </div>
                           ))}
@@ -205,16 +234,98 @@ export function Navbar() {
                 ))}
               </div>
 
-              {/* Desktop CTA */}
-              <div className="hidden md:flex items-center gap-2">
-                <PillButton
-                  variant="mustard"
-                  size="sm"
-                  onClick={() => setWaitlistOpen(true)}
-                  iconRight={<ChevronRight size={15} strokeWidth={2.5} />}
+              {/* CTA & Selectors */}
+              <div className="flex items-center gap-2">
+                {/* Country Selector */}
+                <div 
+                  className="relative"
+                  onMouseEnter={() => handleMouseEnter('country')}
+                  onMouseLeave={handleMouseLeave}
                 >
-                  Get Started
-                </PillButton>
+                  <button className="flex items-center justify-center h-9 px-2 md:px-3 rounded-full bg-white/50 border border-white/30 hover:bg-white/80 transition-colors gap-1.5">
+                    <span className="flex items-center justify-center w-5 h-5 overflow-hidden rounded-full">
+                      <img src="https://flagcdn.com/w40/ng.png" alt="Nigeria" className="w-full h-full object-cover" />
+                    </span>
+                    <ChevronDown size={14} className="text-brown opacity-70" />
+                  </button>
+                  <AnimatePresence>
+                    {openDropdown === 'country' && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 6, scale: 0.97 }}
+                        transition={{ duration: 0.18, ease: 'easeOut' }}
+                        className="absolute top-full right-0 mt-2 w-48 bg-white rounded-clay shadow-clay border border-cream-200 overflow-hidden z-50 py-1.5"
+                      >
+                        {countries.map(c => (
+                          <div key={c.code} className="px-2 pb-1 last:pb-0">
+                            <button className={`w-full flex items-center justify-between px-4 py-2 text-sm font-medium rounded-pill transition-colors ${c.locked ? 'text-gray-400 cursor-not-allowed' : 'text-brown hover:bg-mustard-50 hover:text-mustard'}`}>
+                              <span className="flex items-center gap-2">
+                                <span className="text-base">{c.flag}</span>
+                                {c.name}
+                              </span>
+                              {c.locked && <Lock size={14} className="text-gray-400" />}
+                            </button>
+                          </div>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {/* Language Selector */}
+                <div 
+                  className="relative"
+                  onMouseEnter={() => handleMouseEnter('language')}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <button className="flex items-center justify-center h-9 px-2 md:px-3 rounded-full bg-white/50 border border-white/30 hover:bg-white/80 transition-colors text-brown gap-1.5">
+                    <Languages size={18} strokeWidth={2} />
+                    <ChevronDown size={14} className="opacity-70" />
+                  </button>
+                  <AnimatePresence>
+                    {openDropdown === 'language' && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 6, scale: 0.97 }}
+                        transition={{ duration: 0.18, ease: 'easeOut' }}
+                        className="absolute top-full right-0 mt-2 w-40 bg-white rounded-clay shadow-clay border border-cream-200 overflow-hidden z-50 py-1.5"
+                      >
+                        {languages.map(l => (
+                          <div key={l.code} className="px-2 pb-1 last:pb-0">
+                            <button 
+                              onClick={() => {
+                                if (!l.locked) {
+                                  i18n.changeLanguage(l.code);
+                                  setOpenDropdown(null);
+                                }
+                              }}
+                              className={`w-full flex items-center justify-between px-4 py-2 text-sm font-medium rounded-pill transition-colors ${l.locked ? 'text-gray-400 cursor-not-allowed' : 'text-brown hover:bg-mustard-50 hover:text-mustard'}`}
+                            >
+                              <span className="flex items-center gap-2">
+                                <span className={`w-2 h-2 rounded-full ${i18n.language === l.code ? 'bg-mustard' : 'bg-transparent'}`} />
+                                {l.name}
+                              </span>
+                              {l.locked && <Lock size={14} className="text-gray-400" />}
+                            </button>
+                          </div>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                <div className="hidden md:block">
+                  <PillButton
+                    variant="brown"
+                    size="sm"
+                    onClick={() => setWaitlistOpen(true)}
+                    iconRight={<ChevronRight size={15} strokeWidth={2.5} />}
+                  >
+                    {t('Get Started')}
+                  </PillButton>
+                </div>
               </div>
 
               {/* Mobile Hamburger */}
@@ -287,7 +398,7 @@ export function Navbar() {
                             isActive(link.href) ? 'text-mustard' : 'text-brown hover:text-mustard'
                           }`}
                         >
-                          {link.label}
+                          {t(link.label)}
                         </button>
                         {link.sections && (
                           <button
@@ -317,9 +428,10 @@ export function Navbar() {
                                 <button
                                   key={section.anchor}
                                   onClick={() => { handleSectionClick(link.href, section.anchor); }}
-                                  className="text-left py-2.5 text-sm font-medium text-brown-light hover:text-mustard transition-colors"
+                                  className="flex items-center gap-3 text-left py-2.5 text-sm font-medium text-brown-light hover:text-mustard transition-colors"
                                 >
-                                  → {section.label}
+                                  {section.icon && <section.icon size={16} strokeWidth={2} className="opacity-70" />}
+                                  {t(section.label)}
                                 </button>
                               ))}
                             </div>
@@ -330,19 +442,33 @@ export function Navbar() {
                   ))}
                 </div>
 
+                {/* Social links in mobile menu */}
+                <div className="mt-auto pt-6 flex justify-center gap-4">
+                  {socials.map(({ icon: Icon, href, label }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      aria-label={label}
+                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-cream-300 hover:bg-mustard hover:text-white transition-all duration-300"
+                    >
+                      <Icon size={18} strokeWidth={2} />
+                    </a>
+                  ))}
+                </div>
+
                 <motion.div
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.35 }}
                 >
                   <PillButton
-                    variant="mustard"
+                    variant="brown"
                     size="md"
                     fullWidth
                     onClick={() => { setMenuOpen(false); setWaitlistOpen(true); }}
                     iconRight={<ChevronRight size={18} strokeWidth={2.5} />}
                   >
-                    Get Early Access
+                    {t('Get Early Access')}
                   </PillButton>
                 </motion.div>
               </div>

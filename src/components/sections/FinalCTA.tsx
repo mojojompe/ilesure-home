@@ -4,8 +4,10 @@ import { ChevronRight } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { PillButton } from '../ui/PillButton';
 import { WaitlistModal } from '../ui/WaitlistModal';
+import { useTranslation } from "react-i18next";
 
 export function FinalCTA() {
+    const { t } = useTranslation();
   const [waitlistOpen, setWaitlistOpen] = useState(false);
 
   return (
@@ -47,11 +49,11 @@ export function FinalCTA() {
 
               <div className="flex flex-col gap-4">
                 <h2 className="text-3xl md:text-5xl font-extrabold text-white leading-tight" style={{ textShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
-                  Your sure home is waiting.
-                </h2>
+                  {t("Your sure home is waiting.")}
+                                                  </h2>
                 <p className="text-white/80 text-lg leading-relaxed max-w-xl mx-auto font-medium">
-                  Join hundreds of Users who are done with the stress of off-destination housing. Be first in line when iléSure goes live.
-                </p>
+                  {t("Join hundreds of Users who are done with the stress of off-destination housing. Be first in line when iléSure goes live.")}
+                                                  </p>
               </div>
 
               <div className="flex flex-wrap gap-4 justify-center mt-4">
@@ -63,8 +65,8 @@ export function FinalCTA() {
                     iconRight={<ChevronRight size={18} strokeWidth={2.5} />}
                     className="shadow-3d hover:shadow-3d-hover"
                   >
-                    Join the Waitlist
-                  </PillButton>
+                    {t("Join the Waitlist")}
+                                                        </PillButton>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <PillButton
@@ -76,14 +78,14 @@ export function FinalCTA() {
                     }}
                     className="text-white bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-sm"
                   >
-                    See How It Works
-                  </PillButton>
+                    {t("See How It Works")}
+                                                        </PillButton>
                 </motion.div>
               </div>
 
               <p className="text-white/60 text-xs mt-2 font-medium tracking-wide">
-                NO SPAM. JUST YOUR LAUNCH NOTIFICATION.
-              </p>
+                {t("NO SPAM. JUST YOUR LAUNCH NOTIFICATION.")}
+                                            </p>
             </div>
           </ScrollReveal>
         </div>

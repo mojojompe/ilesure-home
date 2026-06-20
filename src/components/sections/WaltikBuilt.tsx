@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Code2, Rocket, Heart } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
+import { useTranslation } from "react-i18next";
 
 const pillars = [
   {
@@ -27,6 +28,7 @@ const pillars = [
 ];
 
 export function WaltikBuilt() {
+    const { t } = useTranslation();
   return (
     <section className="py-24 bg-brown relative overflow-hidden">
       {/* Grid texture */}
@@ -48,20 +50,20 @@ export function WaltikBuilt() {
         <ScrollReveal>
           <div className="text-center mb-14">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard/15 border border-mustard/30 text-mustard text-xs font-bold uppercase tracking-widest">
-              Crafted With Purpose
-            </span>
+              {t("Crafted With Purpose")}
+                                      </span>
             <h2 className="mt-5 text-4xl font-extrabold text-white leading-tight">
-              Built by{' '}
+              {t("Built by")}{' '}
               <span
                 className="text-transparent bg-clip-text"
                 style={{ backgroundImage: 'linear-gradient(135deg, #F5C842 0%, #C9962A 100%)' }}
               >
-                Waltik Labs
-              </span>
+                {t("Waltik Labs")}
+                                            </span>
             </h2>
             <p className="mt-4 text-cream/70 max-w-xl mx-auto leading-relaxed">
-              iléSure is a product of Waltik Labs — a Nigerian software studio that builds purposeful, community-driven digital products. We don't just build apps; we solve real problems for real people.
-            </p>
+              {t("iléSure is a product of Waltik Labs — a Nigerian software studio that builds purposeful, community-driven digital products. We don't just build apps; we solve real problems for real people.")}
+                                      </p>
           </div>
         </ScrollReveal>
 
@@ -104,8 +106,8 @@ export function WaltikBuilt() {
                 <span className="text-mustard font-black text-xl">W</span>
               </div>
               <div>
-                <p className="font-extrabold text-white text-lg">Waltik Labs</p>
-                <p className="text-cream/60 text-sm">Building Nigeria's digital future, one product at a time.</p>
+                <p className="font-extrabold text-white text-lg">{t("Waltik Labs")}</p>
+                <p className="text-cream/60 text-sm">{t("Building Nigeria's digital future, one product at a time.")}</p>
               </div>
             </div>
             <motion.a
@@ -117,8 +119,8 @@ export function WaltikBuilt() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
             >
-              Visit Waltik Labs →
-            </motion.a>
+              {t("Visit Waltik Labs →")}
+                                      </motion.a>
           </motion.div>
         </ScrollReveal>
       </div>
