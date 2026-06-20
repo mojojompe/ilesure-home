@@ -69,7 +69,7 @@ function SpotlightCard({
 export function Features() {
   const { t } = useTranslation();
   return (
-    <section id="features" className="py-32 relative"
+    <section id="features" className="py-16 relative"
       style={{ background: 'radial-gradient(ellipse at 20% 80%, #FFFDF7 0%, #FDF6E3 80%, #FAF1CC 100%)' }}
     >
       {/* Container specifically to clip background overflow if necessary */}
@@ -130,7 +130,7 @@ export function Features() {
         </div>
 
         {/* ── Mobile: Vertical Sticky Overlap Stack ── */}
-        <div className="sm:hidden mt-10 flex flex-col relative pb-20">
+        <div className="sm:hidden mt-10 flex flex-col relative pb-10">
           {features.map((feature, i) => {
             return (
               <div

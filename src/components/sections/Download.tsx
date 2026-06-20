@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Bell, ChevronRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { WaitlistModal } from '../ui/WaitlistModal';
 import { useTranslation } from "react-i18next";
@@ -11,7 +11,7 @@ export function Download() {
 
   return (
     <>
-      <section id="download" className="py-24 bg-white relative">
+      <section id="download" className="py-20 bg-white relative">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div
             className="rounded-clay-lg overflow-hidden relative"
@@ -35,8 +35,8 @@ export function Download() {
                 <ScrollReveal direction="left">
                   <div className="flex flex-col gap-4 items-center lg:items-start">
                     <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard/15 border border-mustard/25 text-mustard text-xs font-bold uppercase tracking-widest w-fit">
-                      <Bell size={12} strokeWidth={2.5} />
-                      {t("Coming Soon - For Students & Individuals")}
+                      
+                      {t("For Students & Individuals")}
                                                               </span>
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
                       {t("Take iléSure wherever you go")}

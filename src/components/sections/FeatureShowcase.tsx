@@ -82,7 +82,7 @@ function SpotlightCard({ children, className = '', delay = 0 }: { children: Reac
 export function FeatureShowcase() {
     const { t } = useTranslation();
   return (
-    <section id="features" className="py-24 lg:py-32 bg-cream-50 relative">
+    <section id="features" className="py-16 lg:py-24 bg-cream-50 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal>
           <div className="flex flex-col items-center text-center mb-16">
@@ -143,7 +143,7 @@ export function FeatureShowcase() {
         </div>
 
         {/* ── Mobile: Vertical Sticky Overlap Stack ── */}
-        <div className="sm:hidden mt-10 flex flex-col relative pb-20">
+        <div className="sm:hidden mt-10 flex flex-col relative pb-10">
           {features.map((feature, i) => {
             return (
               <div

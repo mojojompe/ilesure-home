@@ -443,17 +443,24 @@ export function Navbar() {
                 </div>
 
                 {/* Social links in mobile menu */}
-                <div className="mt-auto pt-6 flex justify-center gap-4">
+                <div className="py-6 items-center flex flex-col gap-4">
+                <div className="flex items-center w-full gap-4">
+                  <div className="flex-1 h-px bg-cream-500"></div>
+                  <h3 className="text-sm font-bold text-center">Socials</h3>
+                  <div className="flex-1 h-px bg-cream-500"></div>
+                </div>
+                  <div className="flex flex-row mt-auto justify-center gap-4">
                   {socials.map(({ icon: Icon, href, label }) => (
                     <a
                       key={label}
                       href={href}
                       aria-label={label}
-                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-cream-300 hover:bg-mustard hover:text-white transition-all duration-300"
+                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-brown hover:bg-mustard hover:text-white transition-all duration-300"
                     >
                       <Icon size={18} strokeWidth={2} />
                     </a>
                   ))}
+                  </div>
                 </div>
 
                 <motion.div

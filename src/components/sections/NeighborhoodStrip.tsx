@@ -5,14 +5,14 @@ import { useTranslation } from "react-i18next";
 
 // National neighborhoods — no university/distance references
 const neighborhoods = [
-  { name: 'Victoria Island', state: 'Lagos', color: '#C9962A', count: '24+' },
-  { name: 'Lekki Phase 1', state: 'Lagos', color: '#5C3317', count: '31+' },
-  { name: 'Wuse 2', state: 'Abuja', color: '#C9962A', count: '18+' },
-  { name: 'Maitama', state: 'Abuja', color: '#5C3317', count: '14+' },
+  { name: 'Victoria Island', state: 'Lagos', color: '#C9962A', count: '9+' },
+  { name: 'Lekki Phase 1', state: 'Lagos', color: '#5C3317', count: '12+' },
+  { name: 'Wuse 2', state: 'Abuja', color: '#C9962A', count: '11+' },
+  { name: 'Maitama', state: 'Abuja', color: '#5C3317', count: '4+' },
   { name: 'Bodija', state: 'Ibadan', color: '#C9962A', count: '8+' },
-  { name: 'GRA', state: 'Port Harcourt', color: '#5C3317', count: '11+' },
-  { name: 'Adaeze', state: 'Enugu', color: '#C9962A', count: '6+' },
-  { name: 'Ikeja GRA', state: 'Lagos', color: '#5C3317', count: '9+' },
+  { name: 'GRA', state: 'Port Harcourt', color: '#5C3317', count: '3+' },
+  { name: 'Adaeze', state: 'Enugu', color: '#C9962A', count: '7+' },
+  { name: 'Ikeja GRA', state: 'Lagos', color: '#5C3317', count: '3+' },
 ];
 
 export function NeighborhoodStrip() {

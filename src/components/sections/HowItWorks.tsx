@@ -119,7 +119,7 @@ export function HowItWorks() {
   }, []);
 
   return (
-    <section id="how-it-works" ref={sectionRef} className="py-32 bg-cream relative overflow-hidden">
+    <section id="how-it-works" ref={sectionRef} className="py-20 bg-cream relative overflow-hidden">
       {/* Floating How It Works Illustration */}
       <img
         src="/illustrations/how_it_works.png"
