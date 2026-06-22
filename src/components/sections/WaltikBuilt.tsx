@@ -99,11 +99,12 @@ export function WaltikBuilt() {
             style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(245,200,66,0.2)' }}
           >
             <div className="flex items-center gap-4">
-              <div
-                className="w-14 h-14 rounded-clay-sm flex items-center justify-center flex-shrink-0"
-                style={{ background: 'linear-gradient(135deg, rgba(245,200,66,0.2), rgba(201,150,42,0.15))' }}
-              >
-                <span className="text-mustard font-black text-xl">W</span>
+              <div className="w-14 h-14 rounded-clay-sm flex-shrink-0 overflow-hidden bg-white/5 border border-mustard/20">
+                <img 
+                  src="/waltik_bg.jpg" 
+                  alt="Waltik Labs Logo" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div>
                 <p className="font-extrabold text-white text-lg">{t("Waltik Labs")}</p>
@@ -120,7 +121,7 @@ export function WaltikBuilt() {
               whileTap={{ scale: 0.97 }}
             >
               {t("Visit Waltik Labs →")}
-                                      </motion.a>
+            </motion.a>
           </motion.div>
         </ScrollReveal>
       </div>
