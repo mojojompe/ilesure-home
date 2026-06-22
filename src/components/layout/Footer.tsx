@@ -128,11 +128,18 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-14 text-sm text-cream-400/60 w-full">
           <p>© {new Date().getFullYear()} iléSure Technologies. All rights reserved.</p>
-          <p className="flex items-center gap-2">
+          <div className="flex items-center gap-2">
             <span>Sponsored by</span>
-            <img src="/waltik_bg.jpg" alt="Waltik Labs Logo" className="w-5 h-5 rounded-sm object-cover" />
-            <span className="font-semibold text-white">Waltik Labs</span>
-          </p>
+            <a 
+              href="https://waltiklabs.vercel.app" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 group"
+            >
+              <img src="/waltik_bg.jpg" alt="Waltik Labs Logo" className="w-5 h-5 rounded-sm object-cover group-hover:opacity-80 transition-opacity" />
+              <span className="font-semibold text-white group-hover:text-mustard transition-colors duration-200">Waltik Labs</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>

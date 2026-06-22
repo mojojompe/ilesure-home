@@ -112,7 +112,7 @@ export function WaltikBuilt() {
               </div>
             </div>
             <motion.a
-              href="https://waltiklabs.com"
+              href="https://waltiklabs.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 rounded-pill font-bold text-sm flex-shrink-0"
