@@ -79,14 +79,7 @@ const socials = [
   { icon: TiktokIcon, href: 'https://www.tiktok.com/@ilesure.com', label: 'Tiktok' },
 ];
 
-const languages = [
-  { code: 'en', name: 'English', locked: false },
-  { code: 'yo', name: 'Yoruba', locked: false },
-  { code: 'ig', name: 'Igbo', locked: false },
-  { code: 'ha', name: 'Hausa', locked: false },
-  { code: 'pcm', name: 'Pidgin', locked: false },
-  { code: 'fr', name: 'French', locked: true }
-];
+
 
 
 export function Navbar() {
@@ -273,48 +266,11 @@ export function Navbar() {
                   </AnimatePresence>
                 </div>
 
-                {/* Language Selector */}
+                {/* Google Translate Widget */}
                 <div 
-                  className="relative"
-                  onMouseEnter={() => handleMouseEnter('language')}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <button className="flex items-center justify-center h-9 px-2 md:px-3 rounded-full bg-white/50 border border-white/30 hover:bg-white/80 transition-colors text-brown gap-1.5">
-                    <Languages size={18} strokeWidth={2} />
-                    <ChevronDown size={14} className="opacity-70" />
-                  </button>
-                  <AnimatePresence>
-                    {openDropdown === 'language' && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 8, scale: 0.97 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 6, scale: 0.97 }}
-                        transition={{ duration: 0.18, ease: 'easeOut' }}
-                        className="absolute top-full right-0 mt-2 w-40 bg-white rounded-clay shadow-clay border border-cream-200 overflow-hidden z-50 py-1.5"
-                      >
-                        {languages.map(l => (
-                          <div key={l.code} className="px-2 pb-1 last:pb-0">
-                            <button 
-                              onClick={() => {
-                                if (!l.locked) {
-                                  i18n.changeLanguage(l.code);
-                                  setOpenDropdown(null);
-                                }
-                              }}
-                              className={`w-full flex items-center justify-between px-4 py-2 text-sm font-medium rounded-pill transition-colors ${l.locked ? 'text-gray-400 cursor-not-allowed' : 'text-brown hover:bg-mustard-50 hover:text-mustard'}`}
-                            >
-                              <span className="flex items-center gap-2">
-                                <span className={`w-2 h-2 rounded-full ${i18n.language === l.code ? 'bg-mustard' : 'bg-transparent'}`} />
-                                {l.name}
-                              </span>
-                              {l.locked && <Lock size={14} className="text-gray-400" />}
-                            </button>
-                          </div>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+                  id="google_translate_element" 
+                  className="flex items-center justify-center h-9 px-2 md:px-3 rounded-full bg-white/50 border border-white/30 hover:bg-white/80 transition-colors text-brown overflow-hidden min-w-[120px]"
+                ></div>
 
                 <div className="hidden md:block">
                   <PillButton
