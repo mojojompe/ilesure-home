@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronDown, Sparkles, HelpCircle, Users, BookOpen, Target, Activity, MonitorSmartphone, CreditCard, MessageSquareHeart, PenTool, MessageCircleQuestion, MessagesSquare, Languages, Lock, Instagram, Twitter, Linkedin } from 'lucide-react';
+import { ChevronRight, ChevronDown, Sparkles, HelpCircle, Users, BookOpen, Target, Activity, MonitorSmartphone, CreditCard, MessageSquareHeart, PenTool, MessageCircleQuestion, MessagesSquare, Lock, Instagram, Twitter, Linkedin } from 'lucide-react';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Menu11Icon, PanelLeftCloseIcon } from '@hugeicons/core-free-icons';
 import { TiktokIcon, WhatsappBusinessIcon } from 'hugeicons-react';
@@ -89,7 +89,7 @@ export function Navbar() {
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(null);
   const [waitlistOpen, setWaitlistOpen] = useState(false);
   const dropdownTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
 
