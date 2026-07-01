@@ -4,7 +4,6 @@ import { ChevronRight } from 'lucide-react';
 import { WaitlistModal } from '../ui/WaitlistModal';
 import { useNavigate } from 'react-router-dom';
 import BlurText from '../ui/BlurText';
-import { useTranslation } from 'react-i18next';
 
 const rotatingTexts = [
   "Verified Real Estate",
@@ -13,9 +12,7 @@ const rotatingTexts = [
   "Ezigbo Ụlọ Gị"
 ];
 
-export function Hero() {
-  const { t } = useTranslation();
-  const [waitlistOpen, setWaitlistOpen] = useState(false);
+export function Hero() {  const [waitlistOpen, setWaitlistOpen] = useState(false);
   const [textIndex, setTextIndex] = useState(0);
   const navigate = useNavigate();
 
@@ -71,10 +68,10 @@ export function Hero() {
 
             <h1 className="text-[10vw] sm:text-6xl md:text-[80px] lg:text-[80px] xl:text-[80px] font-black text-brown leading-[1.05] tracking-tighter py-4 text-center w-full" style={{ fontFamily: 'Georgia, serif' }}>
               <BlurText
-                text={t('Find Your Sure Home Anywhere.')}
+                text='Find Your Sure Home Anywhere.'
                 delay={100}
                 stepDuration={0.4}
-                highlightWords={[t('Sure_highlight'), t('Home_highlight')]}
+                highlightWords={['Sure_highlight', 'Home_highlight']}
                 highlightClass="text-transparent bg-clip-text bg-gradient-to-br from-[#F5C842] to-[#C9962A]"
                 className="flex flex-wrap items-center justify-center gap-x-1 sm:gap-x-2 w-full"
                 animationFrom={{ filter: 'blur(12px)', opacity: 0, x: -50, y: 0 }}
@@ -92,7 +89,7 @@ export function Hero() {
               className="mt-8 text-brown-light text-lg sm:text-xl leading-loose max-w-2xl italic mx-auto"
               style={{ fontFamily: 'Georgia, serif' }}
             >
-              {t('Discover verified apartments and spaces tailored to your lifestyle. Transparent, trusted, and strictly verified.')}
+              'Discover verified apartments and spaces tailored to your lifestyle. Transparent, trusted, and strictly verified.'
             </motion.p>
 
             <motion.div
@@ -108,7 +105,7 @@ export function Hero() {
                 whileTap={{ scale: 0.98 }}
               >
                 <span className="relative flex items-center justify-center gap-2">
-                  {t('Get the App')}
+                  'Get the App'
                   <ChevronRight size={18} strokeWidth={2.5} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </motion.button>
@@ -116,7 +113,7 @@ export function Hero() {
                 onClick={() => navigate('/discover')}
                 className="w-full sm:w-auto px-10 py-5 border-2 border-brown text-brown font-bold text-sm uppercase tracking-wider hover:bg-brown hover:text-white transition-colors duration-300 rounded-3xl"
               >
-                {t('Learn More')}
+                'Learn More'
               </button>
             </motion.div>
           </div>

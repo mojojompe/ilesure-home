@@ -3,7 +3,6 @@ import { motion, useInView, useMotionValue } from 'framer-motion';
 import { Search, Map, ShieldCheck, KeyRound } from 'lucide-react';
 import { SectionHeading } from '../ui/SectionHeading';
 import { ScrollReveal } from '../ui/ScrollReveal';
-import { useTranslation } from "react-i18next";
 
 const features = [
   {
@@ -79,17 +78,15 @@ function SpotlightCard({ children, className = '', delay = 0 }: { children: Reac
   );
 }
 
-export function FeatureShowcase() {
-    const { t } = useTranslation();
-  return (
+export function FeatureShowcase() {  return (
     <section id="features" className="py-16 lg:py-24 bg-cream-50 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal>
           <div className="flex flex-col items-center text-center mb-16">
             <SectionHeading 
-              eyebrow={t("Experience")} 
-              title={t("Everything built into one seamless experience")} 
-              subtitle={t("A smarter, safer way to find your next home.")}
+              eyebrow='Experience' 
+              title='Everything built into one seamless experience' 
+              subtitle='A smarter, safer way to find your next home.'
             />
           </div>
         </ScrollReveal>

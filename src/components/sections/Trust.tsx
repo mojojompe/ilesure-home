@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useRef } from 'react';
 import { useInView, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ScrollReveal } from '../ui/ScrollReveal';
-import { useTranslation } from "react-i18next";
 
 const stats = [
   {
@@ -142,9 +141,7 @@ function MobileStatCard({ stat }: { stat: typeof stats[0] }) {
   );
 }
 
-export function Trust() {
-    const { t } = useTranslation();
-  const [currentIndex, setCurrentIndex] = useState(0);
+export function Trust() {  const [currentIndex, setCurrentIndex] = useState(0);
 
   // Auto-advance slideshow on mobile
   useEffect(() => {
@@ -177,7 +174,7 @@ export function Trust() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal className="text-left mb-10 w-full">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard-50 border border-mustard-200 text-mustard text-xs font-bold uppercase tracking-widest">
-             {t("Trusted by Users")}
+             'Trusted by Users'
                                 </span>
         </ScrollReveal>
 

@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, useMotionValue, animate } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
-import { useTranslation } from "react-i18next";
 
 const testimonials = [
   {
@@ -46,9 +45,7 @@ const testimonials = [
   },
 ];
 
-export function DraggableTestimonialCarousel() {
-    const { t } = useTranslation();
-  const [currentIndex, setCurrentIndex] = useState(0);
+export function DraggableTestimonialCarousel() {  const [currentIndex, setCurrentIndex] = useState(0);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
@@ -77,11 +74,11 @@ export function DraggableTestimonialCarousel() {
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard/10 text-mustard text-xs font-bold uppercase tracking-widest mb-4">
             <Quote size={12} />
-            {t("Testimonials")}
+            'Testimonials'
                                 </span>
           <h2 className="text-4xl font-extrabold text-brown">
-            {t("Loved by")}{' '}
-            <span className="text-mustard">{t("Users")}</span>
+            'Loved by'{' '}
+            <span className="text-mustard">'Users'</span>
           </h2>
         </motion.div>
 

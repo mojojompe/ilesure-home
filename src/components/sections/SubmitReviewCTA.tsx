@@ -2,11 +2,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Star } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
-import { useTranslation } from "react-i18next";
 
-export function SubmitReviewCTA() {
-    const { t } = useTranslation();
-  const [form, setForm] = useState({ name: '', university: '', message: '', rating: 5 });
+export function SubmitReviewCTA() {  const [form, setForm] = useState({ name: '', university: '', message: '', rating: 5 });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -27,13 +24,13 @@ export function SubmitReviewCTA() {
         <ScrollReveal>
           <div className="text-center mb-10">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard-50 border border-mustard-200 text-mustard text-xs font-bold uppercase tracking-widest">
-              {t("Share Your Experience")}
+              'Share Your Experience'
                                       </span>
             <h2 className="mt-4 text-4xl font-extrabold text-brown">
-              {t("Had a Great Experience?")} <span className="text-gradient-mustard">{t("Tell Us.")}</span>
+              'Had a Great Experience?' <span className="text-gradient-mustard">'Tell Us.'</span>
             </h2>
             <p className="mt-3 text-brown-light max-w-md mx-auto">
-              {t("Your story helps other Users find their sure home. Take 60 seconds to share.")}
+              'Your story helps other Users find their sure home. Take 60 seconds to share.'
                                       </p>
           </div>
         </ScrollReveal>
@@ -48,9 +45,9 @@ export function SubmitReviewCTA() {
               <div className="w-16 h-16 rounded-full bg-mustard-50 flex items-center justify-center">
                 <Star size={30} className="text-mustard fill-mustard" />
               </div>
-              <h3 className="text-2xl font-extrabold text-brown">{t("Thank You!")}</h3>
+              <h3 className="text-2xl font-extrabold text-brown">'Thank You!'</h3>
               <p className="text-brown-light max-w-sm">
-                {t("Your review has been received. We'll feature it once our team has had a look. 🏠")}
+                'Your review has been received. We'll feature it once our team has had a look. 🏠'
                                             </p>
             </motion.div>
           ) : (
@@ -60,7 +57,7 @@ export function SubmitReviewCTA() {
             >
               {/* Rating stars */}
               <div>
-                <label className="text-xs font-bold uppercase tracking-widest text-brown-light mb-2 block">{t("Your Rating")}</label>
+                <label className="text-xs font-bold uppercase tracking-widest text-brown-light mb-2 block">'Your Rating'</label>
                 <div className="flex gap-2">
                   {[1, 2, 3, 4, 5].map(star => (
                     <motion.button
@@ -82,27 +79,27 @@ export function SubmitReviewCTA() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-xs font-bold uppercase tracking-widest text-brown-light mb-1.5 block">
-                    {t("Your Name")}
+                    'Your Name'
                                                             </label>
                   <input
                     type="text"
                     required
                     value={form.name}
                     onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-                    placeholder={t("e.g. Tolu Akinlade")}
+                    placeholder='e.g. Tolu Akinlade'
                     className="w-full rounded-clay-sm border border-cream-200 px-4 py-3 text-sm text-brown bg-cream focus:outline-none focus:border-mustard transition-colors"
                   />
                 </div>
                 <div>
                   <label className="text-xs font-bold uppercase tracking-widest text-brown-light mb-1.5 block">
-                    {t("University")}
+                    'University'
                                                             </label>
                   <input
                     type="text"
                     required
                     value={form.university}
                     onChange={e => setForm(f => ({ ...f, university: e.target.value }))}
-                    placeholder={t("e.g. key locations")}
+                    placeholder='e.g. key locations'
                     className="w-full rounded-clay-sm border border-cream-200 px-4 py-3 text-sm text-brown bg-cream focus:outline-none focus:border-mustard transition-colors"
                   />
                 </div>
@@ -110,14 +107,14 @@ export function SubmitReviewCTA() {
 
               <div>
                 <label className="text-xs font-bold uppercase tracking-widest text-brown-light mb-1.5 block">
-                  {t("Your Story")}
+                  'Your Story'
                                                       </label>
                 <textarea
                   required
                   rows={4}
                   value={form.message}
                   onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-                  placeholder={t("Tell us about your experience finding housing with iléSure...")}
+                  placeholder='Tell us about your experience finding housing with iléSure...'
                   className="w-full rounded-clay-sm border border-cream-200 px-4 py-3 text-sm text-brown bg-cream focus:outline-none focus:border-mustard transition-colors resize-none"
                 />
               </div>
@@ -129,7 +126,7 @@ export function SubmitReviewCTA() {
                 whileTap={{ scale: 0.97 }}
               >
                 <Send size={16} strokeWidth={2.5} />
-                {t("Submit My Review")}
+                'Submit My Review'
                                                 </motion.button>
             </form>
           )}

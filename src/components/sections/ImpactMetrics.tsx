@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ScrollReveal } from '../ui/ScrollReveal';
-import { useTranslation } from "react-i18next";
 
 const metrics = [
   {
@@ -83,9 +82,7 @@ function MobileMetricCard({ metric }: { metric: typeof metrics[0] }) {
   );
 }
 
-export function ImpactMetrics() {
-    const { t } = useTranslation();
-  const [currentIndex, setCurrentIndex] = useState(0);
+export function ImpactMetrics() {  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -106,13 +103,13 @@ export function ImpactMetrics() {
         <ScrollReveal>
           <div className="text-center mb-14">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard-50 border border-mustard-200 text-mustard text-xs font-bold uppercase tracking-widest">
-              {t("Our Impact")}
+              'Our Impact'
                                       </span>
             <h2 className="mt-4 text-4xl font-extrabold text-brown">
-              {t("Building Trust,")} <span className="text-gradient-mustard">{t("One Listing at a Time")}</span>
+              'Building Trust,' <span className="text-gradient-mustard">'One Listing at a Time'</span>
             </h2>
             <p className="mt-3 text-brown-light max-w-xl mx-auto">
-              {t("iléSure is more than an app — it's a commitment to every Nigerian User who deserves a safe, honest home-finding experience.")}
+              'iléSure is more than an app — it's a commitment to every Nigerian User who deserves a safe, honest home-finding experience.'
                                       </p>
           </div>
         </ScrollReveal>

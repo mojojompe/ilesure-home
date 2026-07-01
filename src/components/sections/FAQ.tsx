@@ -5,11 +5,8 @@ import { ScrollReveal } from '../ui/ScrollReveal';
 import { SectionHeading } from '../ui/SectionHeading';
 import { faqs } from '../../data/faqs';
 import { useNavigate } from 'react-router-dom';
-import { useTranslation } from "react-i18next";
 
-export function FAQ() {
-    const { t } = useTranslation();
-  const [openId, setOpenId] = useState<string | null>(null);
+export function FAQ() {  const [openId, setOpenId] = useState<string | null>(null);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const navigate = useNavigate();
 
@@ -27,9 +24,9 @@ export function FAQ() {
             <div className="lg:col-span-5 flex flex-col gap-8 lg:sticky lg:top-32 relative">
               <ScrollReveal>
                 <SectionHeading
-                  eyebrow={t("FAQ")}
-                  title={t("Questions? We've got answers.")}
-                  subtitle={t("Everything you need to know about iléSure.")}
+                  eyebrow='FAQ'
+                  title="Questions? We've got answers."
+                  subtitle='Everything you need to know about iléSure.'
                   align="left"
                 />
               </ScrollReveal>
@@ -49,7 +46,7 @@ export function FAQ() {
                     hoveredId ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-2 pointer-events-none'
                   }`}
                 >
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-mustard">{t("Quick Answer")}</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-mustard">'Quick Answer'</span>
                   <p className="text-sm text-brown-light leading-relaxed">{hoveredAnswer}</p>
                 </div>
 
@@ -65,9 +62,9 @@ export function FAQ() {
                     <MessageSquare size={22} className="text-mustard" />
                   </div>
                   <div>
-                    <p className="text-lg font-bold text-brown">{t("Still have questions?")}</p>
+                    <p className="text-lg font-bold text-brown">'Still have questions?'</p>
                     <p className="text-sm text-brown-light leading-relaxed mt-1">
-                      {t("We're here to help. Chat with our AI support agent — available 24/7.")}
+                      'We're here to help. Chat with our AI support agent — available 24/7.'
                                                               </p>
                   </div>
                   <motion.button
@@ -82,7 +79,7 @@ export function FAQ() {
                   >
                     <span className="absolute inset-0 anim-shimmer pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <MessageSquare size={16} strokeWidth={2.5} className="relative" />
-                    <span className="relative">{t("Chat with Support")}</span>
+                    <span className="relative">'Chat with Support'</span>
                   </motion.button>
                 </div>
               </div>

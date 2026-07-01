@@ -3,7 +3,6 @@ import { motion, useInView, useMotionValue } from 'framer-motion';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { SectionHeading } from '../ui/SectionHeading';
 import { features } from '../../data/features';
-import { useTranslation } from 'react-i18next';
 
 // Bento grid layout pattern
 const bentoPattern = [
@@ -66,9 +65,7 @@ function SpotlightCard({
   );
 }
 
-export function Features() {
-  const { t } = useTranslation();
-  return (
+export function Features() {  return (
     <section id="features" className="py-16 relative"
       style={{ background: 'radial-gradient(ellipse at 20% 80%, #FFFDF7 0%, #FDF6E3 80%, #FAF1CC 100%)' }}
     >
@@ -96,9 +93,9 @@ export function Features() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal>
           <SectionHeading
-            eyebrow={t('Features')}
-            title={t('Everything you need to find your perfect space')}
-            subtitle={t("iléSure goes beyond a listing board, it's a full ecosystem built around the real problems Users face finding off-destination housing in Nigeria.")}
+            eyebrow='Features'
+            title='Everything you need to find your perfect space'
+            subtitle="iléSure goes beyond a listing board, it's a full ecosystem built around the real problems Users face finding off-destination housing in Nigeria."
             align="center"
           />
         </ScrollReveal>
@@ -121,8 +118,8 @@ export function Features() {
                   <img src={feature.image} alt={feature.title} className="w-full h-full object-contain drop-shadow-sm" />
                 </motion.div>
                 <div className="flex flex-col gap-2 relative z-10">
-                  <h3 className="text-xl font-bold text-brown tracking-tight">{t(feature.title)}</h3>
-                  <p className="text-sm text-brown-light leading-loose">{t(feature.description)}</p>
+                  <h3 className="text-xl font-bold text-brown tracking-tight">{feature.title}</h3>
+                  <p className="text-sm text-brown-light leading-loose">{feature.description}</p>
                 </div>
               </SpotlightCard>
             );
@@ -155,8 +152,8 @@ export function Features() {
                 </div>
                 
                 <div className="flex flex-col gap-2 relative z-20">
-                  <h3 className="text-xl font-bold text-brown leading-tight tracking-tight">{t(feature.title)}</h3>
-                  <p className="text-[15px] text-brown-light leading-loose">{t(feature.description)}</p>
+                  <h3 className="text-xl font-bold text-brown leading-tight tracking-tight">{feature.title}</h3>
+                  <p className="text-[15px] text-brown-light leading-loose">{feature.description}</p>
                 </div>
 
                 {/* Subtle top shading gradient to separate overlapped cards */}

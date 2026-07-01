@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { Play, Star } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
-import { useTranslation } from "react-i18next";
 
 const videoTestimonials = [
   {
@@ -33,9 +32,7 @@ const videoTestimonials = [
   },
 ];
 
-export function VideoTestimonials() {
-    const { t } = useTranslation();
-  return (
+export function VideoTestimonials() {  return (
     <section className="py-24 bg-cream relative overflow-hidden">
       <div className="absolute top-0 right-0 w-80 h-80 bg-mustard/8 rounded-full blur-[100px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-brown/5 rounded-full blur-[80px] pointer-events-none" />
@@ -45,13 +42,13 @@ export function VideoTestimonials() {
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard-50 border border-mustard-200 text-mustard text-xs font-bold uppercase tracking-widest">
               <Play size={11} className="fill-mustard" />
-              {t("Watch Their Stories")}
+              'Watch Their Stories'
                                       </span>
             <h2 className="mt-4 text-4xl font-extrabold text-brown">
-              {t("Real Users,")} <span className="text-gradient-mustard">{t("Real Homes")}</span>
+              'Real Users,' <span className="text-gradient-mustard">'Real Homes'</span>
             </h2>
             <p className="mt-3 text-brown-light max-w-lg mx-auto">
-              {t("Hear directly from Users who found their sure home through iléSure.")}
+              'Hear directly from Users who found their sure home through iléSure.'
                                       </p>
           </div>
         </ScrollReveal>
@@ -84,7 +81,7 @@ export function VideoTestimonials() {
 
                   {/* Coming soon overlay */}
                   <span className="absolute bottom-3 left-3 bg-mustard/90 text-white text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-pill">
-                    {t("Coming Soon")}
+                    'Coming Soon'
                                                 </span>
                 </div>
 

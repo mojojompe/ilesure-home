@@ -2,7 +2,6 @@ import { useRef, useState } from 'react';
 import { motion, useMotionValue } from 'framer-motion';
 import { Quote, Star } from 'lucide-react';
 import { SectionHeading } from '../ui/SectionHeading';
-import { useTranslation } from "react-i18next";
 
 const testimonials = [
   { name: 'Ayomip Odu', role: 'Year 2 User', avatar: 'AO', content: "I was skeptical about finding a safe place Anywhere, but iléSure made it so easy. Found a 2-bedroom just 5 minutes from LCU!", rating: 5, location: 'Bodija' },
@@ -82,9 +81,7 @@ function MasonryCard({ t }: { t: typeof testimonials[0] }) {
   );
 }
 
-export function SocialProofWall() {
-    const { t } = useTranslation();
-  // Split into 3 columns
+export function SocialProofWall() {  // Split into 3 columns
   const col1 = [testimonials[0], testimonials[3], testimonials[6], testimonials[0]];
   const col2 = [testimonials[1], testimonials[4], testimonials[7], testimonials[1]];
   const col3 = [testimonials[2], testimonials[5], testimonials[8], testimonials[2]];
@@ -97,8 +94,8 @@ export function SocialProofWall() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-30 mb-8 pointer-events-auto flex flex-col md:flex-row items-center justify-between">
         <SectionHeading
-          eyebrow={t("Loved by Users")}
-          title={t("Don't just take our word for it")}
+          eyebrow='Loved by Users'
+          title="Don't just take our word for it"
           align="left"
         />
         

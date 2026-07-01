@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { Quote, Star } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
-import { useTranslation } from "react-i18next";
 
 const agentTestimonials = [
   {
@@ -39,9 +38,7 @@ const agentTestimonials = [
   },
 ];
 
-export function AgentTestimonials() {
-    const { t } = useTranslation();
-  return (
+export function AgentTestimonials() {  return (
     <section className="py-24 bg-cream relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-mustard/5 rounded-full blur-[100px] pointer-events-none" />
 
@@ -50,13 +47,13 @@ export function AgentTestimonials() {
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard-50 border border-mustard-200 text-mustard text-xs font-bold uppercase tracking-widest">
               <Quote size={12} />
-              {t("Agent Stories")}
+              'Agent Stories'
                                       </span>
             <h2 className="mt-4 text-4xl font-extrabold text-brown">
-              {t("Agents")} <span className="text-gradient-mustard">{t("Love iléSure")}</span>
+              'Agents' <span className="text-gradient-mustard">'Love iléSure'</span>
             </h2>
             <p className="mt-3 text-brown-light max-w-lg mx-auto">
-              {t("Real results from real property professionals across Nigeria.")}
+              'Real results from real property professionals across Nigeria.'
                                       </p>
           </div>
         </ScrollReveal>
@@ -94,7 +91,7 @@ export function AgentTestimonials() {
                   style={{ background: `${testimonial.color}10`, border: `1px solid ${testimonial.color}20` }}
                 >
                   <p className="text-xs font-bold uppercase tracking-widest" style={{ color: testimonial.color }}>
-                    {t("Result")}
+                    'Result'
                                                 </p>
                   <p className="font-extrabold text-brown mt-0.5">{testimonial.stat}</p>
                 </div>

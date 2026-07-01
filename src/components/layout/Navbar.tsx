@@ -1,13 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronDown, Sparkles, HelpCircle, Users, BookOpen, Target, Activity, MonitorSmartphone, CreditCard, MessageSquareHeart, PenTool, MessageCircleQuestion, MessagesSquare, Lock, Instagram, Twitter, Linkedin } from 'lucide-react';
+import { ChevronRight, ChevronDown, Sparkles, HelpCircle, Users, BookOpen, Target, Activity, MonitorSmartphone, CreditCard, MessageSquareHeart, PenTool, MessageCircleQuestion, MessagesSquare, Languages, Lock, Instagram, Twitter, Linkedin } from 'lucide-react';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Menu11Icon, PanelLeftCloseIcon } from '@hugeicons/core-free-icons';
 import { TiktokIcon, WhatsappBusinessIcon } from 'hugeicons-react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { PillButton } from '../ui/PillButton';
 import { WaitlistModal } from '../ui/WaitlistModal';
-import { useTranslation } from 'react-i18next';
 
 interface NavSection {
   label: string;
@@ -88,9 +87,7 @@ export function Navbar() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(null);
   const [waitlistOpen, setWaitlistOpen] = useState(false);
-  const dropdownTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const { t } = useTranslation();
-  const navigate = useNavigate();
+  const dropdownTimer = useRef<ReturnType<typeof setTimeout> | null>(null);  const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
@@ -105,6 +102,16 @@ export function Navbar() {
     setMenuOpen(false);
     setMobileOpenDropdown(null);
   }, [location.pathname]);
+
+  // Capture Google Translate element
+  useEffect(() => {
+    const translateEl = document.getElementById('google_translate_element');
+    const container = document.getElementById('navbar_translate_container');
+    if (translateEl && container) {
+      translateEl.removeAttribute('style');
+      container.appendChild(translateEl);
+    }
+  }, []);
 
   const handleNavLinkClick = (href: string) => {
     navigate(href);
@@ -129,6 +136,7 @@ export function Navbar() {
   };
 
   const handleMouseLeave = () => {
+    if (dropdownTimer.current) clearTimeout(dropdownTimer.current);
     dropdownTimer.current = setTimeout(() => setOpenDropdown(null), 180);
   };
 
@@ -187,7 +195,7 @@ export function Navbar() {
                           : 'text-brown hover:bg-mustard hover:text-white'
                       }`}
                     >
-                      {t(link.label)}
+                      {link.label}
                       {link.sections && (
                         <ChevronDown
                           size={13}
@@ -216,7 +224,7 @@ export function Navbar() {
                                 className="w-full flex items-center gap-3 px-4 py-2 text-sm text-brown hover:bg-mustard-50 hover:text-mustard font-medium transition-colors duration-150 rounded-pill"
                               >
                                 {section.icon && <section.icon size={16} strokeWidth={2} className="opacity-70" />}
-                                {t(section.label)}
+                                {section.label}
                               </button>
                             </div>
                           ))}
@@ -266,11 +274,32 @@ export function Navbar() {
                   </AnimatePresence>
                 </div>
 
-                {/* Google Translate Widget */}
+                {/* Language Selector */}
                 <div 
-                  id="google_translate_element" 
-                  className="flex items-center justify-center h-9 px-2 md:px-3 rounded-full bg-white/50 border border-white/30 hover:bg-white/80 transition-colors text-brown overflow-hidden min-w-[120px]"
-                ></div>
+                  className="relative group flex items-center justify-center"
+                  onMouseEnter={() => handleMouseEnter('language')}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <button 
+                    className="flex items-center justify-center w-10 h-10 rounded-full bg-white/50 border border-white/30 hover:bg-white/80 transition-colors text-brown"
+                    onClick={() => setOpenDropdown(openDropdown === 'language' ? null : 'language')}
+                  >
+                    <Languages size={20} />
+                  </button>
+                  <motion.div
+                    initial={false}
+                    animate={{ 
+                      opacity: openDropdown === 'language' ? 1 : 0, 
+                      y: openDropdown === 'language' ? 0 : 8, 
+                      scale: openDropdown === 'language' ? 1 : 0.97,
+                      pointerEvents: openDropdown === 'language' ? 'auto' : 'none'
+                    }}
+                    transition={{ duration: 0.18, ease: 'easeOut' }}
+                    className="absolute top-full right-0 mt-2 p-2 bg-white rounded-clay shadow-clay border border-cream-200 z-50 min-w-[120px]"
+                  >
+                    <div id="navbar_translate_container" className="w-full block [&_div]:!block [&_div]:!w-full [&_select]:!w-full [&_select]:!rounded-pill [&_select]:!border-cream-200 [&_select]:!text-sm [&_select]:!text-brown [&_select]:!py-1.5 [&_select]:!px-3 [&_select]:!bg-mustard-50 [&_select]:focus:!ring-2 [&_select]:focus:!ring-mustard/30 [&_select]:focus:!border-mustard [&_select]:!outline-none [&_.goog-logo-link]:!hidden [&_.goog-te-gadget]:!text-transparent [&_.goog-te-gadget]:!h-[32px] [&_.goog-te-gadget_span]:!hidden"></div>
+                  </motion.div>
+                </div>
 
                 <div className="hidden md:block">
                   <PillButton
@@ -279,7 +308,7 @@ export function Navbar() {
                     onClick={() => setWaitlistOpen(true)}
                     iconRight={<ChevronRight size={15} strokeWidth={2.5} />}
                   >
-                    {t('Get Started')}
+                    'Get Started'
                   </PillButton>
                 </div>
               </div>
@@ -354,7 +383,7 @@ export function Navbar() {
                             isActive(link.href) ? 'text-mustard' : 'text-brown hover:text-mustard'
                           }`}
                         >
-                          {t(link.label)}
+                          {link.label}
                         </button>
                         {link.sections && (
                           <button
@@ -387,7 +416,7 @@ export function Navbar() {
                                   className="flex items-center gap-3 text-left py-2.5 text-sm font-medium text-brown-light hover:text-mustard transition-colors"
                                 >
                                   {section.icon && <section.icon size={16} strokeWidth={2} className="opacity-70" />}
-                                  {t(section.label)}
+                                  {section.label}
                                 </button>
                               ))}
                             </div>
@@ -431,7 +460,7 @@ export function Navbar() {
                     onClick={() => { setMenuOpen(false); setWaitlistOpen(true); }}
                     iconRight={<ChevronRight size={18} strokeWidth={2.5} />}
                   >
-                    {t('Get Early Access')}
+                    'Get Early Access'
                   </PillButton>
                 </motion.div>
               </div>
@@ -440,7 +469,10 @@ export function Navbar() {
         )}
       </AnimatePresence>
 
-      <WaitlistModal isOpen={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
+      <WaitlistModal 
+        isOpen={waitlistOpen} 
+        onClose={() => setWaitlistOpen(false)} 
+      />
     </>
   );
 }

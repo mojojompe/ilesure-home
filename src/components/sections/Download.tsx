@@ -3,11 +3,8 @@ import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { WaitlistModal } from '../ui/WaitlistModal';
-import { useTranslation } from "react-i18next";
 
-export function Download() {
-    const { t } = useTranslation();
-  const [waitlistOpen, setWaitlistOpen] = useState(false);
+export function Download() {  const [waitlistOpen, setWaitlistOpen] = useState(false);
 
   return (
     <>
@@ -36,13 +33,13 @@ export function Download() {
                   <div className="flex flex-col gap-4 items-center lg:items-start">
                     <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard/15 border border-mustard/25 text-mustard text-xs font-bold uppercase tracking-widest w-fit">
                       
-                      {t("For Students & Individuals")}
+                      'For Students & Individuals'
                                                               </span>
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
-                      {t("Take iléSure wherever you go")}
+                      'Take iléSure wherever you go'
                                                               </h2>
                     <p className="text-cream-300 text-base lg:text-lg leading-relaxed max-w-md" style={{ color: 'rgba(253,246,227,0.7)' }}>
-                      {t("The iléSure mobile app is coming to iOS and Android. Browse listings, chat with agents, and manage your roommate matching — all from your phone.")}
+                      'The iléSure mobile app is coming to iOS and Android. Browse listings, chat with agents, and manage your roommate matching — all from your phone.'
                                                               </p>
                   </div>
                 </ScrollReveal>

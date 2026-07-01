@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Target, Eye } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { SectionHeading } from '../ui/SectionHeading';
-import { useTranslation } from "react-i18next";
 
 const cards = [
   {
@@ -142,9 +141,7 @@ function GlassTiltCard({ card }: { card: typeof cards[0] }) {
   );
 }
 
-export function MissionVision() {
-    const { t } = useTranslation();
-  const [isDesktop, setIsDesktop] = useState(false);
+export function MissionVision() {  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
     const checkDesktop = () => setIsDesktop(window.innerWidth >= 1024);
@@ -160,7 +157,7 @@ export function MissionVision() {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal>
-          <SectionHeading eyebrow={t("Purpose")} title={t("Why we built iléSure")} align="center" />
+          <SectionHeading eyebrow='Purpose' title='Why we built iléSure' align="center" />
         </ScrollReveal>
 
         <div className="mt-14">

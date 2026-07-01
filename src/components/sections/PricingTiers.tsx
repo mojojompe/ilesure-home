@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { useState } from 'react';
-import { useTranslation } from "react-i18next";
 
 const tiers = [
   {
@@ -70,9 +69,7 @@ const tiers = [
   },
 ];
 
-export function PricingTiers() {
-    const { t } = useTranslation();
-  const [billing, setBilling] = useState<'monthly' | 'annual'>('annual');
+export function PricingTiers() {  const [billing, setBilling] = useState<'monthly' | 'annual'>('annual');
 
   return (
     <section id="pricing" className="py-24 relative overflow-hidden" style={{
@@ -86,13 +83,13 @@ export function PricingTiers() {
         <ScrollReveal>
           <div className="text-center mb-10">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard-50 border border-mustard-200 text-mustard text-xs font-bold uppercase tracking-widest">
-              {t("Pricing")}
+              'Pricing'
                                       </span>
             <h2 className="mt-4 text-4xl font-extrabold text-brown">
-              {t("Choose Your")} <span className="text-gradient-mustard">{t("Growth Plan")}</span>
+              'Choose Your' <span className="text-gradient-mustard">'Growth Plan'</span>
             </h2>
             <p className="mt-3 text-brown-light max-w-lg mx-auto">
-              {t("Transparent pricing. No hidden fees. Scale as your portfolio grows.")}
+              'Transparent pricing. No hidden fees. Scale as your portfolio grows.'
                                       </p>
 
             {/* Billing toggle */}
@@ -103,7 +100,7 @@ export function PricingTiers() {
                   billing === 'monthly' ? 'bg-white text-brown shadow-clay-sm' : 'text-brown-light'
                 }`}
               >
-                {t("Monthly")}
+                'Monthly'
                                             </button>
               <button
                 onClick={() => setBilling('annual')}
@@ -111,8 +108,8 @@ export function PricingTiers() {
                   billing === 'annual' ? 'bg-white text-brown shadow-clay-sm' : 'text-brown-light'
                 }`}
               >
-                {t("Annual")}
-                                              <span className="text-[10px] font-bold text-mustard bg-mustard-50 px-2 py-0.5 rounded-pill">{t("Save 20%")}</span>
+                'Annual'
+                                              <span className="text-[10px] font-bold text-mustard bg-mustard-50 px-2 py-0.5 rounded-pill">'Save 20%'</span>
               </button>
             </div>
           </div>
@@ -209,7 +206,7 @@ export function PricingTiers() {
 
         <ScrollReveal>
           <p className="text-center text-sm text-brown-light mt-8">
-            {t("All plans include access to basic analytics. Start with the")} <span className="font-semibold text-brown">{t("Free Tier")}</span> {t("today.")}
+            'All plans include access to basic analytics. Start with the' <span className="font-semibold text-brown">'Free Tier'</span> 'today.'
                                 </p>
         </ScrollReveal>
       </div>

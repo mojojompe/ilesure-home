@@ -2,11 +2,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Users, ChevronRight } from 'lucide-react';
 import { WaitlistModal } from '../ui/WaitlistModal';
-import { useTranslation } from "react-i18next";
 
-export function InteractiveMapPreview() {
-    const { t } = useTranslation();
-  const [waitlistOpen, setWaitlistOpen] = useState(false);
+export function InteractiveMapPreview() {  const [waitlistOpen, setWaitlistOpen] = useState(false);
 
   return (
     <>
@@ -32,16 +29,16 @@ export function InteractiveMapPreview() {
           >
             <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-pill bg-white/10 backdrop-blur-md border border-white/20 text-mustard text-xs font-bold uppercase tracking-[0.2em] mb-8">
               <Users size={14} className="text-mustard" />
-              {t("Vibrant Neighborhoods")}
+              'Vibrant Neighborhoods'
                                       </span>
             <h2 className="text-5xl sm:text-6xl md:text-7xl font-black mb-6 text-white leading-tight tracking-tighter" style={{ fontFamily: 'Georgia, serif' }}>
-              {t("Join a Thriving")} <br />
+              'Join a Thriving' <br />
               <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(135deg, #F5C842 0%, #C9962A 100%)' }}>
-                {t("Community")}
+                'Community'
                                             </span>
             </h2>
             <p className="text-cream-300 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed italic" style={{ fontFamily: 'Georgia, serif' }}>
-              {t("Experience the best of off-destination living with properties nestled in vibrant, User-friendly neighborhoods. Safe, secure, and built for you.")}
+              'Experience the best of off-destination living with properties nestled in vibrant, User-friendly neighborhoods. Safe, secure, and built for you.'
                                       </p>
             
             <motion.div 
