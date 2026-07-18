@@ -40,6 +40,6 @@ export const features: Feature[] = [
     id: 'payments',
     image: '/illustrations/generated/feat_payments.png',
     title: 'Secure Payments',
-    description: 'Transparent fee breakdown with a flat 3% platform fee. Your payment is logged and your booking is confirmed before move-in.',
+    description: 'Transparent fee breakdown with a flat 5% platform fee. Your payment is logged and your booking is confirmed before move-in.',
   },
 ];

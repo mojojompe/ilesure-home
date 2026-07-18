@@ -23,7 +23,7 @@ export const faqs: FAQ[] = [
   {
     id: 'faq4',
     question: 'Is iléSure free for Users?',
-    answer: 'Browsing listings, joining the waitlist, and filling your roommate profile are completely free. A small 3% platform fee (applied to the total move-in cost) is charged only when you complete a booking. For shared apartments, an additional 1% roommate matching fee applies.',
+    answer: 'Browsing listings, joining the waitlist, and filling your roommate profile are completely free. A small 5% platform fee (applied to the total move-in cost) is charged only when you complete a booking. For shared apartments, an additional 1% roommate matching fee applies.',
   },
   {
     id: 'faq5',
