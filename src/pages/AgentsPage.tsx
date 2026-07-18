@@ -32,7 +32,7 @@ export function AgentsPage() {
           subtext="List properties, manage inquiries, and reach thousands of verified verified tenants — all from one powerful platform."
           illustration="/illustrations/agents_hero.png"
           illustrationAlt="Real estate professional managing properties"
-          primaryCta={{ label: 'Launch Web App', href: 'https://app.ilesure.com' }}
+          primaryCta={{ label: 'Launch Web App', href: 'https://ilesure.com' }}
           secondaryCta={{ label: 'View Pricing', anchor: '#pricing' }}
           theme="dark"
           bottomMockup="/mockups/Agents_Hero.png"

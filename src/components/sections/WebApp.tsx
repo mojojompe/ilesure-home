@@ -142,7 +142,7 @@ export function WebApp() {  // Carousel state removed in favor of responsive gri
               <ScrollReveal direction="left" delay={0.25}>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                   <motion.a
-                    href="https://app.ilesure.com"
+                    href="https://ilesure.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-3 rounded-pill font-bold text-sm px-7 py-4 group transition-all duration-300"

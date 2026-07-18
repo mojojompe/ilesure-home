@@ -182,7 +182,7 @@ export function PricingTiers() {  const [billing, setBilling] = useState<'monthl
 
                     {/* CTA */}
                     <motion.a
-                      href="https://app.ilesure.com"
+                      href="https://ilesure.com"
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`w-full py-3.5 rounded-pill font-bold text-sm text-center transition-all duration-200 ${
