@@ -15,9 +15,10 @@ interface FormData {
   email: string;
   phone: string;
   university: string;
+  role: 'user' | 'renter';
 }
 
-const initialForm: FormData = { fullName: '', email: '', phone: '', university: '' };
+const initialForm: FormData = { fullName: '', email: '', phone: '', university: '', role: 'user' };
 
 export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
   const [form, setForm] = useState<FormData>(initialForm);
@@ -51,6 +52,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
         email: form.email.trim(),
         phone: form.phone.trim() || undefined,
         university: form.university.trim(),
+        role: form.role,
       } as WaitlistFormData;
 
       const response = await submitToWaitlist(data);
@@ -192,8 +194,19 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                         <div>
                           <h3 className="text-2xl font-bold text-brown" style={{ fontFamily: 'Georgia, serif' }}>You're on the list!</h3>
                           <p className="text-brown-light text-base mt-3 max-w-sm">
-                            We'll notify you at <span className="font-semibold text-mustard">{form.email}</span> when iléSure launches. Spread the word!
+                            We'll notify you at <span className="font-semibold text-mustard">{form.email}</span> when iléSure launches.
                           </p>
+                          <p className="text-brown text-sm mt-4 mb-2">
+                            You can join us on our WhatsApp Channels for more updates:
+                          </p>
+                          <a 
+                            href={form.role === 'user' ? "https://whatsapp.com/channel/0029VbDMd21AzNbuTNsKjs3k" : "https://whatsapp.com/channel/0029VbD6phnKbYMEgHVSgq2y"}
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-mustard font-bold underline"
+                          >
+                            Follow the iléSure {form.role === 'user' ? 'Updates' : 'Renters'} channel
+                          </a>
                         </div>
                         <PillButton variant="mustard" size="md" onClick={handleClose} className="mt-4 px-10">
                           Close
@@ -210,6 +223,24 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                         <div className="hidden md:block mb-2 text-center">
                           <h3 className="text-2xl font-bold text-brown mb-2" style={{ fontFamily: 'Georgia, serif' }}>Get Early Access</h3>
                           <p className="text-sm text-brown-light">Be the first to know when we go live.</p>
+                        </div>
+
+                        {/* Role Selector */}
+                        <div className="flex gap-2 p-1 bg-cream-200 rounded-xl mb-2">
+                          <button
+                            type="button"
+                            onClick={() => handleChange('role', 'user')}
+                            className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all ${form.role === 'user' ? 'bg-white text-brown shadow-sm' : 'text-brown-light hover:text-brown'}`}
+                          >
+                            I am looking for a home
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => handleChange('role', 'renter')}
+                            className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all ${form.role === 'renter' ? 'bg-white text-brown shadow-sm' : 'text-brown-light hover:text-brown'}`}
+                          >
+                            I want to list a home
+                          </button>
                         </div>
 
                         {/* Name */}
@@ -261,10 +292,10 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                             </div>
                           </div>
 
-                          {/* University */}
+                          {/* University / Location */}
                           <div className="flex flex-col gap-1.5">
                             <label className="text-[11px] font-bold text-brown uppercase tracking-widest pl-1 flex items-center gap-1.5">
-                              University <span className="text-[9px] text-brown-light/70 normal-case tracking-normal font-normal">(Optional)</span>
+                              University/Location <span className="text-[9px] text-brown-light/70 normal-case tracking-normal font-normal">(Optional)</span>
                             </label>
                             <div className="relative group">
                               <GraduationCap size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-brown-light group-focus-within:text-mustard transition-colors" strokeWidth={2} />
@@ -272,7 +303,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                 type="text"
                                 value={form.university}
                                 onChange={e => handleChange('university', e.target.value)}
-                                placeholder="e.g. LCU"
+                                placeholder="e.g. LCU or Lagos"
                                 className={`w-full pl-11 pr-4 py-3.5 rounded-xl bg-white text-sm text-brown placeholder-brown-light/50 outline-none border transition-all focus:border-mustard focus:ring-4 focus:ring-mustard/10 shadow-sm ${errors.university ? 'border-red-400' : 'border-cream-200 hover:border-cream-300'}`}
                               />
                             </div>

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { useState } from 'react';
+import { WaitlistModal } from '../ui/WaitlistModal';
 
 const tiers = [
   {
@@ -69,7 +70,9 @@ const tiers = [
   },
 ];
 
-export function PricingTiers() {  const [billing, setBilling] = useState<'monthly' | 'annual'>('annual');
+export function PricingTiers() {
+  const [billing, setBilling] = useState<'monthly' | 'annual'>('annual');
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
 
   return (
     <section id="pricing" className="py-24 relative overflow-hidden" style={{
@@ -181,10 +184,8 @@ export function PricingTiers() {  const [billing, setBilling] = useState<'monthl
                     </ul>
 
                     {/* CTA */}
-                    <motion.a
-                      href="https://ilesure.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <motion.button
+                      onClick={() => setWaitlistOpen(true)}
                       className={`w-full py-3.5 rounded-pill font-bold text-sm text-center transition-all duration-200 ${
                         tier.ctaStyle === 'filled'
                           ? 'bg-gradient-to-r from-mustard-light to-mustard text-white shadow-float-mustard'
@@ -196,7 +197,7 @@ export function PricingTiers() {  const [billing, setBilling] = useState<'monthl
                       whileTap={{ scale: 0.97 }}
                     >
                       {tier.cta}
-                    </motion.a>
+                    </motion.button>
                   </div>
                 </motion.div>
               </ScrollReveal>
@@ -210,6 +211,7 @@ export function PricingTiers() {  const [billing, setBilling] = useState<'monthl
                                 </p>
         </ScrollReveal>
       </div>
+      <WaitlistModal isOpen={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
     </section>
   );
 }

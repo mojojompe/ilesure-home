@@ -6,6 +6,8 @@ import { WebApp } from '../components/sections/WebApp';
 import { PricingTiers } from '../components/sections/PricingTiers';
 import { AgentTestimonials } from '../components/sections/AgentTestimonials';
 import { useSEO } from '../hooks/useSEO';
+import { useState } from 'react';
+import { WaitlistModal } from '../components/ui/WaitlistModal';
 
 const pageTransition = {
   initial: { opacity: 0, y: 12 },
@@ -21,6 +23,8 @@ export function AgentsPage() {
     canonical: '/agents',
   });
 
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
+
   return (
     <motion.div {...pageTransition}>
       <Navbar />
@@ -32,7 +36,7 @@ export function AgentsPage() {
           subtext="List properties, manage inquiries, and reach thousands of verified verified tenants — all from one powerful platform."
           illustration="/illustrations/agents_hero.png"
           illustrationAlt="Real estate professional managing properties"
-          primaryCta={{ label: 'Launch Web App', href: 'https://ilesure.com' }}
+          primaryCta={{ label: 'Launch Web App', onClick: () => setWaitlistOpen(true) }}
           secondaryCta={{ label: 'View Pricing', anchor: '#pricing' }}
           theme="dark"
           bottomMockup="/mockups/Agents_Hero.png"
@@ -45,6 +49,7 @@ export function AgentsPage() {
         <AgentTestimonials />
       </main>
       <Footer />
+      <WaitlistModal isOpen={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
     </motion.div>
   );
 }

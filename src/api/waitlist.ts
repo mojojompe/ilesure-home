@@ -5,6 +5,7 @@ export interface WaitlistFormData {
   email: string;
   phone?: string;
   university: string;
+  role?: string;
 }
 
 export interface WaitlistResponse {

@@ -5,6 +5,8 @@ import {
   Shield, Globe,
 } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
+import { useState } from 'react';
+import { WaitlistModal } from '../ui/WaitlistModal';
 
 /* ── Capability cards ── */
 const capabilities = [
@@ -30,7 +32,8 @@ const capabilities = [
   },
 ];
 
-export function WebApp() {  // Carousel state removed in favor of responsive grid
+export function WebApp() {
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
   return (
     <section id="web-app" className="py-24 bg-white relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -141,10 +144,8 @@ export function WebApp() {  // Carousel state removed in favor of responsive gri
               {/* ── CTA Button ── */}
               <ScrollReveal direction="left" delay={0.25}>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                  <motion.a
-                    href="https://ilesure.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <motion.button
+                    onClick={() => setWaitlistOpen(true)}
                     className="inline-flex items-center gap-3 rounded-pill font-bold text-sm px-7 py-4 group transition-all duration-300"
                     style={{
                       background:
@@ -168,7 +169,7 @@ export function WebApp() {  // Carousel state removed in favor of responsive gri
                       strokeWidth={2.5}
                       className="transition-transform duration-200 group-hover:translate-x-1"
                     />
-                  </motion.a>
+                  </motion.button>
                 </div>
               </ScrollReveal>
             </div>
@@ -198,6 +199,7 @@ export function WebApp() {  // Carousel state removed in favor of responsive gri
           </div>
         </div>
       </div>
+      <WaitlistModal isOpen={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
     </section>
   );
 }
