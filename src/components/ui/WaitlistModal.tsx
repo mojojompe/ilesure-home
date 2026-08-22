@@ -27,10 +27,23 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
   const [errors, setErrors] = useState<Partial<FormData>>({});
   const [apiError, setApiError] = useState('');
 
+  // SECURITY-FIX TODO (H-L3): This is client-side validation only and is trivially bypassed.
+  // The waitlist submission endpoint (API_ENDPOINTS.waitlist.join) MUST also be validated,
+  // sanitized, and rate-limited / CAPTCHA-protected SERVER-SIDE to stop spam, bot flooding,
+  // and malformed/oversized payloads. The backend team owns the server-side hardening; do NOT
+  // treat the checks below as sufficient. (Endpoint URL intentionally left unchanged.)
   const validate = (): boolean => {
     const e: Partial<FormData> = {};
     if (!form.fullName.trim()) e.fullName = 'Your name is required';
     if (!form.email.trim() || !/\S+@\S+\.\S+/.test(form.email)) e.email = 'Enter a valid email';
+    // DECISION: the phone <input> is marked `required` but was not checked in JS, so no inline
+    // error ever showed. Validate it here to match the markup. Kept lenient (non-empty + at least
+    // 7 digits) to avoid rejecting valid +234 / international formats.
+    if (!form.phone.trim()) {
+      e.phone = 'Phone number is required';
+    } else if ((form.phone.replace(/\D/g, '').length) < 7) {
+      e.phone = 'Enter a valid phone number';
+    }
     setErrors(e);
     return Object.keys(e).length === 0;
   };
@@ -287,9 +300,10 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                 required
                                 onChange={e => handleChange('phone', e.target.value)}
                                 placeholder="+234..."
-                                className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-white border border-cream-200 hover:border-cream-300 shadow-sm text-sm text-brown placeholder-brown-light/50 outline-none transition-all focus:border-mustard focus:ring-4 focus:ring-mustard/10"
+                                className={`w-full pl-11 pr-4 py-3.5 rounded-xl bg-white shadow-sm text-sm text-brown placeholder-brown-light/50 outline-none border transition-all focus:border-mustard focus:ring-4 focus:ring-mustard/10 ${errors.phone ? 'border-red-400' : 'border-cream-200 hover:border-cream-300'}`}
                               />
                             </div>
+                            {errors.phone && <span className="text-xs text-red-500 pl-1">{errors.phone}</span>}
                           </div>
 
                           {/* University / Location */}

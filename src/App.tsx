@@ -20,6 +20,8 @@ import { GlobalSpinner } from './components/ui/GlobalSpinner';
 
 import { NoiseTextureOverlay } from './components/effects/NoiseTextureOverlay';
 import { ScrollToTop } from './components/effects/ScrollToTop';
+// SECURITY-FIX (H-M1): consent-gated loader for the third-party Google Translate script.
+import { GoogleTranslate } from './components/effects/GoogleTranslate';
 
 function App() {
   const location = useLocation();
@@ -30,6 +32,8 @@ function App() {
       {/* Global Effects */}
       <NoiseTextureOverlay />
       <CookieConsentModal />
+      {/* SECURITY-FIX (H-M1): loads Google Translate only after cookie consent is accepted. */}
+      <GoogleTranslate />
       <DisclaimerModal />
 
       <AnimatePresence mode="wait">

@@ -22,6 +22,10 @@ export interface WaitlistResponse {
 }
 
 export async function submitToWaitlist(data: WaitlistFormData): Promise<WaitlistResponse> {
+  // SECURITY-FIX TODO (H-L3): This is an unauthenticated POST carrying PII (name, email, phone).
+  // The receiving endpoint MUST enforce server-side validation, input sanitization, and
+  // rate-limiting / CAPTCHA to prevent spam and bot abuse — client-side validation in
+  // WaitlistModal is not a security control. Owned by the backend team; endpoint URL unchanged.
   const response = await fetch(API_ENDPOINTS.waitlist.join, {
     method: 'POST',
     headers: {
