@@ -50,7 +50,7 @@ const navLinks: NavLink[] = [
     label: 'Reviews',
     href: '/reviews',
     sections: [
-      { label: 'User Stories', anchor: '#social-proof', icon: MessageSquareHeart },
+      { label: 'student Stories', anchor: '#social-proof', icon: MessageSquareHeart },
       { label: 'Share Your Story', anchor: '#submit-review', icon: PenTool },
     ],
   },
@@ -308,7 +308,7 @@ export function Navbar() {
                     onClick={() => setWaitlistOpen(true)}
                     iconRight={<ChevronRight size={15} strokeWidth={2.5} />}
                   >
-                    'Get Started'
+                    Get Started
                   </PillButton>
                 </div>
               </div>
@@ -460,7 +460,7 @@ export function Navbar() {
                     onClick={() => { setMenuOpen(false); setWaitlistOpen(true); }}
                     iconRight={<ChevronRight size={18} strokeWidth={2.5} />}
                   >
-                    'Get Early Access'
+                    Get Early Access
                   </PillButton>
                 </motion.div>
               </div>

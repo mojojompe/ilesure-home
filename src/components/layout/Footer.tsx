@@ -18,6 +18,8 @@ const footerLinks = {
     { label: 'Terms of Service', href: '/terms-of-service' },
     { label: 'Cookie Policy', href: '/cookie-policy' },
     { label: 'Platform Disclaimer', href: '#disclaimer' },
+    // BUGFIX (QA-MKT-007): the Cookie Policy promises this control by name.
+    { label: 'Cookie Settings', href: '#cookie-settings' },
   ],
 };
 
@@ -85,7 +87,14 @@ export function Footer() {
               <ul className="flex flex-col gap-4">
                 {links.map(link => (
                   <li key={link.label}>
-                    {link.href === '#disclaimer' ? (
+                    {link.href === '#cookie-settings' ? (
+                      <button
+                        onClick={() => window.dispatchEvent(new Event('open-cookie-settings'))}
+                        className="text-cream-300 text-base hover:text-mustard transition-colors duration-200"
+                      >
+                        {link.label}
+                      </button>
+                    ) : link.href === '#disclaimer' ? (
                       <button
                         onClick={() => window.dispatchEvent(new Event('open-disclaimer'))}
                         className="text-cream-300 text-base hover:text-mustard transition-colors duration-200"

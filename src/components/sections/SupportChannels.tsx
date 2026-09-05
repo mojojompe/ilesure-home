@@ -50,13 +50,13 @@ export function SupportChannels() {  const navigate = useNavigate();
         <ScrollReveal>
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard-50 border border-mustard-200 text-mustard text-xs font-bold uppercase tracking-widest">
-              'Support'
+              Support
                                       </span>
             <h2 className="mt-4 text-4xl font-extrabold text-brown">
-              'We're Here' <span className="text-gradient-mustard">'For You'</span>
+              We're Here <span className="text-gradient-mustard">For You</span>
             </h2>
             <p className="mt-3 text-brown-light max-w-lg mx-auto">
-              'Choose the support channel that works best for you. We're committed to responding fast.'
+              Choose the support channel that works best for you. We're committed to responding fast.
                                       </p>
           </div>
         </ScrollReveal>

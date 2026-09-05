@@ -23,7 +23,7 @@ const videoTestimonials = [
   },
   {
     name: 'Ahmed Sule',
-    role: 'Year 4, Poly Nigeria',
+    role: 'Year 4, Poly Ibadan',
     avatar: 'AS',
     teaser: 'My roommate became my best friend — thanks to iléSure matching.',
     duration: '3:02',
@@ -42,13 +42,13 @@ export function VideoTestimonials() {  return (
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard-50 border border-mustard-200 text-mustard text-xs font-bold uppercase tracking-widest">
               <Play size={11} className="fill-mustard" />
-              'Watch Their Stories'
+              Watch Their Stories
                                       </span>
             <h2 className="mt-4 text-4xl font-extrabold text-brown">
-              'Real Users,' <span className="text-gradient-mustard">'Real Homes'</span>
+              Real students, <span className="text-gradient-mustard">Real Homes</span>
             </h2>
             <p className="mt-3 text-brown-light max-w-lg mx-auto">
-              'Hear directly from Users who found their sure home through iléSure.'
+              Hear directly from students who found their sure home through iléSure.
                                       </p>
           </div>
         </ScrollReveal>
@@ -81,7 +81,7 @@ export function VideoTestimonials() {  return (
 
                   {/* Coming soon overlay */}
                   <span className="absolute bottom-3 left-3 bg-mustard/90 text-white text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-pill">
-                    'Coming Soon'
+                    Coming Soon
                                                 </span>
                 </div>
 

@@ -2,14 +2,47 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Star } from 'lucide-react';
 import { ScrollReveal } from '../ui/ScrollReveal';
+import { API_ENDPOINTS } from '../../lib/config';
 
-export function SubmitReviewCTA() {  const [form, setForm] = useState({ name: '', university: '', message: '', rating: 5 });
+export function SubmitReviewCTA() {
+  const [form, setForm] = useState({ name: '', email: '', university: '', message: '', rating: 5 });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  /**
+   * BUGFIX (QA-MKT-004): this used to be `e.preventDefault(); setSubmitted(true);` under
+   * the comment "In a real app this would POST to an API" — the screen told the user
+   * "Your review has been received" while ZERO requests were made and nothing was
+   * stored anywhere. The submission now goes to the existing unauthenticated support
+   * ticket endpoint, which persists it server-side, so the confirmation is true.
+   */
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app this would POST to an API
-    setSubmitted(true);
+    setSending(true);
+    setError(null);
+    try {
+      const response = await fetch(API_ENDPOINTS.support.submit, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          subject: `Website review — ${form.rating}/5 — ${form.university || 'unspecified'}`,
+          message: form.message,
+        }),
+      });
+      const result = await response.json();
+      if (!response.ok || !result?.success) {
+        throw new Error(result?.error?.message || 'Submission failed');
+      }
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Review submission failed', err);
+      setError('We could not send your review just now. Please try again, or email ilesuresupport@gmail.com.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -24,13 +57,13 @@ export function SubmitReviewCTA() {  const [form, setForm] = useState({ name: ''
         <ScrollReveal>
           <div className="text-center mb-10">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard-50 border border-mustard-200 text-mustard text-xs font-bold uppercase tracking-widest">
-              'Share Your Experience'
+              Share Your Experience
                                       </span>
             <h2 className="mt-4 text-4xl font-extrabold text-brown">
-              'Had a Great Experience?' <span className="text-gradient-mustard">'Tell Us.'</span>
+              Had a Great Experience? <span className="text-gradient-mustard">Tell Us.</span>
             </h2>
             <p className="mt-3 text-brown-light max-w-md mx-auto">
-              'Your story helps other Users find their sure home. Take 60 seconds to share.'
+              Your story helps other students find their sure home. Take 60 seconds to share.
                                       </p>
           </div>
         </ScrollReveal>
@@ -45,9 +78,9 @@ export function SubmitReviewCTA() {  const [form, setForm] = useState({ name: ''
               <div className="w-16 h-16 rounded-full bg-mustard-50 flex items-center justify-center">
                 <Star size={30} className="text-mustard fill-mustard" />
               </div>
-              <h3 className="text-2xl font-extrabold text-brown">'Thank You!'</h3>
+              <h3 className="text-2xl font-extrabold text-brown">Thank You!</h3>
               <p className="text-brown-light max-w-sm">
-                'Your review has been received. We'll feature it once our team has had a look. 🏠'
+                Your review has been received. We'll feature it once our team has had a look. 🏠
                                             </p>
             </motion.div>
           ) : (
@@ -57,7 +90,7 @@ export function SubmitReviewCTA() {  const [form, setForm] = useState({ name: ''
             >
               {/* Rating stars */}
               <div>
-                <label className="text-xs font-bold uppercase tracking-widest text-brown-light mb-2 block">'Your Rating'</label>
+                <label className="text-xs font-bold uppercase tracking-widest text-brown-light mb-2 block">Your Rating</label>
                 <div className="flex gap-2">
                   {[1, 2, 3, 4, 5].map(star => (
                     <motion.button
@@ -79,7 +112,7 @@ export function SubmitReviewCTA() {  const [form, setForm] = useState({ name: ''
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-xs font-bold uppercase tracking-widest text-brown-light mb-1.5 block">
-                    'Your Name'
+                    Your Name
                                                             </label>
                   <input
                     type="text"
@@ -92,22 +125,38 @@ export function SubmitReviewCTA() {  const [form, setForm] = useState({ name: ''
                 </div>
                 <div>
                   <label className="text-xs font-bold uppercase tracking-widest text-brown-light mb-1.5 block">
-                    'University'
+                    University
                                                             </label>
                   <input
                     type="text"
                     required
                     value={form.university}
                     onChange={e => setForm(f => ({ ...f, university: e.target.value }))}
-                    placeholder='e.g. key locations'
+                    placeholder='e.g. Lead City University'
                     className="w-full rounded-clay-sm border border-cream-200 px-4 py-3 text-sm text-brown bg-cream focus:outline-none focus:border-mustard transition-colors"
                   />
                 </div>
               </div>
 
+              {/* Required so the team can verify and reply — the receiving endpoint
+                  needs an address, and an unattributable review cannot be published. */}
               <div>
                 <label className="text-xs font-bold uppercase tracking-widest text-brown-light mb-1.5 block">
-                  'Your Story'
+                  Your Email
+                </label>
+                <input
+                  type="email"
+                  required
+                  value={form.email}
+                  onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+                  placeholder="you@example.com"
+                  className="w-full rounded-clay-sm border border-cream-200 px-4 py-3 text-sm text-brown bg-cream focus:outline-none focus:border-mustard transition-colors"
+                />
+              </div>
+
+              <div>
+                <label className="text-xs font-bold uppercase tracking-widest text-brown-light mb-1.5 block">
+                  Your Story
                                                       </label>
                 <textarea
                   required
@@ -119,15 +168,20 @@ export function SubmitReviewCTA() {  const [form, setForm] = useState({ name: ''
                 />
               </div>
 
+              {error && (
+                <p className="rounded-clay-sm bg-red-50 px-4 py-3 text-sm text-red-700">{error}</p>
+              )}
+
               <motion.button
                 type="submit"
-                className="flex items-center justify-center gap-2 py-4 rounded-pill bg-mustard text-white font-bold shadow-float-mustard"
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.97 }}
+                disabled={sending}
+                className="flex items-center justify-center gap-2 py-4 rounded-pill bg-mustard text-white font-bold shadow-float-mustard disabled:opacity-60"
+                whileHover={sending ? undefined : { scale: 1.03, y: -2 }}
+                whileTap={sending ? undefined : { scale: 0.97 }}
               >
                 <Send size={16} strokeWidth={2.5} />
-                'Submit My Review'
-                                                </motion.button>
+                {sending ? 'Sending…' : 'Submit My Review'}
+              </motion.button>
             </form>
           )}
         </ScrollReveal>

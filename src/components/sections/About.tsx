@@ -5,7 +5,7 @@ import { ScrollReveal } from '../ui/ScrollReveal';
 import { SectionHeading } from '../ui/SectionHeading';
 
 const highlights = [
-  'Built for the key locations corridor, from Toll Gate to Akala Express',
+  'Built for the Lead City University corridor, from Toll Gate to Akala Express',
   'Combating housing scams through rigorous agent verification',
   'Reducing roommate conflict with data-driven compatibility matching',
   'Bringing demand intelligence to landlords and agents in Nigeria',
@@ -34,7 +34,7 @@ export function About() {  const containerRef = useRef<HTMLDivElement>(null);
               <SectionHeading
                 eyebrow="About iléSure"
                 title="More than a listing board, a trusted ecosystem"
-                subtitle="iléSure means 'Sure Home' in Yoruba. We built it because finding off-destination housing in Nigeria still relies on WhatsApp forwards, printed notices, and hearsay. Users deserved better."
+                subtitle="iléSure means 'Sure Home' in Yoruba. We built it because finding off-campus housing in Ibadan still relies on WhatsApp forwards, printed notices, and hearsay. students deserved better."
                 align="left"
               />
             </ScrollReveal>
@@ -82,7 +82,7 @@ export function About() {  const containerRef = useRef<HTMLDivElement>(null);
               >
                 <img
                   src="/illustrations/about.png"
-                  alt="3D illustration of a User discovering a house"
+                  alt="3D illustration of a student discovering a house"
                   className="w-full h-auto drop-shadow-2xl rounded-clay-lg border-2 border-white/50"
                 />
 
@@ -95,8 +95,8 @@ export function About() {  const containerRef = useRef<HTMLDivElement>(null);
                   viewport={{ once: true }}
                   
                 >
-                  <p className="text-xs font-bold text-brown">'iléSure'</p>
-                  <p className="text-[11px] text-mustard font-semibold">'Your Sure Home'</p>
+                  <p className="text-xs font-bold text-brown">iléSure</p>
+                  <p className="text-[11px] text-mustard font-semibold">Your Sure Home</p>
                 </motion.div>
               </motion.div>
             </div>

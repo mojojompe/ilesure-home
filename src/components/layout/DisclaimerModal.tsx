@@ -2,12 +2,12 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShieldCheck, ArrowRight, ChevronDown } from 'lucide-react';
 
-const SHORT_TEXT = `iléSure is a listing and roommate-matching platform only. We do not own, manage, or control any property listed on this platform. iléSure does not guarantee the accuracy of any listing, and is not liable for any loss, damage, dispute, or incident arising from tenancy arrangements made through this platform. All housing agreements are strictly between tenants and landlords. Users are advised to verify all listings independently before making any payments. Use of this platform constitutes acceptance of our full Terms & Conditions.
+const SHORT_TEXT = `iléSure is a listing and roommate-matching platform only. We do not own, manage, or control any property listed on this platform. iléSure does not guarantee the accuracy of any listing, and is not liable for any loss, damage, dispute, or incident arising from tenancy arrangements made through this platform. All housing agreements are strictly between tenants and landlords. students are advised to verify all listings independently before making any payments. Use of this platform constitutes acceptance of our full Terms & Conditions.
 
 Governed by the Oyo State Tenancy Law (2016, as amended) and the laws of the Federal Republic of Nigeria.`;
 
 const LONG_TEXT = `1. Nature of Service
-iléSure is an independent digital platform that connects Users seeking off-destination accommodation with property owners and agents listing available spaces near key locations, Nigeria, and surrounding areas of Oyo State, Nigeria. iléSure operates solely as an intermediary marketplace. We do not own, lease, manage, inspect, or control any property listed on this platform.
+iléSure is an independent digital platform that connects students seeking off-campus accommodation with property owners and agents listing available spaces near Lead City University, Nigeria, and surrounding areas of Oyo State, Nigeria. iléSure operates solely as an intermediary marketplace. We do not own, lease, manage, inspect, or control any property listed on this platform.
 
 2. No Ownership or Agency
 iléSure is not a real estate agent, property manager, or housing authority. Listings displayed on this platform are submitted by independent third-party landlords or their agents. The presence of a listing on iléSure does not constitute an endorsement, certification, or verification of that property's legal status, ownership, or habitability. House agents operating on our platform are independently responsible for compliance with the Oyo State Tenancy Law and applicable registration requirements under recent Oyo State housing reforms, including agent fee caps and mandatory registration obligations.
@@ -22,13 +22,13 @@ iléSure shall not be held responsible for any loss, injury, theft, damage to pe
 Any legal disputes regarding tenancy agreements, rent collection, or eviction are governed by the Oyo State Tenancy Law (2016, as amended) and must be resolved between the relevant parties through appropriate legal channels. iléSure is not a party to any tenancy contract.
 
 4. Verification & Due Diligence
-While iléSure makes reasonable efforts to verify listings, we cannot guarantee the completeness or accuracy of all information provided by landlords or agents. Users are strongly advised to physically inspect any property, confirm ownership documents, and review a formal tenancy agreement before making any payment. Under Nigerian law, landlords are obligated to issue a rent payment receipt for all payments received. Users are encouraged to request and retain this receipt at all times as proof of payment.
+While iléSure makes reasonable efforts to verify listings, we cannot guarantee the completeness or accuracy of all information provided by landlords or agents. students are strongly advised to physically inspect any property, confirm ownership documents, and review a formal tenancy agreement before making any payment. Under Nigerian law, landlords are obligated to issue a rent payment receipt for all payments received. students are encouraged to request and retain this receipt at all times as proof of payment.
 
 5. Payments & Financial Transactions
-iléSure does not collect rent or housing deposits on behalf of landlords unless explicitly facilitated through a verified in-app payment channel. Any payments made directly to a landlord, agent, or third party outside of iléSure's official payment flow are made entirely at the user's own risk. iléSure shall bear no liability for fraudulent listings or financial losses incurred outside of transactions processed through our official platform. Users are advised to be cautious of requests for payment before a physical inspection has taken place.
+iléSure does not collect rent or housing deposits on behalf of landlords unless explicitly facilitated through a verified in-app payment channel. Any payments made directly to a landlord, agent, or third party outside of iléSure's official payment flow are made entirely at the user's own risk. iléSure shall bear no liability for fraudulent listings or financial losses incurred outside of transactions processed through our official platform. students are advised to be cautious of requests for payment before a physical inspection has taken place.
 
 6. Roommate Matching
-iléSure's roommate-matching feature is provided as a convenience tool to help Users find compatible co-tenants near key locations and surrounding areas. iléSure does not conduct formal background checks on individual users and cannot guarantee the conduct, character, financial reliability, or suitability of any matched individual. Users are advised to exercise personal discretion, conduct their own due diligence, and formalise any shared tenancy arrangement through a written agreement with their landlord.
+iléSure's roommate-matching feature is provided as a convenience tool to help students find compatible co-tenants near Lead City University and surrounding areas. iléSure does not conduct formal background checks on individual users and cannot guarantee the conduct, character, financial reliability, or suitability of any matched individual. students are advised to exercise personal discretion, conduct their own due diligence, and formalise any shared tenancy arrangement through a written agreement with their landlord.
 
 7. Governing Law & Jurisdiction
 This disclaimer and all platform activities are governed by the laws of the Federal Republic of Nigeria, with specific reference to:
@@ -39,7 +39,7 @@ This disclaimer and all platform activities are governed by the laws of the Fede
 Any disputes arising from the use of this platform shall be subject to the jurisdiction of competent courts in Oyo State, Nigeria.
 
 8. Updates to This Disclaimer
-iléSure reserves the right to update this disclaimer at any time in response to changes in Nigerian law, Oyo State regulations, platform operations, or geographic expansion. Users will be notified of material changes through the application. Continued use of the platform following any such update constitutes your acceptance of the revised terms.`;
+iléSure reserves the right to update this disclaimer at any time in response to changes in Nigerian law, Oyo State regulations, platform operations, or geographic expansion. students will be notified of material changes through the application. Continued use of the platform following any such update constitutes your acceptance of the revised terms.`;
 
 export function DisclaimerModal() {
   const [isVisible, setIsVisible] = useState(false);

@@ -18,7 +18,7 @@ const capabilities = [
   {
     icon: Users,
     title: 'Agent & Company Profiles',
-    description: 'Build a verified professional profile that Users trust and landlords rely on.',
+    description: 'Build a verified professional profile that students trust and landlords rely on.',
   },
   {
     icon: BarChart3,
@@ -82,11 +82,11 @@ export function WebApp() {
                   {/* Badge */}
                   <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard/15 border border-mustard/30 text-mustard text-xs font-bold uppercase tracking-widest w-fit">
                     <Globe size={12} strokeWidth={2.5} />
-                    'For Agents/Landlords & Companies'
+                    For Agents/Landlords & Companies
                                                         </span>
 
                   <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight">
-                    'A powerful platform'{' '}
+                    A powerful platform{' '}
                     <span
                       className="text-transparent bg-clip-text"
                       style={{
@@ -94,7 +94,7 @@ export function WebApp() {
                           'linear-gradient(135deg, #F5C842 0%, #C9962A 100%)',
                       }}
                     >
-                      'built for pros'
+                      built for pros
                                                               </span>
                   </h2>
 
@@ -102,7 +102,7 @@ export function WebApp() {
                     className="text-base leading-relaxed"
                     style={{ color: 'rgba(253,246,227,0.70)' }}
                   >
-                    'Agents, landlords, and real-estate companies now have a                     dedicated web dashboard to list properties, manage inquiries,                     and grow their portfolio — all from one place.'
+                    Agents, landlords, and real-estate companies now have a                     dedicated web dashboard to list properties, manage inquiries,                     and grow their portfolio — all from one place.
                                                         </p>
                 </div>
               </ScrollReveal>
@@ -163,7 +163,7 @@ export function WebApp() {
                     transition={{ duration: 0.2 }}
                   >
                     <Monitor size={17} strokeWidth={2.2} />
-                    <span>'Launch Web App'</span>
+                    <span>Launch Web App</span>
                     <ChevronRight
                       size={15}
                       strokeWidth={2.5}

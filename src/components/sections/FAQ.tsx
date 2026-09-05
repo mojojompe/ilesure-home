@@ -46,7 +46,7 @@ export function FAQ() {  const [openId, setOpenId] = useState<string | null>(nul
                     hoveredId ? 'opacity-100 z-10 translate-y-0' : 'opacity-0 z-0 translate-y-2 pointer-events-none'
                   }`}
                 >
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-mustard">'Quick Answer'</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-mustard">Quick Answer</span>
                   <p className="text-sm text-brown-light leading-relaxed">{hoveredAnswer}</p>
                 </div>
 
@@ -62,9 +62,9 @@ export function FAQ() {  const [openId, setOpenId] = useState<string | null>(nul
                     <MessageSquare size={22} className="text-mustard" />
                   </div>
                   <div>
-                    <p className="text-lg font-bold text-brown">'Still have questions?'</p>
+                    <p className="text-lg font-bold text-brown">Still have questions?</p>
                     <p className="text-sm text-brown-light leading-relaxed mt-1">
-                      'We're here to help. Chat with our AI support agent — available 24/7.'
+                      We're here to help. Chat with our AI support agent — available 24/7.
                                                               </p>
                   </div>
                   <motion.button
@@ -79,7 +79,7 @@ export function FAQ() {  const [openId, setOpenId] = useState<string | null>(nul
                   >
                     <span className="absolute inset-0 anim-shimmer pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <MessageSquare size={16} strokeWidth={2.5} className="relative" />
-                    <span className="relative">'Chat with Support'</span>
+                    <span className="relative">Chat with Support</span>
                   </motion.button>
                 </div>
               </div>

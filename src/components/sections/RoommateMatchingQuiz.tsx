@@ -103,10 +103,10 @@ export function RoommateMatchingQuiz() {  const [currentQuestion, setCurrentQues
           <div className="text-center lg:text-left mb-8 w-full">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-mustard/10 text-mustard text-sm font-medium mb-4">
               <Users size={16} />
-              <span>'Roommate Matching'</span>
+              <span>Roommate Matching</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-brown">'Find Your Perfect Match'</h2>
-            <p className="text-brown-light mt-2 max-w-md mx-auto lg:mx-0">'Answer a few questions and we'll find compatible roommates'</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-brown">Find Your Perfect Match</h2>
+            <p className="text-brown-light mt-2 max-w-md mx-auto lg:mx-0">Answer a few questions and we'll find compatible roommates</p>
           </div>
 
         <AnimatePresence mode="wait">
@@ -152,7 +152,7 @@ export function RoommateMatchingQuiz() {  const [currentQuestion, setCurrentQues
               </motion.div>
 
               <div className="mt-6 text-center text-sm text-brown-light">
-                'Question' {currentQuestion + 1} 'of' {questions.length}
+                Question {currentQuestion + 1} of {questions.length}
               </div>
             </motion.div>
           ) : (
@@ -164,8 +164,8 @@ export function RoommateMatchingQuiz() {  const [currentQuestion, setCurrentQues
             >
               <div className="text-center mb-6">
                 <Users className="w-12 h-12 text-mustard mx-auto mb-3" />
-                <h3 className="text-xl font-bold text-brown">'Your Matches'</h3>
-                <p className="text-sm text-brown-light">'Based on your preferences'</p>
+                <h3 className="text-xl font-bold text-brown">Your Matches</h3>
+                <p className="text-sm text-brown-light">Based on your preferences</p>
               </div>
 
               <div className="flex flex-col gap-3 max-h-[340px] overflow-y-auto no-scrollbar pr-1">
@@ -196,7 +196,7 @@ export function RoommateMatchingQuiz() {  const [currentQuestion, setCurrentQues
                       </div>
                       <div className="text-right flex-shrink-0">
                         <span className="text-xl font-extrabold text-mustard">{profile.match}%</span>
-                        <p className="text-xs text-brown-light">'match'</p>
+                        <p className="text-xs text-brown-light">match</p>
                       </div>
                     </motion.div>
                   ))
@@ -209,7 +209,7 @@ export function RoommateMatchingQuiz() {  const [currentQuestion, setCurrentQues
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setAppDownloadOpen(true)}
               >
-                'Connect with Matches' <ArrowRight size={18} />
+                Connect with Matches <ArrowRight size={18} />
               </motion.button>
             </motion.div>
           )}

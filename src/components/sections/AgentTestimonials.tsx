@@ -9,7 +9,7 @@ const agentTestimonials = [
     company: 'KA Realty, Nigeria',
     avatar: 'KA',
     content:
-      "Since listing on iléSure, my inquiry volume tripled. Users find me, they're already verified, and the whole process is so much smoother. No more chasing unserious clients.",
+      "Since listing on iléSure, my inquiry volume tripled. students find me, they're already verified, and the whole process is so much smoother. No more chasing unserious clients.",
     rating: 5,
     stat: '3x more inquiries',
     color: '#C9962A',
@@ -47,13 +47,13 @@ export function AgentTestimonials() {  return (
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard-50 border border-mustard-200 text-mustard text-xs font-bold uppercase tracking-widest">
               <Quote size={12} />
-              'Agent Stories'
+              Agent Stories
                                       </span>
             <h2 className="mt-4 text-4xl font-extrabold text-brown">
-              'Agents' <span className="text-gradient-mustard">'Love iléSure'</span>
+              Agents <span className="text-gradient-mustard">Love iléSure</span>
             </h2>
             <p className="mt-3 text-brown-light max-w-lg mx-auto">
-              'Real results from real property professionals across Nigeria.'
+              Real results from real property professionals across Nigeria.
                                       </p>
           </div>
         </ScrollReveal>
@@ -91,7 +91,7 @@ export function AgentTestimonials() {  return (
                   style={{ background: `${testimonial.color}10`, border: `1px solid ${testimonial.color}20` }}
                 >
                   <p className="text-xs font-bold uppercase tracking-widest" style={{ color: testimonial.color }}>
-                    'Result'
+                    Result
                                                 </p>
                   <p className="font-extrabold text-brown mt-0.5">{testimonial.stat}</p>
                 </div>

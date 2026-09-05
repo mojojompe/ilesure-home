@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, MessageSquare, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -13,9 +13,23 @@ export function ChatbotPage() {
     canonical: '/chat',
   });
 
+  // BUGFIX (QA-MKT-013): the Chatbase iframe was rendered unconditionally, so a user
+  // who clicked "Reject" on the cookie banner still loaded a third party that sets its
+  // own cookies and receives the referrer. GoogleTranslate.tsx already gates on consent
+  // — this mirrors it, including honouring an acceptance made later in the session.
+  const [consented, setConsented] = useState(
+    () => typeof window !== 'undefined' && localStorage.getItem('cookie-consent') === 'accepted'
+  );
+
   useEffect(() => {
     // Scroll to top when opening chat
     window.scrollTo(0, 0);
+
+    const onConsent = (e: Event) => {
+      if ((e as CustomEvent).detail === 'accepted') setConsented(true);
+    };
+    window.addEventListener('cookie-consent-done', onConsent as EventListener);
+    return () => window.removeEventListener('cookie-consent-done', onConsent as EventListener);
   }, []);
 
   return (
@@ -63,12 +77,30 @@ export function ChatbotPage() {
         <div className="flex-1 rounded-t-clay-lg overflow-hidden border-x border-t border-cream-200 shadow-clay-sm relative bg-white">
            {/* Loading shimmer behind iframe */}
            <div className="absolute inset-0 bg-white anim-shimmer pointer-events-none" />
-           <iframe
-              src="https://www.chatbase.co/chatbot-iframe/4G95TFjKNyu5gD5mDwt4G"
-              title="iléSure Support Chat"
-              className="absolute inset-0 w-full h-full border-0"
-              allow="microphone"
-            />
+           {consented ? (
+             <iframe
+                src="https://www.chatbase.co/chatbot-iframe/4G95TFjKNyu5gD5mDwt4G"
+                title="iléSure Support Chat"
+                className="absolute inset-0 w-full h-full border-0"
+                allow="microphone"
+              />
+           ) : (
+             <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-8 text-center">
+               <MessageSquare className="w-10 h-10 text-mustard" />
+               <p className="text-brown-light max-w-sm">
+                 Our live chat is provided by a third party, so it needs cookie consent before it can load.
+               </p>
+               <button
+                 onClick={() => window.dispatchEvent(new Event('open-cookie-settings'))}
+                 className="rounded-pill bg-brown px-5 py-2 text-sm font-semibold text-cream hover:bg-brown/90"
+               >
+                 Review cookie settings
+               </button>
+               <p className="text-sm text-brown-light">
+                 Or email us at <a className="underline" href="mailto:ilesuresupport@gmail.com">ilesuresupport@gmail.com</a>
+               </p>
+             </div>
+           )}
         </div>
       </motion.div>
     </div>

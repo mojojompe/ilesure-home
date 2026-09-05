@@ -19,7 +19,7 @@ const pageTransition = {
 export function HomePage() {
   useSEO({
     title: 'Your Sure Home Anywhere',
-    description: 'Find safe and verified housing, match with roommates, and discover trusted listings around key locations in Nigeria.',
+    description: 'Find safe and verified housing, match with roommates, and discover trusted listings around Lead City University in Nigeria.',
     canonical: '/',
     structuredData: {
       "@context": "https://schema.org",

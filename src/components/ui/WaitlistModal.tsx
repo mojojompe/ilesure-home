@@ -128,7 +128,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                       <span className="text-mustard">awaits.</span>
                     </h2>
                     <p className="text-cream-300 text-sm leading-relaxed">
-                      Join thousands of Nigerian Users discovering verified housing, safe roommate matching, and zero phantom fees.
+                      Join thousands of Nigerian students discovering verified housing, safe roommate matching, and zero phantom fees.
                     </p>
                   </div>
                   
