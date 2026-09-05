@@ -53,15 +53,15 @@ export function Footer() {
             <h4 className="text-white font-bold text-sm uppercase tracking-[0.2em]">Contact Us</h4>
             <div className="flex flex-col gap-3 text-sm text-cream-300">
               <div className="flex items-center gap-3">
-                <MapPin size={16} className="text-mustard flex-shrink-0" />
+                <MapPin size={16} className="text-mustard-onDark flex-shrink-0" />
                 <span className="text-base">Nigeria</span>
               </div>
               <div className="flex items-center gap-3">
-                <Mail size={16} className="text-mustard flex-shrink-0" />
+                <Mail size={16} className="text-mustard-onDark flex-shrink-0" />
                 <span className="text-base">ilesuresupport@gmail.com</span>
               </div>
               <div className="flex items-center gap-3">
-                <Phone size={16} className="text-mustard flex-shrink-0" />
+                <Phone size={16} className="text-mustard-onDark flex-shrink-0" />
                 <span className="text-base">+234 816 938 4301</span>
               </div>
             </div>
@@ -90,28 +90,28 @@ export function Footer() {
                     {link.href === '#cookie-settings' ? (
                       <button
                         onClick={() => window.dispatchEvent(new Event('open-cookie-settings'))}
-                        className="text-cream-300 text-base hover:text-mustard transition-colors duration-200"
+                        className="text-cream-300 text-base hover:text-mustard-onDark transition-colors duration-200"
                       >
                         {link.label}
                       </button>
                     ) : link.href === '#disclaimer' ? (
                       <button
                         onClick={() => window.dispatchEvent(new Event('open-disclaimer'))}
-                        className="text-cream-300 text-base hover:text-mustard transition-colors duration-200"
+                        className="text-cream-300 text-base hover:text-mustard-onDark transition-colors duration-200"
                       >
                         {link.label}
                       </button>
                     ) : link.href.startsWith('/') && link.href !== '#' ? (
                       <Link
                         to={link.href}
-                        className="text-cream-300 text-base hover:text-mustard transition-colors duration-200"
+                        className="text-cream-300 text-base hover:text-mustard-onDark transition-colors duration-200"
                       >
                         {link.label}
                       </Link>
                     ) : (
                       <a
                         href={link.href}
-                        className="text-cream-300 text-base hover:text-mustard transition-colors duration-200"
+                        className="text-cream-300 text-base hover:text-mustard-onDark transition-colors duration-200"
                       >
                         {link.label}
                       </a>
@@ -130,7 +130,7 @@ export function Footer() {
             className="text-[12vw] font-black leading-[0.8] tracking-tighter text-white"
             style={{ fontFamily: 'Georgia, serif' }}
           >
-            ilé<span className="text-mustard">Sure</span>
+            ilé<span className="text-mustard-onDark">Sure</span>
           </h2>
         </div>
 
@@ -146,7 +146,7 @@ export function Footer() {
               className="flex items-center gap-2 group"
             >
               <img src="/waltik_bg.jpg" alt="Waltik Labs Logo" className="w-5 h-5 rounded-sm object-cover group-hover:opacity-80 transition-opacity" />
-              <span className="font-semibold text-white group-hover:text-mustard transition-colors duration-200">Waltik Labs</span>
+              <span className="font-semibold text-white group-hover:text-mustard-onDark transition-colors duration-200">Waltik Labs</span>
             </a>
           </div>
         </div>

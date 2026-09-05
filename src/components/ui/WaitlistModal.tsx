@@ -125,7 +125,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                       style={{ fontFamily: 'Georgia, serif' }}
                     >
                       Your sure home <br />
-                      <span className="text-mustard">awaits.</span>
+                      <span className="text-mustard-onDark">awaits.</span>
                     </h2>
                     <p className="text-cream-300 text-sm leading-relaxed">
                       Join thousands of Nigerian students discovering verified housing, safe roommate matching, and zero phantom fees.
@@ -164,7 +164,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                       style={{ fontFamily: 'Georgia, serif' }}
                     >
                       Your sure home <br />
-                      <span className="text-mustard">awaits.</span>
+                      <span className="text-mustard-onDark">awaits.</span>
                     </h2>
                     <p className="text-cream-300 text-xs">
                       Join thousands getting early access.
