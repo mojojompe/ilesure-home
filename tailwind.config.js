@@ -7,8 +7,14 @@ export default {
   theme: {
     extend: {
       colors: {
+        // A11Y-FIX (QA-A11Y-003): the marketing site paints links and small copy in
+        // `text-mustard` (Navbar, Footer, the consent and disclaimer modals) and
+        // `text-brown-light`. #C9962A is 2.67:1 on white and #A0714F is 4.23:1 — both
+        // below the 4.5:1 minimum for body text. The DEFAULT tones are darkened to clear
+        // it; `light` and the 50-400 steps are untouched, because those are used for
+        // fills, borders and gradients where 3:1 is the relevant threshold.
         mustard: {
-          DEFAULT: '#C9962A',
+          DEFAULT: '#8A6E12',
           light: '#F5C842',
           dark: '#A67C1A',
           50:  '#FDFAEE',
@@ -24,7 +30,8 @@ export default {
         },
         brown: {
           DEFAULT: '#5C3317',
-          light: '#A0714F',
+          // #A0714F was 4.23:1; #8C6136 is 5.41:1.
+          light: '#8C6136',
           dark: '#3D2210',
           50:  '#FBF7F4',
           100: '#F2E8DF',
