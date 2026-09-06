@@ -26,7 +26,8 @@ export function ChatbotPage() {
     window.scrollTo(0, 0);
 
     const onConsent = (e: Event) => {
-      if ((e as CustomEvent).detail === 'accepted') setConsented(true);
+      const choice = (e as CustomEvent).detail;
+      setConsented(choice === 'accepted');
     };
     window.addEventListener('cookie-consent-done', onConsent as EventListener);
     return () => window.removeEventListener('cookie-consent-done', onConsent as EventListener);

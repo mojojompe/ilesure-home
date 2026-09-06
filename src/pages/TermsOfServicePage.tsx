@@ -40,7 +40,7 @@ export function TermsOfServicePage() {
         <section id="service-description" className="mb-10">
           <h2 className="text-2xl font-bold text-brown mb-4">1. Description of Service</h2>
           <p className="text-gray-700 leading-relaxed mb-4">
-            iléSure is a verified housing and roommate discovery platform designed to help students and Individuals, find verified accommodation near their destination. Our services include:
+            iléSure is a verified housing and roommate discovery platform designed to help students and Individuals, find verified accommodation near their campus. Our services include:
           </p>
           <ul className="list-disc list-inside text-gray-700 space-y-2">
             <li>Browsing and searching for housing listings</li>
@@ -78,7 +78,7 @@ export function TermsOfServicePage() {
         </section>
 
         <section id="user-conduct" className="mb-10">
-          <h2 className="text-2xl font-bold text-brown mb-4">3. student Conduct</h2>
+          <h2 className="text-2xl font-bold text-brown mb-4">3. User Conduct</h2>
           <p className="text-gray-700 leading-relaxed mb-4">
             You agree not to:
           </p>

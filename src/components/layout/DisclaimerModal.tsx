@@ -7,7 +7,7 @@ const SHORT_TEXT = `iléSure is a listing and roommate-matching platform only. W
 Governed by the Oyo State Tenancy Law (2016, as amended) and the laws of the Federal Republic of Nigeria.`;
 
 const LONG_TEXT = `1. Nature of Service
-iléSure is an independent digital platform that connects students seeking off-campus accommodation with property owners and agents listing available spaces near Lead City University, Nigeria, and surrounding areas of Oyo State, Nigeria. iléSure operates solely as an intermediary marketplace. We do not own, lease, manage, inspect, or control any property listed on this platform.
+iléSure is an independent digital platform that connects students seeking off-campus accommodation with property owners and agents listing available spaces near Lead City University, Ibadan, and surrounding areas of Oyo State, Nigeria. iléSure operates solely as an intermediary marketplace. We do not own, lease, manage, inspect, or control any property listed on this platform.
 
 2. No Ownership or Agency
 iléSure is not a real estate agent, property manager, or housing authority. Listings displayed on this platform are submitted by independent third-party landlords or their agents. The presence of a listing on iléSure does not constitute an endorsement, certification, or verification of that property's legal status, ownership, or habitability. House agents operating on our platform are independently responsible for compliance with the Oyo State Tenancy Law and applicable registration requirements under recent Oyo State housing reforms, including agent fee caps and mandatory registration obligations.
@@ -32,7 +32,7 @@ iléSure's roommate-matching feature is provided as a convenience tool to help s
 
 7. Governing Law & Jurisdiction
 This disclaimer and all platform activities are governed by the laws of the Federal Republic of Nigeria, with specific reference to:
-• The Oyo State Tenancy Law (2016, as amended) — regulating landlord-tenant relationships in Nigeria and across Oyo State
+• The Oyo State Tenancy Law (2016, as amended) — regulating landlord-tenant relationships in Ibadan and across Oyo State
 • The Land Use Act (Cap L5, LFN 2004) — governing land ownership and occupancy rights in Nigeria
 • The Federal Competition and Consumer Protection Act (FCCPA) 2018 — protecting consumers in digital marketplaces
 • Nigerian Data Protection Act (NDPA) 2023 — governing the handling of users' personal data
