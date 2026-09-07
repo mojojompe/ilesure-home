@@ -33,13 +33,13 @@ export function Download() {  const [waitlistOpen, setWaitlistOpen] = useState(f
                   <div className="flex flex-col gap-4 items-center lg:items-start">
                     <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard/15 border border-mustard/25 text-mustard text-xs font-bold uppercase tracking-widest w-fit">
                       
-                      'For Students & Individuals'
+                      For Students & Individuals
                                                               </span>
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
-                      'Take iléSure wherever you go'
+                      Take iléSure wherever you go
                                                               </h2>
                     <p className="text-cream-300 text-base lg:text-lg leading-relaxed max-w-md" style={{ color: 'rgba(253,246,227,0.7)' }}>
-                      'The iléSure mobile app is coming to iOS and Android. Browse listings, chat with agents, and manage your roommate matching — all from your phone.'
+                      The iléSure mobile app is coming to iOS and Android. Browse listings, chat with agents, and manage your roommate matching — all from your phone.
                                                               </p>
                   </div>
                 </ScrollReveal>

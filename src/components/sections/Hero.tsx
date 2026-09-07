@@ -89,7 +89,7 @@ export function Hero() {  const [waitlistOpen, setWaitlistOpen] = useState(false
               className="mt-8 text-brown-light text-lg sm:text-xl leading-loose max-w-2xl italic mx-auto"
               style={{ fontFamily: 'Georgia, serif' }}
             >
-              'Discover verified apartments and spaces tailored to your lifestyle. Transparent, trusted, and strictly verified.'
+              Discover verified apartments and spaces tailored to your lifestyle. Transparent, trusted, and strictly verified.
             </motion.p>
 
             <motion.div
@@ -105,7 +105,7 @@ export function Hero() {  const [waitlistOpen, setWaitlistOpen] = useState(false
                 whileTap={{ scale: 0.98 }}
               >
                 <span className="relative flex items-center justify-center gap-2">
-                  'Get the App'
+                  Get the App
                   <ChevronRight size={18} strokeWidth={2.5} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </motion.button>
@@ -113,7 +113,7 @@ export function Hero() {  const [waitlistOpen, setWaitlistOpen] = useState(false
                 onClick={() => navigate('/discover')}
                 className="w-full sm:w-auto px-10 py-5 border-2 border-brown text-brown font-bold text-sm uppercase tracking-wider hover:bg-brown hover:text-white transition-colors duration-300 rounded-3xl"
               >
-                'Learn More'
+                Learn More
               </button>
             </motion.div>
           </div>

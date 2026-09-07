@@ -9,7 +9,7 @@ const tiers = [
     id: 'basic',
     name: 'Basic',
     badge: null,
-    price: '₦833',
+    price: '₦1,500',
     period: '/month',
     annualPrice: '₦15,000',
     annualNote: 'billed annually',
@@ -30,7 +30,7 @@ const tiers = [
     id: 'pro',
     name: 'Premium',
     badge: 'Most Popular',
-    price: '₦2,917',
+    price: '₦3,500',
     period: '/month',
     annualPrice: '₦35,000',
     annualNote: 'billed annually',
@@ -51,7 +51,7 @@ const tiers = [
     id: 'enterprise',
     name: 'Enterprise',
     badge: 'Best Value',
-    price: '₦5,833',
+    price: '₦7,000',
     period: '/month',
     annualPrice: '₦70,000',
     annualNote: 'billed annually',
@@ -86,13 +86,13 @@ export function PricingTiers() {
         <ScrollReveal>
           <div className="text-center mb-10">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard-50 border border-mustard-200 text-mustard text-xs font-bold uppercase tracking-widest">
-              'Pricing'
+              Pricing
                                       </span>
             <h2 className="mt-4 text-4xl font-extrabold text-brown">
-              'Choose Your' <span className="text-gradient-mustard">'Growth Plan'</span>
+              Choose Your <span className="text-gradient-mustard">Growth Plan</span>
             </h2>
             <p className="mt-3 text-brown-light max-w-lg mx-auto">
-              'Transparent pricing. No hidden fees. Scale as your portfolio grows.'
+              Transparent pricing. No hidden fees. Scale as your portfolio grows.
                                       </p>
 
             {/* Billing toggle */}
@@ -103,7 +103,7 @@ export function PricingTiers() {
                   billing === 'monthly' ? 'bg-white text-brown shadow-clay-sm' : 'text-brown-light'
                 }`}
               >
-                'Monthly'
+                Monthly
                                             </button>
               <button
                 onClick={() => setBilling('annual')}
@@ -111,8 +111,14 @@ export function PricingTiers() {
                   billing === 'annual' ? 'bg-white text-brown shadow-clay-sm' : 'text-brown-light'
                 }`}
               >
-                'Annual'
-                                              <span className="text-[10px] font-bold text-mustard bg-mustard-50 px-2 py-0.5 rounded-pill">'Save 20%'</span>
+                Annual
+                {/* BUGFIX (QA-MKT-006): the badge claimed "Save 20%" and was shown even
+                    when Monthly was selected. Annual is now genuinely 2 months free
+                    (₦1,500x12=₦18,000 vs ₦15,000), and the badge only appears on the
+                    option it describes. */}
+                {billing === 'annual' && (
+                  <span className="text-[10px] font-bold text-mustard bg-mustard-50 px-2 py-0.5 rounded-pill">2 months free</span>
+                )}
               </button>
             </div>
           </div>
@@ -207,7 +213,7 @@ export function PricingTiers() {
 
         <ScrollReveal>
           <p className="text-center text-sm text-brown-light mt-8">
-            'All plans include access to basic analytics. Start with the' <span className="font-semibold text-brown">'Free Tier'</span> 'today.'
+            All plans include access to basic analytics.
                                 </p>
         </ScrollReveal>
       </div>

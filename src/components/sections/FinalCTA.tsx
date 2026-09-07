@@ -46,10 +46,10 @@ export function FinalCTA() {  const [waitlistOpen, setWaitlistOpen] = useState(f
 
               <div className="flex flex-col gap-4">
                 <h2 className="text-3xl md:text-5xl font-extrabold text-white leading-tight" style={{ textShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
-                  'Your sure home is waiting.'
+                  Your sure home is waiting.
                                                   </h2>
                 <p className="text-white/80 text-lg leading-relaxed max-w-xl mx-auto font-medium">
-                  'Join hundreds of Users who are done with the stress of off-destination housing. Be first in line when iléSure goes live.'
+                  Join hundreds of students who are done with the stress of off-campus housing. Be first in line when iléSure goes live.
                                                   </p>
               </div>
 
@@ -62,7 +62,7 @@ export function FinalCTA() {  const [waitlistOpen, setWaitlistOpen] = useState(f
                     iconRight={<ChevronRight size={18} strokeWidth={2.5} />}
                     className="shadow-3d hover:shadow-3d-hover"
                   >
-                    'Join the Waitlist'
+                    Join the Waitlist
                                                         </PillButton>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -75,13 +75,13 @@ export function FinalCTA() {  const [waitlistOpen, setWaitlistOpen] = useState(f
                     }}
                     className="text-white bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-sm"
                   >
-                    'See How It Works'
+                    See How It Works
                                                         </PillButton>
                 </motion.div>
               </div>
 
               <p className="text-white/60 text-xs mt-2 font-medium tracking-wide">
-                'NO SPAM. JUST YOUR LAUNCH NOTIFICATION.'
+                NO SPAM. JUST YOUR LAUNCH NOTIFICATION.
                                             </p>
             </div>
           </ScrollReveal>

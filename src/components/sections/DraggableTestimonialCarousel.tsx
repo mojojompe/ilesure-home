@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 const testimonials = [
   {
     name: 'Ayomip Odu',
-    role: 'Year 2 User',
+    role: 'Year 2 student',
     avatar: 'AO',
     content: "I was skeptical about finding a safe place Anywhere, but iléSure made it so easy. Found a 2-bedroom just 5 minutes from LCU!",
     rating: 5,
@@ -13,7 +13,7 @@ const testimonials = [
   },
   {
     name: 'Chidinma Eze',
-    role: 'Year 3 User',
+    role: 'Year 3 student',
     avatar: 'CE',
     content: "The roommate matching feature connected me with my best friend! We now share a spacious apartment near Oba Otudeko.",
     rating: 5,
@@ -21,7 +21,7 @@ const testimonials = [
   },
   {
     name: 'Emmanuel Adeyemi',
-    role: 'Year 1 User',
+    role: 'Year 1 student',
     avatar: 'EA',
     content: "As a fresher, I was worried about accommodation. iléSure's verified agents gave me peace of mind. Highly recommended!",
     rating: 5,
@@ -29,7 +29,7 @@ const testimonials = [
   },
   {
     name: 'Funke Bakare',
-    role: 'Year 4 User',
+    role: 'Year 4 student',
     avatar: 'FB',
     content: "The transparency in pricing and location details is unmatched. No hidden fees, no surprises. Just real listings.",
     rating: 5,
@@ -37,7 +37,7 @@ const testimonials = [
   },
   {
     name: 'Segun Olatunji',
-    role: 'Year 2 User',
+    role: 'Year 2 student',
     avatar: 'SO',
     content: "Found my dream apartment within a week! The filters helped me narrow down exactly what I needed - budget, distance, amenities.",
     rating: 5,
@@ -74,11 +74,11 @@ export function DraggableTestimonialCarousel() {  const [currentIndex, setCurren
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard/10 text-mustard text-xs font-bold uppercase tracking-widest mb-4">
             <Quote size={12} />
-            'Testimonials'
+            Testimonials
                                 </span>
           <h2 className="text-4xl font-extrabold text-brown">
-            'Loved by'{' '}
-            <span className="text-mustard">'Users'</span>
+            Loved by{' '}
+            <span className="text-mustard">students</span>
           </h2>
         </motion.div>
 

@@ -7,8 +7,27 @@ export default {
   theme: {
     extend: {
       colors: {
+        // A11Y-FIX (QA-A11Y-003): the marketing site paints links and small copy in
+        // `text-mustard` (Navbar, Footer, the consent and disclaimer modals) and
+        // `text-brown-light`. #C9962A is 2.67:1 on white and #A0714F is 4.23:1 — both
+        // below the 4.5:1 minimum for body text. The DEFAULT tones are darkened to clear
+        // it; `light` and the 50-400 steps are untouched, because those are used for
+        // fills, borders and gradients where 3:1 is the relevant threshold.
+        // REGRESSION-FIX (QA-REG-037): darkening mustard to clear 4.5:1 on WHITE dropped it
+        // to 2.23:1 on this site's own bg-brown panels, where it had been 4.06:1. No single
+        // tone clears 4.5:1 against both #FFFFFF and #5C3317 - they sit on opposite sides of
+        // the mustard hue, so one token cannot serve both surfaces. That is the actual
+        // lesson: the round-1 fix changed a token without enumerating the backgrounds it is
+        // painted on.
+        //
+        //   mustard.DEFAULT  #8A6E12  4.86:1 on white,  2.23:1 on brown  -> LIGHT surfaces
+        //   mustard.onDark   #E8B84B  1.84:1 on white,  5.87:1 on brown  -> DARK surfaces
+        //
+        // Use `text-mustard-onDark` for any mustard text sitting on brown or another dark
+        // panel. Ratios computed with the WCAG relative-luminance formula.
         mustard: {
-          DEFAULT: '#C9962A',
+          DEFAULT: '#8A6E12',
+          onDark: '#E8B84B',
           light: '#F5C842',
           dark: '#A67C1A',
           50:  '#FDFAEE',
@@ -24,7 +43,8 @@ export default {
         },
         brown: {
           DEFAULT: '#5C3317',
-          light: '#A0714F',
+          // #A0714F was 4.23:1; #8C6136 is 5.41:1.
+          light: '#8C6136',
           dark: '#3D2210',
           50:  '#FBF7F4',
           100: '#F2E8DF',

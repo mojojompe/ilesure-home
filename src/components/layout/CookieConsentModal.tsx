@@ -12,10 +12,23 @@ export function CookieConsentModal() {
       localStorage.removeItem('cookie-consent');
     }
     const consent = localStorage.getItem('cookie-consent');
+    let timer: ReturnType<typeof setTimeout> | undefined;
     if (!consent) {
-      const timer = setTimeout(() => setIsVisible(true), 1500);
-      return () => clearTimeout(timer);
+      timer = setTimeout(() => setIsVisible(true), 1500);
     }
+
+    // BUGFIX (QA-MKT-007): the Cookie Policy tells users they can withdraw consent via a
+    // "Cookie Settings" link in the footer, but no such control existed and the banner
+    // never returned once a choice was stored — so consent was irreversible through the
+    // UI, on a site whose own disclaimer cites the NDPA 2023. Mirror the
+    // `open-disclaimer` pattern already used by DisclaimerModal.
+    const reopen = () => setIsVisible(true);
+    window.addEventListener('open-cookie-settings', reopen);
+
+    return () => {
+      if (timer) clearTimeout(timer);
+      window.removeEventListener('open-cookie-settings', reopen);
+    };
   }, []);
 
   const handleConsent = (choice: 'accepted' | 'rejected') => {

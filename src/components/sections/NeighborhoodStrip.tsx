@@ -23,13 +23,13 @@ export function NeighborhoodStrip() {  return (
           <div className="text-center mb-10">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard-50 border border-mustard-200 text-mustard text-xs font-bold uppercase tracking-widest">
               <MapPin size={12} />
-              'Neighborhoods We Cover'
+              Neighborhoods We Cover
                                       </span>
             <h2 className="mt-4 text-3xl font-extrabold text-brown">
-              'Verified Areas Across' <span className="text-gradient-mustard">'Nigeria'</span>
+              Verified Areas Across <span className="text-gradient-mustard">Nigeria</span>
             </h2>
             <p className="mt-2 text-brown-light max-w-xl mx-auto">
-              'From Lagos to Abuja, Port Harcourt to Ibadan — verified listings in the neighbourhoods that matter most.'
+              From Lagos to Abuja, Port Harcourt to Ibadan — verified listings in the neighbourhoods that matter most.
                                       </p>
           </div>
         </ScrollReveal>
@@ -51,8 +51,8 @@ export function NeighborhoodStrip() {  return (
                 {/* State label instead of proximity distance */}
                 <p className="text-xs text-brown-light mt-0.5">{hood.state}</p>
                 <p className="mt-2 text-xs font-bold" style={{ color: hood.color }}>
-                  {hood.count} 'listings'
-                                          </p>
+                  {hood.count} listings
+                </p>
               </motion.div>
             </ScrollReveal>
           ))}

@@ -12,7 +12,7 @@ export function InteractiveMapPreview() {  const [waitlistOpen, setWaitlistOpen]
         <div className="absolute inset-0 z-0">
           <img 
             src="/illustrations/isometric_map.png" 
-            alt="3D User Neighborhood Community" 
+            alt="3D student Neighborhood Community" 
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-brown/80 mix-blend-multiply" />
@@ -29,16 +29,16 @@ export function InteractiveMapPreview() {  const [waitlistOpen, setWaitlistOpen]
           >
             <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-pill bg-white/10 backdrop-blur-md border border-white/20 text-mustard text-xs font-bold uppercase tracking-[0.2em] mb-8">
               <Users size={14} className="text-mustard" />
-              'Vibrant Neighborhoods'
+              Vibrant Neighborhoods
                                       </span>
             <h2 className="text-5xl sm:text-6xl md:text-7xl font-black mb-6 text-white leading-tight tracking-tighter" style={{ fontFamily: 'Georgia, serif' }}>
-              'Join a Thriving' <br />
+              Join a Thriving <br />
               <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(135deg, #F5C842 0%, #C9962A 100%)' }}>
-                'Community'
+                Community
                                             </span>
             </h2>
             <p className="text-cream-300 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed italic" style={{ fontFamily: 'Georgia, serif' }}>
-              'Experience the best of off-destination living with properties nestled in vibrant, User-friendly neighborhoods. Safe, secure, and built for you.'
+              Experience the best of off-campus living with properties nestled in vibrant, student-friendly neighborhoods. Safe, secure, and built for you.
                                       </p>
             
             <motion.div 
