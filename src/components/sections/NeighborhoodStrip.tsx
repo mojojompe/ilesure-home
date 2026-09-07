@@ -51,8 +51,8 @@ export function NeighborhoodStrip() {  return (
                 {/* State label instead of proximity distance */}
                 <p className="text-xs text-brown-light mt-0.5">{hood.state}</p>
                 <p className="mt-2 text-xs font-bold" style={{ color: hood.color }}>
-                  {hood.count} 'listings'
-                                          </p>
+                  {hood.count} listings
+                </p>
               </motion.div>
             </ScrollReveal>
           ))}

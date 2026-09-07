@@ -8,12 +8,21 @@ const configuredApiUrl = import.meta.env.VITE_API_URL;
 if (!configuredApiUrl && import.meta.env.DEV) {
   console.error(
     '[config] VITE_API_URL is not set. Create ilesure-home/.env.development with ' +
-      'VITE_API_URL=http://localhost:4000 — otherwise this build will send real form ' +
-      'submissions to the production API.'
+      'VITE_API_URL=http://localhost:4000 — falling back to localhost so this build cannot ' +
+      'post real submissions to the production API.'
   );
 }
 
-const API_BASE_URL = configuredApiUrl || 'https://api.ilesure.com';
+// FOLLOW-UP (QA-MKT-003): the warning above was added in an earlier round, but the value
+// underneath it still resolved to production — so a developer with no env file got a red
+// console message and their test submissions went to the live API anyway. Warning about a
+// thing while still doing it is not a fix.
+//
+// In development the fallback is now localhost: a missing env file yields connection refused,
+// which is a loud, local, harmless failure. Production builds are unaffected — they keep the
+// production default, and a production build with VITE_API_URL unset is the one case where
+// defaulting to the real API is correct.
+const API_BASE_URL = configuredApiUrl || (import.meta.env.DEV ? 'http://localhost:4000' : 'https://api.ilesure.com');
 
 export const API_ENDPOINTS = {
   support: {

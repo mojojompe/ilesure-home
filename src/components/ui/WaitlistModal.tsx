@@ -289,7 +289,15 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                          {/* Phone (optional) */}
+                          {/* Phone — required, and validated in validate() like the other two.
+                              BUGFIX (QA-MKT-019): the input carried the native HTML5 `required`
+                              attribute while fullName and email did not, and the <form> has no
+                              noValidate. Native constraint validation runs BEFORE onSubmit, so
+                              an empty form was blocked at this one field with a browser tooltip
+                              and handleSubmit never ran — meaning the inline errors for name and
+                              email could not appear until a phone number had been typed. All
+                              three are now checked in one place, in React, so the form reports
+                              everything that is wrong at once. */}
                           <div className="flex flex-col gap-1.5">
                             <label className="text-[11px] font-bold text-brown uppercase tracking-widest pl-1">Phone Number</label>
                             <div className="relative group">
@@ -297,7 +305,6 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                               <input
                                 type="tel"
                                 value={form.phone}
-                                required
                                 onChange={e => handleChange('phone', e.target.value)}
                                 placeholder="+234..."
                                 className={`w-full pl-11 pr-4 py-3.5 rounded-xl bg-white shadow-sm text-sm text-brown placeholder-brown-light/50 outline-none border transition-all focus:border-mustard focus:ring-4 focus:ring-mustard/10 ${errors.phone ? 'border-red-400' : 'border-cream-200 hover:border-cream-300'}`}
