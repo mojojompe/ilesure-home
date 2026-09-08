@@ -29,10 +29,16 @@ export const API_ENDPOINTS = {
     // Unauthenticated ticket endpoint — persists to SupportTicket server-side.
     submit: `${API_BASE_URL}/api/v1/support/chat`,
   },
+  upgradeRequests: {
+    public: `${API_BASE_URL}/api/v1/upgrade-requests/public`,
+    submit: `${API_BASE_URL}/api/v1/upgrade-requests`,
+    upvote: (id: string) => `${API_BASE_URL}/api/v1/upgrade-requests/${id}/upvote`,
+  },
   waitlist: {
     join: `${API_BASE_URL}/api/v1/waitlist`,
     count: `${API_BASE_URL}/api/v1/waitlist/count`,
   },
+
   roommate: {
     matches: `${API_BASE_URL}/api/v1/roommate/matches`,
     profile: `${API_BASE_URL}/api/v1/roommate/profile`,

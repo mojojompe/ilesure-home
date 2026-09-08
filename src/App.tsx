@@ -12,6 +12,7 @@ const FaqPage = lazy(() => import('./pages/FaqPage').then(module => ({ default: 
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage').then(module => ({ default: module.PrivacyPolicyPage })));
 const TermsOfServicePage = lazy(() => import('./pages/TermsOfServicePage').then(module => ({ default: module.TermsOfServicePage })));
 const CookiePolicyPage = lazy(() => import('./pages/CookiePolicyPage').then(module => ({ default: module.CookiePolicyPage })));
+const SupportPage = lazy(() => import('./pages/SupportPage').then(module => ({ default: module.SupportPage })));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then(module => ({ default: module.NotFoundPage })));
 
 import { CookieConsentModal } from './components/layout/CookieConsentModal';
@@ -45,6 +46,7 @@ function App() {
             <Route path="/agents" element={<AgentsPage />} />
             <Route path="/reviews" element={<ReviewsPage />} />
             <Route path="/faq" element={<FaqPage />} />
+            <Route path="/support" element={<SupportPage />} />
             <Route path="/chat" element={<ChatbotPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/terms-of-service" element={<TermsOfServicePage />} />
