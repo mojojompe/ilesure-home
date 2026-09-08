@@ -3,7 +3,13 @@
 // staging build posted real names, emails and phone numbers to prod, which does not
 // answer. Fail loudly in development instead of quietly targeting production; keep the
 // production default only for a production build.
-const configuredApiUrl = import.meta.env.VITE_API_URL;
+const rawConfiguredUrl = import.meta.env.VITE_API_URL;
+
+// BUGFIX: Prevent legacy onrender.com backend URL (set in Vercel project env)
+// from pointing production traffic to the dormant Render instance.
+const configuredApiUrl = rawConfiguredUrl?.includes('onrender.com')
+  ? 'https://api.ilesure.com'
+  : rawConfiguredUrl;
 
 if (!configuredApiUrl && import.meta.env.DEV) {
   console.error(
@@ -13,15 +19,7 @@ if (!configuredApiUrl && import.meta.env.DEV) {
   );
 }
 
-// FOLLOW-UP (QA-MKT-003): the warning above was added in an earlier round, but the value
-// underneath it still resolved to production — so a developer with no env file got a red
-// console message and their test submissions went to the live API anyway. Warning about a
-// thing while still doing it is not a fix.
-//
-// In development the fallback is now localhost: a missing env file yields connection refused,
-// which is a loud, local, harmless failure. Production builds are unaffected — they keep the
-// production default, and a production build with VITE_API_URL unset is the one case where
-// defaulting to the real API is correct.
+// In development the fallback is localhost. Production builds use the live API https://api.ilesure.com.
 const API_BASE_URL = configuredApiUrl || (import.meta.env.DEV ? 'http://localhost:4000' : 'https://api.ilesure.com');
 
 export const API_ENDPOINTS = {
