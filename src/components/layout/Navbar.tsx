@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronDown, Sparkles, HelpCircle, Users, BookOpen, Target, Activity, MonitorSmartphone, CreditCard, MessageSquareHeart, PenTool, MessageCircleQuestion, MessagesSquare, Languages, Lock, Instagram, Twitter, Linkedin } from 'lucide-react';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { Menu11Icon, PanelLeftCloseIcon } from '@hugeicons/core-free-icons';
-import { TiktokIcon, WhatsappBusinessIcon } from 'hugeicons-react';
+import { Cancel01Icon, ArrowRight01Icon, ArrowDown01Icon, SparklesIcon, HelpCircleIcon, UserMultipleIcon, Book01Icon, Target01Icon, Analytics01Icon, ComputerIcon, CreditCardIcon, MessageFavourite01Icon, PencilIcon, MessageQuestionIcon, MessageMultiple01Icon, TranslateIcon, LockIcon, InstagramIcon, NewTwitterIcon, Linkedin01Icon } from '@hugeicons/react';
+import { Menu01Icon } from '@hugeicons/react';
+import { TiktokIcon, WhatsappIcon } from '@hugeicons/react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { PillButton } from '../ui/PillButton';
 import { WaitlistModal } from '../ui/WaitlistModal';
@@ -24,42 +23,42 @@ const navLinks: NavLink[] = [
     label: 'Discover',
     href: '/discover',
     sections: [
-      { label: 'Features', anchor: '#features', icon: Sparkles },
-      { label: 'How It Works', anchor: '#how-it-works', icon: HelpCircle },
-      { label: 'Roommate Quiz', anchor: '#roommate-quiz', icon: Users },
+      { label: 'Features', anchor: '#features', icon: SparklesIcon },
+      { label: 'How It Works', anchor: '#how-it-works', icon: HelpCircleIcon },
+      { label: 'Roommate Quiz', anchor: '#roommate-quiz', icon: UserMultipleIcon },
     ],
   },
   {
     label: 'About Us',
     href: '/about',
     sections: [
-      { label: 'Our Story', anchor: '#about-story', icon: BookOpen },
-      { label: 'Mission & Vision', anchor: '#mission', icon: Target },
-      { label: 'Impact', anchor: '#impact', icon: Activity },
+      { label: 'Our Story', anchor: '#about-story', icon: Book01Icon },
+      { label: 'Mission & Vision', anchor: '#mission', icon: Target01Icon },
+      { label: 'Impact', anchor: '#impact', icon: Analytics01Icon },
     ],
   },
   {
     label: 'For Agents',
     href: '/agents',
     sections: [
-      { label: 'Platform Features', anchor: '#web-app', icon: MonitorSmartphone },
-      { label: 'Pricing', anchor: '#pricing', icon: CreditCard },
+      { label: 'Platform Features', anchor: '#web-app', icon: ComputerIcon },
+      { label: 'Pricing', anchor: '#pricing', icon: CreditCardIcon },
     ],
   },
   {
     label: 'Reviews',
     href: '/reviews',
     sections: [
-      { label: 'student Stories', anchor: '#social-proof', icon: MessageSquareHeart },
-      { label: 'Share Your Story', anchor: '#submit-review', icon: PenTool },
+      { label: 'student Stories', anchor: '#social-proof', icon: MessageFavourite01Icon },
+      { label: 'Share Your Story', anchor: '#submit-review', icon: PencilIcon },
     ],
   },
   {
     label: 'FAQ',
     href: '/faq',
     sections: [
-      { label: 'Common Questions', anchor: '#faq', icon: MessageCircleQuestion },
-      { label: 'Chat with Support', anchor: '#support', icon: MessagesSquare },
+      { label: 'Common Questions', anchor: '#faq', icon: MessageQuestionIcon },
+      { label: 'Chat with Support', anchor: '#support', icon: MessageMultiple01Icon },
     ],
   },
 ];
@@ -71,10 +70,10 @@ const countries = [
 ];
 
 const socials = [
-  { icon: WhatsappBusinessIcon, href: 'https://wa.me/2348169384301', label: 'WhatsApp' },
-  { icon: Instagram, href: 'https://www.instagram.com/ilesure_technologies/', label: 'Instagram' },
-  { icon: Twitter, href: 'https://x.com/ilesuresupport', label: 'Twitter / X' },
-  { icon: Linkedin, href: 'https://www.linkedin.com/company/ilésure-technologies', label: 'LinkedIn' },
+  { icon: WhatsappIcon, href: 'https://wa.me/2348169384301', label: 'WhatsApp' },
+  { icon: InstagramIcon, href: 'https://www.instagram.com/ilesure_technologies/', label: 'InstagramIcon' },
+  { icon: NewTwitterIcon, href: 'https://x.com/ilesuresupport', label: 'NewTwitterIcon / Cancel01Icon' },
+  { icon: Linkedin01Icon, href: 'https://www.linkedin.com/company/ilésure-technologies', label: 'LinkedIn' },
   { icon: TiktokIcon, href: 'https://www.tiktok.com/@ilesure.com', label: 'Tiktok' },
 ];
 
@@ -197,7 +196,7 @@ export function Navbar() {
                     >
                       {link.label}
                       {link.sections && (
-                        <ChevronDown
+                        <ArrowDown01Icon
                           size={13}
                           strokeWidth={2.5}
                           className={`transition-transform duration-200 ${openDropdown === link.label ? 'rotate-180' : ''}`}
@@ -247,7 +246,7 @@ export function Navbar() {
                     <span className="flex items-center justify-center w-5 h-5 overflow-hidden rounded-full">
                       <img src="https://flagcdn.com/w40/ng.png" alt="Nigeria" className="w-full h-full object-cover" />
                     </span>
-                    <ChevronDown size={14} className="text-brown opacity-70" />
+                    <ArrowDown01Icon size={14} className="text-brown opacity-70" />
                   </button>
                   <AnimatePresence>
                     {openDropdown === 'country' && (
@@ -265,7 +264,7 @@ export function Navbar() {
                                 <span className="text-base">{c.flag}</span>
                                 {c.name}
                               </span>
-                              {c.locked && <Lock size={14} className="text-gray-400" />}
+                              {c.locked && <LockIcon size={14} className="text-gray-400" />}
                             </button>
                           </div>
                         ))}
@@ -284,7 +283,7 @@ export function Navbar() {
                     className="flex items-center justify-center w-10 h-10 rounded-full bg-white/50 border border-white/30 hover:bg-white/80 transition-colors text-brown"
                     onClick={() => setOpenDropdown(openDropdown === 'language' ? null : 'language')}
                   >
-                    <Languages size={20} />
+                    <TranslateIcon size={20} />
                   </button>
                   <motion.div
                     initial={false}
@@ -306,7 +305,7 @@ export function Navbar() {
                     variant="brown"
                     size="sm"
                     onClick={() => setWaitlistOpen(true)}
-                    iconRight={<ChevronRight size={15} strokeWidth={2.5} />}
+                    iconRight={<ArrowRight01Icon size={15} strokeWidth={2.5} />}
                   >
                     Get Started
                   </PillButton>
@@ -321,19 +320,18 @@ export function Navbar() {
                 onClick={() => setMenuOpen(!menuOpen)}
                 aria-label="Toggle menu"
               >
-                <HugeiconsIcon
-                  icon={menuOpen ? PanelLeftCloseIcon : Menu11Icon}
-                  size={20}
-                  color="currentColor"
-                  strokeWidth={1.5}
-                />
+                {menuOpen ? (
+                  <Cancel01Icon size={20} color="currentColor" strokeWidth={1.5} />
+                ) : (
+                  <Menu01Icon size={20} color="currentColor" strokeWidth={1.5} />
+                )}
               </button>
             </div>
           </div>
         </motion.nav>
       </header>
 
-      {/* Full Screen Mobile Menu */}
+      {/* Full Screen Mobile Menu01Icon */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -363,7 +361,7 @@ export function Navbar() {
                   className="w-10 h-10 rounded-full bg-white border border-cream-200 text-brown flex items-center justify-center hover:bg-mustard hover:text-white transition-colors shadow-sm"
                   aria-label="Close menu"
                 >
-                  <HugeiconsIcon icon={PanelLeftCloseIcon} size={20} color="currentColor" strokeWidth={1.5} />
+                  <Menu01Icon size={20} color="currentColor" strokeWidth={1.5} />
                 </button>
               </div>
               <div className="flex flex-col h-full pt-20 px-6 pb-8">
@@ -390,7 +388,7 @@ export function Navbar() {
                             onClick={() => setMobileOpenDropdown(mobileOpenDropdown === link.label ? null : link.label)}
                             className="p-2 text-brown-light"
                           >
-                            <ChevronDown
+                            <ArrowDown01Icon
                               size={18}
                               className={`transition-transform duration-200 ${mobileOpenDropdown === link.label ? 'rotate-180 text-mustard' : ''}`}
                             />
@@ -458,7 +456,7 @@ export function Navbar() {
                     size="md"
                     fullWidth
                     onClick={() => { setMenuOpen(false); setWaitlistOpen(true); }}
-                    iconRight={<ChevronRight size={18} strokeWidth={2.5} />}
+                    iconRight={<ArrowRight01Icon size={18} strokeWidth={2.5} />}
                   >
                     Get Early Access
                   </PillButton>

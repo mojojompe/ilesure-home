@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, CheckCircle, User, Mail, Phone, GraduationCap, Loader2, AlertCircle } from 'lucide-react';
+import { Cancel01Icon, Tick02Icon, UserIcon, Mail01Icon, CallIcon, Book01Icon, Loading02Icon, Alert01Icon } from '@hugeicons/react';
 import { PillButton } from './PillButton';
 import type { WaitlistFormData } from '../../api/waitlist';
 import { submitToWaitlist } from '../../api/waitlist';
@@ -40,7 +40,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
     // error ever showed. Validate it here to match the markup. Kept lenient (non-empty + at least
     // 7 digits) to avoid rejecting valid +234 / international formats.
     if (!form.phone.trim()) {
-      e.phone = 'Phone number is required';
+      e.phone = 'CallIcon number is required';
     } else if ((form.phone.replace(/\D/g, '').length) < 7) {
       e.phone = 'Enter a valid phone number';
     }
@@ -120,7 +120,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                 <div className="absolute inset-0 bg-gradient-to-br from-mustard/20 to-transparent pointer-events-none" />
                 <div className="relative z-10 flex flex-col h-full justify-between">
                   <div>
-                    <h2 
+                    <h2
                       className="text-4xl font-black text-white leading-tight mb-4 tracking-tighter"
                       style={{ fontFamily: 'Georgia, serif' }}
                     >
@@ -131,11 +131,11 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                       Join thousands of Nigerian students discovering verified housing, safe roommate matching, and zero phantom fees.
                     </p>
                   </div>
-                  
+
                   <div className="mt-8">
-                    <img 
-                      src="/illustrations/generated/impact_launch.png" 
-                      alt="Waitlist Illustration" 
+                    <img
+                      src="/illustrations/generated/impact_launch.png"
+                      alt="Waitlist Illustration"
                       className="w-full h-auto object-contain drop-shadow-2xl"
                     />
                   </div>
@@ -144,22 +144,22 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
 
               {/* Right Column - Form */}
               <div className="w-full md:w-[55%] bg-cream-50 relative flex flex-col max-h-[90vh] md:max-h-none overflow-y-auto overflow-x-hidden">
-                
+
                 {/* ── Mobile Header ── */}
                 <div className="md:hidden relative bg-brown px-6 pt-8 pb-14 overflow-hidden flex-shrink-0">
                   <div className="absolute inset-0 bg-gradient-to-br from-mustard/20 to-transparent pointer-events-none" />
-                  
+
                   {/* Mobile Close Button */}
                   <button
                     onClick={handleClose}
                     className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors z-20"
                     aria-label="Close modal"
                   >
-                    <X size={16} strokeWidth={2.5} />
+                    <Cancel01Icon size={16} strokeWidth={2.5} />
                   </button>
 
                   <div className="relative z-10 w-2/3">
-                    <h2 
+                    <h2
                       className="text-3xl font-black text-white leading-tight mb-2 tracking-tighter"
                       style={{ fontFamily: 'Georgia, serif' }}
                     >
@@ -170,11 +170,11 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                       Join thousands getting early access.
                     </p>
                   </div>
-                  
+
                   {/* Mobile Illustration peeking out */}
-                  <img 
-                    src="/illustrations/generated/impact_launch.png" 
-                    alt="" 
+                  <img
+                    src="/illustrations/generated/impact_launch.png"
+                    alt=""
                     className="absolute -bottom-4 -right-4 w-36 h-auto drop-shadow-xl"
                   />
                 </div>
@@ -186,7 +186,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                     className="w-10 h-10 rounded-full bg-white border border-cream-200 flex items-center justify-center text-brown-light hover:text-brown hover:bg-cream-100 transition-colors shadow-sm"
                     aria-label="Close modal"
                   >
-                    <X size={18} strokeWidth={2.5} />
+                    <Cancel01Icon size={18} strokeWidth={2.5} />
                   </button>
                 </div>
 
@@ -202,7 +202,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                         className="flex flex-col items-center text-center py-10 gap-6"
                       >
                         <div className="w-24 h-24 rounded-full bg-green-50 flex items-center justify-center shadow-inner">
-                          <CheckCircle size={56} className="text-green-500" strokeWidth={1.5} />
+                          <Tick02Icon size={56} className="text-green-500" strokeWidth={1.5} />
                         </div>
                         <div>
                           <h3 className="text-2xl font-bold text-brown" style={{ fontFamily: 'Georgia, serif' }}>You're on the list!</h3>
@@ -212,9 +212,9 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                           <p className="text-brown text-sm mt-4 mb-2">
                             You can join us on our WhatsApp Channels for more updates:
                           </p>
-                          <a 
+                          <a
                             href={form.role === 'user' ? "https://whatsapp.com/channel/0029VbDMd21AzNbuTNsKjs3k" : "https://whatsapp.com/channel/0029VbD6phnKbYMEgHVSgq2y"}
-                            target="_blank" 
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="text-mustard font-bold underline"
                           >
@@ -260,7 +260,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                         <div className="flex flex-col gap-1.5">
                           <label className="text-[11px] font-bold text-brown uppercase tracking-widest pl-1">Full Name</label>
                           <div className="relative group">
-                            <User size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-brown-light group-focus-within:text-mustard transition-colors" strokeWidth={2} />
+                            <UserIcon size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-brown-light group-focus-within:text-mustard transition-colors" strokeWidth={2} />
                             <input
                               type="text"
                               value={form.fullName}
@@ -276,7 +276,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                         <div className="flex flex-col gap-1.5">
                           <label className="text-[11px] font-bold text-brown uppercase tracking-widest pl-1">Email Address</label>
                           <div className="relative group">
-                            <Mail size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-brown-light group-focus-within:text-mustard transition-colors" strokeWidth={2} />
+                            <Mail01Icon size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-brown-light group-focus-within:text-mustard transition-colors" strokeWidth={2} />
                             <input
                               type="email"
                               value={form.email}
@@ -289,19 +289,19 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                          {/* Phone — required, and validated in validate() like the other two.
+                          {/* CallIcon, required, and validated in validate() like the other two.
                               BUGFIX (QA-MKT-019): the input carried the native HTML5 `required`
                               attribute while fullName and email did not, and the <form> has no
                               noValidate. Native constraint validation runs BEFORE onSubmit, so
                               an empty form was blocked at this one field with a browser tooltip
-                              and handleSubmit never ran — meaning the inline errors for name and
+                              and handleSubmit never ran, meaning the inline errors for name and
                               email could not appear until a phone number had been typed. All
                               three are now checked in one place, in React, so the form reports
                               everything that is wrong at once. */}
                           <div className="flex flex-col gap-1.5">
-                            <label className="text-[11px] font-bold text-brown uppercase tracking-widest pl-1">Phone Number</label>
+                            <label className="text-[11px] font-bold text-brown uppercase tracking-widest pl-1">CallIcon Number</label>
                             <div className="relative group">
-                              <Phone size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-brown-light group-focus-within:text-mustard transition-colors" strokeWidth={2} />
+                              <CallIcon size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-brown-light group-focus-within:text-mustard transition-colors" strokeWidth={2} />
                               <input
                                 type="tel"
                                 value={form.phone}
@@ -319,7 +319,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                               University/Location <span className="text-[9px] text-brown-light/70 normal-case tracking-normal font-normal">(Optional)</span>
                             </label>
                             <div className="relative group">
-                              <GraduationCap size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-brown-light group-focus-within:text-mustard transition-colors" strokeWidth={2} />
+                              <Book01Icon size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-brown-light group-focus-within:text-mustard transition-colors" strokeWidth={2} />
                               <input
                                 type="text"
                                 value={form.university}
@@ -334,7 +334,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
 
                         {apiError && (
                           <div className="flex items-center gap-2 p-3 mt-1 bg-red-50 text-red-600 text-xs font-medium rounded-xl border border-red-100">
-                            <AlertCircle size={14} className="flex-shrink-0" />
+                            <Alert01Icon size={14} className="flex-shrink-0" />
                             <span>{apiError}</span>
                           </div>
                         )}
@@ -346,7 +346,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                           fullWidth
                           disabled={submitting}
                           className="mt-4 shadow-xl shadow-mustard/20"
-                          icon={submitting ? <Loader2 size={18} className="animate-spin" /> : undefined}
+                          icon={submitting ? <Loading02Icon size={18} className="animate-spin" /> : undefined}
                         >
                           {submitting ? 'Joining Waitlist...' : 'Join the Waitlist'}
                         </PillButton>

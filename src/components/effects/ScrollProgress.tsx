@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CircleDot } from 'lucide-react';
+import { RecordIcon } from '@hugeicons/react';
 
 const milestones = [
   { id: 'hero', label: 'Home', threshold: 0 },
@@ -51,7 +51,7 @@ export function ScrollProgress() {
               transform: index === activeMilestone ? 'scale(1.3)' : 'scale(1)',
             }}
           >
-            <CircleDot size={12} />
+            <RecordIcon size={12} />
           </div>
         </div>
       ))}

@@ -65,13 +65,14 @@ function SpotlightCard({
   );
 }
 
-export function Features() {  return (
+export function Features() {
+  return (
     <section id="features" className="py-16 relative"
       style={{ background: 'radial-gradient(ellipse at 20% 80%, #FFFDF7 0%, #FDF6E3 80%, #FAF1CC 100%)' }}
     >
       {/* Container specifically to clip background overflow if necessary */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        {/* Floating illustrations — desktop only */}
+        {/* Floating illustrations, desktop only */}
         <img src="/illustrations/features.png" alt="Features Illustration 1" loading="lazy" width={256} height={256}
           className="absolute bottom-10 -left-12 w-64 h-auto  opacity-40 hidden lg:block"
           style={{ mixBlendMode: 'multiply' }}
@@ -150,7 +151,7 @@ export function Features() {  return (
                     <img src={feature.image} alt={feature.title} className="w-full h-full object-contain drop-shadow-sm" />
                   </div>
                 </div>
-                
+
                 <div className="flex flex-col gap-2 relative z-20">
                   <h3 className="text-xl font-bold text-brown leading-tight tracking-tight">{feature.title}</h3>
                   <p className="text-[15px] text-brown-light leading-loose">{feature.description}</p>

@@ -82,7 +82,8 @@ function MobileMetricCard({ metric }: { metric: typeof metrics[0] }) {
   );
 }
 
-export function ImpactMetrics() {  const [currentIndex, setCurrentIndex] = useState(0);
+export function ImpactMetrics() {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -104,13 +105,13 @@ export function ImpactMetrics() {  const [currentIndex, setCurrentIndex] = useSt
           <div className="text-center mb-14">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard-50 border border-mustard-200 text-mustard text-xs font-bold uppercase tracking-widest">
               Our Impact
-                                      </span>
+            </span>
             <h2 className="mt-4 text-4xl font-extrabold text-brown">
               Building Trust, <span className="text-gradient-mustard">One Listing at a Time</span>
             </h2>
             <p className="mt-3 text-brown-light max-w-xl mx-auto">
-              iléSure is more than an app — it's a commitment to every Nigerian student who deserves a safe, honest home-finding experience.
-                                      </p>
+              iléSure is more than an app, it's a commitment to every Nigerian student who deserves a safe, honest home-finding experience.
+            </p>
           </div>
         </ScrollReveal>
 

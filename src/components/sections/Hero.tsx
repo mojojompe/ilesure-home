@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight } from 'lucide-react';
+import { ArrowRight01Icon } from '@hugeicons/react';
 import { WaitlistModal } from '../ui/WaitlistModal';
 import { useNavigate } from 'react-router-dom';
 import BlurText from '../ui/BlurText';
@@ -106,7 +106,7 @@ export function Hero() {  const [waitlistOpen, setWaitlistOpen] = useState(false
               >
                 <span className="relative flex items-center justify-center gap-2">
                   Get the App
-                  <ChevronRight size={18} strokeWidth={2.5} className="group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight01Icon size={18} strokeWidth={2.5} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </motion.button>
               <button

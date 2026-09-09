@@ -22,7 +22,7 @@ const lastUpdated = 'May 4, 2026';
 export function PrivacyPolicyPage() {
   useSEO({
     title: 'Privacy Policy',
-    description: 'iléSure privacy policy — how we collect, use, protect, and share your personal data as a verified housing platform.',
+    description: 'iléSure privacy policy, how we collect, use, protect, and share your personal data as a verified housing platform.',
     canonical: '/privacy-policy',
   });
 
@@ -62,7 +62,7 @@ export function PrivacyPolicyPage() {
                 <li>IP address and approximate location</li>
                 <li>Usage data (pages visited, time spent, features used, clicks)</li>
                 <li>Referral source and search terms used to find our site</li>
-                <li>Cookies and similar tracking technologies (see our Cookie Policy)</li>
+                <li>Cookies and similar tracking technologies (see our CookieIcon Policy)</li>
               </ul>
             </div>
 
@@ -87,7 +87,7 @@ export function PrivacyPolicyPage() {
             <li>Facilitate communication between students, roommates, and agents</li>
             <li>Verify student status and agent credentials</li>
             <li>Process payments and manage subscriptions</li>
-            <li>Send important service updates, security alerts, and support messages</li>
+            <li>SentIcon important service updates, security alerts, and support messages</li>
             <li>Improve our platform through analytics and user feedback</li>
             <li>Detect and prevent fraud, abuse, and policy violations</li>
             <li>Comply with legal obligations and enforce our terms</li>
@@ -100,10 +100,10 @@ export function PrivacyPolicyPage() {
             Under applicable data protection laws (including the Nigeria Data Protection Act), we process your personal data on the following legal bases:
           </p>
           <ul className="list-disc list-inside text-gray-700 space-y-2">
-            <li><strong>Consent</strong> — Where you have given us explicit consent to process your data (e.g., marketing communications).</li>
-            <li><strong>Contract</strong> — Where processing is necessary to fulfill our contractual obligations to you (e.g., providing our services).</li>
-            <li><strong>Legitimate interests</strong> — Where processing is necessary for our legitimate business interests, such as improving our platform and preventing fraud, provided these do not override your rights.</li>
-            <li><strong>Legal obligation</strong> — Where processing is required to comply with applicable laws.</li>
+            <li><strong>Consent</strong>, Where you have given us explicit consent to process your data (e.g., marketing communications).</li>
+            <li><strong>Contract</strong>, Where processing is necessary to fulfill our contractual obligations to you (e.g., providing our services).</li>
+            <li><strong>Legitimate interests</strong>, Where processing is necessary for our legitimate business interests, such as improving our platform and preventing fraud, provided these do not override your rights.</li>
+            <li><strong>Legal obligation</strong>, Where processing is required to comply with applicable laws.</li>
           </ul>
         </section>
 
@@ -113,11 +113,11 @@ export function PrivacyPolicyPage() {
             We do not sell your personal data. We may share your information with:
           </p>
           <ul className="list-disc list-inside text-gray-700 space-y-2">
-            <li><strong>Service providers</strong> — Cloud hosting, payment processing, analytics, and customer support providers under strict data processing agreements.</li>
-            <li><strong>Other users</strong> — Limited profile information (name, university, preferences) may be visible to potential roommate matches.</li>
-            <li><strong>Agents</strong> — If you express interest in a listing, your contact details may be shared with the relevant agent.</li>
-            <li><strong>Legal authorities</strong> — Where required by law, regulation, or legal process, or to protect the rights and safety of our users.</li>
-            <li><strong>Business transfers</strong> — In the event of a merger, acquisition, or sale of assets, your data may be transferred as part of that transaction.</li>
+            <li><strong>Service providers</strong>, Cloud hosting, payment processing, analytics, and customer support providers under strict data processing agreements.</li>
+            <li><strong>Other users</strong>, Limited profile information (name, university, preferences) may be visible to potential roommate matches.</li>
+            <li><strong>Agents</strong>, If you express interest in a listing, your contact details may be shared with the relevant agent.</li>
+            <li><strong>Legal authorities</strong>, Where required by law, regulation, or legal process, or to protect the rights and safety of our users.</li>
+            <li><strong>Business transfers</strong>, In the event of a merger, acquisition, or sale of assets, your data may be transferred as part of that transaction.</li>
           </ul>
         </section>
 
@@ -127,10 +127,10 @@ export function PrivacyPolicyPage() {
             We retain your personal data only as long as necessary:
           </p>
           <ul className="list-disc list-inside text-gray-700 space-y-2">
-            <li><strong>Active accounts</strong> — Data is retained while your account is active and for a reasonable period thereafter.</li>
-            <li><strong>Deactivated accounts</strong> — Upon request, your data will be deleted within 30 days, except where retention is required by law.</li>
-            <li><strong>Transaction records</strong> — Payment and transaction data is retained for up to 7 years for tax and legal compliance.</li>
-            <li><strong>Analytics data</strong> — Aggregated and anonymized data may be retained indefinitely for research and improvement purposes.</li>
+            <li><strong>Active accounts</strong>, Data is retained while your account is active and for a reasonable period thereafter.</li>
+            <li><strong>Deactivated accounts</strong>, Upon request, your data will be deleted within 30 days, except where retention is required by law.</li>
+            <li><strong>Transaction records</strong>, Payment and transaction data is retained for up to 7 years for tax and legal compliance.</li>
+            <li><strong>Analytics data</strong>, Aggregated and anonymized data may be retained indefinitely for research and improvement purposes.</li>
           </ul>
         </section>
 
@@ -199,7 +199,7 @@ export function PrivacyPolicyPage() {
           </p>
           <div className="bg-cream-50 rounded-clay-sm p-6 border border-cream-200">
             <p className="text-gray-700"><strong>Email:</strong> ilesuresupport@gmail.com</p>
-            <p className="text-gray-700"><strong>Phone:</strong> +234 807 145 5374</p>
+            <p className="text-gray-700"><strong>CallIcon:</strong> +234 807 145 5374</p>
             <p className="text-gray-700"><strong>Location:</strong> Ibadan, Nigeria</p>
           </div>
         </section>

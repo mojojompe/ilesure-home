@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Check } from 'lucide-react';
+import { Tick01Icon } from '@hugeicons/react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { useState } from 'react';
 import { WaitlistModal } from '../ui/WaitlistModal';
@@ -92,7 +92,7 @@ export function PricingTiers() {
               Choose Your <span className="text-gradient-mustard">Growth Plan</span>
             </h2>
             <p className="mt-3 text-brown-light max-w-lg mx-auto">
-              Transparent pricing. No hidden fees. Scale as your portfolio grows.
+              Transparent pricing. No hidden fees. JusticeScale01Icon as your portfolio grows.
                                       </p>
 
             {/* Billing toggle */}
@@ -182,7 +182,7 @@ export function PricingTiers() {
                             className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
                             style={{ background: `${tier.color}15` }}
                           >
-                            <Check size={10} strokeWidth={3} style={{ color: tier.color }} />
+                            <Tick01Icon size={10} strokeWidth={3} style={{ color: tier.color }} />
                           </div>
                           <span className="text-sm text-brown-light leading-snug">{f}</span>
                         </li>

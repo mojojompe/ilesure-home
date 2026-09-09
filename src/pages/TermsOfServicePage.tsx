@@ -7,7 +7,7 @@ const toc: TOCItem[] = [
   { id: 'acceptance', label: 'Acceptance of Terms' },
   { id: 'service-description', label: 'Description of Service' },
   { id: 'eligibility', label: 'Eligibility & Accounts' },
-  { id: 'user-conduct', label: 'User Conduct' },
+  { id: 'user-conduct', label: 'UserIcon Conduct' },
   { id: 'listings', label: 'Listings & Agent Responsibilities' },
   { id: 'intellectual-property', label: 'Intellectual Property' },
   { id: 'disclaimers', label: 'Disclaimers & Limitation of Liability' },
@@ -23,7 +23,7 @@ const lastUpdated = 'May 4, 2026';
 export function TermsOfServicePage() {
   useSEO({
     title: 'Terms of Service',
-    description: 'iléSure terms of service — understand your rights, responsibilities, and obligations when using our housing platform.',
+    description: 'iléSure terms of service, understand your rights, responsibilities, and obligations when using our housing platform.',
     canonical: '/terms-of-service',
   });
 
@@ -71,14 +71,14 @@ export function TermsOfServicePage() {
           <div className="bg-cream-50 rounded-clay-sm p-6 border border-cream-200">
             <h3 className="font-bold text-brown text-lg mb-2">Account Types</h3>
             <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
-              <li><strong>student accounts</strong> — For searching listings, finding roommates, and leaving reviews.</li>
-              <li><strong>Agent accounts</strong> — For posting property listings, managing inquiries, and subscribing to premium features.</li>
+              <li><strong>student accounts</strong>, For searching listings, finding roommates, and leaving reviews.</li>
+              <li><strong>Agent accounts</strong>, For posting property listings, managing inquiries, and subscribing to premium features.</li>
             </ul>
           </div>
         </section>
 
         <section id="user-conduct" className="mb-10">
-          <h2 className="text-2xl font-bold text-brown mb-4">3. User Conduct</h2>
+          <h2 className="text-2xl font-bold text-brown mb-4">3. UserIcon Conduct</h2>
           <p className="text-gray-700 leading-relaxed mb-4">
             You agree not to:
           </p>
@@ -86,12 +86,12 @@ export function TermsOfServicePage() {
             {[
               { title: 'No False Information', desc: 'Post misleading or inaccurate listings, profiles, or reviews.' },
               { title: 'No Impersonation', desc: 'Pretend to be another person, entity, or misrepresent your affiliation.' },
-              { title: 'No Illegal Activity', desc: 'Use the platform for any unlawful purpose or in violation of applicable laws.' },
+              { title: 'No Illegal Analytics01Icon', desc: 'Use the platform for any unlawful purpose or in violation of applicable laws.' },
               { title: 'No Harassment', desc: 'Harass, threaten, or abuse other users through messages or listings.' },
               { title: 'No Scraping', desc: 'Automatically scrape, crawl, or extract data from the Platform without permission.' },
               { title: 'No Malicious Code', desc: 'Upload viruses, malware, or any harmful code through the Platform.' },
               { title: 'No Circumvention', desc: 'Bypass or attempt to bypass any security or access controls.' },
-              { title: 'No Spam', desc: 'Send unsolicited messages, advertisements, or chain communications.' },
+              { title: 'No Spam', desc: 'SentIcon unsolicited messages, advertisements, or chain communications.' },
             ].map((rule) => (
               <div key={rule.title} className="bg-red-50 rounded-clay-sm p-4 border border-red-100">
                 <h3 className="font-bold text-brown text-sm">{rule.title}</h3>
@@ -205,7 +205,7 @@ export function TermsOfServicePage() {
           </p>
           <div className="bg-cream-50 rounded-clay-sm p-6 border border-cream-200">
             <p className="text-gray-700"><strong>Email:</strong> ilesuresupport@gmail.com</p>
-            <p className="text-gray-700"><strong>Phone:</strong> +234 807 145 5374</p>
+            <p className="text-gray-700"><strong>CallIcon:</strong> +234 807 145 5374</p>
             <p className="text-gray-700"><strong>Location:</strong> Ibadan, Nigeria</p>
           </div>
         </section>

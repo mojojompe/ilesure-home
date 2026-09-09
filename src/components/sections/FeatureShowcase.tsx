@@ -1,34 +1,34 @@
 import React, { useRef, useState } from 'react';
 import { motion, useInView, useMotionValue } from 'framer-motion';
-import { Search, Map, ShieldCheck, KeyRound } from 'lucide-react';
+import { Search01Icon, MapsIcon, SecurityCheckIcon, LockIcon } from '@hugeicons/react';
 import { SectionHeading } from '../ui/SectionHeading';
 import { ScrollReveal } from '../ui/ScrollReveal';
 
 const features = [
   {
     id: 'discover',
-    icon: Search,
+    icon: Search01Icon,
     title: 'Discover your perfect space',
     desc: 'Browse hundreds of verified off-campus apartments, self-cons, and hostels near your university, updated daily.',
     image: '/illustrations/person_search.png',
   },
   {
     id: 'map',
-    icon: Map,
+    icon: MapsIcon,
     title: 'Explore the neighborhood map',
     desc: 'View properties interactively. Filter by distance to your campus gate, security setup, and proximity to major roads.',
     image: '/illustrations/map_preview.png',
   },
   {
     id: 'verify',
-    icon: ShieldCheck,
+    icon: SecurityCheckIcon,
     title: '100% verified agents only',
     desc: 'Every listing is tied to a vetted and approved agent. Say goodbye to housing scams and inflated phantom fees.',
     image: '/illustrations/trust_v2.png',
   },
   {
     id: 'book',
-    icon: KeyRound,
+    icon: LockIcon,
     title: 'Book and move in safely',
     desc: 'Reserve your space securely through the platform. Pick up your keys with confidence, knowing your money is safe.',
     image: '/illustrations/person_move_in.png',

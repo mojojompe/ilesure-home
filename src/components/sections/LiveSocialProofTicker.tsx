@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
+import { SparklesIcon } from '@hugeicons/react';
 
 const notifications = [
   { name: 'Ayomip from Bodija', action: 'just signed up!', time: '2m ago' },
@@ -31,7 +31,7 @@ export function LiveSocialProofTicker() {
               className="flex items-center gap-3 whitespace-nowrap flex-shrink-0"
             >
               <div className="w-8 h-8 rounded-full bg-mustard/20 flex items-center justify-center">
-                <Sparkles size={14} className="text-mustard" />
+                <SparklesIcon size={14} className="text-mustard" />
               </div>
               <span className="text-sm">
                 <span className="font-bold text-brown">{notification.name}</span>{' '}

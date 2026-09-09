@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, useMotionValue, animate } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { ArrowLeft01Icon, ArrowRight01Icon, QuoteDownIcon } from '@hugeicons/react';
 
 const testimonials = [
   {
@@ -73,7 +73,7 @@ export function DraggableTestimonialCarousel() {  const [currentIndex, setCurren
           className="text-center mb-12"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard/10 text-mustard text-xs font-bold uppercase tracking-widest mb-4">
-            <Quote size={12} />
+            <QuoteDownIcon size={12} />
             Testimonials
                                 </span>
           <h2 className="text-4xl font-extrabold text-brown">
@@ -89,14 +89,14 @@ export function DraggableTestimonialCarousel() {  const [currentIndex, setCurren
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 rounded-full bg-white shadow-clay-sm flex items-center justify-center text-brown hover:bg-mustard hover:text-white transition-colors"
             disabled={currentIndex === 0}
           >
-            <ChevronLeft size={20} />
+            <ArrowLeft01Icon size={20} />
           </button>
           <button
             onClick={() => setCurrentIndex(prev => Math.min(testimonials.length - 1, prev + 1))}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 rounded-full bg-white shadow-clay-sm flex items-center justify-center text-brown hover:bg-mustard hover:text-white transition-colors"
             disabled={currentIndex === testimonials.length - 1}
           >
-            <ChevronRight size={20} />
+            <ArrowRight01Icon size={20} />
           </button>
 
           {/* Carousel */}
@@ -121,9 +121,9 @@ export function DraggableTestimonialCarousel() {  const [currentIndex, setCurren
                 >
                   <div className={`relative h-full bg-white rounded-clay shadow-clay p-6 transition-all duration-300 ${index === currentIndex ? 'ring-2 ring-mustard/30' : ''
                     }`}>
-                    {/* Quote icon */}
+                    {/* QuoteDownIcon icon */}
                     <div className="absolute -top-3 -left-2 w-10 h-10 rounded-clay-sm bg-mustard flex items-center justify-center">
-                      <Quote size={18} className="text-white" />
+                      <QuoteDownIcon size={18} className="text-white" />
                     </div>
 
                     {/* Rating */}

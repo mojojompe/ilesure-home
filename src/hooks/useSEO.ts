@@ -18,14 +18,14 @@ const DEFAULT_OG_IMAGE = '/logos/logo-full.png';
  *
  * Scope, stated honestly: this is NOT why a shared link would look wrong today. This site is a
  * client-rendered SPA with no prerendering, and vercel.json rewrites every route to
- * index.html — whose static og tags are already absolute and correct. Crawlers do not run
+ * index.html, whose static og tags are already absolute and correct. Crawlers do not run
  * JavaScript, so they never see anything this hook writes. The relative value is a latent
  * defect that would surface the moment these tags are read from the live DOM (a prerender
  * step, or an in-app preview), and it costs one function to remove.
  *
  * What it does not fix: every route currently shares one title, description and image in a
  * crawler's view, because they all get the same index.html. Per-route previews need
- * prerendering or per-route static HTML — a build-pipeline change, not a URL prefix.
+ * prerendering or per-route static HTML, a build-pipeline change, not a URL prefix.
  */
 function absoluteUrl(url: string): string {
   if (/^https?:\/\//i.test(url) || url.startsWith('//')) return url;

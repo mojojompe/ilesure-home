@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Users, ChevronRight } from 'lucide-react';
+import { UserMultipleIcon, ArrowRight01Icon } from '@hugeicons/react';
 import { WaitlistModal } from '../ui/WaitlistModal';
 
 export function InteractiveMapPreview() {  const [waitlistOpen, setWaitlistOpen] = useState(false);
@@ -28,7 +28,7 @@ export function InteractiveMapPreview() {  const [waitlistOpen, setWaitlistOpen]
             transition={{ duration: 0.8 }}
           >
             <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-pill bg-white/10 backdrop-blur-md border border-white/20 text-mustard text-xs font-bold uppercase tracking-[0.2em] mb-8">
-              <Users size={14} className="text-mustard" />
+              <UserMultipleIcon size={14} className="text-mustard" />
               Vibrant Neighborhoods
                                       </span>
             <h2 className="text-5xl sm:text-6xl md:text-7xl font-black mb-6 text-white leading-tight tracking-tighter" style={{ fontFamily: 'Georgia, serif' }}>
@@ -79,7 +79,7 @@ export function InteractiveMapPreview() {  const [waitlistOpen, setWaitlistOpen]
                     <p className="text-[10px] font-medium" style={{ color: 'rgba(253,246,227,0.6)' }}>{sub}</p>
                     <p className="text-sm font-bold text-white">{store}</p>
                   </div>
-                  <ChevronRight size={14} className="ml-auto transition-colors group-hover:text-mustard" style={{ color: 'rgba(253,246,227,0.5)' }} />
+                  <ArrowRight01Icon size={14} className="ml-auto transition-colors group-hover:text-mustard" style={{ color: 'rgba(253,246,227,0.5)' }} />
                 </motion.button>
               ))}
             </motion.div>

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Play, Star } from 'lucide-react';
+import { PlayIcon, StarIcon } from '@hugeicons/react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 
 const videoTestimonials = [
@@ -25,14 +25,15 @@ const videoTestimonials = [
     name: 'Ahmed Sule',
     role: 'Year 4, Poly Ibadan',
     avatar: 'AS',
-    teaser: 'My roommate became my best friend — thanks to iléSure matching.',
+    teaser: 'My roommate became my best friend, thanks to iléSure matching.',
     duration: '3:02',
     rating: 5,
     thumbnail: 'linear-gradient(135deg, #271608 0%, #5C3317 50%, #C9962A 100%)',
   },
 ];
 
-export function VideoTestimonials() {  return (
+export function VideoTestimonials() {
+  return (
     <section className="py-24 bg-cream relative overflow-hidden">
       <div className="absolute top-0 right-0 w-80 h-80 bg-mustard/8 rounded-full blur-[100px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-brown/5 rounded-full blur-[80px] pointer-events-none" />
@@ -41,15 +42,15 @@ export function VideoTestimonials() {  return (
         <ScrollReveal>
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard-50 border border-mustard-200 text-mustard text-xs font-bold uppercase tracking-widest">
-              <Play size={11} className="fill-mustard" />
+              <PlayIcon size={11} className="fill-mustard" />
               Watch Their Stories
-                                      </span>
+            </span>
             <h2 className="mt-4 text-4xl font-extrabold text-brown">
               Real students, <span className="text-gradient-mustard">Real Homes</span>
             </h2>
             <p className="mt-3 text-brown-light max-w-lg mx-auto">
               Hear directly from students who found their sure home through iléSure.
-                                      </p>
+            </p>
           </div>
         </ScrollReveal>
 
@@ -70,26 +71,26 @@ export function VideoTestimonials() {  return (
                     {v.duration}
                   </span>
 
-                  {/* Play button */}
+                  {/* PlayIcon button */}
                   <motion.div
                     className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-float-mustard"
                     whileHover={{ scale: 1.15 }}
                     whileTap={{ scale: 0.92 }}
                   >
-                    <Play size={22} className="text-mustard fill-mustard ml-1" />
+                    <PlayIcon size={22} className="text-mustard fill-mustard ml-1" />
                   </motion.div>
 
                   {/* Coming soon overlay */}
                   <span className="absolute bottom-3 left-3 bg-mustard/90 text-white text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-pill">
                     Coming Soon
-                                                </span>
+                  </span>
                 </div>
 
                 {/* Card body */}
                 <div className="p-5 flex flex-col gap-3">
                   <div className="flex gap-0.5">
                     {[...Array(v.rating)].map((_, si) => (
-                      <Star key={si} size={12} className="text-mustard fill-mustard" />
+                      <StarIcon key={si} size={12} className="text-mustard fill-mustard" />
                     ))}
                   </div>
                   <p className="font-semibold text-brown text-sm leading-snug">

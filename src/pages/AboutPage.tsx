@@ -30,7 +30,7 @@ export function AboutPage() {
           eyebrow="About iléSure"
           headline="Building the Future of safe and verified housing in Ibadan"
           highlightWords={["student", "Housing"]}
-          subtext="Born in Nigeria. Built for every student. iléSure means 'Sure Home' in Yoruba — and that's exactly what we're committed to delivering."
+          subtext="Born in Nigeria. Built for every student. iléSure means 'Sure Home' in Yoruba, and that's exactly what we're committed to delivering."
           illustration="/illustrations/about_hero.png"
           illustrationAlt="iléSure team building a trusted housing platform"
           primaryCta={{ label: 'Our Story', anchor: '#about-story' }}

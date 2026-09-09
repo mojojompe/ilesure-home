@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight } from 'lucide-react';
+import { ArrowRight01Icon } from '@hugeicons/react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { PillButton } from '../ui/PillButton';
 import { WaitlistModal } from '../ui/WaitlistModal';
@@ -59,7 +59,7 @@ export function FinalCTA() {  const [waitlistOpen, setWaitlistOpen] = useState(f
                     variant="brown"
                     size="lg"
                     onClick={() => setWaitlistOpen(true)}
-                    iconRight={<ChevronRight size={18} strokeWidth={2.5} />}
+                    iconRight={<ArrowRight01Icon size={18} strokeWidth={2.5} />}
                     className="shadow-3d hover:shadow-3d-hover"
                   >
                     Join the Waitlist

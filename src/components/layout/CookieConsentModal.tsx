@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Cookie, X } from 'lucide-react';
+import { CookieIcon, Cancel01Icon } from '@hugeicons/react';
 import { useNavigate } from 'react-router-dom';
 
 export function CookieConsentModal() {
@@ -17,9 +17,9 @@ export function CookieConsentModal() {
       timer = setTimeout(() => setIsVisible(true), 1500);
     }
 
-    // BUGFIX (QA-MKT-007): the Cookie Policy tells users they can withdraw consent via a
-    // "Cookie Settings" link in the footer, but no such control existed and the banner
-    // never returned once a choice was stored — so consent was irreversible through the
+    // BUGFIX (QA-MKT-007): the CookieIcon Policy tells users they can withdraw consent via a
+    // "CookieIcon Settings" link in the footer, but no such control existed and the banner
+    // never returned once a choice was stored, so consent was irreversible through the
     // UI, on a site whose own disclaimer cites the NDPA 2023. Mirror the
     // `open-disclaimer` pattern already used by DisclaimerModal.
     const reopen = () => setIsVisible(true);
@@ -50,18 +50,18 @@ export function CookieConsentModal() {
         >
           {/* Header Accent */}
           <div className="h-1.5 w-full bg-gradient-to-r from-mustard to-brown" />
-          
+
           <div className="p-5 sm:p-6">
             <div className="flex items-start justify-between gap-4">
               <div className="flex items-center justify-center w-10 h-10 rounded-full bg-mustard/10 text-mustard flex-shrink-0">
-                <Cookie size={20} strokeWidth={2.5} />
+                <CookieIcon size={20} strokeWidth={2.5} />
               </div>
-              <button 
+              <button
                 onClick={() => handleConsent('rejected')}
                 className="text-gray-400 hover:text-brown transition-colors"
                 aria-label="Close"
               >
-                <X size={18} strokeWidth={2.5} />
+                <Cancel01Icon size={18} strokeWidth={2.5} />
               </button>
             </div>
 
@@ -84,10 +84,10 @@ export function CookieConsentModal() {
                 Reject
               </button>
             </div>
-            
+
             <div className="mt-4 text-center">
               <button onClick={() => navigate('/cookie-policy')} className="text-xs text-mustard hover:text-brown transition-colors font-medium underline-offset-2 hover:underline">
-                Read our Cookie Policy
+                Read our CookieIcon Policy
               </button>
             </div>
           </div>

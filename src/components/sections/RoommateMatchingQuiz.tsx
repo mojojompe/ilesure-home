@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Users, ArrowRight, Wallet, PiggyBank, Coins, PartyPopper, BookOpen, Scale, Moon, Sparkles, Sunrise, RefreshCw, Minus, Loader2 } from 'lucide-react';
+import { UserMultipleIcon, ArrowRight01Icon, Wallet01Icon, PiggyBankIcon, Coins01Icon, GiftIcon, Book01Icon, JusticeScale01Icon, Moon01Icon, SparklesIcon, Sun01Icon, RefreshIcon, MinusSignIcon, Loading02Icon } from '@hugeicons/react';
 
 import { AppDownloadModal } from '../ui/AppDownloadModal';
 
@@ -9,37 +9,37 @@ const questions = [
     id: 'budget',
     question: "What's your monthly budget range?",
     options: [
-      { label: '₦50k - ₦80k', value: 'budget-low', icon: Wallet },
-      { label: '₦80k - ₦120k', value: 'budget-mid', icon: Coins },
-      { label: '₦120k+', value: 'budget-high', icon: PiggyBank },
+      { label: '₦50k - ₦80k', value: 'budget-low', icon: Wallet01Icon },
+      { label: '₦80k - ₦120k', value: 'budget-mid', icon: Coins01Icon },
+      { label: '₦120k+', value: 'budget-high', icon: PiggyBankIcon },
     ],
   },
   {
     id: 'lifestyle',
     question: "What's your lifestyle preference?",
     options: [
-      { label: 'Party Animal', value: 'party', icon: PartyPopper },
-      { label: 'Study Focused', value: 'study', icon: BookOpen },
-      { label: 'Balanced', value: 'balanced', icon: Scale },
-      { label: 'Quiet & Private', value: 'quiet', icon: Moon },
+      { label: 'Party Animal', value: 'party', icon: GiftIcon },
+      { label: 'Study Focused', value: 'study', icon: Book01Icon },
+      { label: 'Balanced', value: 'balanced', icon: JusticeScale01Icon },
+      { label: 'Quiet & Private', value: 'quiet', icon: Moon01Icon },
     ],
   },
   {
     id: 'cleanliness',
     question: 'How would you describe your cleanliness?',
     options: [
-      { label: 'Spotless', value: 'very-clean', icon: Sparkles },
-      { label: 'Generally Tidy', value: 'tidy', icon: Minus },
-      { label: 'Flexible', value: 'flexible', icon: RefreshCw },
+      { label: 'Spotless', value: 'very-clean', icon: SparklesIcon },
+      { label: 'Generally Tidy', value: 'tidy', icon: MinusSignIcon },
+      { label: 'Flexible', value: 'flexible', icon: RefreshIcon },
     ],
   },
   {
     id: 'sleep',
     question: "What's your sleep schedule like?",
     options: [
-      { label: 'Early Bird', value: 'early', icon: Sunrise },
-      { label: 'Night Owl', value: 'late', icon: Moon },
-      { label: 'Flexible', value: 'flexible-sleep', icon: RefreshCw },
+      { label: 'Early Bird', value: 'early', icon: Sun01Icon },
+      { label: 'Night Owl', value: 'late', icon: Moon01Icon },
+      { label: 'Flexible', value: 'flexible-sleep', icon: RefreshIcon },
     ],
   },
 ];
@@ -102,7 +102,7 @@ export function RoommateMatchingQuiz() {  const [currentQuestion, setCurrentQues
         >
           <div className="text-center lg:text-left mb-8 w-full">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-mustard/10 text-mustard text-sm font-medium mb-4">
-              <Users size={16} />
+              <UserMultipleIcon size={16} />
               <span>Roommate Matching</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-brown">Find Your Perfect Match</h2>
@@ -163,7 +163,7 @@ export function RoommateMatchingQuiz() {  const [currentQuestion, setCurrentQues
               animate={{ opacity: 1, scale: 1 }}
             >
               <div className="text-center mb-6">
-                <Users className="w-12 h-12 text-mustard mx-auto mb-3" />
+                <UserMultipleIcon className="w-12 h-12 text-mustard mx-auto mb-3" />
                 <h3 className="text-xl font-bold text-brown">Your Matches</h3>
                 <p className="text-sm text-brown-light">Based on your preferences</p>
               </div>
@@ -171,7 +171,7 @@ export function RoommateMatchingQuiz() {  const [currentQuestion, setCurrentQues
               <div className="flex flex-col gap-3 max-h-[340px] overflow-y-auto no-scrollbar pr-1">
                 {loading ? (
                   <div className="flex items-center justify-center py-8">
-                    <Loader2 className="w-6 h-6 animate-spin text-mustard" />
+                    <Loading02Icon className="w-6 h-6 animate-spin text-mustard" />
                   </div>
                 ) : (
                   getMatchProfiles().map((profile: any) => (
@@ -209,7 +209,7 @@ export function RoommateMatchingQuiz() {  const [currentQuestion, setCurrentQues
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setAppDownloadOpen(true)}
               >
-                Connect with Matches <ArrowRight size={18} />
+                Connect with Matches <ArrowRight01Icon size={18} />
               </motion.button>
             </motion.div>
           )}

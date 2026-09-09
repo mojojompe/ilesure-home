@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Quote, Star } from 'lucide-react';
+import { QuoteDownIcon, StarIcon } from '@hugeicons/react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 
 const agentTestimonials = [
@@ -31,14 +31,15 @@ const agentTestimonials = [
     company: 'Private Landlord · Toll Gate',
     avatar: 'RO',
     content:
-      "I was sceptical at first, but the KYC process gave my tenants confidence too. They trust my listing more because I'm verified. Both sides win — and I've had zero payment issues.",
+      "I was sceptical at first, but the KYC process gave my tenants confidence too. They trust my listing more because I'm verified. Both sides win, and I've had zero payment issues.",
     rating: 5,
     stat: 'Zero payment disputes',
     color: '#C9962A',
   },
 ];
 
-export function AgentTestimonials() {  return (
+export function AgentTestimonials() {
+  return (
     <section className="py-24 bg-cream relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-mustard/5 rounded-full blur-[100px] pointer-events-none" />
 
@@ -46,15 +47,15 @@ export function AgentTestimonials() {  return (
         <ScrollReveal>
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard-50 border border-mustard-200 text-mustard text-xs font-bold uppercase tracking-widest">
-              <Quote size={12} />
+              <QuoteDownIcon size={12} />
               Agent Stories
-                                      </span>
+            </span>
             <h2 className="mt-4 text-4xl font-extrabold text-brown">
               Agents <span className="text-gradient-mustard">Love iléSure</span>
             </h2>
             <p className="mt-3 text-brown-light max-w-lg mx-auto">
               Real results from real property professionals across Nigeria.
-                                      </p>
+            </p>
           </div>
         </ScrollReveal>
 
@@ -65,18 +66,18 @@ export function AgentTestimonials() {  return (
                 whileHover={{ y: -6, scale: 1.01 }}
                 className="bg-white rounded-clay p-7 shadow-clay border border-cream-200 flex flex-col gap-5 h-full"
               >
-                {/* Quote icon */}
+                {/* QuoteDownIcon icon */}
                 <div
                   className="w-10 h-10 rounded-clay-sm flex items-center justify-center"
                   style={{ background: `${testimonial.color}15` }}
                 >
-                  <Quote size={18} style={{ color: testimonial.color }} />
+                  <QuoteDownIcon size={18} style={{ color: testimonial.color }} />
                 </div>
 
                 {/* Stars */}
                 <div className="flex gap-0.5">
                   {[...Array(testimonial.rating)].map((_, si) => (
-                    <Star key={si} size={14} className="text-mustard fill-mustard" />
+                    <StarIcon key={si} size={14} className="text-mustard fill-mustard" />
                   ))}
                 </div>
 
@@ -92,7 +93,7 @@ export function AgentTestimonials() {  return (
                 >
                   <p className="text-xs font-bold uppercase tracking-widest" style={{ color: testimonial.color }}>
                     Result
-                                                </p>
+                  </p>
                   <p className="font-extrabold text-brown mt-0.5">{testimonial.stat}</p>
                 </div>
 

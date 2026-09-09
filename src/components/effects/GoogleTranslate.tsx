@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 // SECURITY-FIX (H-M1): The Google Translate widget is a third-party script that, once loaded,
 // has full DOM/JS access to the page and sends data to Google. Previously it was injected
-// unconditionally in index.html on every page load — before/without user consent.
+// unconditionally in index.html on every page load, before/without user consent.
 //
 // This component defers that injection until the user has EXPLICITLY accepted cookies via the
 // CookieConsentModal. On load it either injects immediately (consent already stored from a prior

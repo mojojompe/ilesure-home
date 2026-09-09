@@ -1,9 +1,9 @@
 
 import { motion } from 'framer-motion';
 import {
-  Monitor, BarChart3, Users, Building2, ChevronRight,
-  Shield, Globe,
-} from 'lucide-react';
+  ComputerIcon, Analytics01Icon, UserMultipleIcon, Building04Icon, ArrowRight01Icon,
+  SecurityIcon, Globe02Icon,
+} from '@hugeicons/react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { useState } from 'react';
 import { WaitlistModal } from '../ui/WaitlistModal';
@@ -11,22 +11,22 @@ import { WaitlistModal } from '../ui/WaitlistModal';
 /* ── Capability cards ── */
 const capabilities = [
   {
-    icon: Building2,
+    icon: Building04Icon,
     title: 'List & Manage Properties',
     description: 'Upload unlimited listings, control availability, and showcase units with rich media galleries.',
   },
   {
-    icon: Users,
+    icon: UserMultipleIcon,
     title: 'Agent & Company Profiles',
     description: 'Build a verified professional profile that students trust and landlords rely on.',
   },
   {
-    icon: BarChart3,
+    icon: Analytics01Icon,
     title: 'Real-Time Analytics',
     description: 'Track views, inquiries, and conversion rates across all your listings in one dashboard.',
   },
   {
-    icon: Shield,
+    icon: SecurityIcon,
     title: 'Verified & Secure',
     description: 'All accounts go through our KYC process so every deal stays safe and legitimate.',
   },
@@ -74,16 +74,16 @@ export function WebApp() {
           <div className="relative p-10 md:p-16 max-w-[1300px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
 
             {/* ════════════════════════════════════
-                Left Column — Text + CTA
+                Left Column, Text + CTA
             ════════════════════════════════════ */}
             <div className="flex flex-col items-center lg:items-start gap-8 lg:w-1/2 text-center lg:text-left z-10">
               <ScrollReveal direction="left">
                 <div className="flex flex-col gap-4 items-center lg:items-start">
                   {/* Badge */}
                   <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard/15 border border-mustard/30 text-mustard text-xs font-bold uppercase tracking-widest w-fit">
-                    <Globe size={12} strokeWidth={2.5} />
+                    <Globe02Icon size={12} strokeWidth={2.5} />
                     For Agents/Landlords & Companies
-                                                        </span>
+                  </span>
 
                   <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight">
                     A powerful platform{' '}
@@ -95,19 +95,19 @@ export function WebApp() {
                       }}
                     >
                       built for pros
-                                                              </span>
+                    </span>
                   </h2>
 
                   <p
                     className="text-base leading-relaxed"
                     style={{ color: 'rgba(253,246,227,0.70)' }}
                   >
-                    Agents, landlords, and real-estate companies now have a                     dedicated web dashboard to list properties, manage inquiries,                     and grow their portfolio — all from one place.
-                                                        </p>
+                    Agents, landlords, and real-estate companies now have a                     dedicated web dashboard to list properties, manage inquiries,                     and grow their portfolio, all from one place.
+                  </p>
                 </div>
               </ScrollReveal>
 
-              {/* ── Capability cards — responsive grid ── */}
+              {/* ── Capability cards, responsive grid ── */}
               <ScrollReveal direction="left" delay={0.12}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {capabilities.map(({ icon: Icon, title, description }, i) => (
@@ -162,9 +162,9 @@ export function WebApp() {
                     whileTap={{ scale: 0.97 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Monitor size={17} strokeWidth={2.2} />
+                    <ComputerIcon size={17} strokeWidth={2.2} />
                     <span>Launch Web App</span>
-                    <ChevronRight
+                    <ArrowRight01Icon
                       size={15}
                       strokeWidth={2.5}
                       className="transition-transform duration-200 group-hover:translate-x-1"
@@ -173,9 +173,9 @@ export function WebApp() {
                 </div>
               </ScrollReveal>
             </div>
-            
+
             {/* ════════════════════════════════════
-                Right Column — Mockup
+                Right Column, Mockup
             ════════════════════════════════════ */}
             <div className="lg:w-1/2 flex justify-center lg:justify-end relative mt-10 lg:mt-0 w-full">
               <ScrollReveal direction="right" delay={0.3}>
@@ -186,10 +186,10 @@ export function WebApp() {
                 >
                   {/* Glow behind the mockup */}
                   <div className="absolute inset-0 bg-mustard/15 blur-3xl rounded-full scale-90 translate-y-10" />
-                  
-                  <img 
-                    src="/mockups/Agents_Launch.png" 
-                    alt="iléSure Web App Dashboard View" 
+
+                  <img
+                    src="/mockups/Agents_Launch.png"
+                    alt="iléSure Web App Dashboard View"
                     className="relative w-full h-auto object-contain drop-shadow-[0_40px_60px_rgba(0,0,0,0.5)]"
                   />
                 </motion.div>

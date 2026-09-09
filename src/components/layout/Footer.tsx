@@ -1,5 +1,5 @@
-import { TiktokIcon, WhatsappBusinessIcon} from 'hugeicons-react';
-import { Instagram, Twitter, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import { TiktokIcon, WhatsappIcon} from '@hugeicons/react';
+import { InstagramIcon, NewTwitterIcon, Linkedin01Icon, Mail01Icon, Location01Icon, CallIcon } from '@hugeicons/react';
 import { Link } from 'react-router-dom';
 
 const footerLinks = {
@@ -16,18 +16,18 @@ const footerLinks = {
   Legal: [
     { label: 'Privacy Policy', href: '/privacy-policy' },
     { label: 'Terms of Service', href: '/terms-of-service' },
-    { label: 'Cookie Policy', href: '/cookie-policy' },
+    { label: 'CookieIcon Policy', href: '/cookie-policy' },
     { label: 'Platform Disclaimer', href: '#disclaimer' },
-    // BUGFIX (QA-MKT-007): the Cookie Policy promises this control by name.
-    { label: 'Cookie Settings', href: '#cookie-settings' },
+    // BUGFIX (QA-MKT-007): the CookieIcon Policy promises this control by name.
+    { label: 'CookieIcon Settings', href: '#cookie-settings' },
   ],
 };
 
 const socials = [
-  { icon: WhatsappBusinessIcon, href: 'https://wa.me/2348169384301', label: 'WhatsApp' },
-  { icon: Instagram, href: 'https://www.instagram.com/ilesure_technologies/', label: 'Instagram' },
-  { icon: Twitter, href: 'https://x.com/ilesuresupport', label: 'Twitter / X' },
-  { icon: Linkedin, href: 'https://www.linkedin.com/company/ilésure-technologies', label: 'LinkedIn' },
+  { icon: WhatsappIcon, href: 'https://wa.me/2348169384301', label: 'WhatsApp' },
+  { icon: InstagramIcon, href: 'https://www.instagram.com/ilesure_technologies/', label: 'InstagramIcon' },
+  { icon: NewTwitterIcon, href: 'https://x.com/ilesuresupport', label: 'NewTwitterIcon / Cancel01Icon' },
+  { icon: Linkedin01Icon, href: 'https://www.linkedin.com/company/ilésure-technologies', label: 'LinkedIn' },
   { icon: TiktokIcon, href: 'https://www.tiktok.com/@ilesure.com', label: 'Tiktok' },
 ];
 
@@ -53,15 +53,15 @@ export function Footer() {
             <h4 className="text-white font-bold text-sm uppercase tracking-[0.2em]">Contact Us</h4>
             <div className="flex flex-col gap-3 text-sm text-cream-300">
               <div className="flex items-center gap-3">
-                <MapPin size={16} className="text-mustard-onDark flex-shrink-0" />
+                <Location01Icon size={16} className="text-mustard-onDark flex-shrink-0" />
                 <span className="text-base">Nigeria</span>
               </div>
               <div className="flex items-center gap-3">
-                <Mail size={16} className="text-mustard-onDark flex-shrink-0" />
+                <Mail01Icon size={16} className="text-mustard-onDark flex-shrink-0" />
                 <span className="text-base">ilesuresupport@gmail.com</span>
               </div>
               <div className="flex items-center gap-3">
-                <Phone size={16} className="text-mustard-onDark flex-shrink-0" />
+                <CallIcon size={16} className="text-mustard-onDark flex-shrink-0" />
                 <span className="text-base">+234 816 938 4301</span>
               </div>
             </div>

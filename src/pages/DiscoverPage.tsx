@@ -29,7 +29,7 @@ export function DiscoverPage() {
           eyebrow="Discover"
           headline="Your Next Home is Right Here"
           highlightWords={["is", "Right", "Here"]}
-          subtext="Filter by distance, price, and amenities. Every listing is verified. No scams, no surprises — just your perfect space Anywhere."
+          subtext="Filter by distance, price, and amenities. Every listing is verified. No scams, no surprises, just your perfect space Anywhere."
           illustration="/illustrations/discover_hero.png"
           illustrationAlt="student discovering housing with map and pin"
           primaryCta={{ label: 'Browse Features', anchor: '#features' }}

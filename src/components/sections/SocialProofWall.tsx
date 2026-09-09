@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion, useMotionValue } from 'framer-motion';
-import { Quote, Star } from 'lucide-react';
+import { QuoteDownIcon, StarIcon } from '@hugeicons/react';
 import { SectionHeading } from '../ui/SectionHeading';
 
 const testimonials = [
@@ -45,12 +45,12 @@ function MasonryCard({ t }: { t: typeof testimonials[0] }) {
     >
       <div className="bg-white rounded-clay p-6 shadow-clay border border-cream-200 relative overflow-hidden spotlight-card h-full flex flex-col">
         <div className="absolute -top-3 -left-2 w-10 h-10 rounded-clay-sm bg-mustard-50 flex items-center justify-center">
-          <Quote size={18} className="text-mustard" />
+          <QuoteDownIcon size={18} className="text-mustard" />
         </div>
 
         <div className="flex gap-1 mb-4 mt-2 justify-end">
           {[...Array(5)].map((_, i) => (
-            <Star key={i} size={14} className={i < t.rating ? 'text-mustard fill-mustard' : 'text-cream-300 fill-cream-300'} />
+            <StarIcon key={i} size={14} className={i < t.rating ? 'text-mustard fill-mustard' : 'text-cream-300 fill-cream-300'} />
           ))}
         </div>
 

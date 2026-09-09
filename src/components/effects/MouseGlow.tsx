@@ -28,7 +28,7 @@ export function MouseGlow() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-[1] hidden md:block">
-      {/* Primary glow — mustard */}
+      {/* Primary glow, mustard */}
       <motion.div
         className="absolute top-0 left-0"
         style={{ x: glowXSpring, y: glowYSpring }}
@@ -43,7 +43,7 @@ export function MouseGlow() {
         />
       </motion.div>
 
-      {/* Trail glow — brown, delayed */}
+      {/* Trail glow, brown, delayed */}
       <motion.div
         className="absolute top-0 left-0"
         style={{ x: trailXSpring, y: trailYSpring }}

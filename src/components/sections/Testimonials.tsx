@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Quote, Star } from 'lucide-react';
+import { QuoteDownIcon, StarIcon } from '@hugeicons/react';
 
 const testimonials = [
   {
@@ -85,7 +85,7 @@ export function Testimonials() {  return (
           className="text-center mb-12 relative z-10"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard/10 text-mustard text-xs font-bold uppercase tracking-widest mb-4">
-            <Quote size={12} />
+            <QuoteDownIcon size={12} />
             Testimonials
                                 </span>
           <h2 className="text-4xl font-extrabold text-brown">
@@ -113,12 +113,12 @@ export function Testimonials() {  return (
                 className="flex-shrink-0 w-[350px] bg-white rounded-clay shadow-clay p-6 relative"
               >
                 <div className="absolute -top-3 -left-2 w-10 h-10 rounded-clay-sm bg-mustard flex items-center justify-center">
-                  <Quote size={18} className="text-white" />
+                  <QuoteDownIcon size={18} className="text-white" />
                 </div>
 
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} size={16} className="text-mustard fill-mustard" />
+                    <StarIcon key={i} size={16} className="text-mustard fill-mustard" />
                   ))}
                 </div>
 

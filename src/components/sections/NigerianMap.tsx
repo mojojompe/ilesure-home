@@ -27,11 +27,11 @@ export default function NigerianMap({
     // Only render SVG content once it's in the viewport
     useEffect(() => {
         const observer = new IntersectionObserver(
-            ([entry]) => { 
-                if (entry.isIntersecting) { 
-                    setIsVisible(true); 
-                    observer.disconnect(); 
-                } 
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.disconnect();
+                }
             },
             { rootMargin: '200px' }
         );
@@ -39,7 +39,7 @@ export default function NigerianMap({
         return () => observer.disconnect();
     }, []);
 
-    // Memoize DottedMap generation — this is expensive CPU work
+    // Memoize DottedMap generation, this is expensive CPU work
     const svgMap = useMemo(() => {
         if (!isVisible) return '';
         const map = new DottedMap({ height: 100, grid: "diagonal" });
@@ -63,15 +63,15 @@ export default function NigerianMap({
     ) => {
         const midX = (start.x + end.x) / 2;
         // Adjust curve height dynamically based on distance, but since we are zoomed in, make it subtle
-        const midY = Math.min(start.y, end.y) - 5; 
+        const midY = Math.min(start.y, end.y) - 5;
         return `M ${start.x} ${start.y} Q ${midX} ${midY} ${end.x} ${end.y}`;
     };
 
     return (
         <div ref={containerRef} className="w-full aspect-[2/1] bg-transparent relative font-sans overflow-hidden rounded-clay">
             {/* The scaled container that focuses on Nigeria */}
-            <div 
-                className="absolute w-[800px] h-[400px] left-1/2 top-1/2" 
+            <div
+                className="absolute w-[800px] h-[400px] left-1/2 top-1/2"
                 style={{
                     transform: "translate(-50%, -50%) scale(10)",
                     transformOrigin: "418px 180px", // Roughly the center of Nigeria

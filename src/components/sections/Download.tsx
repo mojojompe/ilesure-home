@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight } from 'lucide-react';
+import { ArrowRight01Icon } from '@hugeicons/react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { WaitlistModal } from '../ui/WaitlistModal';
 
-export function Download() {  const [waitlistOpen, setWaitlistOpen] = useState(false);
+export function Download() {
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
 
   return (
     <>
@@ -32,15 +33,15 @@ export function Download() {  const [waitlistOpen, setWaitlistOpen] = useState(f
                 <ScrollReveal direction="left">
                   <div className="flex flex-col gap-4 items-center lg:items-start">
                     <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard/15 border border-mustard/25 text-mustard text-xs font-bold uppercase tracking-widest w-fit">
-                      
+
                       For Students & Individuals
-                                                              </span>
+                    </span>
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
                       Take iléSure wherever you go
-                                                              </h2>
+                    </h2>
                     <p className="text-cream-300 text-base lg:text-lg leading-relaxed max-w-md" style={{ color: 'rgba(253,246,227,0.7)' }}>
-                      The iléSure mobile app is coming to iOS and Android. Browse listings, chat with agents, and manage your roommate matching — all from your phone.
-                                                              </p>
+                      The iléSure mobile app is coming to iOS and Android. Browse listings, chat with agents, and manage your roommate matching, all from your phone.
+                    </p>
                   </div>
                 </ScrollReveal>
 
@@ -78,7 +79,7 @@ export function Download() {  const [waitlistOpen, setWaitlistOpen] = useState(f
                           <p className="text-[10px] font-medium" style={{ color: 'rgba(253,246,227,0.6)' }}>{sub}</p>
                           <p className="text-sm font-bold text-white">{store}</p>
                         </div>
-                        <ChevronRight size={14} className="ml-auto transition-colors group-hover:text-mustard" style={{ color: 'rgba(253,246,227,0.5)' }} />
+                        <ArrowRight01Icon size={14} className="ml-auto transition-colors group-hover:text-mustard" style={{ color: 'rgba(253,246,227,0.5)' }} />
                       </motion.button>
                     ))}
                   </div>
@@ -95,17 +96,17 @@ export function Download() {  const [waitlistOpen, setWaitlistOpen] = useState(f
                   >
                     {/* Glow behind the phone */}
                     <div className="absolute inset-0 bg-mustard/20 blur-3xl rounded-full scale-90 translate-y-10" />
-                    
-                    <img 
-                      src="/mockups/Home_Download.png" 
-                      alt="iléSure Mobile App View" 
+
+                    <img
+                      src="/mockups/Home_Download.png"
+                      alt="iléSure Mobile App View"
                       className="relative w-full h-auto object-contain drop-shadow-[0_30px_40px_rgba(0,0,0,0.4)]"
                     />
                   </motion.div>
                 </ScrollReveal>
               </div>
 
-              </div>
+            </div>
           </div>
         </div>
       </section>

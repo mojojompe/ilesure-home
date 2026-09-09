@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { CheckCircle } from 'lucide-react';
+import { Tick02Icon } from '@hugeicons/react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { SectionHeading } from '../ui/SectionHeading';
 
@@ -50,7 +50,7 @@ export function About() {  const containerRef = useRef<HTMLDivElement>(null);
                       transition={{ delay: 0.3 + i * 0.1, duration: 0.5, type: 'spring' }}
                       viewport={{ once: true }}
                     >
-                      <CheckCircle size={20} strokeWidth={2} className="text-mustard flex-shrink-0 mt-0.5" />
+                      <Tick02Icon size={20} strokeWidth={2} className="text-mustard flex-shrink-0 mt-0.5" />
                     </motion.div>
                     <span className="text-sm text-brown-light leading-relaxed">{h}</span>
                   </motion.li>

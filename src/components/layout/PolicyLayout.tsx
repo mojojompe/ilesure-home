@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUp, Menu } from 'lucide-react';
+import { ArrowUp01Icon, Menu01Icon } from '@hugeicons/react';
 
 export interface TOCItem {
   id: string;
@@ -95,7 +95,7 @@ export function PolicyLayout({ title, lastUpdated, toc, children }: PolicyLayout
               onClick={() => setMobileTocOpen(!mobileTocOpen)}
               className="flex items-center gap-2 px-4 py-2.5 bg-white rounded-pill border border-cream-200 text-brown text-sm font-semibold shadow-clay-sm"
             >
-              <Menu size={16} />
+              <Menu01Icon size={16} />
               Table of Contents
             </button>
             {mobileTocOpen && (
@@ -168,7 +168,7 @@ export function PolicyLayout({ title, lastUpdated, toc, children }: PolicyLayout
         className="fixed bottom-6 right-6 z-50 w-12 h-12 bg-mustard text-white rounded-full shadow-clay-mustard flex items-center justify-center hover:bg-mustard-dark transition-colors"
         aria-label="Scroll to top"
       >
-        <ArrowUp size={20} />
+        <ArrowUp01Icon size={20} />
       </motion.button>
     </motion.div>
   );

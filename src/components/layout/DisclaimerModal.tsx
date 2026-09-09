@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShieldCheck, ArrowRight, ChevronDown } from 'lucide-react';
+import { SecurityCheckIcon, ArrowRight01Icon, ArrowDown01Icon } from '@hugeicons/react';
 
 const SHORT_TEXT = `iléSure is a listing and roommate-matching platform only. We do not own, manage, or control any property listed on this platform. iléSure does not guarantee the accuracy of any listing, and is not liable for any loss, damage, dispute, or incident arising from tenancy arrangements made through this platform. All housing agreements are strictly between tenants and landlords. students are advised to verify all listings independently before making any payments. Use of this platform constitutes acceptance of our full Terms & Conditions.
 
@@ -13,7 +13,7 @@ iléSure is an independent digital platform that connects students seeking off-c
 iléSure is not a real estate agent, property manager, or housing authority. Listings displayed on this platform are submitted by independent third-party landlords or their agents. The presence of a listing on iléSure does not constitute an endorsement, certification, or verification of that property's legal status, ownership, or habitability. House agents operating on our platform are independently responsible for compliance with the Oyo State Tenancy Law and applicable registration requirements under recent Oyo State housing reforms, including agent fee caps and mandatory registration obligations.
 
 3. Limitation of Liability
-iléSure shall not be held responsible for any loss, injury, theft, damage to personal property, disputes between tenants and landlords, wrongful eviction, uninhabitable living conditions, or any other occurrence — positive or negative — arising from a tenancy arrangement initiated through this platform. This includes but is not limited to:
+iléSure shall not be held responsible for any loss, injury, theft, damage to personal property, disputes between tenants and landlords, wrongful eviction, uninhabitable living conditions, or any other occurrence, positive or negative, arising from a tenancy arrangement initiated through this platform. This includes but is not limited to:
 • Disputes over rent payment, rent receipts, or rent increases
 • Failure by landlords to maintain habitable premises
 • Unlawful or forceful eviction by a landlord or their agents
@@ -32,10 +32,10 @@ iléSure's roommate-matching feature is provided as a convenience tool to help s
 
 7. Governing Law & Jurisdiction
 This disclaimer and all platform activities are governed by the laws of the Federal Republic of Nigeria, with specific reference to:
-• The Oyo State Tenancy Law (2016, as amended) — regulating landlord-tenant relationships in Ibadan and across Oyo State
-• The Land Use Act (Cap L5, LFN 2004) — governing land ownership and occupancy rights in Nigeria
-• The Federal Competition and Consumer Protection Act (FCCPA) 2018 — protecting consumers in digital marketplaces
-• Nigerian Data Protection Act (NDPA) 2023 — governing the handling of users' personal data
+• The Oyo State Tenancy Law (2016, as amended), regulating landlord-tenant relationships in Ibadan and across Oyo State
+• The Land Use Act (Cap L5, LFN 2004), governing land ownership and occupancy rights in Nigeria
+• The Federal Competition and Consumer Protection Act (FCCPA) 2018, protecting consumers in digital marketplaces
+• Nigerian Data Protection Act (NDPA) 2023, governing the handling of users' personal data
 Any disputes arising from the use of this platform shall be subject to the jurisdiction of competent courts in Oyo State, Nigeria.
 
 8. Updates to This Disclaimer
@@ -64,13 +64,13 @@ export function DisclaimerModal() {
 
     const disclaimerAccepted = localStorage.getItem('disclaimer-accepted');
     if (disclaimerAccepted) {
-      // Already accepted — nothing to do
+      // Already accepted, nothing to do
       return () => window.removeEventListener('open-disclaimer', handleManualOpen);
     }
 
     const cookieConsent = localStorage.getItem('cookie-consent');
     if (cookieConsent) {
-      // Cookie already decided in a previous session — show disclaimer after short delay
+      // CookieIcon already decided in a previous session, show disclaimer after short delay
       const timer = setTimeout(() => openDisclaimer(), 500);
       return () => {
         clearTimeout(timer);
@@ -78,7 +78,7 @@ export function DisclaimerModal() {
       };
     }
 
-    // Cookie NOT yet decided — wait for it first
+    // CookieIcon NOT yet decided, wait for it first
     const handleCookieDone = () => {
       const timer = setTimeout(() => openDisclaimer(), 600);
       window.removeEventListener('cookie-consent-done', handleCookieDone);
@@ -117,7 +117,7 @@ export function DisclaimerModal() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-            /* ⚠️  NO overflow-hidden here — it clips the inner scroll container.
+            /* ⚠️  NO overflow-hidden here, it clips the inner scroll container.
                Rounded corners + clip are handled per-section below. */
             className="relative w-full max-w-lg bg-[#FAFAF9] rounded-[24px] shadow-2xl border border-white/80 flex flex-col"
             style={{ maxHeight: '88vh' }}
@@ -125,7 +125,7 @@ export function DisclaimerModal() {
             {/* ── Sticky Header ── */}
             <div className="p-6 pb-4 bg-white border-b border-gray-100 flex flex-col items-center flex-shrink-0 rounded-t-[24px]">
               <div className="flex items-center justify-center w-14 h-14 rounded-full bg-mustard/15 text-mustard mb-3 shadow-sm">
-                <ShieldCheck size={28} strokeWidth={2} />
+                <SecurityCheckIcon size={28} strokeWidth={2} />
               </div>
               <h3 className="text-2xl font-extrabold text-brown tracking-tight">Platform Disclaimer</h3>
               <p className="text-sm text-gray-500 font-medium mt-1">Please review our terms to continue</p>
@@ -143,12 +143,12 @@ export function DisclaimerModal() {
                   className="flex items-center gap-2 py-3.5 px-6 bg-brown hover:bg-brown/90 text-white text-base font-bold rounded-xl transition-all shadow-lg shadow-brown/25 hover:shadow-xl hover:shadow-brown/30 transform hover:-translate-y-0.5 active:translate-y-0"
                 >
                   <span>Read Full Legal Disclaimer</span>
-                  <ArrowRight size={18} strokeWidth={2.5} />
+                  <ArrowRight01Icon size={18} strokeWidth={2.5} />
                 </button>
                 <p className="mt-4 text-xs text-gray-400 italic">You must read the full disclaimer to accept.</p>
               </div>
             ) : (
-              /* Long legal view — scrollable body */
+              /* Long legal view, scrollable body */
               <div className="relative flex flex-col min-h-0 flex-1">
                 {/* Scrollable text area */}
                 <div
@@ -189,7 +189,7 @@ export function DisclaimerModal() {
                   </div>
                 </div>
 
-                {/* Scroll-to-bottom prompt — fades away once user reaches bottom */}
+                {/* Scroll-to-bottom prompt, fades away once user reaches bottom */}
                 <AnimatePresence>
                   {!hasScrolledToBottom && (
                     <motion.div
@@ -197,7 +197,7 @@ export function DisclaimerModal() {
                       exit={{ opacity: 0 }}
                       className="absolute bottom-[72px] left-0 right-0 h-20 bg-gradient-to-t from-[#FAFAF9] via-[#FAFAF9]/80 to-transparent flex flex-col items-center justify-end pb-2 pointer-events-none"
                     >
-                      <ChevronDown size={20} className="text-mustard animate-bounce mb-1" />
+                      <ArrowDown01Icon size={20} className="text-mustard animate-bounce mb-1" />
                       <span className="text-xs font-semibold text-mustard">Scroll to bottom to accept</span>
                     </motion.div>
                   )}
@@ -208,11 +208,10 @@ export function DisclaimerModal() {
                   <button
                     onClick={handleAccept}
                     disabled={!hasScrolledToBottom}
-                    className={`w-full py-4 text-white text-base font-bold rounded-xl transition-all ${
-                      hasScrolledToBottom
+                    className={`w-full py-4 text-white text-base font-bold rounded-xl transition-all ${hasScrolledToBottom
                         ? 'bg-[#C9962A] hover:bg-[#5C3317] shadow-lg shadow-[#C9962A]/25 active:scale-[0.98]'
                         : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                    }`}
+                      }`}
                   >
                     I Accept
                   </button>

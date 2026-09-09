@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Star } from 'lucide-react';
+import { SentIcon, StarIcon } from '@hugeicons/react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { API_ENDPOINTS } from '../../lib/config';
 
@@ -12,7 +12,7 @@ export function SubmitReviewCTA() {
 
   /**
    * BUGFIX (QA-MKT-004): this used to be `e.preventDefault(); setSubmitted(true);` under
-   * the comment "In a real app this would POST to an API" — the screen told the user
+   * the comment "In a real app this would POST to an API", the screen told the user
    * "Your review has been received" while ZERO requests were made and nothing was
    * stored anywhere. The submission now goes to the existing unauthenticated support
    * ticket endpoint, which persists it server-side, so the confirmation is true.
@@ -28,7 +28,7 @@ export function SubmitReviewCTA() {
         body: JSON.stringify({
           name: form.name,
           email: form.email,
-          subject: `Website review — ${form.rating}/5 — ${form.university || 'unspecified'}`,
+          subject: `Website review, ${form.rating}/5, ${form.university || 'unspecified'}`,
           message: form.message,
         }),
       });
@@ -58,13 +58,13 @@ export function SubmitReviewCTA() {
           <div className="text-center mb-10">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard-50 border border-mustard-200 text-mustard text-xs font-bold uppercase tracking-widest">
               Share Your Experience
-                                      </span>
+            </span>
             <h2 className="mt-4 text-4xl font-extrabold text-brown">
               Had a Great Experience? <span className="text-gradient-mustard">Tell Us.</span>
             </h2>
             <p className="mt-3 text-brown-light max-w-md mx-auto">
               Your story helps other students find their sure home. Take 60 seconds to share.
-                                      </p>
+            </p>
           </div>
         </ScrollReveal>
 
@@ -76,12 +76,12 @@ export function SubmitReviewCTA() {
               className="bg-white rounded-clay-lg p-12 shadow-clay border border-mustard-100 text-center flex flex-col items-center gap-4"
             >
               <div className="w-16 h-16 rounded-full bg-mustard-50 flex items-center justify-center">
-                <Star size={30} className="text-mustard fill-mustard" />
+                <StarIcon size={30} className="text-mustard fill-mustard" />
               </div>
               <h3 className="text-2xl font-extrabold text-brown">Thank You!</h3>
               <p className="text-brown-light max-w-sm">
                 Your review has been received. We'll feature it once our team has had a look. 🏠
-                                            </p>
+              </p>
             </motion.div>
           ) : (
             <form
@@ -100,7 +100,7 @@ export function SubmitReviewCTA() {
                       onClick={() => setForm(f => ({ ...f, rating: star }))}
                       className="focus:outline-none"
                     >
-                      <Star
+                      <StarIcon
                         size={28}
                         className={star <= form.rating ? 'text-mustard fill-mustard' : 'text-cream-300 fill-cream-300'}
                       />
@@ -113,7 +113,7 @@ export function SubmitReviewCTA() {
                 <div>
                   <label className="text-xs font-bold uppercase tracking-widest text-brown-light mb-1.5 block">
                     Your Name
-                                                            </label>
+                  </label>
                   <input
                     type="text"
                     required
@@ -126,7 +126,7 @@ export function SubmitReviewCTA() {
                 <div>
                   <label className="text-xs font-bold uppercase tracking-widest text-brown-light mb-1.5 block">
                     University
-                                                            </label>
+                  </label>
                   <input
                     type="text"
                     required
@@ -138,7 +138,7 @@ export function SubmitReviewCTA() {
                 </div>
               </div>
 
-              {/* Required so the team can verify and reply — the receiving endpoint
+              {/* Required so the team can verify and reply, the receiving endpoint
                   needs an address, and an unattributable review cannot be published. */}
               <div>
                 <label className="text-xs font-bold uppercase tracking-widest text-brown-light mb-1.5 block">
@@ -157,7 +157,7 @@ export function SubmitReviewCTA() {
               <div>
                 <label className="text-xs font-bold uppercase tracking-widest text-brown-light mb-1.5 block">
                   Your Story
-                                                      </label>
+                </label>
                 <textarea
                   required
                   rows={4}
@@ -179,7 +179,7 @@ export function SubmitReviewCTA() {
                 whileHover={sending ? undefined : { scale: 1.03, y: -2 }}
                 whileTap={sending ? undefined : { scale: 0.97 }}
               >
-                <Send size={16} strokeWidth={2.5} />
+                <SentIcon size={16} strokeWidth={2.5} />
                 {sending ? 'Sending…' : 'Submit My Review'}
               </motion.button>
             </form>

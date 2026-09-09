@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Target, Eye } from 'lucide-react';
+import { Target01Icon, ViewIcon } from '@hugeicons/react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { SectionHeading } from '../ui/SectionHeading';
 
 const cards = [
   {
     id: 'mission',
-    icon: Target,
+    icon: Target01Icon,
     eyebrow: 'Our Mission',
     title: 'Eliminate housing insecurity for all renters',
     body: 'We exist to replace the informal, chaotic rental housing market with a transparent, trustworthy, and data-rich platform. Everyone deserves to find a safe, verified home without risking their money or their peace of mind.',
@@ -16,7 +16,7 @@ const cards = [
   },
   {
     id: 'vision',
-    icon: Eye,
+    icon: ViewIcon,
     eyebrow: 'Our Vision',
     title: 'The most trusted housing platform in Africa',
     body: "We envision a future where anyone, whether in Lagos, Abuja, Port Harcourt, or beyond, can find a verified, compatible, affordable home with one search. iléSure will be the ultimate home discovery layer for your renting journey.",

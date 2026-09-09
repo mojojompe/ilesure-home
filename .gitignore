@@ -25,7 +25,7 @@ dist-ssr
 *.sw?
 
 # one-off dev scripts (SECURITY-FIX H-L1: committed dev artifacts / source-mutating one-offs;
-# kept in the tree for reference but ignored going forward — do not delete, the team may still
+# kept in the tree for reference but ignored going forward, do not delete, the team may still
 # reference them. Prefer moving to a non-shipped scripts/ folder later.)
 extract-and-translate.cjs
 refactor_i18n.cjs

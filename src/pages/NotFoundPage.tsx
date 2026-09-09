@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
-import { SearchX } from 'lucide-react';
+import { SearchRemoveIcon } from '@hugeicons/react';
 import { motion } from 'framer-motion';
 
 export function NotFoundPage() {
@@ -20,7 +20,7 @@ export function NotFoundPage() {
           transition={{ duration: 0.5 }}
         >
           <div className="w-24 h-24 mb-6 rounded-3xl bg-white shadow-xl shadow-brown/5 flex items-center justify-center border border-mustard/20">
-            <SearchX className="w-12 h-12 text-mustard" />
+            <SearchRemoveIcon className="w-12 h-12 text-mustard" />
           </div>
 
           <h1 className="text-6xl md:text-8xl font-black text-brown mb-4 tracking-tighter">

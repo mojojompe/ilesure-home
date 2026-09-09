@@ -30,7 +30,7 @@ export function ReviewsPage() {
           eyebrow="student Reviews"
           headline="students Across Nigeria Trust iléSure"
           highlightWords={["Trust", "iléSure"]}
-          subtext="Real stories from real students who found their sure home. No filters, no scripts — just honest experiences."
+          subtext="Real stories from real students who found their sure home. No filters, no scripts, just honest experiences."
           illustration="/illustrations/testimonials.png"
           illustrationAlt="students sharing their iléSure experiences"
           primaryCta={{ label: 'Read Stories', anchor: '#social-proof' }}

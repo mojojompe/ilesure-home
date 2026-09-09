@@ -1,24 +1,24 @@
 import { motion } from 'framer-motion';
-import { Code2, Rocket, Heart } from 'lucide-react';
+import { CodeIcon, RocketIcon, FavouriteIcon } from '@hugeicons/react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 
 const pillars = [
   {
-    icon: Code2,
+    icon: CodeIcon,
     title: 'Engineering',
-    description: 'Crafted with modern web technologies — React, TypeScript, and native mobile — for a fast, reliable experience on every device.',
+    description: 'Crafted with modern web technologies, React, TypeScript, and native mobile, for a fast, reliable experience on every device.',
     color: '#C9962A',
     bg: 'linear-gradient(135deg, #FAF1CC, #F5E099)',
   },
   {
-    icon: Rocket,
+    icon: RocketIcon,
     title: 'Product',
     description: 'Every feature of iléSure is designed around one goal: making the housing journey simple, safe, and stress-free.',
     color: '#5C3317',
     bg: 'linear-gradient(135deg, #F2E8DF, #DEBEBF)',
   },
   {
-    icon: Heart,
+    icon: FavouriteIcon,
     title: 'Community',
     description: 'iléSure is built for Nigerian university students, by people who understand the housing challenges they face every day.',
     color: '#C9962A',
@@ -26,7 +26,8 @@ const pillars = [
   },
 ];
 
-export function WaltikBuilt() {  return (
+export function WaltikBuilt() {
+  return (
     <section className="py-24 bg-brown relative overflow-hidden">
       {/* Grid texture */}
       <div
@@ -48,7 +49,7 @@ export function WaltikBuilt() {  return (
           <div className="text-center mb-14">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard/15 border border-mustard/30 text-mustard text-xs font-bold uppercase tracking-widest">
               Crafted With Purpose
-                                      </span>
+            </span>
             <h2 className="mt-5 text-4xl font-extrabold text-white leading-tight">
               Built by{' '}
               <span
@@ -56,11 +57,11 @@ export function WaltikBuilt() {  return (
                 style={{ backgroundImage: 'linear-gradient(135deg, #F5C842 0%, #C9962A 100%)' }}
               >
                 Waltik Labs
-                                            </span>
+              </span>
             </h2>
             <p className="mt-4 text-cream/70 max-w-xl mx-auto leading-relaxed">
-              iléSure is a product of Waltik Labs — a Nigerian software studio that builds purposeful, community-driven digital products. We don't just build apps; we solve real problems for real people.
-                                      </p>
+              iléSure is a product of Waltik Labs, a Nigerian software studio that builds purposeful, community-driven digital products. We don't just build apps; we solve real problems for real people.
+            </p>
           </div>
         </ScrollReveal>
 
@@ -97,9 +98,9 @@ export function WaltikBuilt() {  return (
           >
             <div className="flex items-center gap-4">
               <div className="w-14 h-14 rounded-clay-sm flex-shrink-0 overflow-hidden bg-white/5 border border-mustard/20">
-                <img 
-                  src="/waltik_bg.jpg" 
-                  alt="Waltik Labs Logo" 
+                <img
+                  src="/waltik_bg.jpg"
+                  alt="Waltik Labs Logo"
                   className="w-full h-full object-cover"
                 />
               </div>

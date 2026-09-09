@@ -7,7 +7,7 @@ const channels = [
   {
     image: '/illustrations/generated/support_chat.png',
     title: 'Chat with AI Support',
-    description: "Get instant answers to any question — 24/7, no wait times. Our AI support agent knows iléSure inside out.",
+    description: "Get instant answers to any question, 24/7, no wait times. Our AI support agent knows iléSure inside out.",
     cta: 'Start Chat',
     href: '/chat',
     color: '#C9962A',
@@ -18,7 +18,7 @@ const channels = [
     image: '/illustrations/generated/support_email.png',
     title: 'Email Us',
     description: 'For detailed inquiries, partnership requests, or anything that needs a human touch. We respond within 24 hours.',
-    cta: 'Send Email',
+    cta: 'Email',
     href: 'mailto:ilesuresupport@gmail.com',
     color: '#5C3317',
     bg: 'linear-gradient(135deg, #F2E8DF, #DEBEBF)',
@@ -36,7 +36,8 @@ const channels = [
   },
 ];
 
-export function SupportChannels() {  const navigate = useNavigate();
+export function SupportChannels() {
+  const navigate = useNavigate();
 
   return (
     <section id="support" className="py-24 bg-white relative overflow-hidden">
@@ -51,13 +52,13 @@ export function SupportChannels() {  const navigate = useNavigate();
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-mustard-50 border border-mustard-200 text-mustard text-xs font-bold uppercase tracking-widest">
               Support
-                                      </span>
+            </span>
             <h2 className="mt-4 text-4xl font-extrabold text-brown">
               We're Here <span className="text-gradient-mustard">For You</span>
             </h2>
             <p className="mt-3 text-brown-light max-w-lg mx-auto">
               Choose the support channel that works best for you. We're committed to responding fast.
-                                      </p>
+            </p>
           </div>
         </ScrollReveal>
 

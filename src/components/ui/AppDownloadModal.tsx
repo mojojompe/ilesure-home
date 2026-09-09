@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ChevronRight } from 'lucide-react';
+import { Cancel01Icon, ArrowRight01Icon } from '@hugeicons/react';
 
 interface AppDownloadModalProps {
   isOpen: boolean;
@@ -78,7 +78,7 @@ export function AppDownloadModal({ isOpen, onClose }: AppDownloadModalProps) {
                 style={{ background: 'rgba(255,255,255,0.10)', color: 'rgba(253,246,227,0.7)' }}
                 aria-label="Close"
               >
-                <X size={15} strokeWidth={2.5} />
+                <Cancel01Icon size={15} strokeWidth={2.5} />
               </button>
 
               {/* Content */}
@@ -160,7 +160,7 @@ export function AppDownloadModal({ isOpen, onClose }: AppDownloadModalProps) {
                         <p className="text-base font-bold text-white">{store}</p>
                       </div>
 
-                      <ChevronRight
+                      <ArrowRight01Icon
                         size={16}
                         strokeWidth={2.5}
                         className="flex-shrink-0 transition-all duration-200 group-hover:translate-x-1 group-hover:text-mustard"
