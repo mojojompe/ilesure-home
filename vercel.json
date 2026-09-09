@@ -23,11 +23,11 @@
         },
         {
           "key": "Permissions-Policy",
-          "value": "geolocation=(self), camera=(self), microphone=(self)"
+          "value": "geolocation=(self), camera=(self), microphone=(self), unload=*"
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://translate.google.com https://translate.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://res.cloudinary.com https://flagcdn.com https://translate.googleapis.com https://www.gstatic.com; connect-src 'self' https://api.ilesure.com https://translate.googleapis.com https://www.chatbase.co; frame-src https://www.chatbase.co; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.gstatic.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://res.cloudinary.com https://flagcdn.com https://translate.googleapis.com https://www.gstatic.com https://fonts.gstatic.com; connect-src 'self' https://api.ilesure.com https://ilesure-backend.onrender.com https://translate.googleapis.com https://translate-pa.googleapis.com https://www.chatbase.co; frame-src https://www.chatbase.co; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
         }
       ]
     }

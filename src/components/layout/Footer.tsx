@@ -11,8 +11,10 @@ const footerLinks = {
   Company: [
     { label: 'About iléSure', href: '/about' },
     { label: 'For Agents', href: '/agents' },
-    { label: 'FAQ & Support', href: '/faq' },
+    { label: 'FAQ', href: '/faq' },
+    { label: 'Support & Feature Wishlist', href: '/support' },
   ],
+
   Legal: [
     { label: 'Privacy Policy', href: '/privacy-policy' },
     { label: 'Terms of Service', href: '/terms-of-service' },

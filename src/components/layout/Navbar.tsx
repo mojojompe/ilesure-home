@@ -61,7 +61,12 @@ const navLinks: NavLink[] = [
       { label: 'Chat with Support', anchor: '#support', icon: MessageMultiple01Icon },
     ],
   },
+  {
+    label: 'Support & Wishlist',
+    href: '/support',
+  },
 ];
+
 
 const countries = [
   { code: 'NG', name: 'Nigeria', flag: <img src="https://flagcdn.com/w40/ng.png" alt="Nigeria" className="w-5 h-5 rounded-full object-cover shadow-sm" />, locked: false },
