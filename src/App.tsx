@@ -13,6 +13,10 @@ const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage').then(mo
 const TermsOfServicePage = lazy(() => import('./pages/TermsOfServicePage').then(module => ({ default: module.TermsOfServicePage })));
 const CookiePolicyPage = lazy(() => import('./pages/CookiePolicyPage').then(module => ({ default: module.CookiePolicyPage })));
 const SupportPage = lazy(() => import('./pages/SupportPage').then(module => ({ default: module.SupportPage })));
+const BlogPage = lazy(() => import('./pages/BlogPage').then(module => ({ default: module.BlogPage })));
+const CareersPage = lazy(() => import('./pages/CareersPage').then(module => ({ default: module.CareersPage })));
+const PressPage = lazy(() => import('./pages/PressPage').then(module => ({ default: module.PressPage })));
+const ContactUsPage = lazy(() => import('./pages/ContactUsPage').then(module => ({ default: module.ContactUsPage })));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then(module => ({ default: module.NotFoundPage })));
 
 import { CookieConsentModal } from './components/layout/CookieConsentModal';
@@ -48,6 +52,10 @@ function App() {
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/support" element={<SupportPage />} />
             <Route path="/chat" element={<ChatbotPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/careers" element={<CareersPage />} />
+            <Route path="/press" element={<PressPage />} />
+            <Route path="/contact" element={<ContactUsPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/terms-of-service" element={<TermsOfServicePage />} />
             <Route path="/cookie-policy" element={<CookiePolicyPage />} />

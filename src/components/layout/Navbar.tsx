@@ -18,7 +18,7 @@ interface NavLink {
   sections?: NavSection[];
 }
 
-const navLinks: NavLink[] = [
+const mainNavLinks: NavLink[] = [
   {
     label: 'Discover',
     href: '/discover',
@@ -45,6 +45,9 @@ const navLinks: NavLink[] = [
       { label: 'Pricing', anchor: '#pricing', icon: CreditCardIcon },
     ],
   },
+];
+
+const moreNavLinks: NavLink[] = [
   {
     label: 'Reviews',
     href: '/reviews',
@@ -184,7 +187,7 @@ export function Navbar() {
                   ? 'bg-cream border border-cream-200'
                   : 'bg-white/20 border border-white/30'
               }`}>
-                {navLinks.map(link => (
+                {mainNavLinks.map(link => (
                   <div
                     key={link.href}
                     className="relative"
@@ -237,6 +240,64 @@ export function Navbar() {
                     </AnimatePresence>
                   </div>
                 ))}
+                
+                {/* "More" Dropdown */}
+                <div
+                  className="relative"
+                  onMouseEnter={() => handleMouseEnter('More')}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <button
+                    className={`flex items-center gap-1 px-3.5 py-2 rounded-pill text-sm font-semibold transition-all duration-200 text-brown hover:bg-mustard hover:text-white`}
+                  >
+                    More
+                    <ArrowDown01Icon
+                      size={13}
+                      strokeWidth={2.5}
+                      className={`transition-transform duration-200 ${openDropdown === 'More' ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+
+                  <AnimatePresence>
+                    {openDropdown === 'More' && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 6, scale: 0.97 }}
+                        transition={{ duration: 0.18, ease: 'easeOut' }}
+                        onMouseEnter={() => { if (dropdownTimer.current) clearTimeout(dropdownTimer.current); }}
+                        onMouseLeave={handleMouseLeave}
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[420px] bg-white rounded-[24px] shadow-clay border border-cream-200 overflow-hidden z-50 p-3 flex flex-col gap-2"
+                      >
+                        {moreNavLinks.map((link) => (
+                          <div key={link.href} className="bg-cream/50 rounded-[16px] p-2 hover:bg-cream transition-colors duration-200">
+                            <button
+                              onClick={() => handleNavLinkClick(link.href)}
+                              className="w-full flex items-center justify-between px-3 py-2 text-brown hover:text-mustard transition-colors font-bold text-left mb-1"
+                            >
+                              {link.label}
+                              <ArrowRight01Icon size={16} strokeWidth={2} className="opacity-50" />
+                            </button>
+                            {link.sections && (
+                              <div className="grid grid-cols-2 gap-1 px-1">
+                                {link.sections.map((section) => (
+                                  <button
+                                    key={section.anchor}
+                                    onClick={() => handleSectionClick(link.href, section.anchor)}
+                                    className="flex items-center gap-2 px-2 py-1.5 text-xs text-brown-400 hover:text-mustard hover:bg-mustard-50 font-medium transition-colors duration-150 rounded-lg text-left"
+                                  >
+                                    {section.icon && <section.icon size={14} strokeWidth={2} className="opacity-70 flex-shrink-0" />}
+                                    <span className="truncate">{section.label}</span>
+                                  </button>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </div>
 
               {/* CTA & Selectors */}
@@ -371,7 +432,7 @@ export function Navbar() {
               </div>
               <div className="flex flex-col h-full pt-20 px-6 pb-8">
                 <div className="flex flex-col gap-1 flex-1">
-                  {navLinks.map((link, index) => (
+                  {[...mainNavLinks, ...moreNavLinks].map((link, index) => (
                     <motion.div
                       key={link.href}
                       initial={{ x: 50, opacity: 0 }}

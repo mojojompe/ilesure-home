@@ -6,22 +6,27 @@ const footerLinks = {
   Explore: [
     { label: 'Home', href: '/' },
     { label: 'Discover', href: '/discover' },
-    { label: 'Reviews', href: '/reviews' },
+    { label: 'Blog', href: '/blog' },
   ],
   Company: [
     { label: 'About iléSure', href: '/about' },
     { label: 'For Agents', href: '/agents' },
+    { label: 'Careers', href: '/careers' },
+    { label: 'Press', href: '/press' },
+  ],
+  Support: [
     { label: 'FAQ', href: '/faq' },
     { label: 'Support & Feature Wishlist', href: '/support' },
+    { label: 'Reviews', href: '/reviews' },
+    { label: 'Contact Us', href: '/contact' },
   ],
-
   Legal: [
     { label: 'Privacy Policy', href: '/privacy-policy' },
     { label: 'Terms of Service', href: '/terms-of-service' },
-    { label: 'CookieIcon Policy', href: '/cookie-policy' },
+    { label: 'Cookie Policy', href: '/cookie-policy' },
     { label: 'Platform Disclaimer', href: '#disclaimer' },
-    // BUGFIX (QA-MKT-007): the CookieIcon Policy promises this control by name.
-    { label: 'CookieIcon Settings', href: '#cookie-settings' },
+    // BUGFIX (QA-MKT-007): the Cookie Policy promises this control by name.
+    { label: 'Cookie Settings', href: '#cookie-settings' },
   ],
 };
 
@@ -48,23 +53,23 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 w-full pb-16 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-8 xl:gap-12 w-full pb-16 border-b border-white/10">
           
           {/* Brand/Contact Column */}
           <div className="lg:col-span-2 flex flex-col gap-6">
-            <h4 className="text-white font-bold text-sm uppercase tracking-[0.2em]">Contact Us</h4>
+            <h4 className="text-white font-bold text-xs uppercase tracking-[0.2em]">Contact Us</h4>
             <div className="flex flex-col gap-3 text-sm text-cream-300">
               <div className="flex items-center gap-3">
                 <Location01Icon size={16} className="text-mustard-onDark flex-shrink-0" />
-                <span className="text-base">Nigeria</span>
+                <span className="text-sm">Nigeria</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail01Icon size={16} className="text-mustard-onDark flex-shrink-0" />
-                <span className="text-base">ilesuresupport@gmail.com</span>
+                <span className="text-sm">ilesuresupport@gmail.com</span>
               </div>
               <div className="flex items-center gap-3">
                 <CallIcon size={16} className="text-mustard-onDark flex-shrink-0" />
-                <span className="text-base">+234 816 938 4301</span>
+                <span className="text-sm">+234 816 938 4301</span>
               </div>
             </div>
             
@@ -85,35 +90,35 @@ export function Footer() {
           {/* Links Columns */}
           {Object.entries(footerLinks).map(([heading, links]) => (
             <div key={heading} className="flex flex-col gap-6 text-left">
-              <h4 className="text-white font-bold text-sm uppercase tracking-[0.2em]">{heading}</h4>
+              <h4 className="text-white font-bold text-xs uppercase tracking-[0.2em]">{heading}</h4>
               <ul className="flex flex-col gap-4">
                 {links.map(link => (
                   <li key={link.label}>
                     {link.href === '#cookie-settings' ? (
                       <button
                         onClick={() => window.dispatchEvent(new Event('open-cookie-settings'))}
-                        className="text-cream-300 text-base hover:text-mustard-onDark transition-colors duration-200"
+                        className="text-cream-300 text-sm hover:text-mustard-onDark transition-colors duration-200"
                       >
                         {link.label}
                       </button>
                     ) : link.href === '#disclaimer' ? (
                       <button
                         onClick={() => window.dispatchEvent(new Event('open-disclaimer'))}
-                        className="text-cream-300 text-base hover:text-mustard-onDark transition-colors duration-200"
+                        className="text-cream-300 text-sm hover:text-mustard-onDark transition-colors duration-200"
                       >
                         {link.label}
                       </button>
                     ) : link.href.startsWith('/') && link.href !== '#' ? (
                       <Link
                         to={link.href}
-                        className="text-cream-300 text-base hover:text-mustard-onDark transition-colors duration-200"
+                        className="text-cream-300 text-sm hover:text-mustard-onDark transition-colors duration-200"
                       >
                         {link.label}
                       </Link>
                     ) : (
                       <a
                         href={link.href}
-                        className="text-cream-300 text-base hover:text-mustard-onDark transition-colors duration-200"
+                        className="text-cream-300 text-sm hover:text-mustard-onDark transition-colors duration-200"
                       >
                         {link.label}
                       </a>

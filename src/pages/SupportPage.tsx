@@ -1,19 +1,19 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  MessageSquare,
-  Mail,
-  Phone,
-  Send,
-  Sparkles,
-  Award,
-  CheckCircle2,
-  Layers,
-  ThumbsUp,
-  PlusCircle,
-  X,
-  HelpCircle,
-} from 'lucide-react';
+  Message01Icon as MessageSquare,
+  Mail01Icon as Mail,
+  CallIcon as Phone,
+  SentIcon as Send,
+  SparklesIcon as Sparkles,
+  Award01Icon as Award,
+  CheckmarkCircle02Icon as CheckCircle2,
+  Layers01Icon as Layers,
+  ThumbsUpIcon as ThumbsUp,
+  PlusSignCircleIcon as PlusCircle,
+  Cancel01Icon as X,
+  HelpCircleIcon as HelpCircle,
+} from '@hugeicons/react';
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
 import { useSEO } from '../hooks/useSEO';
@@ -172,21 +172,21 @@ export function SupportPage() {
   });
 
   return (
-    <motion.div {...pageTransition} className="min-h-screen bg-[#FDFBF7] text-[#2C1810]">
+    <motion.div {...pageTransition} className="min-h-screen bg-cream text-brown">
       <Navbar />
 
       <main className="pt-24 pb-20">
         {/* Hero Section */}
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-8 pb-12">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FAF1CC] text-[#C9962A] text-xs font-black uppercase tracking-wider mb-4 border border-[#F5E099]">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-mustard-50 text-mustard text-xs font-black uppercase tracking-wider mb-4 border border-mustard-200">
             <Sparkles className="w-3.5 h-3.5" />
             Customer Support &amp; Roadmap
           </span>
-          <h1 className="text-3xl sm:text-5xl font-black text-[#3E2723] tracking-tight leading-tight max-w-3xl mx-auto">
+          <h1 className="text-3xl sm:text-5xl font-black text-brown tracking-tight leading-tight max-w-3xl mx-auto">
             We're Here For You. <br />
-            <span className="text-[#C9962A]">Help, Support &amp; Community Upgrades.</span>
+            <span className="text-mustard">Help, Support &amp; Community Upgrades.</span>
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-[#6D4C41] max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg text-brown-400 max-w-2xl mx-auto leading-relaxed">
             Reach out to our customer support team via live channels or send a direct message.
             Vote on frequent feature upgrades requested by tenants, agents, and landlords.
           </p>
@@ -197,28 +197,28 @@ export function SupportPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Left: Contact Channels */}
             <div className="lg:col-span-5 space-y-4">
-              <h2 className="text-xl font-black text-[#3E2723] mb-4 flex items-center gap-2">
-                <HelpCircle className="w-5 h-5 text-[#C9962A]" />
+              <h2 className="text-xl font-black text-brown mb-4 flex items-center gap-2">
+                <HelpCircle className="w-5 h-5 text-mustard" />
                 Customer Support Channels
               </h2>
 
               {/* Channel 1: Live Chat */}
               <a
                 href="/chat"
-                className="block p-5 rounded-2xl bg-white border border-[#EFEBE9] hover:border-[#C9962A] hover:shadow-lg transition-all group"
+                className="block p-5 clay-card hover:border-mustard hover:shadow-lg transition-all group"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#FAF1CC] flex items-center justify-center text-[#C9962A] shrink-0 group-hover:scale-105 transition-transform">
+                  <div className="w-12 h-12 rounded-xl bg-mustard-50 flex items-center justify-center text-mustard shrink-0 group-hover:scale-105 transition-transform">
                     <MessageSquare className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-extrabold text-base text-[#3E2723] group-hover:text-[#C9962A] transition-colors">
+                    <h3 className="font-extrabold text-base text-brown group-hover:text-mustard transition-colors">
                       Live AI &amp; Agent Chat
                     </h3>
-                    <p className="text-xs text-[#795548] mt-1 leading-relaxed">
+                    <p className="text-xs text-brown-400 mt-1 leading-relaxed">
                       Instant 24/7 answers regarding booking, verification, payments, or inspections.
                     </p>
-                    <span className="inline-block mt-2 text-xs font-bold text-[#C9962A]">
+                    <span className="inline-block mt-2 text-xs font-bold text-mustard">
                       Start Conversation &rarr;
                     </span>
                   </div>
@@ -230,17 +230,17 @@ export function SupportPage() {
                 href="https://wa.me/2348169384301"
                 target="_blank"
                 rel="noreferrer"
-                className="block p-5 rounded-2xl bg-white border border-[#EFEBE9] hover:border-emerald-500 hover:shadow-lg transition-all group"
+                className="block p-5 clay-card hover:border-emerald-500 hover:shadow-lg transition-all group"
               >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0 group-hover:scale-105 transition-transform">
                     <Phone className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-extrabold text-base text-[#3E2723] group-hover:text-emerald-600 transition-colors">
+                    <h3 className="font-extrabold text-base text-brown group-hover:text-emerald-600 transition-colors">
                       WhatsApp Support Line
                     </h3>
-                    <p className="text-xs text-[#795548] mt-1 leading-relaxed">
+                    <p className="text-xs text-brown-400 mt-1 leading-relaxed">
                       Direct WhatsApp assistance for rapid escalation, emergency issues, or agent queries.
                     </p>
                     <span className="inline-block mt-2 text-xs font-bold text-emerald-600">
@@ -253,17 +253,17 @@ export function SupportPage() {
               {/* Channel 3: Email */}
               <a
                 href="mailto:ilesuresupport@gmail.com"
-                className="block p-5 rounded-2xl bg-white border border-[#EFEBE9] hover:border-blue-500 hover:shadow-lg transition-all group"
+                className="block p-5 clay-card hover:border-blue-500 hover:shadow-lg transition-all group"
               >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 shrink-0 group-hover:scale-105 transition-transform">
                     <Mail className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-extrabold text-base text-[#3E2723] group-hover:text-blue-600 transition-colors">
+                    <h3 className="font-extrabold text-base text-brown group-hover:text-blue-600 transition-colors">
                       Email Help Desk
                     </h3>
-                    <p className="text-xs text-[#795548] mt-1 leading-relaxed">
+                    <p className="text-xs text-brown-400 mt-1 leading-relaxed">
                       Detailed inquiries, contract questions, and dispute resolution. Responses within 24 hrs.
                     </p>
                     <span className="inline-block mt-2 text-xs font-bold text-blue-600">
@@ -275,12 +275,12 @@ export function SupportPage() {
             </div>
 
             {/* Right: Interactive Message Support Form */}
-            <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-[#EFEBE9] shadow-sm">
+            <div className="lg:col-span-7 clay-card p-6 sm:p-8">
               <div className="mb-6">
-                <h2 className="text-xl font-black text-[#3E2723]">
+                <h2 className="text-xl font-black text-brown">
                   Send a Direct Message to Customer Support
                 </h2>
-                <p className="text-xs sm:text-sm text-[#795548] mt-1">
+                <p className="text-xs sm:text-sm text-brown-400 mt-1">
                   Have a question or need assistance? Fill in the details below and our team will get back to you promptly.
                 </p>
               </div>
@@ -301,7 +301,7 @@ export function SupportPage() {
               <form onSubmit={handleSendSupport} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-[#4E342E] mb-1">
+                    <label className="block text-xs font-bold text-brown-700 mb-1">
                       Full Name *
                     </label>
                     <input
@@ -310,12 +310,12 @@ export function SupportPage() {
                       value={supportName}
                       onChange={(e) => setSupportName(e.target.value)}
                       placeholder="e.g. Tunde Balogun"
-                      className="w-full text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-[#D7CCC8] bg-[#FAFAFA] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#C9962A]/20"
+                      className="w-full text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-cream-300 bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-mustard/20"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-[#4E342E] mb-1">
+                    <label className="block text-xs font-bold text-brown-700 mb-1">
                       Email Address *
                     </label>
                     <input
@@ -324,20 +324,20 @@ export function SupportPage() {
                       value={supportEmail}
                       onChange={(e) => setSupportEmail(e.target.value)}
                       placeholder="tunde@example.com"
-                      className="w-full text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-[#D7CCC8] bg-[#FAFAFA] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#C9962A]/20"
+                      className="w-full text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-cream-300 bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-mustard/20"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-[#4E342E] mb-1">
+                    <label className="block text-xs font-bold text-brown-700 mb-1">
                       I am a:
                     </label>
                     <select
                       value={supportRole}
                       onChange={(e) => setSupportRole(e.target.value)}
-                      className="w-full text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-[#D7CCC8] bg-[#FAFAFA] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#C9962A]/20"
+                      className="w-full text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-cream-300 bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-mustard/20"
                     >
                       <option value="student">Student / Renter</option>
                       <option value="agent">Agent</option>
@@ -347,7 +347,7 @@ export function SupportPage() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-[#4E342E] mb-1">
+                    <label className="block text-xs font-bold text-brown-700 mb-1">
                       Subject
                     </label>
                     <input
@@ -355,13 +355,13 @@ export function SupportPage() {
                       value={supportSubject}
                       onChange={(e) => setSupportSubject(e.target.value)}
                       placeholder="e.g. Question about rent escrow"
-                      className="w-full text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-[#D7CCC8] bg-[#FAFAFA] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#C9962A]/20"
+                      className="w-full text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-cream-300 bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-mustard/20"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#4E342E] mb-1">
+                  <label className="block text-xs font-bold text-brown-700 mb-1">
                     Message Details *
                   </label>
                   <textarea
@@ -370,14 +370,14 @@ export function SupportPage() {
                     value={supportMessage}
                     onChange={(e) => setSupportMessage(e.target.value)}
                     placeholder="Tell us what you need help with in detail..."
-                    className="w-full text-xs sm:text-sm p-4 rounded-xl border border-[#D7CCC8] bg-[#FAFAFA] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#C9962A]/20 resize-none"
+                    className="w-full text-xs sm:text-sm p-4 rounded-xl border border-cream-300 bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-mustard/20 resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={supportSending}
-                  className="w-full sm:w-auto px-8 py-3 rounded-xl bg-[#C9962A] hover:bg-[#B38322] text-white font-black text-xs sm:text-sm shadow-sm transition-all flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-8 py-3 rounded-xl bg-mustard hover:bg-cream text-white font-black text-xs sm:text-sm shadow-sm transition-all flex items-center justify-center gap-2"
                 >
                   <Send className="w-4 h-4" />
                   {supportSending ? 'Sending Message...' : 'Send Message'}
@@ -391,21 +391,21 @@ export function SupportPage() {
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
             <div>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EFEBE9] text-[#5D4037] text-xs font-bold uppercase tracking-wider mb-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cream-200 text-brown text-xs font-bold uppercase tracking-wider mb-2">
                 <Layers className="w-3.5 h-3.5" />
                 Community Wishlist
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-[#3E2723]">
+              <h2 className="text-2xl sm:text-3xl font-black text-brown">
                 Frequent Upgrades Requested by People
               </h2>
-              <p className="text-xs sm:text-sm text-[#795548] mt-1 max-w-xl">
+              <p className="text-xs sm:text-sm text-brown-400 mt-1 max-w-xl">
                 Similar feature requests are grouped into ranked stacks by automated keyword matching so nothing gets lost. Vote for what you want built next!
               </p>
             </div>
 
             <button
               onClick={() => setIsModalOpen(true)}
-              className="px-6 py-3 rounded-2xl bg-[#C9962A] hover:bg-[#B38322] text-white font-black text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center gap-2 self-start sm:self-auto"
+              className="px-6 py-3 rounded-2xl bg-mustard hover:bg-cream text-white font-black text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center gap-2 self-start sm:self-auto"
             >
               <PlusCircle className="w-4 h-4" />
               Request an Upgrade
@@ -426,8 +426,8 @@ export function SupportPage() {
                 onClick={() => setActiveFilter(f.id)}
                 className={`px-4 py-1.5 rounded-xl text-xs font-bold transition-colors ${
                   activeFilter === f.id
-                    ? 'bg-[#3E2723] text-white'
-                    : 'bg-white border border-[#EFEBE9] text-[#795548] hover:bg-[#F5F5F5]'
+                    ? 'bg-brown text-white'
+                    : 'bg-white border border-cream-200 text-brown-400 hover:bg-cream'
                 }`}
               >
                 {f.label}
@@ -437,16 +437,16 @@ export function SupportPage() {
 
           {/* Upgrades Cards Grid */}
           {loadingRoadmap ? (
-            <div className="p-12 text-center bg-white rounded-3xl border border-[#EFEBE9]">
-              <div className="w-8 h-8 border-3 border-[#C9962A] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-              <p className="text-xs font-semibold text-[#795548]">Loading requested upgrades...</p>
+            <div className="p-12 text-center bg-white rounded-3xl border border-cream-200">
+              <div className="w-8 h-8 border-3 border-mustard border-t-transparent rounded-full animate-spin mx-auto mb-3" />
+              <p className="text-xs font-semibold text-brown-400">Loading requested upgrades...</p>
             </div>
           ) : filteredStacks.length === 0 ? (
-            <div className="p-12 text-center bg-white rounded-3xl border border-[#EFEBE9]">
-              <p className="text-sm font-bold text-[#4E342E]">No upgrades found in this category.</p>
+            <div className="p-12 text-center bg-white rounded-3xl border border-cream-200">
+              <p className="text-sm font-bold text-brown-700">No upgrades found in this category.</p>
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="mt-3 text-xs font-bold text-[#C9962A] hover:underline"
+                className="mt-3 text-xs font-bold text-mustard hover:underline"
               >
                 Be the first to submit a request &rarr;
               </button>
@@ -459,12 +459,12 @@ export function SupportPage() {
                 return (
                   <div
                     key={stack.stackId}
-                    className="p-6 rounded-3xl bg-white border border-[#EFEBE9] shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+                    className="p-6 rounded-3xl bg-white border border-cream-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
                   >
                     <div>
                       {/* Top Bar: Rank & Status */}
                       <div className="flex items-center justify-between gap-2 mb-3">
-                        <span className="flex items-center gap-1 text-xs font-black text-[#C9962A] bg-[#FAF1CC] px-2.5 py-1 rounded-lg border border-[#F5E099]">
+                        <span className="flex items-center gap-1 text-xs font-black text-mustard bg-mustard-50 px-2.5 py-1 rounded-lg border border-mustard-200">
                           <Award className="w-3.5 h-3.5" />
                           Rank #{stack.rank}
                         </span>
@@ -485,13 +485,13 @@ export function SupportPage() {
                       </div>
 
                       {/* Title */}
-                      <h3 className="font-extrabold text-base sm:text-lg text-[#3E2723] tracking-tight mb-2">
+                      <h3 className="font-extrabold text-base sm:text-lg text-brown tracking-tight mb-2">
                         {stack.stackTitle}
                       </h3>
 
                       {/* Sample feedback description if available */}
                       {stack.sampleFeedback?.[0] && (
-                        <p className="text-xs text-[#795548] leading-relaxed mb-4 line-clamp-3">
+                        <p className="text-xs text-brown-400 leading-relaxed mb-4 line-clamp-3">
                           "{stack.sampleFeedback[0].description}"
                         </p>
                       )}
@@ -501,7 +501,7 @@ export function SupportPage() {
                         {stack.topKeywords.map((kw, idx) => (
                           <span
                             key={idx}
-                            className="text-[10px] font-semibold text-[#8D6E63] bg-[#EFEBE9] px-2 py-0.5 rounded-md"
+                            className="text-[10px] font-semibold text-brown bg-cream-200 px-2 py-0.5 rounded-md"
                           >
                             #{kw}
                           </span>
@@ -510,9 +510,9 @@ export function SupportPage() {
                     </div>
 
                     {/* Bottom Metadata & Upvote button */}
-                    <div className="pt-4 border-t border-[#F5F5F5] flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-1.5 text-xs font-bold text-[#5D4037]">
-                        <Layers className="w-3.5 h-3.5 text-[#C9962A]" />
+                    <div className="pt-4 border-t border-cream-300 flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-1.5 text-xs font-bold text-brown">
+                        <Layers className="w-3.5 h-3.5 text-mustard" />
                         <span>{stack.requestCount} requests stacked</span>
                       </div>
 
@@ -522,7 +522,7 @@ export function SupportPage() {
                         className={`px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-colors ${
                           hasVoted
                             ? 'bg-amber-100 text-amber-800'
-                            : 'bg-[#FAF1CC] text-[#C9962A] hover:bg-[#F5E099]'
+                            : 'bg-mustard-50 text-mustard hover:bg-cream'
                         }`}
                       >
                         <ThumbsUp className="w-3.5 h-3.5" />
@@ -557,15 +557,15 @@ export function SupportPage() {
             >
               <div className="flex items-start justify-between gap-4 mb-4">
                 <div>
-                  <h3 className="text-xl font-black text-[#3E2723]">Request an Upgrade</h3>
-                  <p className="text-xs text-[#795548] mt-0.5">
+                  <h3 className="text-xl font-black text-brown">Request an Upgrade</h3>
+                  <p className="text-xs text-brown-400 mt-0.5">
                     Tell us what you want added. Similar requests are automatically stacked and ranked!
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="p-1 rounded-full text-[#A1887F] hover:text-[#3E2723] hover:bg-neutral-100"
+                  className="p-1 rounded-full text-brown hover:text-brown hover:bg-neutral-100"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -585,7 +585,7 @@ export function SupportPage() {
 
               <form onSubmit={handleSubmitUpgrade} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-bold text-[#4E342E] mb-1">
+                  <label className="block text-xs font-bold text-brown-700 mb-1">
                     Feature Title *
                   </label>
                   <input
@@ -594,18 +594,18 @@ export function SupportPage() {
                     value={reqTitle}
                     onChange={(e) => setReqTitle(e.target.value)}
                     placeholder="e.g. Split rent into monthly installments"
-                    className="w-full text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-[#D7CCC8] focus:outline-none focus:ring-2 focus:ring-[#C9962A]/20"
+                    className="w-full text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-cream-300 focus:outline-none focus:ring-2 focus:ring-mustard/20"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#4E342E] mb-1">
+                  <label className="block text-xs font-bold text-brown-700 mb-1">
                     Category
                   </label>
                   <select
                     value={reqCategory}
                     onChange={(e) => setReqCategory(e.target.value)}
-                    className="w-full text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-[#D7CCC8] focus:outline-none focus:ring-2 focus:ring-[#C9962A]/20"
+                    className="w-full text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-cream-300 focus:outline-none focus:ring-2 focus:ring-mustard/20"
                   >
                     <option value="payments">Payments &amp; Escrow</option>
                     <option value="listings">Listings &amp; Video Tours</option>
@@ -617,7 +617,7 @@ export function SupportPage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#4E342E] mb-1">
+                  <label className="block text-xs font-bold text-brown-700 mb-1">
                     Detailed Description *
                   </label>
                   <textarea
@@ -626,13 +626,13 @@ export function SupportPage() {
                     value={reqDesc}
                     onChange={(e) => setReqDesc(e.target.value)}
                     placeholder="Describe how this feature should work and why it would help you..."
-                    className="w-full text-xs sm:text-sm p-3.5 rounded-xl border border-[#D7CCC8] focus:outline-none focus:ring-2 focus:ring-[#C9962A]/20 resize-none"
+                    className="w-full text-xs sm:text-sm p-3.5 rounded-xl border border-cream-300 focus:outline-none focus:ring-2 focus:ring-mustard/20 resize-none"
                   />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-bold text-[#4E342E] mb-1">
+                    <label className="block text-xs font-bold text-brown-700 mb-1">
                       Your Name (Optional)
                     </label>
                     <input
@@ -640,12 +640,12 @@ export function SupportPage() {
                       value={reqName}
                       onChange={(e) => setReqName(e.target.value)}
                       placeholder="e.g. Aisha"
-                      className="w-full text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-[#D7CCC8] focus:outline-none focus:ring-2 focus:ring-[#C9962A]/20"
+                      className="w-full text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-cream-300 focus:outline-none focus:ring-2 focus:ring-mustard/20"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-[#4E342E] mb-1">
+                    <label className="block text-xs font-bold text-brown-700 mb-1">
                       Email (Optional)
                     </label>
                     <input
@@ -653,7 +653,7 @@ export function SupportPage() {
                       value={reqEmail}
                       onChange={(e) => setReqEmail(e.target.value)}
                       placeholder="aisha@example.com"
-                      className="w-full text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-[#D7CCC8] focus:outline-none focus:ring-2 focus:ring-[#C9962A]/20"
+                      className="w-full text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-cream-300 focus:outline-none focus:ring-2 focus:ring-mustard/20"
                     />
                   </div>
                 </div>
@@ -662,14 +662,14 @@ export function SupportPage() {
                   <button
                     type="button"
                     onClick={() => setIsModalOpen(false)}
-                    className="px-5 py-2.5 rounded-xl text-xs font-semibold text-[#795548] hover:bg-neutral-100"
+                    className="px-5 py-2.5 rounded-xl text-xs font-semibold text-brown-400 hover:bg-neutral-100"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
                     disabled={submittingReq}
-                    className="px-6 py-2.5 rounded-xl bg-[#C9962A] hover:bg-[#B38322] text-white font-bold text-xs shadow-sm transition-all"
+                    className="px-6 py-2.5 rounded-xl bg-mustard hover:bg-cream text-white font-bold text-xs shadow-sm transition-all"
                   >
                     {submittingReq ? 'Submitting...' : 'Submit Upgrade Idea'}
                   </button>

@@ -17,8 +17,8 @@ export function CookieConsentModal() {
       timer = setTimeout(() => setIsVisible(true), 1500);
     }
 
-    // BUGFIX (QA-MKT-007): the CookieIcon Policy tells users they can withdraw consent via a
-    // "CookieIcon Settings" link in the footer, but no such control existed and the banner
+    // BUGFIX (QA-MKT-007): the Cookie Policy tells users they can withdraw consent via a
+    // "Cookie Settings" link in the footer, but no such control existed and the banner
     // never returned once a choice was stored, so consent was irreversible through the
     // UI, on a site whose own disclaimer cites the NDPA 2023. Mirror the
     // `open-disclaimer` pattern already used by DisclaimerModal.
@@ -87,7 +87,7 @@ export function CookieConsentModal() {
 
             <div className="mt-4 text-center">
               <button onClick={() => navigate('/cookie-policy')} className="text-xs text-mustard hover:text-brown transition-colors font-medium underline-offset-2 hover:underline">
-                Read our CookieIcon Policy
+                Read our Cookie Policy
               </button>
             </div>
           </div>

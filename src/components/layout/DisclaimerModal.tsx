@@ -70,7 +70,7 @@ export function DisclaimerModal() {
 
     const cookieConsent = localStorage.getItem('cookie-consent');
     if (cookieConsent) {
-      // CookieIcon already decided in a previous session, show disclaimer after short delay
+      // Cookie already decided in a previous session, show disclaimer after short delay
       const timer = setTimeout(() => openDisclaimer(), 500);
       return () => {
         clearTimeout(timer);
@@ -78,7 +78,7 @@ export function DisclaimerModal() {
       };
     }
 
-    // CookieIcon NOT yet decided, wait for it first
+    // Cookie NOT yet decided, wait for it first
     const handleCookieDone = () => {
       const timer = setTimeout(() => openDisclaimer(), 600);
       window.removeEventListener('cookie-consent-done', handleCookieDone);

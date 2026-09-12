@@ -62,7 +62,7 @@ export function PrivacyPolicyPage() {
                 <li>IP address and approximate location</li>
                 <li>Usage data (pages visited, time spent, features used, clicks)</li>
                 <li>Referral source and search terms used to find our site</li>
-                <li>Cookies and similar tracking technologies (see our CookieIcon Policy)</li>
+                <li>Cookies and similar tracking technologies (see our Cookie Policy)</li>
               </ul>
             </div>
 
