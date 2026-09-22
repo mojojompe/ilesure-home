@@ -87,7 +87,7 @@ export function PrivacyPolicyPage() {
             <li>Facilitate communication between students, roommates, and agents</li>
             <li>Verify student status and agent credentials</li>
             <li>Process payments and manage subscriptions</li>
-            <li>SentIcon important service updates, security alerts, and support messages</li>
+            <li>Send important service updates, security alerts, and support messages</li>
             <li>Improve our platform through analytics and user feedback</li>
             <li>Detect and prevent fraud, abuse, and policy violations</li>
             <li>Comply with legal obligations and enforce our terms</li>

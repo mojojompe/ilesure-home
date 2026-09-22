@@ -40,7 +40,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
     // error ever showed. Validate it here to match the markup. Kept lenient (non-empty + at least
     // 7 digits) to avoid rejecting valid +234 / international formats.
     if (!form.phone.trim()) {
-      e.phone = 'CallIcon number is required';
+      e.phone = 'Phone number is required';
     } else if ((form.phone.replace(/\D/g, '').length) < 7) {
       e.phone = 'Enter a valid phone number';
     }
@@ -299,7 +299,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                               three are now checked in one place, in React, so the form reports
                               everything that is wrong at once. */}
                           <div className="flex flex-col gap-1.5">
-                            <label className="text-[11px] font-bold text-brown uppercase tracking-widest pl-1">CallIcon Number</label>
+                            <label className="text-[11px] font-bold text-brown uppercase tracking-widest pl-1">Phone Number</label>
                             <div className="relative group">
                               <CallIcon size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-brown-light group-focus-within:text-mustard transition-colors" strokeWidth={2} />
                               <input

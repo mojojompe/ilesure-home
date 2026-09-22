@@ -7,7 +7,7 @@ const toc: TOCItem[] = [
   { id: 'acceptance', label: 'Acceptance of Terms' },
   { id: 'service-description', label: 'Description of Service' },
   { id: 'eligibility', label: 'Eligibility & Accounts' },
-  { id: 'user-conduct', label: 'UserIcon Conduct' },
+  { id: 'user-conduct', label: 'User Conduct' },
   { id: 'listings', label: 'Listings & Agent Responsibilities' },
   { id: 'intellectual-property', label: 'Intellectual Property' },
   { id: 'disclaimers', label: 'Disclaimers & Limitation of Liability' },
@@ -78,7 +78,7 @@ export function TermsOfServicePage() {
         </section>
 
         <section id="user-conduct" className="mb-10">
-          <h2 className="text-2xl font-bold text-brown mb-4">3. UserIcon Conduct</h2>
+          <h2 className="text-2xl font-bold text-brown mb-4">3. User Conduct</h2>
           <p className="text-gray-700 leading-relaxed mb-4">
             You agree not to:
           </p>
@@ -91,7 +91,7 @@ export function TermsOfServicePage() {
               { title: 'No Scraping', desc: 'Automatically scrape, crawl, or extract data from the Platform without permission.' },
               { title: 'No Malicious Code', desc: 'Upload viruses, malware, or any harmful code through the Platform.' },
               { title: 'No Circumvention', desc: 'Bypass or attempt to bypass any security or access controls.' },
-              { title: 'No Spam', desc: 'SentIcon unsolicited messages, advertisements, or chain communications.' },
+              { title: 'No Spam', desc: 'Send unsolicited messages, advertisements, or chain communications.' },
             ].map((rule) => (
               <div key={rule.title} className="bg-red-50 rounded-clay-sm p-4 border border-red-100">
                 <h3 className="font-bold text-brown text-sm">{rule.title}</h3>
