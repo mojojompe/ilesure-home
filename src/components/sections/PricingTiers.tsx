@@ -1,78 +1,106 @@
 import { motion } from 'framer-motion';
 import { Tick01Icon } from '@hugeicons/react';
 import { ScrollReveal } from '../ui/ScrollReveal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { WaitlistModal } from '../ui/WaitlistModal';
+import { FALLBACK_TIERS, fetchPublicTiers, type PublicTier } from '../../api/tiers';
 
-const tiers = [
-  {
-    id: 'basic',
-    name: 'Basic',
+/**
+ * Visual design per tier id. Prices, listing caps and feature lines come from the live
+ * public GET /tiers catalogue (FALLBACK_TIERS, which mirrors the backend seed, until it
+ * loads or if it cannot be reached). The prices used to be hard-coded here at a tenth of
+ * the real ones (N1,500 / N3,500 / N7,000) under a `pro` id the backend does not have.
+ */
+const TIER_DESIGN: Record<string, {
+  badge: string | null;
+  color: string;
+  accent: string;
+  image: string;
+  cta: string;
+  ctaStyle: 'outline' | 'filled' | 'dark';
+}> = {
+  basic: {
     badge: null,
-    price: '₦1,500',
-    period: '/month',
-    annualPrice: '₦15,000',
-    annualNote: 'billed annually',
     color: '#A0714F',
     accent: '#F2E8DF',
     image: '/illustrations/generated/pricing_basic.png',
-    listingCap: '15 listings',
-    features: [
-      'Up to 15 active listing slots',
-      'Priority listing visibility',
-      'Detailed booking analytics',
-      'Priority email support',
-    ],
     cta: 'Get Started',
     ctaStyle: 'outline',
   },
-  {
-    id: 'pro',
-    name: 'Premium',
+  premium: {
     badge: 'Most Popular',
-    price: '₦3,500',
-    period: '/month',
-    annualPrice: '₦35,000',
-    annualNote: 'billed annually',
     color: '#319795',
     accent: '#E6FFFA',
     image: '/illustrations/generated/pricing_premium.png',
-    listingCap: '30 listings',
-    features: [
-      'Up to 30 active listing slots',
-      'Featured listing placement',
-      'Advanced demand analytics',
-      'Priority phone & email support',
-    ],
     cta: 'Go Premium',
     ctaStyle: 'filled',
   },
-  {
-    id: 'enterprise',
-    name: 'Enterprise',
+  enterprise: {
     badge: 'Best Value',
-    price: '₦7,000',
-    period: '/month',
-    annualPrice: '₦70,000',
-    annualNote: 'billed annually',
     color: '#C6A800',
     accent: '#FFFFF0',
     image: '/illustrations/generated/pricing_enterprise.png',
-    listingCap: '50+ listings',
-    features: [
-      '50+ active listing slots (unlimited)',
-      'Top of discovery feed placement',
-      'Full reporting & demand heatmap',
-      'Dedicated account manager',
-    ],
     cta: 'Start Enterprise',
     ctaStyle: 'dark',
   },
-];
+};
+
+const naira = (n: number) => `₦${n.toLocaleString('en-NG')}`;
+
+function toView(t: PublicTier) {
+  const design = TIER_DESIGN[t.id] ?? TIER_DESIGN.basic;
+  const monthly = t.priceMonthly ?? t.price ?? 0;
+  const yearly = t.priceYearly ?? monthly * 12;
+  const cap = t.features?.maxListings;
+  const features = [
+    cap ? `Up to ${cap} active listing slots` : null,
+    t.features?.visibility ?? null,
+    t.features?.analytics ?? null,
+    t.features?.support ?? null,
+  ].filter((f): f is string => !!f);
+  return {
+    id: t.id,
+    name: t.name,
+    badge: TIER_DESIGN[t.id] ? design.badge : (t.popular ? 'Most Popular' : null),
+    highlighted: t.popular ?? t.id === 'premium',
+    monthly,
+    yearly,
+    price: naira(monthly),
+    period: '/month',
+    annualPrice: naira(yearly),
+    annualNote: 'billed annually',
+    color: design.color,
+    accent: design.accent,
+    image: design.image,
+    listingCap: cap ? `${cap} listings` : '',
+    features,
+    cta: TIER_DESIGN[t.id] ? design.cta : 'Get Started',
+    ctaStyle: design.ctaStyle,
+  };
+}
 
 export function PricingTiers() {
   const [billing, setBilling] = useState<'monthly' | 'annual'>('annual');
   const [waitlistOpen, setWaitlistOpen] = useState(false);
+  const [catalogue, setCatalogue] = useState<PublicTier[]>(FALLBACK_TIERS);
+
+  useEffect(() => {
+    const ctrl = new AbortController();
+    fetchPublicTiers(ctrl.signal).then((live) => {
+      if (live) setCatalogue(live);
+    });
+    return () => ctrl.abort();
+  }, []);
+
+  const tiers = catalogue.map(toView);
+  // Annual saving as the catalogue actually prices it (the seed is 20%), not a fixed claim.
+  const savings = tiers
+    .filter((t) => t.monthly > 0 && t.yearly > 0)
+    .map((t) => Math.round((1 - t.yearly / (t.monthly * 12)) * 100));
+  const maxSaving = savings.length ? Math.max(...savings) : 0;
+  const savingLabel = maxSaving > 0
+    ? (savings.every((v) => v === maxSaving) ? `Save ${maxSaving}%` : `Save up to ${maxSaving}%`)
+    : null;
 
   return (
     <section id="pricing" className="py-24 relative overflow-hidden" style={{
@@ -112,12 +140,10 @@ export function PricingTiers() {
                 }`}
               >
                 Annual
-                {/* BUGFIX (QA-MKT-006): the badge claimed "Save 20%" and was shown even
-                    when Monthly was selected. Annual is now genuinely 2 months free
-                    (₦1,500x12=₦18,000 vs ₦15,000), and the badge only appears on the
-                    option it describes. */}
-                {billing === 'annual' && (
-                  <span className="text-[10px] font-bold text-mustard bg-mustard-50 px-2 py-0.5 rounded-pill">2 months free</span>
+                {/* BUGFIX (QA-MKT-006): the badge only appears on the option it describes.
+                    Its figure is computed from the tier catalogue's monthly vs yearly prices. */}
+                {billing === 'annual' && savingLabel && (
+                  <span className="text-[10px] font-bold text-mustard bg-mustard-50 px-2 py-0.5 rounded-pill">{savingLabel}</span>
                 )}
               </button>
             </div>
@@ -126,7 +152,7 @@ export function PricingTiers() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start mt-4">
           {tiers.map((tier, i) => {
-            const isPro = tier.id === 'pro';
+            const isPro = tier.highlighted;
             return (
               <ScrollReveal key={tier.id} delay={i * 0.1}>
                 <motion.div
@@ -169,9 +195,11 @@ export function PricingTiers() {
                       {billing === 'annual' && (
                         <p className="text-xs text-brown-light mt-1">{tier.annualNote}</p>
                       )}
-                      <p className="mt-2 text-xs font-bold text-mustard bg-mustard-50 inline-flex px-2 py-1 rounded-sm">
-                        {tier.listingCap}
-                      </p>
+                      {tier.listingCap && (
+                        <p className="mt-2 text-xs font-bold text-mustard bg-mustard-50 inline-flex px-2 py-1 rounded-sm">
+                          {tier.listingCap}
+                        </p>
+                      )}
                     </div>
 
                     {/* Features */}

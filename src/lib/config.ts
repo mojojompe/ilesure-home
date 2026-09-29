@@ -40,6 +40,10 @@ export const API_ENDPOINTS = {
     submit: `${API_BASE_URL}/api/v1/upgrade-requests`,
     upvote: (id: string) => `${API_BASE_URL}/api/v1/upgrade-requests/${id}/upvote`,
   },
+  tiers: {
+    // Public tier catalogue (no auth), rendered by the pricing section.
+    list: `${API_BASE_URL}/api/v1/tiers`,
+  },
   waitlist: {
     join: `${API_BASE_URL}/api/v1/waitlist`,
     count: `${API_BASE_URL}/api/v1/waitlist/count`,
