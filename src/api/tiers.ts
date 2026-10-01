@@ -25,8 +25,8 @@ export const FALLBACK_TIERS: PublicTier[] = [
   {
     id: 'basic',
     name: 'Basic',
-    priceMonthly: 15000,
-    priceYearly: 144000,
+    priceMonthly: 3000,
+    priceYearly: 28800,
     features: {
       maxListings: 15,
       analytics: 'Detailed Booking Analytics',
@@ -37,8 +37,8 @@ export const FALLBACK_TIERS: PublicTier[] = [
   {
     id: 'premium',
     name: 'Premium',
-    priceMonthly: 35000,
-    priceYearly: 336000,
+    priceMonthly: 7000,
+    priceYearly: 67200,
     popular: true,
     features: {
       maxListings: 30,
@@ -50,8 +50,8 @@ export const FALLBACK_TIERS: PublicTier[] = [
   {
     id: 'enterprise',
     name: 'Enterprise',
-    priceMonthly: 70000,
-    priceYearly: 672000,
+    priceMonthly: 15000,
+    priceYearly: 144000,
     features: {
       maxListings: 50,
       analytics: 'Full Reporting & Demand Heatmap',
