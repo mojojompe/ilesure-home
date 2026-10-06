@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight01Icon } from '@hugeicons/react';
-import { WaitlistModal } from '../ui/WaitlistModal';
+import { GetStartedModal } from '../ui/GetStartedModal';
 import { useNavigate } from 'react-router-dom';
 import BlurText from '../ui/BlurText';
 
@@ -12,7 +12,7 @@ const rotatingTexts = [
   "Ezigbo Ụlọ Gị"
 ];
 
-export function Hero() {  const [waitlistOpen, setWaitlistOpen] = useState(false);
+export function Hero() {  const [modalOpen, setModalOpen] = useState(false);
   const [textIndex, setTextIndex] = useState(0);
   const navigate = useNavigate();
 
@@ -99,13 +99,13 @@ export function Hero() {  const [waitlistOpen, setWaitlistOpen] = useState(false
               className="mt-12 flex flex-col sm:flex-row gap-5 items-center justify-center w-full sm:w-auto"
             >
               <motion.button
-                onClick={() => setWaitlistOpen(true)}
+                onClick={() => window.location.href = 'https://users.ilesure.com'}
                 className="w-full sm:w-auto group relative px-10 py-5 bg-brown text-white font-bold shadow-float-mustard text-sm uppercase tracking-wider rounded-3xl"
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <span className="relative flex items-center justify-center gap-2">
-                  Get the App
+                  Get Started
                   <ArrowRight01Icon size={18} strokeWidth={2.5} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </motion.button>
@@ -140,7 +140,7 @@ export function Hero() {  const [waitlistOpen, setWaitlistOpen] = useState(false
 
       </section>
 
-      <WaitlistModal isOpen={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
+      <GetStartedModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }

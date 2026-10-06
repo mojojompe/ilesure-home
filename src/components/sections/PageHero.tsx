@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight01Icon } from '@hugeicons/react';
 import { useNavigate } from 'react-router-dom';
-import { WaitlistModal } from '../ui/WaitlistModal';
+import { GetStartedModal } from '../ui/GetStartedModal';
 import { useState } from 'react';
 import BlurText from '../ui/BlurText';
 
@@ -46,7 +46,7 @@ export function PageHero({
   bottomMockupAlt,
   bottomMockupMaxWidth,
 }: PageHeroProps) {
-  const [waitlistOpen, setWaitlistOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
   const isDark = theme === 'dark';
 
@@ -246,7 +246,7 @@ export function PageHero({
         )}
       </section>
 
-      <WaitlistModal isOpen={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
+      <GetStartedModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }

@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Tick01Icon } from '@hugeicons/react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { useEffect, useState } from 'react';
-import { WaitlistModal } from '../ui/WaitlistModal';
+import { GetStartedModal } from '../ui/GetStartedModal';
 import { FALLBACK_TIERS, fetchPublicTiers, type PublicTier } from '../../api/tiers';
 
 /**
@@ -81,7 +81,7 @@ function toView(t: PublicTier) {
 
 export function PricingTiers() {
   const [billing, setBilling] = useState<'monthly' | 'annual'>('annual');
-  const [waitlistOpen, setWaitlistOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const [catalogue, setCatalogue] = useState<PublicTier[]>(FALLBACK_TIERS);
 
   useEffect(() => {
@@ -219,7 +219,7 @@ export function PricingTiers() {
 
                     {/* CTA */}
                     <motion.button
-                      onClick={() => setWaitlistOpen(true)}
+                      onClick={() => setModalOpen(true)}
                       className={`w-full py-3.5 rounded-pill font-bold text-sm text-center transition-all duration-200 ${
                         tier.ctaStyle === 'filled'
                           ? 'bg-gradient-to-r from-mustard-light to-mustard text-white shadow-float-mustard'
@@ -245,7 +245,7 @@ export function PricingTiers() {
                                 </p>
         </ScrollReveal>
       </div>
-      <WaitlistModal isOpen={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
+      <GetStartedModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );
 }

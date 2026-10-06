@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { ArrowRight01Icon } from '@hugeicons/react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { PillButton } from '../ui/PillButton';
-import { WaitlistModal } from '../ui/WaitlistModal';
+import { GetStartedModal } from '../ui/GetStartedModal';
 
-export function FinalCTA() {  const [waitlistOpen, setWaitlistOpen] = useState(false);
+export function FinalCTA() {  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <>
@@ -58,11 +58,11 @@ export function FinalCTA() {  const [waitlistOpen, setWaitlistOpen] = useState(f
                   <PillButton
                     variant="brown"
                     size="lg"
-                    onClick={() => setWaitlistOpen(true)}
+                    onClick={() => window.location.href = 'https://users.ilesure.com'}
                     iconRight={<ArrowRight01Icon size={18} strokeWidth={2.5} />}
                     className="shadow-3d hover:shadow-3d-hover"
                   >
-                    Join the Waitlist
+                    Get Started Now
                                                         </PillButton>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -88,7 +88,7 @@ export function FinalCTA() {  const [waitlistOpen, setWaitlistOpen] = useState(f
         </div>
       </section>
 
-      <WaitlistModal isOpen={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
+      <GetStartedModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }

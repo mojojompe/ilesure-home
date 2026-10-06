@@ -124,11 +124,11 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                       className="text-4xl font-black text-white leading-tight mb-4 tracking-tighter"
                       style={{ fontFamily: 'Georgia, serif' }}
                     >
-                      Your sure home <br />
-                      <span className="text-mustard-onDark">awaits.</span>
+                      Our Mobile App <br />
+                      <span className="text-mustard-onDark">is coming soon.</span>
                     </h2>
                     <p className="text-cream-300 text-sm leading-relaxed">
-                      Join thousands of Nigerian students discovering verified housing, safe roommate matching, and zero phantom fees.
+                      iléSure is now live on the Web! Join the waitlist for updates on when our Mobile App drops.
                     </p>
                   </div>
 
@@ -163,11 +163,11 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                       className="text-3xl font-black text-white leading-tight mb-2 tracking-tighter"
                       style={{ fontFamily: 'Georgia, serif' }}
                     >
-                      Your sure home <br />
-                      <span className="text-mustard-onDark">awaits.</span>
+                      Mobile App <br />
+                      <span className="text-mustard-onDark">Coming Soon.</span>
                     </h2>
                     <p className="text-cream-300 text-xs">
-                      Join thousands getting early access.
+                      Web platform is live! Join mobile waitlist.
                     </p>
                   </div>
 
@@ -234,8 +234,8 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                         className="flex flex-col gap-5 w-full max-w-sm mx-auto"
                       >
                         <div className="hidden md:block mb-2 text-center">
-                          <h3 className="text-2xl font-bold text-brown mb-2" style={{ fontFamily: 'Georgia, serif' }}>Get Early Access</h3>
-                          <p className="text-sm text-brown-light">Be the first to know when we go live.</p>
+                          <h3 className="text-2xl font-bold text-brown mb-2" style={{ fontFamily: 'Georgia, serif' }}>Mobile App Waitlist</h3>
+                          <p className="text-sm text-brown-light">Our web platform is live! Be the first to know when the app drops.</p>
                         </div>
 
                         {/* Role Selector */}

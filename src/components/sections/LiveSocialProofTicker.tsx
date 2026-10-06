@@ -5,7 +5,7 @@ const notifications = [
   { name: 'Ayomip from Bodija', action: 'just signed up!', time: '2m ago' },
   { name: 'Chidi from Toll Gate', action: 'found a roommate', time: '5m ago' },
   { name: 'Sarah from Oba Otudeko', action: 'booked a viewing', time: '8m ago' },
-  { name: 'Emmanuel from Agbowo', action: 'joined the waitlist', time: '12m ago' },
+  { name: 'Emmanuel from Agbowo', action: 'created an account', time: '12m ago' },
   { name: 'Nadia from Dugbe', action: 'just signed up!', time: '15m ago' },
   { name: 'Tunde from Ring Road', action: 'verified his account', time: '18m ago' },
   { name: 'Ada from Challenge', action: 'found a perfect match', time: '22m ago' },

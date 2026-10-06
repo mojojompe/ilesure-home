@@ -7,6 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        'burnt-brown': '#2D1B12',
         // A11Y-FIX (QA-A11Y-003): the marketing site paints links and small copy in
         // `text-mustard` (Navbar, Footer, the consent and disclaimer modals) and
         // `text-brown-light`. #C9962A is 2.67:1 on white and #A0714F is 4.23:1, both
@@ -26,16 +27,16 @@ export default {
         // Use `text-mustard-onDark` for any mustard text sitting on brown or another dark
         // panel. Ratios computed with the WCAG relative-luminance formula.
         mustard: {
-          DEFAULT: '#C97B1C',
-          onDark: '#E8941E',
-          light: '#E8941E',
+          DEFAULT: '#F5A623',
+          onDark: '#F5A623',
+          light: '#F5A623',
           dark: '#B06512',
           50: '#FDFAEE',
           100: '#FAF1CC',
           200: '#F5E099',
           300: '#F0CC66',
           400: '#EBB833',
-          500: '#C97B1C',
+          500: '#F5A623',
           600: '#A65D15',
           700: '#7A5B12',
           800: '#4E3A0B',

@@ -6,7 +6,7 @@ import {
 } from '@hugeicons/react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { useState } from 'react';
-import { WaitlistModal } from '../ui/WaitlistModal';
+import { GetStartedModal } from '../ui/GetStartedModal';
 
 /* ── Capability cards ── */
 const capabilities = [
@@ -33,7 +33,7 @@ const capabilities = [
 ];
 
 export function WebApp() {
-  const [waitlistOpen, setWaitlistOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   return (
     <section id="web-app" className="py-24 bg-white relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -145,7 +145,7 @@ export function WebApp() {
               <ScrollReveal direction="left" delay={0.25}>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                   <motion.button
-                    onClick={() => setWaitlistOpen(true)}
+                    onClick={() => setModalOpen(true)}
                     className="inline-flex items-center gap-3 rounded-pill font-bold text-sm px-7 py-4 group transition-all duration-300"
                     style={{
                       background:
@@ -199,7 +199,7 @@ export function WebApp() {
           </div>
         </div>
       </div>
-      <WaitlistModal isOpen={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
+      <GetStartedModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );
 }

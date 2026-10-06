@@ -5,7 +5,7 @@ import { Menu01Icon } from '@hugeicons/react';
 import { TiktokIcon, WhatsappIcon } from '@hugeicons/react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { PillButton } from '../ui/PillButton';
-import { WaitlistModal } from '../ui/WaitlistModal';
+import { GetStartedModal } from '../ui/GetStartedModal';
 
 interface NavSection {
   label: string;
@@ -93,7 +93,7 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(null);
-  const [waitlistOpen, setWaitlistOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const dropdownTimer = useRef<ReturnType<typeof setTimeout> | null>(null);  const navigate = useNavigate();
   const location = useLocation();
 
@@ -370,7 +370,7 @@ export function Navbar() {
                   <PillButton
                     variant="brown"
                     size="sm"
-                    onClick={() => setWaitlistOpen(true)}
+                    onClick={() => window.location.href = 'https://users.ilesure.com'}
                     iconRight={<ArrowRight01Icon size={15} strokeWidth={2.5} />}
                   >
                     Get Started
@@ -521,7 +521,7 @@ export function Navbar() {
                     variant="brown"
                     size="md"
                     fullWidth
-                    onClick={() => { setMenuOpen(false); setWaitlistOpen(true); }}
+                    onClick={() => { setMenuOpen(false); window.location.href = 'https://users.ilesure.com'; }}
                     iconRight={<ArrowRight01Icon size={18} strokeWidth={2.5} />}
                   >
                     Get Early Access
@@ -533,9 +533,9 @@ export function Navbar() {
         )}
       </AnimatePresence>
 
-      <WaitlistModal 
-        isOpen={waitlistOpen} 
-        onClose={() => setWaitlistOpen(false)} 
+      <GetStartedModal 
+        isOpen={modalOpen} 
+        onClose={() => setModalOpen(false)} 
       />
     </>
   );

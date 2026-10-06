@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { UserMultipleIcon, ArrowRight01Icon } from '@hugeicons/react';
-import { WaitlistModal } from '../ui/WaitlistModal';
+import { GetStartedModal } from '../ui/GetStartedModal';
 
-export function InteractiveMapPreview() {  const [waitlistOpen, setWaitlistOpen] = useState(false);
+export function InteractiveMapPreview() {  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <>
@@ -63,7 +63,7 @@ export function InteractiveMapPreview() {  const [waitlistOpen, setWaitlistOpen]
               ].map(({ badge, store, sub, alt }) => (
                 <motion.button
                   key={store}
-                  onClick={() => setWaitlistOpen(true)}
+                  onClick={() => setModalOpen(true)}
                   className="flex items-center gap-3 rounded-clay-sm px-5 py-3.5 group relative mt-1 overflow-hidden"
                   style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)' }}
                   whileHover={{ y: -4, background: 'rgba(255,255,255,0.15)', boxShadow: '0 12px 32px rgba(0,0,0,0.3)' }}
@@ -87,7 +87,7 @@ export function InteractiveMapPreview() {  const [waitlistOpen, setWaitlistOpen]
         </div>
       </section>
 
-      <WaitlistModal isOpen={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
+      <GetStartedModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }
