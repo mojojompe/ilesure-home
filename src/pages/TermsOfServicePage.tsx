@@ -205,7 +205,7 @@ export function TermsOfServicePage() {
           </p>
           <div className="bg-cream-50 rounded-clay-sm p-6 border border-cream-200">
             <p className="text-gray-700"><strong>Email:</strong> ilesuresupport@gmail.com</p>
-            <p className="text-gray-700"><strong>CallIcon:</strong> +234 807 145 5374</p>
+            <p className="text-gray-700"><strong>Call:</strong> +234 807 145 5374</p>
             <p className="text-gray-700"><strong>Location:</strong> Ibadan, Nigeria</p>
           </div>
         </section>
