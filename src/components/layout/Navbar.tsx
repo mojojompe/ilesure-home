@@ -370,7 +370,7 @@ export function Navbar() {
                   <PillButton
                     variant="brown"
                     size="sm"
-                    onClick={() => window.location.href = 'https://users.ilesure.com'}
+                    onClick={() => setModalOpen(true)}
                     iconRight={<ArrowRight01Icon size={15} strokeWidth={2.5} />}
                   >
                     Get Started
@@ -521,7 +521,7 @@ export function Navbar() {
                     variant="brown"
                     size="md"
                     fullWidth
-                    onClick={() => { setMenuOpen(false); window.location.href = 'https://users.ilesure.com'; }}
+                    onClick={() => { setMenuOpen(false); setModalOpen(true); }}
                     iconRight={<ArrowRight01Icon size={18} strokeWidth={2.5} />}
                   >
                     Get Early Access

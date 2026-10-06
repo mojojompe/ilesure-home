@@ -58,7 +58,7 @@ export function FinalCTA() {  const [modalOpen, setModalOpen] = useState(false);
                   <PillButton
                     variant="brown"
                     size="lg"
-                    onClick={() => window.location.href = 'https://users.ilesure.com'}
+                    onClick={() => setModalOpen(true)}
                     iconRight={<ArrowRight01Icon size={18} strokeWidth={2.5} />}
                     className="shadow-3d hover:shadow-3d-hover"
                   >

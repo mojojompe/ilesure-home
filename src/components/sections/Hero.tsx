@@ -99,7 +99,7 @@ export function Hero() {  const [modalOpen, setModalOpen] = useState(false);
               className="mt-12 flex flex-col sm:flex-row gap-5 items-center justify-center w-full sm:w-auto"
             >
               <motion.button
-                onClick={() => window.location.href = 'https://users.ilesure.com'}
+                onClick={() => setModalOpen(true)}
                 className="w-full sm:w-auto group relative px-10 py-5 bg-brown text-white font-bold shadow-float-mustard text-sm uppercase tracking-wider rounded-3xl"
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
