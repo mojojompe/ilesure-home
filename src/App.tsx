@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
@@ -30,6 +30,18 @@ import { GoogleTranslate } from './components/effects/GoogleTranslate';
 
 function App() {
   const location = useLocation();
+
+  // Send a constant ping to the backend to keep the Render free plan active
+  useEffect(() => {
+    const pingBackend = () => {
+      fetch('https://api.ilesure.com/api/v1/health').catch(() => {});
+    };
+    // Ping immediately on load
+    pingBackend();
+    // Ping every 14 minutes (Render sleeps after 15 mins of inactivity)
+    const interval = setInterval(pingBackend, 5 * 60 * 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="min-h-screen font-sans">

@@ -524,7 +524,7 @@ export function Navbar() {
                     onClick={() => { setMenuOpen(false); setModalOpen(true); }}
                     iconRight={<ArrowRight01Icon size={18} strokeWidth={2.5} />}
                   >
-                    Get Early Access
+                    Get Started
                   </PillButton>
                 </motion.div>
               </div>
