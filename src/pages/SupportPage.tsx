@@ -354,7 +354,7 @@ export function SupportPage() {
                       type="text"
                       value={supportSubject}
                       onChange={(e) => setSupportSubject(e.target.value)}
-                      placeholder="e.g. Question about rent escrow"
+                      placeholder="e.g. Question about a rent payment"
                       className="w-full text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-cream-300 bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-mustard/20"
                     />
                   </div>
@@ -607,7 +607,7 @@ export function SupportPage() {
                     onChange={(e) => setReqCategory(e.target.value)}
                     className="w-full text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-cream-300 focus:outline-none focus:ring-2 focus:ring-mustard/20"
                   >
-                    <option value="payments">Payments &amp; Escrow</option>
+                    <option value="payments">Payments &amp; Refunds</option>
                     <option value="listings">Listings &amp; Video Tours</option>
                     <option value="inspections">Inspection Journeys &amp; Safety</option>
                     <option value="roommates">Roommate Matching</option>

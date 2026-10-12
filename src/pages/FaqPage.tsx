@@ -36,7 +36,7 @@ export function FaqPage() {
           "name": "Is my payment secure?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, all payments go through our secure Paystack integration. We hold funds in escrow until you confirm the property is as described."
+            "text": "Yes, all payments are processed by Paystack. For long-term rentals you view the property and confirm in the app that it matches the listing before you can pay. Paystack then settles the property owner directly; iléSure does not hold your rent."
           }
         }
       ]
