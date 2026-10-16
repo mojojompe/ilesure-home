@@ -28,7 +28,7 @@ export const faqs: FAQ[] = [
   {
     id: 'faq5',
     question: 'Which areas and universities does iléSure cover?',
-    answer: 'We currently focus on the Lead City University corridor, Toll Gate, Soka, Felele, New Garage and Akala Express, and surrounding areas in Nigeria. We are actively expanding to cover UI, Polytechnic areas, and beyond in 2026.',
+    answer: 'We currently focus on the Lead City University corridor, Toll Gate, Soka, Felele, New Garage and Akala Express, and surrounding areas in Nigeria. We also serve students of the Federal University of Health Sciences, Ila-Orangun (FUHSI) in Osun State, and are actively expanding to cover UI, Polytechnic areas, and beyond in 2026.',
   },
   {
     id: 'faq6',

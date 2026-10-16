@@ -31,10 +31,10 @@ const stats = [
   {
     id: 'universities',
     img: '/illustrations/generated/trust_universities.png',
-    value: 3,
+    value: 4,
     suffix: '+',
     label: 'Universities Served',
-    sub: 'LCU · UI · Polytechnic & growing',
+    sub: 'LCU · UI · Polytechnic · FUHSI & growing',
     color: '#C9962A',
     bg: 'linear-gradient(135deg, #FAF1CC 0%, #F5E099 100%)',
     delay: 0.30,
